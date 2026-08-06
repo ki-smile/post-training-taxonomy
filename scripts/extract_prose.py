@@ -26,6 +26,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 CONFIG = ROOT / "ref/latex/<config>.tex"
 SUPP = ROOT / "ref/latex/<supplement>.tex"
 TAX = ROOT / "data/taxonomy.json"
+SUMMARIES = ROOT / "data/summaries.json"
 DIMS = ROOT / "data/dimensions.json"
 
 CHIP = "\x01"   # sentinel: chip payload survives LaTeX stripping and escaping
@@ -117,7 +118,13 @@ def build_renderer(defs, gls, anchor_index, label_index, dim_mismatches):
 
 
 def technique_definitions(supp, render):
-    """Map tech_key -> (definition_html, subsection_title) from Appendix C."""
+    """Map tech_key -> (definition_html, subsection_title) from Appendix C.
+
+    The Classification Tensions subsection at the end also opens its entries
+    with Row~\\ref{tech:...}. Those are discussion of boundary cases, not
+    definitions, and letting them through overwrote real definitions with
+    fragments. They are split out and returned separately.
+    """
     start = supp.find(r"\section{Technique Definitions and Relationships}")
     if start < 0:
         raise SystemExit("Appendix C not found")
@@ -125,6 +132,12 @@ def technique_definitions(supp, render):
     end = re.search(r"\n\\section\{", body[10:])
     if end:
         body = body[: end.start() + 10]
+
+    tension_at = body.find(r"\subsection{Classification Tensions}")
+    if tension_at > 0:
+        body, tension_body = body[:tension_at], body[tension_at:]
+    else:
+        tension_body = ""
 
     # Subsection titles give each definition its source reference.
     sections = [(m.start(), re.sub(r"\s*\(Rows.*", "", m.group(1)).strip())
@@ -146,9 +159,18 @@ def technique_definitions(supp, render):
             if pos < m.start():
                 section = title
         text = render(chunk)
-        if text:
+        if text and key not in out:      # first match wins
             out[key] = (text, section)
-    return out
+
+    tensions = {}
+    if tension_body:
+        thits = list(opener.finditer(tension_body))
+        for i, m in enumerate(thits):
+            stop = thits[i + 1].start() if i + 1 < len(thits) else len(tension_body)
+            text = render(tension_body[m.start():stop])
+            if text and m.group(2) not in tensions:
+                tensions[m.group(2)] = text
+    return out, tensions
 
 
 def category_definitions(supp, render):
@@ -196,8 +218,10 @@ def main():
     dim_mismatches = []
     render = build_renderer(defs, gls, anchor_index, label_index, dim_mismatches)
 
-    tech_defs = technique_definitions(supp, render)
+    tech_defs, tensions = technique_definitions(supp, render)
     cat_defs = category_definitions(supp, render)
+
+    summaries = json.loads(SUMMARIES.read_text())["summaries"]
 
     tax = json.loads(TAX.read_text())
     missing = []
@@ -205,6 +229,10 @@ def main():
         text, section = tech_defs.get(t["tech_key"], ("", ""))
         t["definition_verbatim"] = text
         t["source_ref"] = section
+        t["classification_tension"] = tensions.get(t["tech_key"], "")
+        if t["slug"] not in summaries:
+            raise SystemExit(f"summaries.json is missing an entry for {t['slug']}")
+        t["summary_editorial"] = summaries[t["slug"]]
         if not text:
             note = "definition not found in Appendix C"
             if note not in t["notes"]:
@@ -224,7 +252,8 @@ def main():
     DIMS.write_text(json.dumps(dims, indent=2, ensure_ascii=False) + "\n")
 
     print(f"definitions: {len(tech_defs)}/49 techniques, "
-          f"{len(cat_defs)}/67 categories")
+          f"{len(cat_defs)}/67 categories, "
+          f"{len(tensions)} classification tensions")
     if missing:
         print(f"  no Appendix C definition: {', '.join(missing)}")
     if undef:
