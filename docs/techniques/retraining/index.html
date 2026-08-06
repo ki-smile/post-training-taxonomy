@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Retraining · Post-Training Adaptation Taxonomy</title>
+<meta name="description" content="Trains the existing model again on newer data to recover accuracy lost as the world drifted away from the original training distribution.">
+<link rel="stylesheet" href="../../css/tokens.css">
+<link rel="stylesheet" href="../../css/style.css">
+<script>
+  // Set the theme before first paint to avoid a flash.
+  (function () {
+    var t = localStorage.getItem('ptt-theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+</head>
+<body>
+<a class="visually-hidden" href="#main">Skip to content</a>
+<nav class="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="../../">6D&nbsp;Taxonomy</a>
+    <ul class="nav__links"><li><a href="../../concepts/">Concepts</a></li><li><a href="../../explorer/">Explorer</a></li><li><a href="../../wizard/">Classify</a></li><li><a href="../../compare/">Compare</a></li><li><a href="../../disambiguate/">Terms</a></li><li><a href="../../map/">Map</a></li><li><a href="../../ambiguity/">Why it matters</a></li><li><a href="../../governance/">Governance</a></li><li><a href="../../data/">Data</a></li><li><a href="../../glossary/">Glossary</a></li></ul>
+    <button class="theme-toggle" data-theme-toggle type="button">dark</button>
+  </div>
+</nav>
+<main id="main">
+
+<div class="wrap section stack">
+  <p class="eyebrow">Temporal Adaptation and Maintenance</p>
+  <h1>Retraining</h1>
+  
+  <div class="profile-strip" role="group" aria-label="Six-dimensional profile"><div class="profile-cell"><span class="profile-cell__dim">D1</span><span class="profile-cell__values"><span><a class="chip" data-dim="d1" href="../../dimensions/d1/#parametric-update">Param. Upd.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D2</span><span class="profile-cell__values"><span><a class="chip" data-dim="d2" href="../../dimensions/d2/#drift-remediation">Drift Remed.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D3</span><span class="profile-cell__values"><span><a class="chip" data-dim="d3" href="../../dimensions/d3/#sequential-incremental">Seq./Inc.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D4</span><span class="profile-cell__values"><span><a class="chip" data-dim="d4" href="../../dimensions/d4/#ad-hoc-permanent">Ad-hoc Perm.</a></span><span><a class="chip" data-dim="d4" href="../../dimensions/d4/#scheduled-permanent">Sched. Perm.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D5</span><span class="profile-cell__values"><span><a class="chip" data-dim="d5" href="../../dimensions/d5/#whole-model">Whole</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D6</span><span class="profile-cell__values"><span><a class="chip" data-dim="d6" href="../../dimensions/d6/#dl">DL</a></span><span><a class="chip" data-dim="d6" href="../../dimensions/d6/#fm">FM</a></span><span><a class="chip" data-dim="d6" href="../../dimensions/d6/#llm">LLM</a></span><span><a class="chip" data-dim="d6" href="../../dimensions/d6/#ml">ML</a></span><span><a class="chip" data-dim="d6" href="../../dimensions/d6/#mllm">MLLM</a></span></span></div></div>
+  <div class="editorial stack">
+    <p class="provenance">In brief — site editorial, not from the paper</p>
+    <p>Trains the existing model again on newer data to recover accuracy lost as the world drifted away from the original training distribution.</p>
+  </div>
+  <section class="stack"><h2>Definition</h2><div class="verbatim">Retraining updates (<span class="chip" data-dim="d1" data-slug="parametric-update">Parametric Update</span>) a deployed model on newer or additional data to restore performance degraded by distribution shift, representing the foundational lifecycle maintenance operation across all model types. Its universality across <span class="chip" data-dim="d6" data-slug="dl">DL</span>, <span class="chip" data-dim="d6" data-slug="fm">FM</span>, <span class="chip" data-dim="d6" data-slug="llm">LLM</span>, <span class="chip" data-dim="d6" data-slug="ml">ML</span>, <span class="chip" data-dim="d6" data-slug="mllm">MLLM</span> reflects reflects the fact that distributional drift is an architecture-agnostic failure mode: any model whose training distribution diverges from its deployment distribution will degrade, regardless of architectural family <sup class="cite" data-cite="gama_survey_2014">[ref]</sup>. The critical D2 (Goal) divergence from (Full/Partial) FT is precise: both operate identically on D1 (Mechanism) and D4 (Persistence), yet retraining preserves the model&#x27;s original task objective (<span class="chip" data-dim="d2" data-slug="drift-remediation">Drift Remediation</span>) rather than reshaping its capability boundaries for a new task (<span class="chip" data-dim="d2" data-slug="task-specialization">Task Specialization</span>). This D2 (Goal) distinction carries a direct validation consequence—a retraining event that strictly adheres to the original task specification does not require an intended-use review; an FT event does. The <span class="chip" data-dim="d3" data-slug="sequential-incremental">Sequential / Incremental</span> coordinate reflects that retraining data arrives in temporally ordered batches whose distributional properties evolve across the model&#x27;s operational lifecycle—this is structurally distinct from the static, curated datasets of (Full/Partial) FT (<span class="chip" data-dim="d3" data-slug="large-labeled">Large Labeled</span>, <span class="chip" data-dim="d3" data-slug="small-labeled">Small Labeled</span>) or FSL (; <span class="chip" data-dim="d3" data-slug="few-demonstrations">Few Demonstrations</span>, <span class="chip" data-dim="d3" data-slug="small-labeled">Small Labeled</span>). The <span class="chip" data-dim="d4" data-slug="ad-hoc-permanent">Ad-hoc Permanent</span>, <span class="chip" data-dim="d4" data-slug="scheduled-permanent">Scheduled Permanent</span> coordinate marks the boundary with CL: unconstrained retraining overwrites prior weight states with a new fixed checkpoint, whereas CL&#x27;s <span class="chip" data-dim="d4" data-slug="bounded-cumulative">Bounded Cumulative</span>, <span class="chip" data-dim="d4" data-slug="unbounded-cumulative">Unbounded Cumulative</span> encodes a commitment to accumulation rather than replacement. The <span class="chip" data-dim="d5" data-slug="whole-model">Whole-Model</span> scope means that every weight is overwritten at each retraining event; there is no modular isolation boundary, so any behavioral drift introduced by the new training data propagates across all task dimensions simultaneously—necessitating automated full-system regression testing against a frozen behavioral baseline before re-deployment, with the historical checkpoint retained as the rollback artifact.</div><p class="provenance">Verbatim from the paper — Temporal Adaptation and Maintenance</p></section>
+  
+  
+  
+  <section class="stack"><h2>Nearest profiles</h2><p class="computed"><a href="../../techniques/training/">Training</a> <span style="color:var(--text-muted)">(0.33)</span>, <a href="../../techniques/fullft/">FT (full)</a> <span style="color:var(--text-muted)">(0.37)</span>, <a href="../../techniques/mtl/">MTL</a> <span style="color:var(--text-muted)">(0.37)</span>, <a href="../../techniques/advrstrn/">Adversarial Training</a> <span style="color:var(--text-muted)">(0.40)</span>, <a href="../../techniques/dil/">DIL</a> <span style="color:var(--text-muted)">(0.43)</span></p><p class="provenance">Computed from the taxonomy data (Gower distance over all six dimensions)</p></section>
+  <section class="stack">
+    <h2>Cite this row</h2>
+    <pre>Retraining — six-dimensional profile
+D1: parametric-update
+D2: drift-remediation
+D3: sequential-incremental
+D4: ad-hoc-permanent, scheduled-permanent
+D5: whole-model
+D6: dl, fm, llm, ml, mllm
+Source: arXiv:XXXX.XXXXX</pre>
+    <a class="btn" href="../../compare/?t=retraining,training">Compare with another technique</a>
+    <a class="btn" href="../../explorer/?q=retraining">Find in the explorer</a>
+  </section>
+</div>
+
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <p class="eyebrow">Paper</p>
+        <ul>
+          <li><a href="https://arxiv.org/abs/XXXX.XXXXX">arXiv:XXXX.XXXXX</a> <em>(placeholder)</em></li>
+          <li><a href="../../data/">Download the data</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Repository</p>
+        <ul>
+          <li><a href="https://github.com/ki-smile/post-training-taxonomy">GitHub</a></li>
+          <li><a href="https://github.com/ki-smile/post-training-taxonomy/issues">Report a problem</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Licence</p>
+        <ul>
+          <li>Code — MIT</li>
+          <li>Data and prose — CC BY 4.0</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Authors</p>
+        <ul>
+          <li>Fardin Afdideh</li>
+          <li>Fernando Seoane</li>
+          <li>Farhad Abtahi</li>
+          <li>Karolinska Institutet</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:var(--sp-4);font-size:var(--step--2);opacity:.75">
+      This taxonomy supplies technical vocabulary for describing model changes. It is not legal advice and does not determine whether a change is a substantial modification, a significant change, or a reportable device change. Those determinations rest with manufacturers, regulators, and notified or auditing bodies under the applicable framework.
+    </p>
+  </div>
+</footer>
+<script type="module" src="../../js/theme.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MoE · Post-Training Adaptation Taxonomy</title>
+<meta name="description" content="Routes each input to a subset of specialised sub-networks, so capacity grows without every parameter running on every token.">
+<link rel="stylesheet" href="../../css/tokens.css">
+<link rel="stylesheet" href="../../css/style.css">
+<script>
+  // Set the theme before first paint to avoid a flash.
+  (function () {
+    var t = localStorage.getItem('ptt-theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+</head>
+<body>
+<a class="visually-hidden" href="#main">Skip to content</a>
+<nav class="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="../../">6D&nbsp;Taxonomy</a>
+    <ul class="nav__links"><li><a href="../../concepts/">Concepts</a></li><li><a href="../../explorer/">Explorer</a></li><li><a href="../../wizard/">Classify</a></li><li><a href="../../compare/">Compare</a></li><li><a href="../../disambiguate/">Terms</a></li><li><a href="../../map/">Map</a></li><li><a href="../../ambiguity/">Why it matters</a></li><li><a href="../../governance/">Governance</a></li><li><a href="../../data/">Data</a></li><li><a href="../../glossary/">Glossary</a></li></ul>
+    <button class="theme-toggle" data-theme-toggle type="button">dark</button>
+  </div>
+</nav>
+<main id="main">
+
+<div class="wrap section stack">
+  <p class="eyebrow">Efficiency and Composition</p>
+  <h1>MoE</h1>
+  
+  <div class="profile-strip" role="group" aria-label="Six-dimensional profile"><div class="profile-cell"><span class="profile-cell__dim">D1</span><span class="profile-cell__values"><span><a class="chip" data-dim="d1" href="../../dimensions/d1/#architectural-modification">Arch.</a></span><span><a class="chip" data-dim="d1" href="../../dimensions/d1/#parametric-update">Param. Upd.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D2</span><span class="profile-cell__values"><span><a class="chip" data-dim="d2" href="../../dimensions/d2/#capability-extension">Capab. Ext.</a></span><span><a class="chip" data-dim="d2" href="../../dimensions/d2/#computational-efficiency">Comp. Eff.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D3</span><span class="profile-cell__values"><span><a class="chip" data-dim="d3" href="../../dimensions/d3/#small-labeled">Small Labeled</a></span><span><a class="chip" data-dim="d3" href="../../dimensions/d3/#unlabeled">Unlabeled</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D4</span><span class="profile-cell__values"><span><a class="chip" data-dim="d4" href="../../dimensions/d4/#ad-hoc-permanent">Ad-hoc Perm.</a></span><span><a class="chip" data-dim="d4" href="../../dimensions/d4/#scheduled-permanent">Sched. Perm.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D5</span><span class="profile-cell__values"><span><a class="chip" data-dim="d5" href="../../dimensions/d5/#modular">Modular</a></span><span><a class="chip" data-dim="d5" href="../../dimensions/d5/#partial">Part.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D6</span><span class="profile-cell__values"><span><a class="chip" data-dim="d6" href="../../dimensions/d6/#fm">FM</a></span><span><a class="chip" data-dim="d6" href="../../dimensions/d6/#llm">LLM</a></span><span><a class="chip" data-dim="d6" href="../../dimensions/d6/#mllm">MLLM</a></span></span></div></div>
+  <div class="editorial stack">
+    <p class="provenance">In brief — site editorial, not from the paper</p>
+    <p>Routes each input to a subset of specialised sub-networks, so capacity grows without every parameter running on every token.</p>
+  </div>
+  <section class="stack"><h2>Definition</h2><div class="verbatim">MoE Adaptation introduces sparse gating over a population of expert sub-networks or integrating novel expert sub-networks into an existing MoE, enabling a model to route each input to the subset of parameters most relevant to that input&#x27;s characteristics—achieving scalable multi-task specialization without proportionally scaling inference cost <sup class="cite" data-cite="shazeer_outrageously_2017,dou_loramoe_2024,pfeiffer_adapterfusion_2021">[ref]</sup>. This structural distinction necessitates a compound D1 (Mechanism) profile: the topological addition of a new expert constitutes <span class="chip" data-dim="d1" data-slug="architectural-modification">Architectural Modification</span>—physically restructuring the computational graph—while the subsequent tuning of expert weights or the central routing mechanism constitutes <span class="chip" data-dim="d1" data-slug="parametric-update">Parametric Update</span>. This graph-level intervention is what mandates <span class="chip" data-dim="d5" data-slug="modular">Modular</span>: the model is a collection of individually addressable expert modules coordinated by a router—each expert constituting an independently auditable behavioral unit whose activation patterns can be tracked per input. Compared to PEFT, which adds lightweight parameter overlays (adapters, LoRA) to a frozen base with <span class="chip" data-dim="d5" data-slug="modular">Modular</span>, <span class="chip" data-dim="d5" data-slug="partial">Partial</span>, MoE Adaptation adds structural routing logic that fundamentally changes the model&#x27;s computational topology—adapter modules are additive overlays; expert modules are gated substitutes for dense computation. The compound D2 (Goal) profile—<span class="chip" data-dim="d2" data-slug="capability-extension">Capability Extension</span>, <span class="chip" data-dim="d2" data-slug="computational-efficiency">Computational Efficiency</span>—reflects a unique operational property: MoE adaptation is the only technique in the taxonomy that simultaneously scales systemic capacity while explicitly preserving fixed inference latency bounds. The <span class="chip" data-dim="d1" data-slug="architectural-modification">Architectural Modification</span> classification has stringent system-engineering implications in the taxonomy: a new model topology is being registered, not a parametric override of an existing one—requiring a complete re-specification of the model&#x27;s computational graph and expert routing logic audit trail as components of the system configuration record, since any change to router architecture or gating threshold alters which computation paths are activated for which inputs.</div><p class="provenance">Verbatim from the paper — Efficiency and Composition</p></section>
+  <section class="stack"><h2>Notes from the table</h2><p class="callout">Classification tensions involving these techniques are discussed in Supplementary Section S4.</p></section>
+  <section class="stack"><h2>Classification tensions</h2><div class="verbatim">MoE adaptation. Straddles architecture and adaptation; the row captures the adaptation act (training routers, adding experts) rather than the architectural pattern. RLVR vs.\ RLHF/DPO ( vs.\ ). All share <span class="chip" data-dim="d1" data-slug="parametric-update">Parametric Update</span> but differ on D2 (<span class="chip" data-dim="d2" data-slug="reasoning">Reasoning</span> vs. <span class="chip" data-dim="d2" data-slug="alignment">Alignment</span>, <span class="chip" data-dim="d2" data-slug="safety">Safety</span>) and D3 (<span class="chip" data-dim="d3" data-slug="verifiable-task">Verifiable Task</span> vs. <span class="chip" data-dim="d3" data-slug="preference-pairs">Preference Pairs</span>). RLVR and DPO share <span class="chip" data-dim="d5" data-slug="partial">Partial</span>, <span class="chip" data-dim="d5" data-slug="whole-model">Whole-Model</span>, while RLHF adds <span class="chip" data-dim="d5" data-slug="surrogate-model">Surrogate Model</span>. The boundary blurs when RLVR induces alignment-like properties or when RLHF pipelines incorporate verifiable components; in production, both are often applied sequentially to the same base model.</div><p class="provenance">Appendix C</p></section>
+  
+  <section class="stack"><h2>Nearest profiles</h2><p class="computed"><a href="../../techniques/lce/">Long-Context Ext.</a> <span style="color:var(--text-muted)">(0.17)</span>, <a href="../../techniques/peft/">PEFT (LoRA, adapters)</a> <span style="color:var(--text-muted)">(0.32)</span>, <a href="../../techniques/calib/">Calibration</a> <span style="color:var(--text-muted)">(0.40)</span>, <a href="../../techniques/pl/">Prompt Learning</a> <span style="color:var(--text-muted)">(0.42)</span>, <a href="../../techniques/modeladapter/">Modality-Spec. Adapters</a> <span style="color:var(--text-muted)">(0.44)</span></p><p class="provenance">Computed from the taxonomy data (Gower distance over all six dimensions)</p></section>
+  <section class="stack">
+    <h2>Cite this row</h2>
+    <pre>MoE — six-dimensional profile
+D1: architectural-modification, parametric-update
+D2: capability-extension, computational-efficiency
+D3: small-labeled, unlabeled
+D4: ad-hoc-permanent, scheduled-permanent
+D5: modular, partial
+D6: fm, llm, mllm
+Source: arXiv:XXXX.XXXXX</pre>
+    <a class="btn" href="../../compare/?t=moe,training">Compare with another technique</a>
+    <a class="btn" href="../../explorer/?q=moe">Find in the explorer</a>
+  </section>
+</div>
+
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <p class="eyebrow">Paper</p>
+        <ul>
+          <li><a href="https://arxiv.org/abs/XXXX.XXXXX">arXiv:XXXX.XXXXX</a> <em>(placeholder)</em></li>
+          <li><a href="../../data/">Download the data</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Repository</p>
+        <ul>
+          <li><a href="https://github.com/ki-smile/post-training-taxonomy">GitHub</a></li>
+          <li><a href="https://github.com/ki-smile/post-training-taxonomy/issues">Report a problem</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Licence</p>
+        <ul>
+          <li>Code — MIT</li>
+          <li>Data and prose — CC BY 4.0</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Authors</p>
+        <ul>
+          <li>Fardin Afdideh</li>
+          <li>Fernando Seoane</li>
+          <li>Farhad Abtahi</li>
+          <li>Karolinska Institutet</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:var(--sp-4);font-size:var(--step--2);opacity:.75">
+      This taxonomy supplies technical vocabulary for describing model changes. It is not legal advice and does not determine whether a change is a substantial modification, a significant change, or a reportable device change. Those determinations rest with manufacturers, regulators, and notified or auditing bodies under the applicable framework.
+    </p>
+  </div>
+</footer>
+<script type="module" src="../../js/theme.js"></script>
+
+</body>
+</html>

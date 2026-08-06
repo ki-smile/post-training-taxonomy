@@ -1,0 +1,50 @@
+slug,name,family,is_reference_row,d1,d2,d3,d4,d5,d6
+training,Training,Reference Baseline,True,parametric-update,build-capability,large-labeled,ad-hoc-permanent|scheduled-permanent,whole-model,dl|fm|llm|ml|mllm
+fullft,FT (full),Knowledge Transfer and Task Specialization,False,parametric-update,task-specialization,large-labeled,ad-hoc-permanent|scheduled-permanent,whole-model,dl|fm|llm|mllm
+partft,FT (partial),Knowledge Transfer and Task Specialization,False,parametric-update,task-specialization,small-labeled,ad-hoc-permanent|scheduled-permanent,partial,dl|fm|llm|mllm
+peft,"PEFT (LoRA, adapters)",Knowledge Transfer and Task Specialization,False,parametric-update,computational-efficiency|task-specialization,small-labeled,ad-hoc-permanent|scheduled-permanent,modular|partial,dl|fm|llm|mllm
+reft,ReFT,Knowledge Transfer and Task Specialization,False,parametric-update,task-specialization,small-labeled,ad-hoc-permanent|scheduled-permanent,modular,llm|mllm
+da,DA,Knowledge Transfer and Task Specialization,False,parametric-update,distributional-gap-bridging,small-labeled|unlabeled,ad-hoc-permanent|scheduled-permanent,partial,dl|fm
+fsl,FSL,Knowledge Transfer and Task Specialization,False,parametric-update,task-specialization,few-demonstrations|small-labeled,ad-hoc-permanent|scheduled-permanent,partial,dl|fm
+retraining,Retraining,Temporal Adaptation and Maintenance,False,parametric-update,drift-remediation,sequential-incremental,ad-hoc-permanent|scheduled-permanent,whole-model,dl|fm|llm|ml|mllm
+cl,CL,Temporal Adaptation and Maintenance,False,parametric-update,continual-adaptation,sequential-incremental,bounded-cumulative|unbounded-cumulative,partial,dl|fm|llm|mllm
+til,TIL,Temporal Adaptation and Maintenance,False,parametric-update,continual-adaptation,sequential-incremental,bounded-cumulative,modular|partial,dl|fm
+dil,DIL,Temporal Adaptation and Maintenance,False,parametric-update,continual-adaptation|drift-remediation,sequential-incremental,unbounded-cumulative,partial|whole-model,dl|fm
+sft,SFT,"Alignment, Reasoning, and Trustworthiness",False,parametric-update,alignment|safety|task-specialization,instruction-response-corpus,ad-hoc-permanent|scheduled-permanent,partial|whole-model,llm|mllm
+rlhf,RLHF (LLM Alignment),"Alignment, Reasoning, and Trustworthiness",False,parametric-update,alignment|safety,preference-pairs,ad-hoc-permanent|scheduled-permanent,partial|surrogate-model|whole-model,llm|mllm
+dpo,DPO,"Alignment, Reasoning, and Trustworthiness",False,parametric-update,alignment|safety,preference-pairs,ad-hoc-permanent|scheduled-permanent,partial|whole-model,llm|mllm
+rlaif,RLAIF/CAI,"Alignment, Reasoning, and Trustworthiness",False,parametric-update,alignment|safety,constitution-derived,ad-hoc-permanent|scheduled-permanent,partial|whole-model,llm|mllm
+rlvr,RLVR/GRPO,"Alignment, Reasoning, and Trustworthiness",False,parametric-update,reasoning,verifiable-task,ad-hoc-permanent|scheduled-permanent,partial|whole-model,llm|mllm
+lp,LP,"Alignment, Reasoning, and Trustworthiness",False,parametric-update,explainability,small-labeled,ad-hoc-permanent|scheduled-permanent,modular,dl|fm|llm|mllm
+leace,LEACE,"Alignment, Reasoning, and Trustworthiness",False,parameter-composition,fairness,small-labeled,ad-hoc-permanent,partial,dl|fm|llm|mllm
+advrstrn,Adversarial Training,"Alignment, Reasoning, and Trustworthiness",False,parametric-update,robustness,large-labeled,ad-hoc-permanent|scheduled-permanent,whole-model,dl|fm|llm
+metalrn,Meta-Learning,Training Strategies,False,parametric-update,task-specialization,task-distribution,ad-hoc-permanent|scheduled-permanent,partial,dl|fm
+mtl,MTL,Training Strategies,False,parametric-update,task-specialization,task-distribution,ad-hoc-permanent|scheduled-permanent,whole-model,dl|fm|llm|mllm
+selfplay,Self-Play,Training Strategies,False,parametric-update,alignment|reasoning|task-specialization,environment-derived,ad-hoc-permanent|scheduled-permanent,whole-model,dl|llm
+currilrn,Curriculum Learning,Training Strategies,False,pipeline-mediated,task-specialization,pipeline-dependent,pipeline-dependent,pipeline-dependent,dl|fm|llm|ml|mllm
+activelrn,Active Learning,Training Strategies,False,pipeline-mediated,distributional-gap-bridging|task-specialization,pipeline-dependent,pipeline-dependent,pipeline-dependent,dl|fm|llm|ml|mllm
+dataaug,Data Augmentation,Data-Centric and Privacy-Preserving Methods,False,pipeline-mediated,robustness|task-specialization,pipeline-dependent,pipeline-dependent,pipeline-dependent,dl|fm|llm|ml|mllm
+semisl,Semi-SL,Data-Centric and Privacy-Preserving Methods,False,pipeline-mediated,task-specialization,small-labeled|unlabeled,pipeline-dependent,pipeline-dependent,dl|fm|llm|ml|mllm
+ssl,SSL / CPT,Data-Centric and Privacy-Preserving Methods,False,parametric-update,capability-extension|distributional-gap-bridging,unlabeled,scheduled-permanent|unbounded-cumulative,partial|whole-model,dl|fm|llm|mllm
+dpft,DP-FT,Data-Centric and Privacy-Preserving Methods,False,parametric-update,privacy-preservation,large-labeled|small-labeled,ad-hoc-permanent|scheduled-permanent,partial|whole-model,dl|fm|llm|mllm
+fl,FL,Data-Centric and Privacy-Preserving Methods,False,parametric-update,privacy-preservation,decentralized,scheduled-permanent,distributed,dl|fm|llm|ml|mllm
+kd,KD,Efficiency and Composition,False,cross-model-transfer,computational-efficiency,teacher-derived,ad-hoc-permanent|scheduled-permanent,surrogate-model,dl|fm|llm|mllm
+compress,Model Compression,Efficiency and Composition,False,parametric-compression,computational-efficiency,parameter-only|unlabeled,ad-hoc-permanent|scheduled-permanent,compressed-artifact,dl|fm|llm|mllm
+taskarith,Task Arith. & Model Merging,Efficiency and Composition,False,parameter-composition,capability-extension|computational-efficiency,parameter-only,ad-hoc-permanent|scheduled-permanent,fused-composition,fm|llm|mllm
+lce,Long-Context Ext.,Efficiency and Composition,False,architectural-modification|parametric-update,capability-extension,small-labeled|unlabeled,ad-hoc-permanent|scheduled-permanent,partial,fm|llm|mllm
+moe,MoE,Efficiency and Composition,False,architectural-modification|parametric-update,capability-extension|computational-efficiency,small-labeled|unlabeled,ad-hoc-permanent|scheduled-permanent,modular|partial,fm|llm|mllm
+pe,PE,Inference-Time Adaptation,False,context-injection,behavior-control|knowledge-update,zero-shot,session-ephemeral|version-persistent,input-output-space,llm|mllm
+pl,Prompt Learning,Inference-Time Adaptation,False,parametric-update,task-specialization,small-labeled,ad-hoc-permanent|scheduled-permanent,partial,fm|llm|mllm
+apo,APO,Inference-Time Adaptation,False,context-injection,behavior-control|task-specialization,few-demonstrations|zero-shot,version-persistent,input-output-space,llm|mllm
+rag,RAG,Inference-Time Adaptation,False,context-injection,knowledge-update,external-corpus,version-persistent,input-output-space,llm|mllm
+icl,ICL,Inference-Time Adaptation,False,context-injection,knowledge-update|task-specialization,few-demonstrations,session-ephemeral,input-output-space,llm|mllm
+ce,CE,Inference-Time Adaptation,False,context-injection,knowledge-update|personalization,external-corpus|user-interaction-data,version-persistent,input-output-space,llm|mllm
+tta,TTA,Inference-Time Adaptation,False,parametric-update,drift-remediation,test-only,transient,partial|whole-model,dl|fm
+ttcompute,Test-Time Compute Scaling,Inference-Time Adaptation,False,inference-time-search,reasoning,zero-shot,session-ephemeral,input-output-space,llm|mllm
+calib,Calibration,"Calibration, Personalization, and Multimodal Adaptation",False,parametric-update,reliability,small-labeled|unlabeled,ad-hoc-permanent|scheduled-permanent,modular,dl|fm|llm|ml|mllm
+crossmodel,Cross-Modal Alignment,"Calibration, Personalization, and Multimodal Adaptation",False,parametric-update,capability-extension,paired-multimodal,ad-hoc-permanent|scheduled-permanent,partial,fm|mllm
+modeladapter,Modality-Spec. Adapters,"Calibration, Personalization, and Multimodal Adaptation",False,parametric-update,capability-extension|computational-efficiency,paired-multimodal,ad-hoc-permanent|scheduled-permanent,modular,mllm
+multimodinstr,Multimodal Instr. Tuning,"Calibration, Personalization, and Multimodal Adaptation",False,parametric-update,alignment|capability-extension,paired-multimodal,ad-hoc-permanent|scheduled-permanent,partial|whole-model,mllm
+munlrn,Machine Unlearning,Knowledge Modification and Activation-Based Adaptation,False,parameter-composition|parametric-update,privacy-preservation|remove-knowledge,forget-set-specification,ad-hoc-permanent,fused-composition|partial,dl|fm|llm|mllm
+ke,Knowledge Editing,Knowledge Modification and Activation-Based Adaptation,False,parameter-composition|parametric-update,knowledge-update,small-labeled,ad-hoc-permanent,partial,llm|mllm
+actsteer,Activation Steering,Knowledge Modification and Activation-Based Adaptation,False,activation-space-manipulation,alignment|safety,small-labeled|unlabeled,transient,activation-space,llm|mllm

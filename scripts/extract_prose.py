@@ -94,6 +94,9 @@ def build_renderer(defs, gls, anchor_index, label_index, dim_mismatches):
                 r"\1", s,
             )
         s = re.sub(r"\\(?:footnote|hypertarget|makebox)\{[^{}]*\}", "", s)
+        # Inline math: keep the content, drop the delimiters and sub/superscript
+        # markers, so IA$^3$ reads as IA3 rather than leaking LaTeX.
+        s = re.sub(r"\$([^$]*)\$", lambda m: re.sub(r"[\^_{}\\]", "", m.group(1)), s)
         s = re.sub(r"\\[A-Za-z]+\s*", "", s)          # bare commands
         s = s.replace("~", " ").replace("\\%", "%")
         s = re.sub(r"[{}]", "", s)

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Active Learning · Post-Training Adaptation Taxonomy</title>
+<meta name="description" content="Lets the model choose which examples get labelled next, concentrating scarce annotation effort where it will help most.">
+<link rel="stylesheet" href="../../css/tokens.css">
+<link rel="stylesheet" href="../../css/style.css">
+<script>
+  // Set the theme before first paint to avoid a flash.
+  (function () {
+    var t = localStorage.getItem('ptt-theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+</head>
+<body>
+<a class="visually-hidden" href="#main">Skip to content</a>
+<nav class="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="../../">6D&nbsp;Taxonomy</a>
+    <ul class="nav__links"><li><a href="../../concepts/">Concepts</a></li><li><a href="../../explorer/">Explorer</a></li><li><a href="../../wizard/">Classify</a></li><li><a href="../../compare/">Compare</a></li><li><a href="../../disambiguate/">Terms</a></li><li><a href="../../map/">Map</a></li><li><a href="../../ambiguity/">Why it matters</a></li><li><a href="../../governance/">Governance</a></li><li><a href="../../data/">Data</a></li><li><a href="../../glossary/">Glossary</a></li></ul>
+    <button class="theme-toggle" data-theme-toggle type="button">dark</button>
+  </div>
+</nav>
+<main id="main">
+
+<div class="wrap section stack">
+  <p class="eyebrow">Training Strategies</p>
+  <h1>Active Learning</h1>
+  
+  <div class="profile-strip" role="group" aria-label="Six-dimensional profile"><div class="profile-cell"><span class="profile-cell__dim">D1</span><span class="profile-cell__values"><span><a class="chip" data-dim="d1" href="../../dimensions/d1/#pipeline-mediated">Pipe.-Med.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D2</span><span class="profile-cell__values"><span><a class="chip" data-dim="d2" href="../../dimensions/d2/#distributional-gap-bridging">Dist. Gap Bridging</a></span><span><a class="chip" data-dim="d2" href="../../dimensions/d2/#task-specialization">Task Spec.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D3</span><span class="profile-cell__values"><span><a class="chip" data-dim="d3" href="../../dimensions/d3/#pipeline-dependent">Pipe.-Dep.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D4</span><span class="profile-cell__values"><span><a class="chip" data-dim="d4" href="../../dimensions/d4/#pipeline-dependent">Pipe.-Dep.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D5</span><span class="profile-cell__values"><span><a class="chip" data-dim="d5" href="../../dimensions/d5/#pipeline-dependent">Pipe.-Dep.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D6</span><span class="profile-cell__values"><span><a class="chip" data-dim="d6" href="../../dimensions/d6/#dl">DL</a></span><span><a class="chip" data-dim="d6" href="../../dimensions/d6/#fm">FM</a></span><span><a class="chip" data-dim="d6" href="../../dimensions/d6/#llm">LLM</a></span><span><a class="chip" data-dim="d6" href="../../dimensions/d6/#ml">ML</a></span><span><a class="chip" data-dim="d6" href="../../dimensions/d6/#mllm">MLLM</a></span></span></div></div>
+  <div class="editorial stack">
+    <p class="provenance">In brief — site editorial, not from the paper</p>
+    <p>Lets the model choose which examples get labelled next, concentrating scarce annotation effort where it will help most.</p>
+  </div>
+  <section class="stack"><h2>Definition</h2><div class="verbatim">Active learning strategically selects the most informative unlabeled samples for oracle annotation, maximizing model improvement per labeled example by targeting the data points the model is most uncertain about <sup class="cite" data-cite="settles_active_2009">[ref]</sup>. Like Curriculum Learning, it carries <span class="chip" data-dim="d1" data-slug="pipeline-mediated">Pipeline-Mediated</span>: the model&#x27;s parameters are updated by a downstream training method, not by the active learning mechanism itself. However, Active Learning diverges from Curriculum Learning on D2 (Goal): where curriculum learning sequences existing labeled data for convergence optimization (<span class="chip" data-dim="d2" data-slug="task-specialization">Task Specialization</span> only), active learning&#x27;s query strategy inherently introduces a <span class="chip" data-dim="d2" data-slug="distributional-gap-bridging">Distributional Gap Bridging</span> component—by selectively targeting uncertainty-rich, informationally dense regions of the unlabeled distribution, it constructs a labeled dataset whose coverage is deliberately biased toward the model&#x27;s current capability boundaries. This D2 (Goal) distinction is operationally significant: curriculum learning does not change the statistical composition of the labeled dataset; active learning does, and the algorithmic selection strategy is the direct determinant of the distributional coverage of the resulting training corpus. The <span class="chip" data-dim="d4" data-slug="pipeline-dependent">Pipeline-Dependent</span> and <span class="chip" data-dim="d5" data-slug="pipeline-dependent">Pipeline-Dependent</span> coordinates confirm that persistence and structural scope are fully inherited from the downstream training method—but the labeled dataset itself, as an artifact of the active selection process, constitutes an independent data-provenance record that must be documented and audited separately. The active learning acquisition function must be explicitly documented and version-controlled as a system configuration artifact; the selection strategy directly defines the boundaries of the model&#x27;s validated operational envelope, and any change to the acquisition function constitutes a data-pipeline modification requiring re-evaluation of the distributional coverage of the resulting labeled corpus before downstream training commences.</div><p class="provenance">Verbatim from the paper — Training Strategies</p></section>
+  
+  
+  
+  <section class="stack"><h2>Nearest profiles</h2><p class="computed"><a href="../../techniques/currilrn/">Curriculum Learning</a> <span style="color:var(--text-muted)">(0.08)</span>, <a href="../../techniques/dataaug/">Data Augmentation</a> <span style="color:var(--text-muted)">(0.11)</span>, <a href="../../techniques/semisl/">Semi-SL</a> <span style="color:var(--text-muted)">(0.25)</span>, <a href="../../techniques/fullft/">FT (full)</a> <span style="color:var(--text-muted)">(0.78)</span>, <a href="../../techniques/mtl/">MTL</a> <span style="color:var(--text-muted)">(0.78)</span></p><p class="provenance">Computed from the taxonomy data (Gower distance over all six dimensions)</p></section>
+  <section class="stack">
+    <h2>Cite this row</h2>
+    <pre>Active Learning — six-dimensional profile
+D1: pipeline-mediated
+D2: distributional-gap-bridging, task-specialization
+D3: pipeline-dependent
+D4: pipeline-dependent
+D5: pipeline-dependent
+D6: dl, fm, llm, ml, mllm
+Source: arXiv:XXXX.XXXXX</pre>
+    <a class="btn" href="../../compare/?t=activelrn,training">Compare with another technique</a>
+    <a class="btn" href="../../explorer/?q=activelrn">Find in the explorer</a>
+  </section>
+</div>
+
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <p class="eyebrow">Paper</p>
+        <ul>
+          <li><a href="https://arxiv.org/abs/XXXX.XXXXX">arXiv:XXXX.XXXXX</a> <em>(placeholder)</em></li>
+          <li><a href="../../data/">Download the data</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Repository</p>
+        <ul>
+          <li><a href="https://github.com/ki-smile/post-training-taxonomy">GitHub</a></li>
+          <li><a href="https://github.com/ki-smile/post-training-taxonomy/issues">Report a problem</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Licence</p>
+        <ul>
+          <li>Code — MIT</li>
+          <li>Data and prose — CC BY 4.0</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Authors</p>
+        <ul>
+          <li>Fardin Afdideh</li>
+          <li>Fernando Seoane</li>
+          <li>Farhad Abtahi</li>
+          <li>Karolinska Institutet</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:var(--sp-4);font-size:var(--step--2);opacity:.75">
+      This taxonomy supplies technical vocabulary for describing model changes. It is not legal advice and does not determine whether a change is a substantial modification, a significant change, or a reportable device change. Those determinations rest with manufacturers, regulators, and notified or auditing bodies under the applicable framework.
+    </p>
+  </div>
+</footer>
+<script type="module" src="../../js/theme.js"></script>
+
+</body>
+</html>

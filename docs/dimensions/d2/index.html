@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>D2 — Goal · Post-Training Adaptation Taxonomy</title>
+<meta name="description" content="Why adapt?">
+<link rel="stylesheet" href="../../css/tokens.css">
+<link rel="stylesheet" href="../../css/style.css">
+<script>
+  // Set the theme before first paint to avoid a flash.
+  (function () {
+    var t = localStorage.getItem('ptt-theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+</head>
+<body>
+<a class="visually-hidden" href="#main">Skip to content</a>
+<nav class="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="../../">6D&nbsp;Taxonomy</a>
+    <ul class="nav__links"><li><a href="../../concepts/">Concepts</a></li><li><a href="../../explorer/">Explorer</a></li><li><a href="../../wizard/">Classify</a></li><li><a href="../../compare/">Compare</a></li><li><a href="../../disambiguate/">Terms</a></li><li><a href="../../map/">Map</a></li><li><a href="../../ambiguity/">Why it matters</a></li><li><a href="../../governance/">Governance</a></li><li><a href="../../data/">Data</a></li><li><a href="../../glossary/">Glossary</a></li></ul>
+    <button class="theme-toggle" data-theme-toggle type="button">dark</button>
+  </div>
+</nav>
+<main id="main">
+
+<div class="wrap section stack">
+  <p class="eyebrow">Dimension D2</p>
+  <h1>Goal</h1>
+  <p style="font-size:var(--step-1);color:var(--text-muted)">
+    Why adapt?</p>
+  <p>19 categories. Other dimensions: <a class="chip" data-dim="d1" href="../../dimensions/d1/">D1</a> <a class="chip" data-dim="d3" href="../../dimensions/d3/">D3</a> <a class="chip" data-dim="d4" href="../../dimensions/d4/">D4</a> <a class="chip" data-dim="d5" href="../../dimensions/d5/">D5</a> <a class="chip" data-dim="d6" href="../../dimensions/d6/">D6</a></p>
+  
+<section class="stack"><h2>III. Trust</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Category</th><th>Definition</th><th>Techniques</th></tr></thead>
+    <tbody>
+<tr id="alignment">
+  <td><span class="chip" data-dim="d2">Align.</span><br>
+      <strong>Alignment</strong></td>
+  <td>The objective of steering model outputs to conform with human values, behavioral preferences, helpfulness norms, and institutional guidelines, typically by optimizing against human preference signals or rule-based reward models that encode normative expectations about appropriate responses. Alignment interventions modify the model&#x27;s behavioral disposition and output style rather than its factual knowledge base or core task capability.</td>
+  <td><a href="../../techniques/sft/">SFT</a>, <a href="../../techniques/rlhf/">RLHF (LLM Alignment)</a>, <a href="../../techniques/dpo/">DPO</a>, <a href="../../techniques/rlaif/">RLAIF/CAI</a>, <a href="../../techniques/selfplay/">Self-Play</a>, <a href="../../techniques/multimodinstr/">Multimodal Instr. Tuning</a>, <a href="../../techniques/actsteer/">Activation Steering</a>
+      <br><span class="provenance">7 technique(s)</span></td>
+</tr>
+<tr id="explainability">
+  <td><span class="chip" data-dim="d2">Expl.</span><br>
+      <strong>Explainability</strong></td>
+  <td>The objective of adapting a model or appending interpretive modules to expose internal representations, align reasoning traces with human-interpretable logic, or generate post-hoc rationales.</td>
+  <td><a href="../../techniques/lp/">LP</a>
+      <br><span class="provenance">1 technique(s)</span></td>
+</tr>
+<tr id="fairness">
+  <td><span class="chip" data-dim="d2">Fair.</span><br>
+      <strong>Fairness</strong></td>
+  <td>The objective of reducing systematic performance or output disparities across demographic or otherwise protected groups by intervening on the model&#x27;s learned representations or decision boundaries.</td>
+  <td><a href="../../techniques/leace/">LEACE</a>
+      <br><span class="provenance">1 technique(s)</span></td>
+</tr>
+<tr id="reliability">
+  <td><span class="chip" data-dim="d2">Reliab.</span><br>
+      <strong>Reliability</strong></td>
+  <td>The objective of aligning the model&#x27;s expressed confidence scores with empirically observed outcome frequencies, ensuring that predictions assigned a given probability are correct at correspondingly consistent rates. Reliability interventions typically apply post-hoc calibration procedures to the model&#x27;s raw output logits, without modifying its internal learned representations.</td>
+  <td><a href="../../techniques/calib/">Calibration</a>
+      <br><span class="provenance">1 technique(s)</span></td>
+</tr>
+<tr id="robustness">
+  <td><span class="chip" data-dim="d2">Rob.</span><br>
+      <strong>Robustness</strong></td>
+  <td>The objective of hardening a model against adversarial perturbations, distributional noise, or out-of-distribution inputs by exposing it to worst-case or adversarially constructed training examples. The adaptation tightens the model&#x27;s minimum guaranteed performance across the input space, reducing the gap between average-case and worst-case behavior.</td>
+  <td><a href="../../techniques/advrstrn/">Adversarial Training</a>, <a href="../../techniques/dataaug/">Data Augmentation</a>
+      <br><span class="provenance">2 technique(s)</span></td>
+</tr>
+<tr id="safety">
+  <td><span class="chip" data-dim="d2">Safety</span><br>
+      <strong>Safety</strong></td>
+  <td>The objective of reducing the production of harmful, dangerous, or policy-violating outputs by training the model to recognize and refuse harmful requests, applying constitutional-principle enforcement, or filtering outputs through harm-category constraints. Safety-targeted interventions explicitly shape the model&#x27;s refusal and harm-avoidance behavior as a primary optimization target, distinct from general alignment with preferences.</td>
+  <td><a href="../../techniques/sft/">SFT</a>, <a href="../../techniques/rlhf/">RLHF (LLM Alignment)</a>, <a href="../../techniques/dpo/">DPO</a>, <a href="../../techniques/rlaif/">RLAIF/CAI</a>, <a href="../../techniques/actsteer/">Activation Steering</a>
+      <br><span class="provenance">5 technique(s)</span></td>
+</tr></tbody>
+  </table></div>
+</section>
+<section class="stack"><h2>V. Operational Constraints</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Category</th><th>Definition</th><th>Techniques</th></tr></thead>
+    <tbody>
+<tr id="behavior-control">
+  <td><span class="chip" data-dim="d2">Behav. Ctrl.</span><br>
+      <strong>Behavior Control</strong></td>
+  <td>The objective of constraining a model&#x27;s output format, stylistic register, persona, or procedural behavior through input-context conditioning without targeting the model&#x27;s underlying knowledge representation or task capability. Behavioral control operates at the inference interface and produces no persistent parametric modification.</td>
+  <td><a href="../../techniques/pe/">PE</a>, <a href="../../techniques/apo/">APO</a>
+      <br><span class="provenance">2 technique(s)</span></td>
+</tr>
+<tr id="computational-efficiency">
+  <td><span class="chip" data-dim="d2">Comp. Eff.</span><br>
+      <strong>Computational Efficiency</strong></td>
+  <td>The objective of reducing a model&#x27;s deployment cost, memory footprint, inference latency, or training compute requirements while preserving task accuracy within an acceptable degradation tolerance. Efficiency interventions alter the model&#x27;s deployment profile without changing its core task definition or behavioral envelope.</td>
+  <td><a href="../../techniques/peft/">PEFT (LoRA, adapters)</a>, <a href="../../techniques/kd/">KD</a>, <a href="../../techniques/compress/">Model Compression</a>, <a href="../../techniques/taskarith/">Task Arith. &amp; Model Merging</a>, <a href="../../techniques/moe/">MoE</a>, <a href="../../techniques/modeladapter/">Modality-Spec. Adapters</a>
+      <br><span class="provenance">6 technique(s)</span></td>
+</tr>
+<tr id="personalization">
+  <td><span class="chip" data-dim="d2">Person.</span><br>
+      <strong>Personalization</strong></td>
+  <td>The objective of tailoring model outputs, tone, or domain expertise to individual user preferences, histories, or contexts through discrete per-user parameters or tracking mechanisms without requiring broad model-wide retraining that would affect all users uniformly.</td>
+  <td><a href="../../techniques/ce/">CE</a>
+      <br><span class="provenance">1 technique(s)</span></td>
+</tr>
+<tr id="privacy-preservation">
+  <td><span class="chip" data-dim="d2">Priv. Preserv.</span><br>
+      <strong>Privacy Preservation</strong></td>
+  <td>The objective of enabling collaborative model training or adaptation across distributed data holders while guaranteeing that sensitive raw data never leaves its originating environment. This is achieved by sharing only privacy-bounded gradient updates or model deltas rather than underlying data records, enabling a global model to benefit from distributed learning signals without centralizing sensitive information.</td>
+  <td><a href="../../techniques/dpft/">DP-FT</a>, <a href="../../techniques/fl/">FL</a>, <a href="../../techniques/munlrn/">Machine Unlearning</a>
+      <br><span class="provenance">3 technique(s)</span></td>
+</tr></tbody>
+  </table></div>
+</section>
+<section class="stack"><h2>I. Capability</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Category</th><th>Definition</th><th>Techniques</th></tr></thead>
+    <tbody>
+<tr id="build-capability">
+  <td><span class="chip" data-dim="d2">Build Capab.</span><br>
+      <strong>Build Capability</strong></td>
+  <td>The objective of constructing a model with generalizable predictive or generative capability from a large, representative training corpus, establishing the baseline parameter state and intended-use scope from which all post-training adaptation techniques depart. This goal is realized during initial training and serves as the foundational reference point against which all subsequent adaptation events are characterized.</td>
+  <td><a href="../../techniques/training/">Training</a>
+      <br><span class="provenance">1 technique(s)</span></td>
+</tr>
+<tr id="capability-extension">
+  <td><span class="chip" data-dim="d2">Capab. Ext.</span><br>
+      <strong>Capability Extension</strong></td>
+  <td>The objective of broadening a model&#x27;s operational scope by adding fundamentally new structural capabilities or modalities—such as new languages, reasoning domains, subject areas, or input/output modalities—through additional training on broad corpora or through architectural expansion. Distinguished from task specialization by the breadth rather than depth of the intended behavioral change: the model acquires genuinely new operational dimensions rather than deepening performance within an existing one.</td>
+  <td><a href="../../techniques/ssl/">SSL / CPT</a>, <a href="../../techniques/taskarith/">Task Arith. &amp; Model Merging</a>, <a href="../../techniques/lce/">Long-Context Ext.</a>, <a href="../../techniques/moe/">MoE</a>, <a href="../../techniques/crossmodel/">Cross-Modal Alignment</a>, <a href="../../techniques/modeladapter/">Modality-Spec. Adapters</a>, <a href="../../techniques/multimodinstr/">Multimodal Instr. Tuning</a>
+      <br><span class="provenance">7 technique(s)</span></td>
+</tr>
+<tr id="reasoning">
+  <td><span class="chip" data-dim="d2">Reas.</span><br>
+      <strong>Reasoning</strong></td>
+  <td>The objective of enhancing a model&#x27;s capacity for structured multi-step inference—including mathematical problem-solving, logical deduction, code generation, and systematic planning—by training against verifiable programmatic reward signals that assess correctness independently of human preference annotation. The mechanism typically involves RL against outcome-based oracles such as unit-test executors, mathematical verifiers, or formal logic checkers, enabling the model to develop generalizable problem-solving strategies rather than pattern-matching memorized solution templates. Verification is accomplished through programmatic oracles, simulators, or iterative self-competition rather than human raters.</td>
+  <td><a href="../../techniques/rlvr/">RLVR/GRPO</a>, <a href="../../techniques/selfplay/">Self-Play</a>, <a href="../../techniques/ttcompute/">Test-Time Compute Scaling</a>
+      <br><span class="provenance">3 technique(s)</span></td>
+</tr>
+<tr id="task-specialization">
+  <td><span class="chip" data-dim="d2">Task Spec.</span><br>
+      <strong>Task Specialization</strong></td>
+  <td>The objective of refining a general-purpose or pre-trained model to achieve high performance on a specific downstream task by optimizing on task-labeled data within an existing distribution, trading breadth of generalization for depth of domain-specific accuracy. The resulting model exhibits a narrowed operational envelope that is more reliable within the target task but may show reduced generalization to substantially out-of-distribution inputs.</td>
+  <td><a href="../../techniques/fullft/">FT (full)</a>, <a href="../../techniques/partft/">FT (partial)</a>, <a href="../../techniques/peft/">PEFT (LoRA, adapters)</a>, <a href="../../techniques/reft/">ReFT</a>, <a href="../../techniques/fsl/">FSL</a>, <a href="../../techniques/sft/">SFT</a>, <a href="../../techniques/metalrn/">Meta-Learning</a>, <a href="../../techniques/mtl/">MTL</a>, <a href="../../techniques/selfplay/">Self-Play</a>, <a href="../../techniques/currilrn/">Curriculum Learning</a>, <a href="../../techniques/activelrn/">Active Learning</a>, <a href="../../techniques/dataaug/">Data Augmentation</a>, <a href="../../techniques/semisl/">Semi-SL</a>, <a href="../../techniques/pl/">Prompt Learning</a>, <a href="../../techniques/apo/">APO</a>, <a href="../../techniques/icl/">ICL</a>
+      <br><span class="provenance">16 technique(s)</span></td>
+</tr></tbody>
+  </table></div>
+</section>
+<section class="stack"><h2>II. Lifecycle</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Category</th><th>Definition</th><th>Techniques</th></tr></thead>
+    <tbody>
+<tr id="continual-adaptation">
+  <td><span class="chip" data-dim="d2">Cont. Adapt.</span><br>
+      <strong>Continual Adaptation</strong></td>
+  <td>The objective of enabling a model to sequentially accumulate knowledge from new tasks or data streams without catastrophic forgetting of previously consolidated representations, by employing stability-plasticity trade-off mechanisms that constrain updates to preserve prior knowledge while accommodating new distributional information. The commitment to accumulation rather than replacement is the defining property distinguishing this goal from drift remediation.</td>
+  <td><a href="../../techniques/cl/">CL</a>, <a href="../../techniques/til/">TIL</a>, <a href="../../techniques/dil/">DIL</a>
+      <br><span class="provenance">3 technique(s)</span></td>
+</tr>
+<tr id="distributional-gap-bridging">
+  <td><span class="chip" data-dim="d2">Dist. Gap Bridging</span><br>
+      <strong>Distributional Gap Bridging</strong></td>
+  <td>The objective of reducing the feature-space mismatch between a source domain—on which the model was originally trained—and a target domain—on which it must perform—for the same or an analogous task class. The adaptation leverages unlabeled or lightly labeled target-domain data to align feature representations or adjust decision boundaries without requiring complete retraining from scratch.</td>
+  <td><a href="../../techniques/da/">DA</a>, <a href="../../techniques/activelrn/">Active Learning</a>, <a href="../../techniques/ssl/">SSL / CPT</a>
+      <br><span class="provenance">3 technique(s)</span></td>
+</tr>
+<tr id="drift-remediation">
+  <td><span class="chip" data-dim="d2">Drift Remed.</span><br>
+      <strong>Drift Remediation</strong></td>
+  <td>The objective of restoring or sustaining a deployed model&#x27;s predictive accuracy or output consistency when the operational data distribution diverges from the training distribution through covariate shift, concept drift, or prompt distribution change. Remediation targets preservation of the model&#x27;s original task objective within its established operational envelope rather than reshaping that envelope for a new task; the behavioral goal is to re-align the model with its original specification, not to extend it.</td>
+  <td><a href="../../techniques/retraining/">Retraining</a>, <a href="../../techniques/dil/">DIL</a>, <a href="../../techniques/tta/">TTA</a>
+      <br><span class="provenance">3 technique(s)</span></td>
+</tr></tbody>
+  </table></div>
+</section>
+<section class="stack"><h2>IV. Knowledge Operations</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Category</th><th>Definition</th><th>Techniques</th></tr></thead>
+    <tbody>
+<tr id="knowledge-update">
+  <td><span class="chip" data-dim="d2">Knowl. Upd.</span><br>
+      <strong>Knowledge Update</strong></td>
+  <td>The objective of injecting, refreshing, or correcting factual or domain-specific knowledge encoded in the model&#x27;s parameters or made accessible at inference time, either by retrieving current information from an external corpus at inference time or by performing targeted parametric edits that overwrite specific outdated or incorrect factual associations within the model&#x27;s weights.</td>
+  <td><a href="../../techniques/pe/">PE</a>, <a href="../../techniques/rag/">RAG</a>, <a href="../../techniques/icl/">ICL</a>, <a href="../../techniques/ce/">CE</a>, <a href="../../techniques/ke/">Knowledge Editing</a>
+      <br><span class="provenance">5 technique(s)</span></td>
+</tr>
+<tr id="remove-knowledge">
+  <td><span class="chip" data-dim="d2">Rem. Knowl.</span><br>
+      <strong>Remove Knowledge</strong></td>
+  <td>The objective of selectively erasing specific learned associations, factual claims, behavioral patterns, or capability traces from a trained model without requiring full retraining and without degrading unrelated model behaviors.</td>
+  <td><a href="../../techniques/munlrn/">Machine Unlearning</a>
+      <br><span class="provenance">1 technique(s)</span></td>
+</tr></tbody>
+  </table></div>
+</section>
+  <p class="provenance">Category definitions verbatim from the paper's appendix</p>
+</div>
+
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <p class="eyebrow">Paper</p>
+        <ul>
+          <li><a href="https://arxiv.org/abs/XXXX.XXXXX">arXiv:XXXX.XXXXX</a> <em>(placeholder)</em></li>
+          <li><a href="../../data/">Download the data</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Repository</p>
+        <ul>
+          <li><a href="https://github.com/ki-smile/post-training-taxonomy">GitHub</a></li>
+          <li><a href="https://github.com/ki-smile/post-training-taxonomy/issues">Report a problem</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Licence</p>
+        <ul>
+          <li>Code — MIT</li>
+          <li>Data and prose — CC BY 4.0</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Authors</p>
+        <ul>
+          <li>Fardin Afdideh</li>
+          <li>Fernando Seoane</li>
+          <li>Farhad Abtahi</li>
+          <li>Karolinska Institutet</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:var(--sp-4);font-size:var(--step--2);opacity:.75">
+      This taxonomy supplies technical vocabulary for describing model changes. It is not legal advice and does not determine whether a change is a substantial modification, a significant change, or a reportable device change. Those determinations rest with manufacturers, regulators, and notified or auditing bodies under the applicable framework.
+    </p>
+  </div>
+</footer>
+<script type="module" src="../../js/theme.js"></script>
+
+</body>
+</html>

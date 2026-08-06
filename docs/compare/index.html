@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compare · Post-Training Adaptation Taxonomy</title>
+<meta name="description" content="Compare six-dimensional profiles side by side.">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/style.css">
+<script>
+  // Set the theme before first paint to avoid a flash.
+  (function () {
+    var t = localStorage.getItem('ptt-theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+</head>
+<body>
+<a class="visually-hidden" href="#main">Skip to content</a>
+<nav class="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="../">6D&nbsp;Taxonomy</a>
+    <ul class="nav__links"><li><a href="../concepts/">Concepts</a></li><li><a href="../explorer/">Explorer</a></li><li><a href="../wizard/">Classify</a></li><li><a href="../compare/" aria-current="page">Compare</a></li><li><a href="../disambiguate/">Terms</a></li><li><a href="../map/">Map</a></li><li><a href="../ambiguity/">Why it matters</a></li><li><a href="../governance/">Governance</a></li><li><a href="../data/">Data</a></li><li><a href="../glossary/">Glossary</a></li></ul>
+    <button class="theme-toggle" data-theme-toggle type="button">dark</button>
+  </div>
+</nav>
+<main id="main">
+
+<div class="wrap section stack">
+  <h1>Compare techniques</h1>
+  <p>Pick two to four. Dimensions where they share no value are what actually
+     separates them; dimensions that merely overlap are reported separately.</p>
+  <div class="grid grid--2">
+    <label>First <select id="sel-a"><option value="training">Training</option><option value="fullft">FT (full)</option><option value="partft">FT (partial)</option><option value="peft">PEFT (LoRA, adapters)</option><option value="reft">ReFT</option><option value="da">DA</option><option value="fsl">FSL</option><option value="retraining">Retraining</option><option value="cl">CL</option><option value="til">TIL</option><option value="dil">DIL</option><option value="sft">SFT</option><option value="rlhf">RLHF (LLM Alignment)</option><option value="dpo">DPO</option><option value="rlaif">RLAIF/CAI</option><option value="rlvr">RLVR/GRPO</option><option value="lp">LP</option><option value="leace">LEACE</option><option value="advrstrn">Adversarial Training</option><option value="metalrn">Meta-Learning</option><option value="mtl">MTL</option><option value="selfplay">Self-Play</option><option value="currilrn">Curriculum Learning</option><option value="activelrn">Active Learning</option><option value="dataaug">Data Augmentation</option><option value="semisl">Semi-SL</option><option value="ssl">SSL / CPT</option><option value="dpft">DP-FT</option><option value="fl">FL</option><option value="kd">KD</option><option value="compress">Model Compression</option><option value="taskarith">Task Arith. &amp; Model Merging</option><option value="lce">Long-Context Ext.</option><option value="moe">MoE</option><option value="pe">PE</option><option value="pl">Prompt Learning</option><option value="apo">APO</option><option value="rag">RAG</option><option value="icl">ICL</option><option value="ce">CE</option><option value="tta">TTA</option><option value="ttcompute">Test-Time Compute Scaling</option><option value="calib">Calibration</option><option value="crossmodel">Cross-Modal Alignment</option><option value="modeladapter">Modality-Spec. Adapters</option><option value="multimodinstr">Multimodal Instr. Tuning</option><option value="munlrn">Machine Unlearning</option><option value="ke">Knowledge Editing</option><option value="actsteer">Activation Steering</option></select></label>
+    <label>Second <select id="sel-b"><option value="training">Training</option><option value="fullft">FT (full)</option><option value="partft">FT (partial)</option><option value="peft">PEFT (LoRA, adapters)</option><option value="reft">ReFT</option><option value="da">DA</option><option value="fsl">FSL</option><option value="retraining">Retraining</option><option value="cl">CL</option><option value="til">TIL</option><option value="dil">DIL</option><option value="sft">SFT</option><option value="rlhf">RLHF (LLM Alignment)</option><option value="dpo">DPO</option><option value="rlaif">RLAIF/CAI</option><option value="rlvr">RLVR/GRPO</option><option value="lp">LP</option><option value="leace">LEACE</option><option value="advrstrn">Adversarial Training</option><option value="metalrn">Meta-Learning</option><option value="mtl">MTL</option><option value="selfplay">Self-Play</option><option value="currilrn">Curriculum Learning</option><option value="activelrn">Active Learning</option><option value="dataaug">Data Augmentation</option><option value="semisl">Semi-SL</option><option value="ssl">SSL / CPT</option><option value="dpft">DP-FT</option><option value="fl">FL</option><option value="kd">KD</option><option value="compress">Model Compression</option><option value="taskarith">Task Arith. &amp; Model Merging</option><option value="lce">Long-Context Ext.</option><option value="moe">MoE</option><option value="pe">PE</option><option value="pl">Prompt Learning</option><option value="apo">APO</option><option value="rag">RAG</option><option value="icl">ICL</option><option value="ce">CE</option><option value="tta">TTA</option><option value="ttcompute">Test-Time Compute Scaling</option><option value="calib">Calibration</option><option value="crossmodel">Cross-Modal Alignment</option><option value="modeladapter">Modality-Spec. Adapters</option><option value="multimodinstr">Multimodal Instr. Tuning</option><option value="munlrn">Machine Unlearning</option><option value="ke">Knowledge Editing</option><option value="actsteer">Activation Steering</option></select></label>
+  </div>
+  <div id="compare-out" class="stack"></div>
+</div>
+
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <p class="eyebrow">Paper</p>
+        <ul>
+          <li><a href="https://arxiv.org/abs/XXXX.XXXXX">arXiv:XXXX.XXXXX</a> <em>(placeholder)</em></li>
+          <li><a href="../data/">Download the data</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Repository</p>
+        <ul>
+          <li><a href="https://github.com/ki-smile/post-training-taxonomy">GitHub</a></li>
+          <li><a href="https://github.com/ki-smile/post-training-taxonomy/issues">Report a problem</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Licence</p>
+        <ul>
+          <li>Code — MIT</li>
+          <li>Data and prose — CC BY 4.0</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Authors</p>
+        <ul>
+          <li>Fardin Afdideh</li>
+          <li>Fernando Seoane</li>
+          <li>Farhad Abtahi</li>
+          <li>Karolinska Institutet</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:var(--sp-4);font-size:var(--step--2);opacity:.75">
+      This taxonomy supplies technical vocabulary for describing model changes. It is not legal advice and does not determine whether a change is a substantial modification, a significant change, or a reportable device change. Those determinations rest with manufacturers, regulators, and notified or auditing bodies under the applicable framework.
+    </p>
+  </div>
+</footer>
+<script type="module" src="../js/theme.js"></script>
+<script type="module" src="../js/compare.js"></script>
+</body>
+</html>

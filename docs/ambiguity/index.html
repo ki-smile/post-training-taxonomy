@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why precision matters · Post-Training Adaptation Taxonomy</title>
+<meta name="description" content="The regulatory consequences of imprecise language about model change.">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/style.css">
+<script>
+  // Set the theme before first paint to avoid a flash.
+  (function () {
+    var t = localStorage.getItem('ptt-theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+</head>
+<body>
+<a class="visually-hidden" href="#main">Skip to content</a>
+<nav class="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="../">6D&nbsp;Taxonomy</a>
+    <ul class="nav__links"><li><a href="../concepts/">Concepts</a></li><li><a href="../explorer/">Explorer</a></li><li><a href="../wizard/">Classify</a></li><li><a href="../compare/">Compare</a></li><li><a href="../disambiguate/">Terms</a></li><li><a href="../map/">Map</a></li><li><a href="../ambiguity/" aria-current="page">Why it matters</a></li><li><a href="../governance/">Governance</a></li><li><a href="../data/">Data</a></li><li><a href="../glossary/">Glossary</a></li></ul>
+    <button class="theme-toggle" data-theme-toggle type="button">dark</button>
+  </div>
+</nav>
+<main id="main">
+
+<div class="wrap section stack">
+  <h1>Why imprecision has consequences</h1>
+  <p style="font-size:var(--step-1)">Vague language about model change is not
+     only untidy. It can leave an auditor unable to tell what happened.</p>
+  <p class="callout callout--warn reg-claim">This taxonomy supplies technical vocabulary for describing model changes. It is not legal advice and does not determine whether a change is a substantial modification, a significant change, or a reportable device change. Those determinations rest with manufacturers, regulators, and notified or auditing bodies under the applicable framework.</p>
+
+  <section class="stack">
+    <h2>The gaps the paper identifies</h2>
+    <div class="table-scroll"><table>
+      <thead><tr><th>Framework</th><th>The gap</th></tr></thead>
+      <tbody>
+        <tr><td>EU AI Act</td><td class="reg-claim">Treats substantial
+          modification as potentially triggering reclassification, yet offers no
+          technical definition of what fine-tuning is as distinct from other
+          modifications.</td></tr>
+        <tr><td>EU AI Act — GPAI</td><td class="reg-claim">A compute-based
+          threshold may fail to capture low-compute techniques that
+          substantially alter behaviour.</td></tr>
+        <tr><td>FDA PCCP</td><td class="reg-claim">Audits of submissions reveal
+          a persistent lack of transparency and omission of technical detail
+          needed to evaluate model change.</td></tr>
+        <tr><td>EU MDR / IVDR</td><td class="reg-claim">A statement that a model
+          &ldquo;was updated&rdquo; may be insufficient where documentation calls
+          for mechanism, persistence, and scope.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="stack">
+    <h2>The compute-threshold blind spot</h2>
+    <p><strong>14 of 49</strong> techniques
+       operate wholly or partly outside gradient-compute thresholds.
+       <strong>10 are exclusively non-gradient</strong> and
+       <strong>4 are dual-mechanism</strong>, gradient-based in
+       some implementations and not others.</p>
+    <div class="grid grid--2">
+      <div class="card stack"><p class="eyebrow">Exclusively non-gradient</p>
+        <p><a href="../techniques/actsteer/">Activation Steering</a>, <a href="../techniques/apo/">APO</a>, <a href="../techniques/ce/">CE</a>, <a href="../techniques/compress/">Model Compression</a>, <a href="../techniques/icl/">ICL</a>, <a href="../techniques/leace/">LEACE</a>, <a href="../techniques/pe/">PE</a>, <a href="../techniques/rag/">RAG</a>, <a href="../techniques/taskarith/">Task Arith. &amp; Model Merging</a>, <a href="../techniques/ttcompute/">Test-Time Compute Scaling</a></p></div>
+      <div class="card stack"><p class="eyebrow">Dual-mechanism</p>
+        <p><a href="../techniques/ke/">Knowledge Editing</a>, <a href="../techniques/lce/">Long-Context Ext.</a>, <a href="../techniques/moe/">MoE</a>, <a href="../techniques/munlrn/">Machine Unlearning</a></p></div>
+    </div>
+    <p class="provenance">Derived from D1 mechanism groups II and III</p>
+    <p><a class="btn" href="../explorer/">Reproduce this filter</a></p>
+  </section>
+
+  <section class="stack">
+    <h2>Four phrases that hide the change</h2>
+    <div class="grid grid--2"><div class="card stack">
+      <p class="eyebrow">Section 4.4</p>
+      <h3>&quot;We fine-tuned the model&quot;</h3>
+      <p>Whether every weight changed, only later layers, or none at all — three different scopes, three different validation burdens.</p>
+      <p><strong>The question that resolves it:</strong> How much of the model was actually updated?</p>
+      <p><a href="../techniques/fullft/">FT (full)</a>, <a href="../techniques/partft/">FT (partial)</a>, <a href="../techniques/peft/">PEFT (LoRA, adapters)</a></p>
+    </div><div class="card stack">
+      <p class="eyebrow">Appendix C, Knowledge Transfer and Task Specialization</p>
+      <h3>&quot;We used few-shot learning&quot;</h3>
+      <p>FSL produces a new versioned model artifact requiring change control. ICL produces no artifact at all — the effect lasts one request.</p>
+      <p><strong>The question that resolves it:</strong> Was a weight update performed?</p>
+      <p><a href="../techniques/fsl/">FSL</a>, <a href="../techniques/icl/">ICL</a></p>
+    </div><div class="card stack">
+      <p class="eyebrow">Section 4.4</p>
+      <h3>&quot;We use RAG&quot;</h3>
+      <p>The corpus, the retrieval method, and the update cadence. A maintained corpus is version-persistent even when each request&#x27;s context is ephemeral.</p>
+      <p><strong>The question that resolves it:</strong> Is the retrieval artifact maintained and versioned?</p>
+      <p><a href="../techniques/rag/">RAG</a>, <a href="../techniques/ce/">CE</a>, <a href="../techniques/icl/">ICL</a></p>
+    </div><div class="card stack">
+      <p class="eyebrow">Section 4.4, Appendix C</p>
+      <h3>&quot;We did domain adaptation&quot;</h3>
+      <p>At the LLM tier the classical mechanism is superseded by continued pre-training or domain-specific PEFT. The label hides which was actually used.</p>
+      <p><strong>The question that resolves it:</strong> Which model tier?</p>
+      <p><a href="../techniques/da/">DA</a>, <a href="../techniques/ssl/">SSL / CPT</a>, <a href="../techniques/peft/">PEFT (LoRA, adapters)</a></p>
+    </div><div class="card stack">
+      <p class="eyebrow">Appendix C, Training Strategies</p>
+      <h3>&quot;The model learns to learn&quot;</h3>
+      <p>At the LLM tier, in-context learning achieves rapid task adaptation without the bi-level training loop meta-learning implies.</p>
+      <p><strong>The question that resolves it:</strong> Which model tier?</p>
+      <p><a href="../techniques/metalrn/">Meta-Learning</a>, <a href="../techniques/icl/">ICL</a></p>
+    </div><div class="card stack">
+      <p class="eyebrow">Section 2</p>
+      <h3>&quot;The model was retrained&quot;</h3>
+      <p>Retraining and full fine-tuning are mechanistically identical. Only the goal and the data separate them — restoring lost performance is not the same as targeting a new task.</p>
+      <p><strong>The question that resolves it:</strong> Why was it changed?</p>
+      <p><a href="../techniques/retraining/">Retraining</a>, <a href="../techniques/fullft/">FT (full)</a></p>
+    </div></div>
+    <p><a class="btn" href="../disambiguate/">Work through a term</a></p>
+  </section>
+
+  <section class="stack">
+    <h2>The same change, described two ways</h2>
+    <div class="grid grid--2">
+      <div class="card stack">
+        <p class="eyebrow">Before — standard prose</p>
+        <p><q>Update v2.1: the model was fine-tuned on recent hospital data to
+          improve performance and incorporate new clinical guidelines.</q></p>
+        <p style="color:var(--text-muted)">An auditor cannot tell whether base
+          weights changed (D5), whether the change is transient or permanent
+          (D4), or whether the guidelines were learned parametrically or
+          retrieved at inference (D1).</p>
+      </div>
+      <div class="card stack">
+        <p class="eyebrow">After — two named layers</p>
+        <p><strong>Layer 1 — parameter update.</strong> PEFT applied to the base
+          model, for drift remediation, on small labelled data, ad-hoc
+          permanent, modular scope, LLM.</p>
+        <p><strong>Layer 2 — inference update.</strong> Retrieval corpus updated
+          with new guidelines: context injection, knowledge update, external
+          corpus, version-persistent, input/output space, LLM.</p>
+        <p style="color:var(--text-muted)">The base weights are recorded as
+          intended to remain frozen, and the adapter and retrieval artifacts are
+          identified as the modified components.</p>
+      </div>
+    </div>
+    <p><a class="btn btn--solid" href="../wizard/">Describe your own change</a></p>
+  </section>
+
+  <section class="stack">
+    <h2>Mathematically similar, documented differently</h2>
+    <p class="reg-claim">Task arithmetic and task-vector-negation unlearning both
+       produce lineage-opaque derived artifacts. Naming both by their mechanism
+       can support consistent documentation of operations that are
+       mathematically alike.</p>
+  </section>
+
+  <section class="stack">
+    <h2>No single dimension decides</h2>
+    <p class="reg-claim">Regulatory consequence depends on intended use, risk
+      class, and the applicable pathway in addition to the six-dimensional
+      profile. The same retrieval architecture may carry different consequences
+      in customer support and in clinical decision support. The taxonomy names
+      the intervention; it does not classify it legally.</p>
+  </section>
+</div>
+
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <p class="eyebrow">Paper</p>
+        <ul>
+          <li><a href="https://arxiv.org/abs/XXXX.XXXXX">arXiv:XXXX.XXXXX</a> <em>(placeholder)</em></li>
+          <li><a href="../data/">Download the data</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Repository</p>
+        <ul>
+          <li><a href="https://github.com/ki-smile/post-training-taxonomy">GitHub</a></li>
+          <li><a href="https://github.com/ki-smile/post-training-taxonomy/issues">Report a problem</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Licence</p>
+        <ul>
+          <li>Code — MIT</li>
+          <li>Data and prose — CC BY 4.0</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Authors</p>
+        <ul>
+          <li>Fardin Afdideh</li>
+          <li>Fernando Seoane</li>
+          <li>Farhad Abtahi</li>
+          <li>Karolinska Institutet</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:var(--sp-4);font-size:var(--step--2);opacity:.75">
+      This taxonomy supplies technical vocabulary for describing model changes. It is not legal advice and does not determine whether a change is a substantial modification, a significant change, or a reportable device change. Those determinations rest with manufacturers, regulators, and notified or auditing bodies under the applicable framework.
+    </p>
+  </div>
+</footer>
+<script type="module" src="../js/theme.js"></script>
+
+</body>
+</html>

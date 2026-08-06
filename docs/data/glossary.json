@@ -1,0 +1,859 @@
+{
+  "entries": [
+    {
+      "key": "actadd",
+      "short": "ActAdd",
+      "long": "Activation Addition"
+    },
+    {
+      "key": "adalora",
+      "short": "AdaLoRA",
+      "long": "Adaptive Low-Rank Adaptation"
+    },
+    {
+      "key": "aegis",
+      "short": "AEGIS",
+      "long": "AI/ML Evaluation and Governance Infrastructure for Safety"
+    },
+    {
+      "key": "ai",
+      "short": "AI",
+      "long": "Artificial Intelligence"
+    },
+    {
+      "key": "al",
+      "short": "AL",
+      "long": "Active Learning"
+    },
+    {
+      "key": "api",
+      "short": "API",
+      "long": "Application Programming Interface"
+    },
+    {
+      "key": "apo",
+      "short": "APO",
+      "long": "Automatic Prompt Optimization"
+    },
+    {
+      "key": "awq",
+      "short": "AWQ",
+      "long": "Activation-aware Weight Quantization"
+    },
+    {
+      "key": "bert",
+      "short": "BERT",
+      "long": "Bidirectional Encoder Representations from Transformers"
+    },
+    {
+      "key": "bitfit",
+      "short": "BitFit",
+      "long": "BIas-Term FIne-Tuning"
+    },
+    {
+      "key": "caa",
+      "short": "CAA",
+      "long": "Contrastive Activation Addition"
+    },
+    {
+      "key": "cai",
+      "short": "CAI",
+      "long": "Constitutional AI"
+    },
+    {
+      "key": "cavia",
+      "short": "CAVIA",
+      "long": "Context Adaptation VIA meta-learning"
+    },
+    {
+      "key": "cdss",
+      "short": "CDSS",
+      "long": "Clinical Decision Support System"
+    },
+    {
+      "key": "ce",
+      "short": "CE",
+      "long": "Context Engineering"
+    },
+    {
+      "key": "cicd",
+      "short": "CI/CD",
+      "long": "Continuous Integration/Continuous Deployment"
+    },
+    {
+      "key": "cispo",
+      "short": "CISPO",
+      "long": "Clipped IS-weight Policy Optimization"
+    },
+    {
+      "key": "cl",
+      "short": "CL",
+      "long": "Continual Learning"
+    },
+    {
+      "key": "clip",
+      "short": "CLIP",
+      "long": "Contrastive Language-Image Pre-Training"
+    },
+    {
+      "key": "cot",
+      "short": "CoT",
+      "long": "Chain-of-Thought"
+    },
+    {
+      "key": "cpo",
+      "short": "CPO",
+      "long": "Contrastive Preference Optimization"
+    },
+    {
+      "key": "cpt",
+      "short": "CPT",
+      "long": "Continued Pre-Training"
+    },
+    {
+      "key": "cpt_hf",
+      "short": "CPT",
+      "long": "Context-Aware Prompt Tuning"
+    },
+    {
+      "key": "ct",
+      "short": "CT",
+      "long": "Continuous Training"
+    },
+    {
+      "key": "da",
+      "short": "DA",
+      "long": "Domain Adaptation"
+    },
+    {
+      "key": "dapo",
+      "short": "DAPO",
+      "long": "Decoupled clip and Dynamic sAmpling Policy Optimization"
+    },
+    {
+      "key": "dare",
+      "short": "DARE",
+      "long": "Drop And REscale"
+    },
+    {
+      "key": "della",
+      "short": "DELLA-Merging",
+      "long": "Drop and rEscaLe via sampLing with mAgnitude"
+    },
+    {
+      "key": "dil",
+      "short": "DIL",
+      "long": "Domain-Incremental Learning"
+    },
+    {
+      "key": "dl",
+      "short": "DL",
+      "long": "Deep Learning"
+    },
+    {
+      "key": "dora",
+      "short": "DoRA",
+      "long": "Weight-Decomposed Low-Rank Adaptation"
+    },
+    {
+      "key": "dpft",
+      "short": "DP-FT",
+      "long": "Differentially Private Fine-Tuning"
+    },
+    {
+      "key": "dppeft",
+      "short": "DP-PEFT",
+      "long": "Differentially Private Parameter-Efficient Fine-Tuning"
+    },
+    {
+      "key": "dpsgd",
+      "short": "DP-SGD",
+      "long": "Differentially Private Stochastic Gradient Descent"
+    },
+    {
+      "key": "dpo",
+      "short": "DPO",
+      "long": "Direct Preference Optimization"
+    },
+    {
+      "key": "dpr",
+      "short": "DPR",
+      "long": "Dense Passage Retrieval"
+    },
+    {
+      "key": "dspy",
+      "short": "DSPy",
+      "long": "Declarative Self-improving Python"
+    },
+    {
+      "key": "dude",
+      "short": "DuDe",
+      "long": "Dual Decomposition of Weights and Singular Value Low-Rank Adaptation"
+    },
+    {
+      "key": "dylora",
+      "short": "DyLoRA",
+      "long": "Dynamic Low-Rank Adaptation"
+    },
+    {
+      "key": "ece",
+      "short": "ECE",
+      "long": "Expected Calibration Error"
+    },
+    {
+      "key": "eda",
+      "short": "EDA",
+      "long": "Easy Data Augmentation"
+    },
+    {
+      "key": "emr",
+      "short": "EMR-Merging",
+      "long": "Elect, Mask \\& Rescale-Merging"
+    },
+    {
+      "key": "ews",
+      "short": "EWC",
+      "long": "Elastic Weight Consolidation"
+    },
+    {
+      "key": "fda",
+      "short": "FDA",
+      "long": "Food and Drug Administration"
+    },
+    {
+      "key": "fedpara",
+      "short": "FedPara",
+      "long": "Federated Parameterization"
+    },
+    {
+      "key": "fila",
+      "short": "FILA",
+      "long": "Fisher-Initialization of Low-rank Adapters"
+    },
+    {
+      "key": "fl",
+      "short": "FL",
+      "long": "Federated Learning"
+    },
+    {
+      "key": "flop",
+      "short": "FLOP",
+      "long": "Floating-Point Operation"
+    },
+    {
+      "key": "fm",
+      "short": "FM",
+      "long": "Foundation Model"
+    },
+    {
+      "key": "fomaml",
+      "short": "FOMAML",
+      "long": "First-Order Model Agnostic Meta Learning"
+    },
+    {
+      "key": "fria",
+      "short": "FRIA",
+      "long": "Fundamental Rights Impact Assessment"
+    },
+    {
+      "key": "fsl",
+      "short": "FSL",
+      "long": "Few-Shot Learning"
+    },
+    {
+      "key": "ft",
+      "short": "FT",
+      "long": "Fine-Tuning"
+    },
+    {
+      "key": "fti",
+      "short": "FTI",
+      "long": "Feature-Training-Inference"
+    },
+    {
+      "key": "ftl",
+      "short": "FTL",
+      "long": "Federated Transfer Learning"
+    },
+    {
+      "key": "fv",
+      "short": "FV",
+      "long": "Function Vector"
+    },
+    {
+      "key": "ga",
+      "short": "GA",
+      "long": "Gradient Ascent"
+    },
+    {
+      "key": "gan",
+      "short": "GAN",
+      "long": "Generative Adversarial Network"
+    },
+    {
+      "key": "gd",
+      "short": "GD",
+      "long": "Gradient Descent"
+    },
+    {
+      "key": "gdpr",
+      "short": "GDPR",
+      "long": "General Data Protection Regulation"
+    },
+    {
+      "key": "genfm",
+      "short": "GenFM",
+      "long": "Generative Foundation Model"
+    },
+    {
+      "key": "gmlp",
+      "short": "GMLP",
+      "long": "Good Machine Learning Practice"
+    },
+    {
+      "key": "gpai",
+      "short": "GPAI",
+      "long": "General-Purpose AI"
+    },
+    {
+      "key": "gpt",
+      "short": "GPT",
+      "long": "Generative Pre-trained Transformer"
+    },
+    {
+      "key": "gptq",
+      "short": "GPTQ",
+      "long": "Generative Pre-trained Transformers Quantization"
+    },
+    {
+      "key": "graphrag",
+      "short": "GraphRAG",
+      "long": "Graph Retrieval-Augmented Generation"
+    },
+    {
+      "key": "grpo",
+      "short": "GRPO",
+      "long": "Group Relative Policy Optimization"
+    },
+    {
+      "key": "gspo",
+      "short": "GSPO",
+      "long": "Group Sequence Policy Optimization"
+    },
+    {
+      "key": "hipporag",
+      "short": "HippoRAG",
+      "long": "Hippocampus-inspired Retrieval-Augmented Generation"
+    },
+    {
+      "key": "ia3",
+      "short": "IA$^3$",
+      "long": "Infused Adapter by Inhibiting and Amplifying Inner Activations"
+    },
+    {
+      "key": "icl",
+      "short": "ICL",
+      "long": "In-Context Learning"
+    },
+    {
+      "key": "imdrf",
+      "short": "IMDRF",
+      "long": "International Medical Device Regulators Forum"
+    },
+    {
+      "key": "ipo",
+      "short": "IPO",
+      "long": "Identity Preference Optimization"
+    },
+    {
+      "key": "iti",
+      "short": "ITI",
+      "long": "Inference-Time Intervention"
+    },
+    {
+      "key": "ivdr",
+      "short": "IVDR",
+      "long": "In Vitro Diagnostic Regulation"
+    },
+    {
+      "key": "kd",
+      "short": "KD",
+      "long": "Knowledge Distillation"
+    },
+    {
+      "key": "kl",
+      "short": "KL",
+      "long": "Kullback-Leibler"
+    },
+    {
+      "key": "kto",
+      "short": "KTO",
+      "long": "Kahneman-Tversky Optimization"
+    },
+    {
+      "key": "lata",
+      "short": "LATA",
+      "long": "Layer-Aware Task Arithmetic"
+    },
+    {
+      "key": "leace",
+      "short": "LEACE",
+      "long": "LEAst-squares Concept Erasure"
+    },
+    {
+      "key": "leo",
+      "short": "LEO",
+      "long": "Latent Embedding Optimization"
+    },
+    {
+      "key": "llm",
+      "short": "LLM",
+      "long": "Large Language Model"
+    },
+    {
+      "key": "loka",
+      "short": "LOKA",
+      "long": "Large language mOdel Knowledge updAtes"
+    },
+    {
+      "key": "loku",
+      "short": "LoKU",
+      "long": "Low-rank Knowledge Unlearning"
+    },
+    {
+      "key": "lora",
+      "short": "LoRA",
+      "long": "Low-Rank Adaptation"
+    },
+    {
+      "key": "loso",
+      "short": "LOSO",
+      "long": "Leave One Seed Out"
+    },
+    {
+      "key": "lp",
+      "short": "LP",
+      "long": "Linear Probing"
+    },
+    {
+      "key": "lwf",
+      "short": "LwF",
+      "long": "Learning without Forgetting"
+    },
+    {
+      "key": "magprune",
+      "short": "MAGPRUNE",
+      "long": "Magnitude-based\nPruning"
+    },
+    {
+      "key": "make",
+      "short": "MAKE",
+      "long": "Memory-Associated Knowledge Editing"
+    },
+    {
+      "key": "mallows",
+      "short": "MallowsPO",
+      "long": "Mallows-model Preference Optimization"
+    },
+    {
+      "key": "maml",
+      "short": "MAML",
+      "long": "Model-Agnostic Meta-Learning"
+    },
+    {
+      "key": "mc",
+      "short": "MC",
+      "long": "Monte Carlo"
+    },
+    {
+      "key": "mcp",
+      "short": "MCP",
+      "long": "Model Context Protocol"
+    },
+    {
+      "key": "mdr",
+      "short": "MDR",
+      "long": "Medical Device Regulation"
+    },
+    {
+      "key": "mdsw",
+      "short": "MDSW",
+      "long": "Medical Device Software"
+    },
+    {
+      "key": "memit",
+      "short": "MEMIT",
+      "long": "Mass-Editing Memory in a Transformer"
+    },
+    {
+      "key": "mend",
+      "short": "MEND",
+      "long": "Model Editor Networks with Gradient Decomposition"
+    },
+    {
+      "key": "metasgd",
+      "short": "Meta-SGD",
+      "long": "Meta Stochastic Gradient Descent"
+    },
+    {
+      "key": "milora_svd",
+      "short": "MiLoRA",
+      "long": "Minor singular component based Low-Rank Adaptation"
+    },
+    {
+      "key": "ml",
+      "short": "ML",
+      "long": "Machine Learning"
+    },
+    {
+      "key": "mllm",
+      "short": "MLLM",
+      "long": "Multimodal Large Language Model"
+    },
+    {
+      "key": "mlops",
+      "short": "MLOps",
+      "long": "Machine Learning Operations"
+    },
+    {
+      "key": "mlp",
+      "short": "MLP",
+      "long": "Multi-Layer Perceptron"
+    },
+    {
+      "key": "mlr",
+      "short": "MLR",
+      "long": "Multivocal Literature Review"
+    },
+    {
+      "key": "mmd",
+      "short": "MMD",
+      "long": "Maximum Mean Discrepancy"
+    },
+    {
+      "key": "moe",
+      "short": "MoE",
+      "long": "Mixture of Experts"
+    },
+    {
+      "key": "moelora",
+      "short": "MoELoRA",
+      "long": "Low-Rank Adaptation as a Mixture of Experts "
+    },
+    {
+      "key": "mtl",
+      "short": "MTL",
+      "long": "Multi-Task Learning"
+    },
+    {
+      "key": "nas",
+      "short": "NAS",
+      "long": "Neural Architecture Search"
+    },
+    {
+      "key": "nist",
+      "short": "NIST",
+      "long": "National Institute of Standards and Technology"
+    },
+    {
+      "key": "nlp",
+      "short": "NLP",
+      "long": "Natural Language Processing"
+    },
+    {
+      "key": "nmt",
+      "short": "NMT",
+      "long": "Neural Machine Translation"
+    },
+    {
+      "key": "orpo_prompt",
+      "short": "OPRO",
+      "long": "Optimization by PROmpting"
+    },
+    {
+      "key": "orpo",
+      "short": "ORPO",
+      "long": "Odds Ratio Preference Optimization"
+    },
+    {
+      "key": "pccp",
+      "short": "PCCP",
+      "long": "Predetermined Change Control Plan"
+    },
+    {
+      "key": "pe",
+      "short": "PE",
+      "long": "Prompt Engineering"
+    },
+    {
+      "key": "peft",
+      "short": "PEFT",
+      "long": "Parameter-Efficient Fine-Tuning"
+    },
+    {
+      "key": "pepe",
+      "short": "PEPE",
+      "long": "Periodic Extrapolation Positional Encodings"
+    },
+    {
+      "key": "pi",
+      "short": "PI",
+      "long": "Position Interpolation"
+    },
+    {
+      "key": "pissa",
+      "short": "PiSSA",
+      "long": "Principal Singular values and Singular vectors Adaptation"
+    },
+    {
+      "key": "pmet",
+      "short": "PMET",
+      "long": "Precise Model Editing in a Transformer"
+    },
+    {
+      "key": "pms",
+      "short": "PMS",
+      "long": "Post-Market Surveillance"
+    },
+    {
+      "key": "ppo",
+      "short": "PPO",
+      "long": "Proximal Policy Optimization"
+    },
+    {
+      "key": "prf",
+      "short": "PRF",
+      "long": "Probabilistic Relevance Framework"
+    },
+    {
+      "key": "ptq",
+      "short": "PTQ",
+      "long": "Post-Training Quantization"
+    },
+    {
+      "key": "qat",
+      "short": "QAT",
+      "long": "Quantization-Aware Training"
+    },
+    {
+      "key": "qlora",
+      "short": "QLoRA",
+      "long": "Quantized Low-Rank Adaptation"
+    },
+    {
+      "key": "raft",
+      "short": "RAFT",
+      "long": "Retrieval-Augmented Fine-Tuning"
+    },
+    {
+      "key": "raft_rank",
+      "short": "RAFT",
+      "long": "Reward rAnked FineTuning"
+    },
+    {
+      "key": "rag",
+      "short": "RAG",
+      "long": "Retrieval-Augmented Generation"
+    },
+    {
+      "key": "reft",
+      "short": "ReFT",
+      "long": "Representation Fine-Tuning"
+    },
+    {
+      "key": "repe",
+      "short": "RepE",
+      "long": "Representation Engineering"
+    },
+    {
+      "key": "repfm",
+      "short": "RepFM",
+      "long": "Representation Foundation Model"
+    },
+    {
+      "key": "retro",
+      "short": "RETRO",
+      "long": "Retrieval-Enhanced Transformer"
+    },
+    {
+      "key": "rl",
+      "short": "RL",
+      "long": "Reinforcement Learning"
+    },
+    {
+      "key": "rlaif",
+      "short": "RLAIF",
+      "long": "Reinforcement Learning from AI Feedback"
+    },
+    {
+      "key": "rlhf",
+      "short": "RLHF",
+      "long": "Reinforcement Learning from Human Feedback"
+    },
+    {
+      "key": "rloo",
+      "short": "RLOO",
+      "long": "REINFORCE Leave-One-Out"
+    },
+    {
+      "key": "rlvr",
+      "short": "RLVR",
+      "long": "Reinforcement Learning from Verifiable Rewards"
+    },
+    {
+      "key": "rmf",
+      "short": "RMF",
+      "long": "Risk Management Framework"
+    },
+    {
+      "key": "rmu",
+      "short": "RMU",
+      "long": "Representation Misdirection for Unlearning"
+    },
+    {
+      "key": "rome",
+      "short": "ROME",
+      "long": "Rank-One Model Editing"
+    },
+    {
+      "key": "rope",
+      "short": "RoPE",
+      "long": "Rotary Positional Embedding"
+    },
+    {
+      "key": "rslora",
+      "short": "rsLoRA",
+      "long": "rank-stabilized Low-Rank Adaptation"
+    },
+    {
+      "key": "rtn",
+      "short": "RTN",
+      "long": "Round-To-Nearest"
+    },
+    {
+      "key": "sae",
+      "short": "SAE",
+      "long": "Sparse AutoEncoder"
+    },
+    {
+      "key": "sapo",
+      "short": "SAPO",
+      "long": "Step-Aligned Policy Optimization"
+    },
+    {
+      "key": "selfrag",
+      "short": "Self-RAG",
+      "long": "Self-Reflective Retrieval-Augmented Generation"
+    },
+    {
+      "key": "semiSL",
+      "short": "Semi-SL",
+      "long": "Semi-Supervised Learning"
+    },
+    {
+      "key": "serac",
+      "short": "SERAC",
+      "long": "Semi-Parametric Editing with a Retrieval-Augmented Counterfactual Model"
+    },
+    {
+      "key": "sft",
+      "short": "SFT",
+      "long": "Supervised Fine-Tuning"
+    },
+    {
+      "key": "sgd",
+      "short": "SGD",
+      "long": "Stochastic Gradient Descent"
+    },
+    {
+      "key": "simpo",
+      "short": "SimPO",
+      "long": "Simple Preference Optimization"
+    },
+    {
+      "key": "sisa",
+      "short": "SISA",
+      "long": "Sharded, Isolated, Sliced, and Aggregated"
+    },
+    {
+      "key": "slerp",
+      "short": "SLERP",
+      "long": "Spherical Linear Interpolation"
+    },
+    {
+      "key": "spin",
+      "short": "SPIN",
+      "long": "Self-Play fIne-tuNing"
+    },
+    {
+      "key": "ssl",
+      "short": "SSL",
+      "long": "Self-Supervised Learning"
+    },
+    {
+      "key": "star",
+      "short": "STaR",
+      "long": "Self-Taught Reasoner"
+    },
+    {
+      "key": "svd",
+      "short": "SVD",
+      "long": "Singular Value Decomposition"
+    },
+    {
+      "key": "swa",
+      "short": "SWA",
+      "long": "Stochastic Weight Averaging"
+    },
+    {
+      "key": "tcav",
+      "short": "TCAV",
+      "long": "Testing with Concept Activation Vectors"
+    },
+    {
+      "key": "ties",
+      "short": "TIES-MERGING",
+      "long": "TrIm, Elect Sign \\& Merge"
+    },
+    {
+      "key": "til",
+      "short": "TIL",
+      "long": "Task-Incremental Learning"
+    },
+    {
+      "key": "tl",
+      "short": "TL",
+      "long": "Transfer Learning"
+    },
+    {
+      "key": "trl",
+      "short": "TRL",
+      "long": "Transformer Reinforcement Learning"
+    },
+    {
+      "key": "tta",
+      "short": "TTA",
+      "long": "Test-Time Adaptation"
+    },
+    {
+      "key": "ttt",
+      "short": "TTT",
+      "long": "Test-Time Training"
+    },
+    {
+      "key": "vera",
+      "short": "VeRA",
+      "long": "Vector-based Random Matrix Adaptation"
+    },
+    {
+      "key": "wmdp",
+      "short": "WMDP",
+      "long": "Weapons of Mass Destruction Proxy"
+    },
+    {
+      "key": "yarn",
+      "short": "YaRN",
+      "long": "Yet another RoPE extensioN"
+    }
+  ]
+}

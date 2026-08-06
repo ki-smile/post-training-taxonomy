@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Structure · Post-Training Adaptation Taxonomy</title>
+<meta name="description" content="Model-tier inheritance and how coherent the families are.">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/style.css">
+<script>
+  // Set the theme before first paint to avoid a flash.
+  (function () {
+    var t = localStorage.getItem('ptt-theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+</head>
+<body>
+<a class="visually-hidden" href="#main">Skip to content</a>
+<nav class="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="../">6D&nbsp;Taxonomy</a>
+    <ul class="nav__links"><li><a href="../concepts/">Concepts</a></li><li><a href="../explorer/">Explorer</a></li><li><a href="../wizard/">Classify</a></li><li><a href="../compare/">Compare</a></li><li><a href="../disambiguate/">Terms</a></li><li><a href="../map/" aria-current="page">Map</a></li><li><a href="../ambiguity/">Why it matters</a></li><li><a href="../governance/">Governance</a></li><li><a href="../data/">Data</a></li><li><a href="../glossary/">Glossary</a></li></ul>
+    <button class="theme-toggle" data-theme-toggle type="button">dark</button>
+  </div>
+</nav>
+<main id="main">
+
+<div class="wrap section stack">
+  <h1>How the taxonomy is shaped</h1>
+
+  <section class="stack">
+    <h2>The model-tier ladder</h2>
+    <p>Moving down the hierarchy adds techniques without removing them — except
+       where a technique is superseded by a more general alternative. Supersession
+       is not binary: a superseded technique often remains technically available.</p>
+    <div class="grid grid--2">
+<div class="card stack" data-tier="ML">
+  <p class="eyebrow">ML · Machine Learning</p>
+  <p><strong>8</strong> techniques available</p>
+  <p><span class="provenance">New at this tier (8)</span><br>
+    <a href="../techniques/training/">Training</a>, <a href="../techniques/retraining/">Retraining</a>, <a href="../techniques/currilrn/">Curriculum Learning</a>, <a href="../techniques/activelrn/">Active Learning</a>, <a href="../techniques/dataaug/">Data Augmentation</a>, <a href="../techniques/semisl/">Semi-SL</a>, <a href="../techniques/fl/">FL</a>, <a href="../techniques/calib/">Calibration</a></p>
+  
+</div>
+<div class="card stack" data-tier="DL">
+  <p class="eyebrow">DL · Deep Learning</p>
+  <p><strong>28</strong> techniques available</p>
+  <p><span class="provenance">New at this tier (20)</span><br>
+    <a href="../techniques/fullft/">FT (full)</a>, <a href="../techniques/partft/">FT (partial)</a>, <a href="../techniques/peft/">PEFT (LoRA, adapters)</a>, <a href="../techniques/da/">DA</a>, <a href="../techniques/fsl/">FSL</a>, <a href="../techniques/cl/">CL</a>, <a href="../techniques/til/">TIL</a>, <a href="../techniques/dil/">DIL</a>, <a href="../techniques/lp/">LP</a>, <a href="../techniques/leace/">LEACE</a>, <a href="../techniques/advrstrn/">Adversarial Training</a>, <a href="../techniques/metalrn/">Meta-Learning</a>, <a href="../techniques/mtl/">MTL</a>, <a href="../techniques/selfplay/">Self-Play</a>, <a href="../techniques/ssl/">SSL / CPT</a>, <a href="../techniques/dpft/">DP-FT</a>, <a href="../techniques/kd/">KD</a>, <a href="../techniques/compress/">Model Compression</a>, <a href="../techniques/tta/">TTA</a>, <a href="../techniques/munlrn/">Machine Unlearning</a></p>
+  
+</div>
+<div class="card stack" data-tier="FM">
+  <p class="eyebrow">FM · Foundation Model</p>
+  <p><strong>32</strong> techniques available</p>
+  <p><span class="provenance">New at this tier (5)</span><br>
+    <a href="../techniques/taskarith/">Task Arith. &amp; Model Merging</a>, <a href="../techniques/lce/">Long-Context Ext.</a>, <a href="../techniques/moe/">MoE</a>, <a href="../techniques/pl/">Prompt Learning</a>, <a href="../techniques/crossmodel/">Cross-Modal Alignment</a></p>
+  
+</div>
+<div class="card stack" data-tier="LLM">
+  <p class="eyebrow">LLM · Large Language Model</p>
+  <p><strong>40</strong> techniques available</p>
+  <p><span class="provenance">New at this tier (14)</span><br>
+    <a href="../techniques/reft/">ReFT</a>, <a href="../techniques/sft/">SFT</a>, <a href="../techniques/rlhf/">RLHF (LLM Alignment)</a>, <a href="../techniques/dpo/">DPO</a>, <a href="../techniques/rlaif/">RLAIF/CAI</a>, <a href="../techniques/rlvr/">RLVR/GRPO</a>, <a href="../techniques/pe/">PE</a>, <a href="../techniques/apo/">APO</a>, <a href="../techniques/rag/">RAG</a>, <a href="../techniques/icl/">ICL</a>, <a href="../techniques/ce/">CE</a>, <a href="../techniques/ttcompute/">Test-Time Compute Scaling</a>, <a href="../techniques/ke/">Knowledge Editing</a>, <a href="../techniques/actsteer/">Activation Steering</a></p>
+  
+</div>
+<div class="card stack" data-tier="MLLM">
+  <p class="eyebrow">MLLM · Multimodal Large Language Model</p>
+  <p><strong>41</strong> techniques available</p>
+  <p><span class="provenance">New at this tier (2)</span><br>
+    <a href="../techniques/modeladapter/">Modality-Spec. Adapters</a>, <a href="../techniques/multimodinstr/">Multimodal Instr. Tuning</a></p>
+  
+</div></div>
+    <p class="provenance">Computed from D6 membership and curated supersession relations</p>
+  </section>
+
+  <section class="stack">
+    <h2>Do the families hold together?</h2>
+    <p>Not really — and the paper says so. Measuring how well the nine
+       navigational families separate in profile space gives a silhouette of
+       <strong>+0.0173</strong> across all rows, or
+       <strong>+0.0566</strong> over the
+       post-training techniques alone. Both are near zero; anything below about
+       0.2 indicates no meaningful clustering.</p>
+    <p class="callout">This is the expected result. The families are
+       <strong>navigational groupings to aid discovery</strong>, not validated
+       statistical clusters. Techniques share one anchor dimension while
+       differing on others, which is exactly why a single axis cannot hold
+       them.</p>
+    <p class="provenance">Computed from the taxonomy data</p>
+  </section>
+
+  <section class="stack">
+    <h2>Similarity projection</h2>
+    <div class="placeholder">
+      <p class="eyebrow">Not yet published</p>
+      <p>The projection in the paper predates a correction to one technique's
+         data profile. Rather than publish a figure the paper never showed,
+         this space stays empty until the analysis is re-run.</p>
+    </div>
+    <p>Pairwise distances are unaffected and are shown on every technique page
+       under <em>nearest profiles</em>.</p>
+  </section>
+</div>
+
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <p class="eyebrow">Paper</p>
+        <ul>
+          <li><a href="https://arxiv.org/abs/XXXX.XXXXX">arXiv:XXXX.XXXXX</a> <em>(placeholder)</em></li>
+          <li><a href="../data/">Download the data</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Repository</p>
+        <ul>
+          <li><a href="https://github.com/ki-smile/post-training-taxonomy">GitHub</a></li>
+          <li><a href="https://github.com/ki-smile/post-training-taxonomy/issues">Report a problem</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Licence</p>
+        <ul>
+          <li>Code — MIT</li>
+          <li>Data and prose — CC BY 4.0</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Authors</p>
+        <ul>
+          <li>Fardin Afdideh</li>
+          <li>Fernando Seoane</li>
+          <li>Farhad Abtahi</li>
+          <li>Karolinska Institutet</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:var(--sp-4);font-size:var(--step--2);opacity:.75">
+      This taxonomy supplies technical vocabulary for describing model changes. It is not legal advice and does not determine whether a change is a substantial modification, a significant change, or a reportable device change. Those determinations rest with manufacturers, regulators, and notified or auditing bodies under the applicable framework.
+    </p>
+  </div>
+</footer>
+<script type="module" src="../js/theme.js"></script>
+
+</body>
+</html>

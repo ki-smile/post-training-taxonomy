@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Training vs post-training adaptation · Post-Training Adaptation Taxonomy</title>
+<meta name="description" content="What counts as post-training adaptation, and what does not.">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/style.css">
+<script>
+  // Set the theme before first paint to avoid a flash.
+  (function () {
+    var t = localStorage.getItem('ptt-theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+</head>
+<body>
+<a class="visually-hidden" href="#main">Skip to content</a>
+<nav class="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="../">6D&nbsp;Taxonomy</a>
+    <ul class="nav__links"><li><a href="../concepts/" aria-current="page">Concepts</a></li><li><a href="../explorer/">Explorer</a></li><li><a href="../wizard/">Classify</a></li><li><a href="../compare/">Compare</a></li><li><a href="../disambiguate/">Terms</a></li><li><a href="../map/">Map</a></li><li><a href="../ambiguity/">Why it matters</a></li><li><a href="../governance/">Governance</a></li><li><a href="../data/">Data</a></li><li><a href="../glossary/">Glossary</a></li></ul>
+    <button class="theme-toggle" data-theme-toggle type="button">dark</button>
+  </div>
+</nav>
+<main id="main">
+
+<div class="wrap section stack">
+  <h1>Training, or post-training?</h1>
+  <p style="font-size:var(--step-1)">&ldquo;Post-training&rdquo; is an
+     operational context, not a technique class. It marks the point after which
+     a model already exists and may carry obligations.</p>
+
+  <section class="stack">
+    <h2>The lifecycle</h2>
+    <pre>  Training  →  Deployment  →  Drift  →  Post-training adaptation  →  Redeployment
+                                                    ↑
+                              48 techniques live here</pre>
+  </section>
+
+  <section class="stack">
+    <h2>Five things that all look like &ldquo;updating the weights&rdquo;</h2>
+    <p>Each pair below shares most of its profile. The column that matters is
+       the last one: only a dimension where the two share <em>no</em> value
+       actually separates them.</p>
+    <div class="table-scroll"><table>
+      <thead><tr><th>Pair</th><th>Identical on</th><th>Overlapping</th>
+        <th>Separated by</th></tr></thead>
+      <tbody><tr><td>Training vs Retraining</td><td>D1, D4, D5, D6</td><td>—</td><td><strong>D2, D3</strong></td></tr><tr><td>Retraining vs FT (full)</td><td>D1, D4, D5</td><td>D6</td><td><strong>D2, D3</strong></td></tr><tr><td>FT (full) vs FT (partial)</td><td>D1, D2, D4, D6</td><td>—</td><td><strong>D3, D5</strong></td></tr><tr><td>FT (partial) vs PEFT (LoRA, adapters)</td><td>D1, D3, D4, D6</td><td>D2, D5</td><td><strong>—</strong></td></tr><tr><td>Retraining vs CL</td><td>D1, D3</td><td>D6</td><td><strong>D2, D4, D5</strong></td></tr><tr><td>FSL vs ICL</td><td>—</td><td>D2, D3</td><td><strong>D1, D4, D5, D6</strong></td></tr></tbody>
+    </table></div>
+    <p class="provenance">Computed from the taxonomy data</p>
+    <p class="callout">Partial FT and PEFT have <strong>no</strong> separating
+      dimension: PEFT strictly extends Partial FT rather than differing from it.
+      A two-state comparison would report them as &ldquo;separated&rdquo;, which
+      would be wrong.</p>
+  </section>
+
+  <section class="stack">
+    <h2>What drift means</h2>
+    <div class="grid grid--2">
+      <div class="card"><p class="eyebrow">Covariate shift</p>
+        <p>The inputs change; the input–output relationship holds.</p></div>
+      <div class="card"><p class="eyebrow">Concept drift</p>
+        <p>The input–output mapping itself changes, invalidating learned
+           behaviour.</p></div>
+      <div class="card"><p class="eyebrow">Prompt drift</p>
+        <p>How people interact with the model evolves.</p></div>
+      <div class="card"><p class="eyebrow">Alignment drift</p>
+        <p>Static behaviour diverges from shifting safety or cultural
+           standards.</p></div>
+    </div>
+    <p class="reg-claim">Monitoring for drift may be treated as a safety and
+      reliability control, not only as a technical optimisation.</p>
+  </section>
+
+  <section class="stack">
+    <h2>What is in scope — and what is not</h2>
+    <div class="grid grid--3">
+      <div class="card stack"><p class="eyebrow">Core</p>
+        <p>Methods applied after training that modify parameters, inference
+           context, or outputs — fine-tuning, PEFT, alignment, RAG, knowledge
+           editing.</p></div>
+      <div class="card stack"><p class="eyebrow">Boundary extension</p>
+        <p>Training-time data-pipeline strategies applied to an existing model
+           as an adaptation mechanism — augmentation, curriculum learning,
+           active learning. Marked pipeline-mediated so their status stays
+           visible.</p></div>
+      <div class="card stack"><p class="eyebrow">Excluded</p>
+        <p>Deployment-layer controls: output guardrails, content moderation,
+           watermarking, post-processing, human-in-the-loop review. Also
+           foundational learning paradigms and low-level optimisations.</p></div>
+    </div>
+    <p class="callout callout--warn"><strong>Why the exclusions matter.</strong>
+      Deployment-layer controls are excluded because they do not modify the
+      model's parameters, inference context, or adaptation pipeline as this
+      taxonomy defines them. That is a scope boundary, not a claim of
+      regulatory irrelevance.</p>
+  </section>
+
+  <section class="stack">
+    <h2>Two names, one scope</h2>
+    <p><strong>Model adaptation</strong> is the academic umbrella, used when
+       discussing technical properties. <strong>Post-training techniques</strong>
+       is the industry and regulatory framing, used when the point is that the
+       model already exists and may carry obligations. Same
+       48 techniques either way.</p>
+    <p><a class="btn" href="../explorer/">Browse them all</a>
+       <a class="btn" href="../ambiguity/">Why precision matters</a></p>
+  </section>
+</div>
+
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <p class="eyebrow">Paper</p>
+        <ul>
+          <li><a href="https://arxiv.org/abs/XXXX.XXXXX">arXiv:XXXX.XXXXX</a> <em>(placeholder)</em></li>
+          <li><a href="../data/">Download the data</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Repository</p>
+        <ul>
+          <li><a href="https://github.com/ki-smile/post-training-taxonomy">GitHub</a></li>
+          <li><a href="https://github.com/ki-smile/post-training-taxonomy/issues">Report a problem</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Licence</p>
+        <ul>
+          <li>Code — MIT</li>
+          <li>Data and prose — CC BY 4.0</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Authors</p>
+        <ul>
+          <li>Fardin Afdideh</li>
+          <li>Fernando Seoane</li>
+          <li>Farhad Abtahi</li>
+          <li>Karolinska Institutet</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:var(--sp-4);font-size:var(--step--2);opacity:.75">
+      This taxonomy supplies technical vocabulary for describing model changes. It is not legal advice and does not determine whether a change is a substantial modification, a significant change, or a reportable device change. Those determinations rest with manufacturers, regulators, and notified or auditing bodies under the applicable framework.
+    </p>
+  </div>
+</footer>
+<script type="module" src="../js/theme.js"></script>
+
+</body>
+</html>

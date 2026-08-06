@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LEACE · Post-Training Adaptation Taxonomy</title>
+<meta name="description" content="Surgically removes a concept&#x27;s linear influence from the model&#x27;s representations — used for fairness work — with a closed-form edit rather than training.">
+<link rel="stylesheet" href="../../css/tokens.css">
+<link rel="stylesheet" href="../../css/style.css">
+<script>
+  // Set the theme before first paint to avoid a flash.
+  (function () {
+    var t = localStorage.getItem('ptt-theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+</head>
+<body>
+<a class="visually-hidden" href="#main">Skip to content</a>
+<nav class="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="../../">6D&nbsp;Taxonomy</a>
+    <ul class="nav__links"><li><a href="../../concepts/">Concepts</a></li><li><a href="../../explorer/">Explorer</a></li><li><a href="../../wizard/">Classify</a></li><li><a href="../../compare/">Compare</a></li><li><a href="../../disambiguate/">Terms</a></li><li><a href="../../map/">Map</a></li><li><a href="../../ambiguity/">Why it matters</a></li><li><a href="../../governance/">Governance</a></li><li><a href="../../data/">Data</a></li><li><a href="../../glossary/">Glossary</a></li></ul>
+    <button class="theme-toggle" data-theme-toggle type="button">dark</button>
+  </div>
+</nav>
+<main id="main">
+
+<div class="wrap section stack">
+  <p class="eyebrow">Alignment, Reasoning, and Trustworthiness</p>
+  <h1>LEACE</h1>
+  
+  <div class="profile-strip" role="group" aria-label="Six-dimensional profile"><div class="profile-cell"><span class="profile-cell__dim">D1</span><span class="profile-cell__values"><span><a class="chip" data-dim="d1" href="../../dimensions/d1/#parameter-composition">Param. Comp.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D2</span><span class="profile-cell__values"><span><a class="chip" data-dim="d2" href="../../dimensions/d2/#fairness">Fair.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D3</span><span class="profile-cell__values"><span><a class="chip" data-dim="d3" href="../../dimensions/d3/#small-labeled">Small Labeled</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D4</span><span class="profile-cell__values"><span><a class="chip" data-dim="d4" href="../../dimensions/d4/#ad-hoc-permanent">Ad-hoc Perm.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D5</span><span class="profile-cell__values"><span><a class="chip" data-dim="d5" href="../../dimensions/d5/#partial">Part.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D6</span><span class="profile-cell__values"><span><a class="chip" data-dim="d6" href="../../dimensions/d6/#dl">DL</a></span><span><a class="chip" data-dim="d6" href="../../dimensions/d6/#fm">FM</a></span><span><a class="chip" data-dim="d6" href="../../dimensions/d6/#llm">LLM</a></span><span><a class="chip" data-dim="d6" href="../../dimensions/d6/#mllm">MLLM</a></span></span></div></div>
+  <div class="editorial stack">
+    <p class="provenance">In brief — site editorial, not from the paper</p>
+    <p>Surgically removes a concept&#x27;s linear influence from the model&#x27;s representations — used for fairness work — with a closed-form edit rather than training.</p>
+  </div>
+  <section class="stack"><h2>Definition</h2><div class="verbatim">LEACE targets <span class="chip" data-dim="d2" data-slug="fairness">Fairness</span> through a mechanistically novel D1 (Mechanism) pathway: rather than employing iterative GD, it operates via <span class="chip" data-dim="d1" data-slug="parameter-composition">Parameter Composition</span>—computing a covariance-based orthogonal projection from a <span class="chip" data-dim="d3" data-slug="small-labeled">Small Labeled</span> and algebraically projecting the model&#x27;s weight matrices into the null space of a target concept&#x27;s linear representation <sup class="cite" data-cite="belrose_leace_2023">[ref]</sup>, a parameter composition operation analogous to Task Arithmetic but operating on concept subspaces rather than task capability directions. This closed-form linear algebra operation bypasses the computational footprint of traditional parameter-updating methods entirely, producing a <span class="chip" data-dim="d4" data-slug="ad-hoc-permanent">Ad-hoc Permanent</span>, <span class="chip" data-dim="d5" data-slug="partial">Partial</span> modification at negligible training cost. Compared to LP, which trains a probe head on top of a frozen base to expose linear concept encodings, LEACE inverts the operation: it takes the same linear concept subspace identified by probing and algebraically projects it out of the base model&#x27;s weight matrices—making LP and LEACE complementary, with LP as the diagnostic step and LEACE as the corrective intervention targeting the same identified representation. The <span class="chip" data-dim="d4" data-slug="ad-hoc-permanent">Ad-hoc Permanent</span> Permanent coordinate reflects that LEACE produces an irreversible, event-driven modification at negligible compute cost—unlike gradient-based fairness interventions that require training runs, LEACE can be applied as a post-hoc weight surgery. The <span class="chip" data-dim="d5" data-slug="partial">Partial</span> scope is bounded by the targeted layers: only the weight matrices encoding the concept&#x27;s linear subspace are projected; all other parameters remain unchanged. Its operational and validation significance lies in the deterministic auditability of the intervention: because the modification is derived analytically from a strict concept specification, it is fully reproducible and mathematically characterizable; the concept subspace, projection matrix, and labeled probe dataset constitute a complete audit trail for the fairness intervention—validation requires verifying that the modified representation is linearly indecipherable for the target concept while baseline task performance is preserved, both of which are statistically testable properties.</div><p class="provenance">Verbatim from the paper — Alignment, Reasoning, and Trustworthiness</p></section>
+  
+  
+  
+  <section class="stack"><h2>Nearest profiles</h2><p class="computed"><a href="../../techniques/ke/">Knowledge Editing</a> <span style="color:var(--text-muted)">(0.33)</span>, <a href="../../techniques/partft/">FT (partial)</a> <span style="color:var(--text-muted)">(0.42)</span>, <a href="../../techniques/pl/">Prompt Learning</a> <span style="color:var(--text-muted)">(0.46)</span>, <a href="../../techniques/munlrn/">Machine Unlearning</a> <span style="color:var(--text-muted)">(0.50)</span>, <a href="../../techniques/peft/">PEFT (LoRA, adapters)</a> <span style="color:var(--text-muted)">(0.50)</span></p><p class="provenance">Computed from the taxonomy data (Gower distance over all six dimensions)</p></section>
+  <section class="stack">
+    <h2>Cite this row</h2>
+    <pre>LEACE — six-dimensional profile
+D1: parameter-composition
+D2: fairness
+D3: small-labeled
+D4: ad-hoc-permanent
+D5: partial
+D6: dl, fm, llm, mllm
+Source: arXiv:XXXX.XXXXX</pre>
+    <a class="btn" href="../../compare/?t=leace,training">Compare with another technique</a>
+    <a class="btn" href="../../explorer/?q=leace">Find in the explorer</a>
+  </section>
+</div>
+
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <p class="eyebrow">Paper</p>
+        <ul>
+          <li><a href="https://arxiv.org/abs/XXXX.XXXXX">arXiv:XXXX.XXXXX</a> <em>(placeholder)</em></li>
+          <li><a href="../../data/">Download the data</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Repository</p>
+        <ul>
+          <li><a href="https://github.com/ki-smile/post-training-taxonomy">GitHub</a></li>
+          <li><a href="https://github.com/ki-smile/post-training-taxonomy/issues">Report a problem</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Licence</p>
+        <ul>
+          <li>Code — MIT</li>
+          <li>Data and prose — CC BY 4.0</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Authors</p>
+        <ul>
+          <li>Fardin Afdideh</li>
+          <li>Fernando Seoane</li>
+          <li>Farhad Abtahi</li>
+          <li>Karolinska Institutet</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:var(--sp-4);font-size:var(--step--2);opacity:.75">
+      This taxonomy supplies technical vocabulary for describing model changes. It is not legal advice and does not determine whether a change is a substantial modification, a significant change, or a reportable device change. Those determinations rest with manufacturers, regulators, and notified or auditing bodies under the applicable framework.
+    </p>
+  </div>
+</footer>
+<script type="module" src="../../js/theme.js"></script>
+
+</body>
+</html>

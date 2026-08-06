@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data · Post-Training Adaptation Taxonomy</title>
+<meta name="description" content="Download the taxonomy as JSON and CSV.">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/style.css">
+<script>
+  // Set the theme before first paint to avoid a flash.
+  (function () {
+    var t = localStorage.getItem('ptt-theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+</head>
+<body>
+<a class="visually-hidden" href="#main">Skip to content</a>
+<nav class="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="../">6D&nbsp;Taxonomy</a>
+    <ul class="nav__links"><li><a href="../concepts/">Concepts</a></li><li><a href="../explorer/">Explorer</a></li><li><a href="../wizard/">Classify</a></li><li><a href="../compare/">Compare</a></li><li><a href="../disambiguate/">Terms</a></li><li><a href="../map/">Map</a></li><li><a href="../ambiguity/">Why it matters</a></li><li><a href="../governance/">Governance</a></li><li><a href="../data/" aria-current="page">Data</a></li><li><a href="../glossary/">Glossary</a></li></ul>
+    <button class="theme-toggle" data-theme-toggle type="button">dark</button>
+  </div>
+</nav>
+<main id="main">
+
+<div class="wrap section stack">
+  <h1>Download the data</h1>
+  <p>The taxonomy is published as data, not only as a website. Every profile is
+     machine-extracted from the manuscript and cross-checked against the
+     authors' analysis notebook.</p>
+
+  <div class="grid grid--2">
+    <div class="card stack"><h3>taxonomy.json</h3>
+      <p>49 records with full six-dimensional profiles,
+         definitions, and provenance.</p>
+      <a class="btn" href="../data/taxonomy.json" download>Download JSON</a></div>
+    <div class="card stack"><h3>taxonomy.csv</h3>
+      <p>The same table flattened for spreadsheets; set-valued cells joined
+         with <code>|</code>.</p>
+      <a class="btn" href="../data/taxonomy.csv" download>Download CSV</a></div>
+    <div class="card stack"><h3>dimensions.json</h3>
+      <p>All six vocabularies with definitions and meta-groups.</p>
+      <a class="btn" href="../data/dimensions.json" download>Download</a></div>
+    <div class="card stack"><h3>derived.json</h3>
+      <p>Gower distances, nearest profiles, separators, silhouette.</p>
+      <a class="btn" href="../data/derived.json" download>Download</a></div>
+  </div>
+
+  <section class="stack">
+    <h2>How it was verified</h2>
+    <ul>
+      <li>All <strong>294</strong>
+        profile cells compared between the manuscript table and the authors'
+        notebook; <strong>294</strong>
+        agree.</li>
+      <li>Every dimension value is checked against its published vocabulary.</li>
+      <li>Nothing is re-typed by hand.</li>
+    </ul>
+    <p><strong>Adjudicated differences</strong></p><ul><li><strong>fsl</strong> / D3 — resolved in favour of the manuscript. Appendix C states FSL relies on either 1-5 examples for metric-based support sets or tens of examples for gradient-based updates, so both values belong. The notebook was corrected 2026-08-06 and now reproduces the manuscript&#x27;s reported raw-Gower silhouette of +0.0173.</li></ul>
+  </section>
+
+  <section class="stack">
+    <h2>Using the identifiers</h2>
+    <p>The <code>slug</code> is the stable identifier — use it for
+       cross-references and URLs. Row numbers appear in the paper but depend on
+       how the document is built, so they are display metadata only.</p>
+    <p>Every dimension value is an <strong>array</strong>, including
+       single-valued ones. Set-valued cells are the normal case.</p>
+  </section>
+
+  <section class="stack">
+    <h2>Citing the dataset</h2>
+    <pre>Afdideh, F., Seoane, F., &amp; Abtahi, F. (2026).
+A Six-Dimensional Taxonomy of Post-Training Adaptation Techniques
+with Applications in AI Governance. arXiv:XXXX.XXXXX</pre>
+    <p>Data and extracted prose are CC BY 4.0; code is MIT.</p>
+  </section>
+</div>
+
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <p class="eyebrow">Paper</p>
+        <ul>
+          <li><a href="https://arxiv.org/abs/XXXX.XXXXX">arXiv:XXXX.XXXXX</a> <em>(placeholder)</em></li>
+          <li><a href="../data/">Download the data</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Repository</p>
+        <ul>
+          <li><a href="https://github.com/ki-smile/post-training-taxonomy">GitHub</a></li>
+          <li><a href="https://github.com/ki-smile/post-training-taxonomy/issues">Report a problem</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Licence</p>
+        <ul>
+          <li>Code — MIT</li>
+          <li>Data and prose — CC BY 4.0</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Authors</p>
+        <ul>
+          <li>Fardin Afdideh</li>
+          <li>Fernando Seoane</li>
+          <li>Farhad Abtahi</li>
+          <li>Karolinska Institutet</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:var(--sp-4);font-size:var(--step--2);opacity:.75">
+      This taxonomy supplies technical vocabulary for describing model changes. It is not legal advice and does not determine whether a change is a substantial modification, a significant change, or a reportable device change. Those determinations rest with manufacturers, regulators, and notified or auditing bodies under the applicable framework.
+    </p>
+  </div>
+</footer>
+<script type="module" src="../js/theme.js"></script>
+
+</body>
+</html>

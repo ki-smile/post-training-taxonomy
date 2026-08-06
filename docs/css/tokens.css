@@ -1,0 +1,116 @@
+/* ==========================================================================
+   Design tokens — Post-Training Adaptation Taxonomy
+   KI palette, shared with the KI-SMILE site family.
+
+   The subject is a notation system: a technique is a coordinate, not a
+   category. Display type is therefore set in the same monospace as the
+   profiles themselves, so the page reads as notation rather than article.
+   ========================================================================== */
+
+:root {
+  /* KI brand */
+  --ki-plum: #870052;
+  --ki-dark-plum: #4F0433;
+  --ki-orange: #e56550;
+  --ki-orange-bright: #FF876F;
+
+  /* Type */
+  --font-display: 'DM Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'DM Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --step--2: clamp(.69rem, .68rem + .06vw, .74rem);
+  --step--1: clamp(.82rem, .80rem + .10vw, .88rem);
+  --step-0:  clamp(1rem, .97rem + .15vw, 1.06rem);
+  --step-1:  clamp(1.25rem, 1.18rem + .35vw, 1.5rem);
+  --step-2:  clamp(1.6rem, 1.45rem + .7vw, 2.1rem);
+  --step-3:  clamp(2.1rem, 1.8rem + 1.4vw, 3.2rem);
+
+  --sp-1: .25rem;  --sp-2: .5rem;   --sp-3: 1rem;
+  --sp-4: 1.5rem;  --sp-5: 2.5rem;  --sp-6: 4rem;
+
+  --radius: 3px;
+  --measure: 68ch;
+  --transition: 160ms cubic-bezier(.4, 0, .2, 1);
+}
+
+/* --------------------------------------------------------------------------
+   Dimension ramp: plum -> orange, encoding that D1..D6 are ORDERED.
+
+   Colour is never the sole channel — every chip and cell also carries its
+   D-label, so the strip stays readable in monochrome and for readers who
+   cannot distinguish adjacent steps.
+
+   Every value below is >= 4.5:1 against its own theme's surface (WCAG AA).
+   Measured: light 14.31 / 10.10 / 6.91 / 5.26 / 4.52 / 4.57
+             dark   8.90 /  9.57 /10.55 /11.69 /12.82 /14.23
+   -------------------------------------------------------------------------- */
+
+:root,
+[data-theme="light"] {
+  --bg: #ffffff;
+  --surface: #fdf8fb;
+  --surface-2: #f5edf3;
+  --text: #1a0a16;
+  --text-muted: #665566;
+  --border: #eddbe4;
+  --accent: var(--ki-plum);
+  --accent-warm: #b1462c;
+  --band: var(--ki-dark-plum);
+  --band-text: #f5edf3;
+  --shadow-1: 0 1px 3px rgba(26, 10, 22, .10);
+  --shadow-2: 0 6px 18px rgba(26, 10, 22, .08);
+
+  --d1: #4F0433;
+  --d2: #7A0B4C;
+  --d3: #A31D5E;
+  --d4: #BE3357;
+  --d5: #C6484A;
+  --d6: #B15A33;
+}
+
+[data-theme="dark"] {
+  --bg: #0f050c;
+  --surface: #1a0a16;
+  --surface-2: #251221;
+  --text: #f5edf3;
+  --text-muted: #a08898;
+  --border: rgba(255, 135, 111, .18);
+  --accent: #d088b8;
+  --accent-warm: #ffb08f;
+  --band: #090308;
+  --band-text: #f5edf3;
+  --shadow-1: 0 2px 6px rgba(0, 0, 0, .4);
+  --shadow-2: 0 10px 24px rgba(0, 0, 0, .5);
+
+  --d1: #D9A0C4;
+  --d2: #E0A8BE;
+  --d3: #EBB3AE;
+  --d4: #F5BFA0;
+  --d5: #FBCB96;
+  --d6: #FFD8A8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f050c;
+    --surface: #1a0a16;
+    --surface-2: #251221;
+    --text: #f5edf3;
+    --text-muted: #a08898;
+    --border: rgba(255, 135, 111, .18);
+    --accent: #d088b8;
+    --accent-warm: #ffb08f;
+    --band: #090308;
+    --band-text: #f5edf3;
+    --shadow-1: 0 2px 6px rgba(0, 0, 0, .4);
+    --shadow-2: 0 10px 24px rgba(0, 0, 0, .5);
+
+    --d1: #D9A0C4;
+    --d2: #E0A8BE;
+    --d3: #EBB3AE;
+    --d4: #F5BFA0;
+    --d5: #FBCB96;
+    --d6: #FFD8A8;
+  }
+}

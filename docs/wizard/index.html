@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Classify a change · Post-Training Adaptation Taxonomy</title>
+<meta name="description" content="Name a model change with a six-dimensional profile.">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/style.css">
+<script>
+  // Set the theme before first paint to avoid a flash.
+  (function () {
+    var t = localStorage.getItem('ptt-theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+</head>
+<body>
+<a class="visually-hidden" href="#main">Skip to content</a>
+<nav class="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="../">6D&nbsp;Taxonomy</a>
+    <ul class="nav__links"><li><a href="../concepts/">Concepts</a></li><li><a href="../explorer/">Explorer</a></li><li><a href="../wizard/" aria-current="page">Classify</a></li><li><a href="../compare/">Compare</a></li><li><a href="../disambiguate/">Terms</a></li><li><a href="../map/">Map</a></li><li><a href="../ambiguity/">Why it matters</a></li><li><a href="../governance/">Governance</a></li><li><a href="../data/">Data</a></li><li><a href="../glossary/">Glossary</a></li></ul>
+    <button class="theme-toggle" data-theme-toggle type="button">dark</button>
+  </div>
+</nav>
+<main id="main">
+
+<div class="wrap section stack">
+  <h1>Describe a change</h1>
+  <p style="font-size:var(--step-1)">Answer in the order the paper suggests:
+     what model, then why, then what data you had.</p>
+
+  <p class="callout callout--warn reg-claim">This taxonomy supplies technical vocabulary for describing model changes. It is not legal advice and does not determine whether a change is a substantial modification, a significant change, or a reportable device change. Those determinations rest with manufacturers, regulators, and notified or auditing bodies under the applicable framework.</p>
+
+  <section class="stack">
+    <h2>1 · What model type?</h2>
+    <p class="provenance">The only step that removes candidates</p>
+    <div class="optgrid"><label class="opt"><input type="radio" name="d6" value="dl"> <span>Deep Learning</span></label><label class="opt"><input type="radio" name="d6" value="fm"> <span>Foundation Model</span></label><label class="opt"><input type="radio" name="d6" value="llm"> <span>Large Language Model</span></label><label class="opt"><input type="radio" name="d6" value="ml"> <span>Machine Learning</span></label><label class="opt"><input type="radio" name="d6" value="mllm"> <span>Multimodal Large Language Model</span></label></div>
+  </section>
+
+  <section class="stack">
+    <h2>2 · What was the goal?</h2>
+    <p class="provenance">Ranks candidates — never eliminates them</p>
+    <div class="optgrid"><label class="opt"><input type="radio" name="d2" value="alignment"> <span>Alignment</span></label><label class="opt"><input type="radio" name="d2" value="behavior-control"> <span>Behavior Control</span></label><label class="opt"><input type="radio" name="d2" value="build-capability"> <span>Build Capability</span></label><label class="opt"><input type="radio" name="d2" value="capability-extension"> <span>Capability Extension</span></label><label class="opt"><input type="radio" name="d2" value="computational-efficiency"> <span>Computational Efficiency</span></label><label class="opt"><input type="radio" name="d2" value="continual-adaptation"> <span>Continual Adaptation</span></label><label class="opt"><input type="radio" name="d2" value="distributional-gap-bridging"> <span>Distributional Gap Bridging</span></label><label class="opt"><input type="radio" name="d2" value="drift-remediation"> <span>Drift Remediation</span></label><label class="opt"><input type="radio" name="d2" value="explainability"> <span>Explainability</span></label><label class="opt"><input type="radio" name="d2" value="fairness"> <span>Fairness</span></label><label class="opt"><input type="radio" name="d2" value="knowledge-update"> <span>Knowledge Update</span></label><label class="opt"><input type="radio" name="d2" value="personalization"> <span>Personalization</span></label><label class="opt"><input type="radio" name="d2" value="privacy-preservation"> <span>Privacy Preservation</span></label><label class="opt"><input type="radio" name="d2" value="reasoning"> <span>Reasoning</span></label><label class="opt"><input type="radio" name="d2" value="reliability"> <span>Reliability</span></label><label class="opt"><input type="radio" name="d2" value="remove-knowledge"> <span>Remove Knowledge</span></label><label class="opt"><input type="radio" name="d2" value="robustness"> <span>Robustness</span></label><label class="opt"><input type="radio" name="d2" value="safety"> <span>Safety</span></label><label class="opt"><input type="radio" name="d2" value="task-specialization"> <span>Task Specialization</span></label></div>
+  </section>
+
+  <section class="stack">
+    <h2>3 · What data did you have?</h2>
+    <p class="provenance">Ranks candidates — never eliminates them</p>
+    <div class="optgrid"><label class="opt"><input type="radio" name="d3" value="constitution-derived"> <span>Constitution-Derived</span></label><label class="opt"><input type="radio" name="d3" value="decentralized"> <span>Decentralized</span></label><label class="opt"><input type="radio" name="d3" value="environment-derived"> <span>Environment-Derived</span></label><label class="opt"><input type="radio" name="d3" value="external-corpus"> <span>External Corpus</span></label><label class="opt"><input type="radio" name="d3" value="few-demonstrations"> <span>Few Demonstrations</span></label><label class="opt"><input type="radio" name="d3" value="forget-set-specification"> <span>Forget Set Specification</span></label><label class="opt"><input type="radio" name="d3" value="instruction-response-corpus"> <span>Instruction-Response Corpus</span></label><label class="opt"><input type="radio" name="d3" value="large-labeled"> <span>Large Labeled</span></label><label class="opt"><input type="radio" name="d3" value="paired-multimodal"> <span>Paired Multimodal</span></label><label class="opt"><input type="radio" name="d3" value="parameter-only"> <span>Parameter-Only</span></label><label class="opt"><input type="radio" name="d3" value="pipeline-dependent"> <span>Pipeline-Dependent</span></label><label class="opt"><input type="radio" name="d3" value="preference-pairs"> <span>Preference Pairs</span></label><label class="opt"><input type="radio" name="d3" value="sequential-incremental"> <span>Sequential / Incremental</span></label><label class="opt"><input type="radio" name="d3" value="small-labeled"> <span>Small Labeled</span></label><label class="opt"><input type="radio" name="d3" value="task-distribution"> <span>Task Distribution</span></label><label class="opt"><input type="radio" name="d3" value="teacher-derived"> <span>Teacher-Derived</span></label><label class="opt"><input type="radio" name="d3" value="test-only"> <span>Test-Only</span></label><label class="opt"><input type="radio" name="d3" value="unlabeled"> <span>Unlabeled</span></label><label class="opt"><input type="radio" name="d3" value="user-interaction-data"> <span>User Interaction Data</span></label><label class="opt"><input type="radio" name="d3" value="verifiable-task"> <span>Verifiable Task</span></label><label class="opt"><input type="radio" name="d3" value="zero-shot"> <span>Zero-Shot</span></label></div>
+  </section>
+
+  <p class="callout"><strong>None of these?</strong> If your change is an output
+     guardrail, a moderation filter, a watermark, or post-processing, it sits
+     outside this taxonomy by design.
+     <a href="../concepts/#scope">See what is in scope</a>.</p>
+
+  <section class="stack">
+    <h2>Candidates</h2>
+    <p id="wizard-count" aria-live="polite" class="provenance">Choose a model type to begin.</p>
+    <div id="wizard-results" class="stack"></div>
+  </section>
+
+  <section class="stack" id="wizard-output" hidden>
+    <h2>Your profile</h2>
+    <div id="wizard-profile"></div>
+    <h3>For a change log</h3>
+    <pre id="wizard-prose"></pre>
+    <h3>As JSON</h3>
+    <pre id="wizard-json"></pre>
+  </section>
+</div>
+
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <p class="eyebrow">Paper</p>
+        <ul>
+          <li><a href="https://arxiv.org/abs/XXXX.XXXXX">arXiv:XXXX.XXXXX</a> <em>(placeholder)</em></li>
+          <li><a href="../data/">Download the data</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Repository</p>
+        <ul>
+          <li><a href="https://github.com/ki-smile/post-training-taxonomy">GitHub</a></li>
+          <li><a href="https://github.com/ki-smile/post-training-taxonomy/issues">Report a problem</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Licence</p>
+        <ul>
+          <li>Code — MIT</li>
+          <li>Data and prose — CC BY 4.0</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Authors</p>
+        <ul>
+          <li>Fardin Afdideh</li>
+          <li>Fernando Seoane</li>
+          <li>Farhad Abtahi</li>
+          <li>Karolinska Institutet</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:var(--sp-4);font-size:var(--step--2);opacity:.75">
+      This taxonomy supplies technical vocabulary for describing model changes. It is not legal advice and does not determine whether a change is a substantial modification, a significant change, or a reportable device change. Those determinations rest with manufacturers, regulators, and notified or auditing bodies under the applicable framework.
+    </p>
+  </div>
+</footer>
+<script type="module" src="../js/theme.js"></script>
+<script type="module" src="../js/wizard.js"></script>
+</body>
+</html>

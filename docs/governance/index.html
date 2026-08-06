@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Governance mapping · Post-Training Adaptation Taxonomy</title>
+<meta name="description" content="How the six dimensions map to AI governance documentation.">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/style.css">
+<script>
+  // Set the theme before first paint to avoid a flash.
+  (function () {
+    var t = localStorage.getItem('ptt-theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+</head>
+<body>
+<a class="visually-hidden" href="#main">Skip to content</a>
+<nav class="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="../">6D&nbsp;Taxonomy</a>
+    <ul class="nav__links"><li><a href="../concepts/">Concepts</a></li><li><a href="../explorer/">Explorer</a></li><li><a href="../wizard/">Classify</a></li><li><a href="../compare/">Compare</a></li><li><a href="../disambiguate/">Terms</a></li><li><a href="../map/">Map</a></li><li><a href="../ambiguity/">Why it matters</a></li><li><a href="../governance/" aria-current="page">Governance</a></li><li><a href="../data/">Data</a></li><li><a href="../glossary/">Glossary</a></li></ul>
+    <button class="theme-toggle" data-theme-toggle type="button">dark</button>
+  </div>
+</nav>
+<main id="main">
+
+<div class="wrap section stack">
+  <h1>Mapping to governance frameworks</h1>
+  <p class="callout callout--warn reg-claim">This taxonomy supplies technical vocabulary for describing model changes. It is not legal advice and does not determine whether a change is a substantial modification, a significant change, or a reportable device change. Those determinations rest with manufacturers, regulators, and notified or auditing bodies under the applicable framework.</p>
+
+  <section class="stack">
+    <h2>What each dimension can document</h2>
+    <div class="table-scroll"><table>
+      <thead><tr><th>Dimension</th><th>Question it answers</th></tr></thead>
+      <tbody><tr><td><strong>D1</strong> Mechanism</td><td>What changes?</td></tr><tr><td><strong>D2</strong> Goal</td><td>Why adapt?</td></tr><tr><td><strong>D3</strong> Data Requirements</td><td>What data is needed?</td></tr><tr><td><strong>D4</strong> Persistence</td><td>How long does the change last?</td></tr><tr><td><strong>D5</strong> Scope</td><td>How much of the model structure is modified?</td></tr><tr><td><strong>D6</strong> Model Type</td><td>What model is being adapted?</td></tr></tbody>
+    </table></div>
+  </section>
+
+  <section class="stack">
+    <h2>Four frameworks</h2>
+    <div class="grid grid--2">
+      <div class="card stack"><h3>NIST AI RMF</h3>
+        <p class="reg-claim">Its lifecycle stages and core functions may be
+          mapped to adaptation goals: the operate-and-monitor stage invokes
+          drift remediation and continual adaptation, which can be separated by
+          persistence (D4) and structural scope (D5). Data-stage obligations
+          connect to D3.</p></div>
+      <div class="card stack"><h3>EU AI Act</h3>
+        <p class="reg-claim">Risk-based requirements and post-market obligations
+          may be informed by goal, persistence, and scope. A compute threshold
+          can identify large fine-tuning events but may not capture low-compute
+          interventions that materially alter behaviour. Derived artifacts with
+          fused composition may heighten the need for provenance
+          documentation.</p></div>
+      <div class="card stack"><h3>EU MDR / IVDR</h3>
+        <p class="reg-claim">Post-market surveillance obligations may draw on
+          D1, D4, and D5 for technical documentation, and on D2 and D3 for
+          benefit-risk and clinical evaluation. A change driven by drift
+          remediation can be distinguished from one driven by task
+          specialisation even where mechanism and persistence are
+          identical.</p></div>
+      <div class="card stack"><h3>FDA PCCP</h3>
+        <p class="reg-claim">Modification description may map to D1, D4, D5 and
+          D6; the modification protocol to D3 plus separately stated validation
+          criteria; impact assessment to D2 and D4 alongside intended-purpose
+          analysis conducted outside this framework.</p></div>
+    </div>
+  </section>
+
+  <section class="stack">
+    <h2>Start from a technique</h2>
+    <p>Every technique page carries its full profile, so the documentation
+       dimensions above can be read off directly.</p>
+    <p><a class="btn" href="../explorer/">Find a technique</a>
+       <a class="btn" href="../wizard/">Describe a change</a>
+       <a class="btn" href="../ambiguity/">Why this matters</a></p>
+  </section>
+</div>
+
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <p class="eyebrow">Paper</p>
+        <ul>
+          <li><a href="https://arxiv.org/abs/XXXX.XXXXX">arXiv:XXXX.XXXXX</a> <em>(placeholder)</em></li>
+          <li><a href="../data/">Download the data</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Repository</p>
+        <ul>
+          <li><a href="https://github.com/ki-smile/post-training-taxonomy">GitHub</a></li>
+          <li><a href="https://github.com/ki-smile/post-training-taxonomy/issues">Report a problem</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Licence</p>
+        <ul>
+          <li>Code — MIT</li>
+          <li>Data and prose — CC BY 4.0</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Authors</p>
+        <ul>
+          <li>Fardin Afdideh</li>
+          <li>Fernando Seoane</li>
+          <li>Farhad Abtahi</li>
+          <li>Karolinska Institutet</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:var(--sp-4);font-size:var(--step--2);opacity:.75">
+      This taxonomy supplies technical vocabulary for describing model changes. It is not legal advice and does not determine whether a change is a substantial modification, a significant change, or a reportable device change. Those determinations rest with manufacturers, regulators, and notified or auditing bodies under the applicable framework.
+    </p>
+  </div>
+</footer>
+<script type="module" src="../js/theme.js"></script>
+
+</body>
+</html>

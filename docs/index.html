@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A six-dimensional taxonomy of post-training adaptation · Post-Training Adaptation Taxonomy</title>
+<meta name="description" content="48 post-training adaptation techniques, each with a six-dimensional profile.">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/style.css">
+<script>
+  // Set the theme before first paint to avoid a flash.
+  (function () {
+    var t = localStorage.getItem('ptt-theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+</head>
+<body>
+<a class="visually-hidden" href="#main">Skip to content</a>
+<nav class="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="./">6D&nbsp;Taxonomy</a>
+    <ul class="nav__links"><li><a href="./concepts/">Concepts</a></li><li><a href="./explorer/">Explorer</a></li><li><a href="./wizard/">Classify</a></li><li><a href="./compare/">Compare</a></li><li><a href="./disambiguate/">Terms</a></li><li><a href="./map/">Map</a></li><li><a href="./ambiguity/">Why it matters</a></li><li><a href="./governance/">Governance</a></li><li><a href="./data/">Data</a></li><li><a href="./glossary/">Glossary</a></li></ul>
+    <button class="theme-toggle" data-theme-toggle type="button">dark</button>
+  </div>
+</nav>
+<main id="main">
+
+<section class="section wrap">
+  <div class="stack" style="max-width:52rem">
+    <p class="eyebrow">Karolinska Institutet</p>
+    <div id="hero-resolve" class="stack">
+      <p style="font-size:var(--step-2);font-family:var(--font-display);
+                color:var(--text-muted)" id="hero-phrase">
+        &ldquo;The model was fine-tuned.&rdquo;</p>
+      <p style="color:var(--text-muted)">&darr; what does that actually mean?</p>
+      <div class="profile-strip" role="group" aria-label="Six-dimensional profile"><div class="profile-cell"><span class="profile-cell__dim">D1</span><span class="profile-cell__values"><span><a class="chip" data-dim="d1" href="dimensions/d1/#parametric-update">Param. Upd.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D2</span><span class="profile-cell__values"><span><a class="chip" data-dim="d2" href="dimensions/d2/#computational-efficiency">Comp. Eff.</a></span><span><a class="chip" data-dim="d2" href="dimensions/d2/#task-specialization">Task Spec.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D3</span><span class="profile-cell__values"><span><a class="chip" data-dim="d3" href="dimensions/d3/#small-labeled">Small Labeled</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D4</span><span class="profile-cell__values"><span><a class="chip" data-dim="d4" href="dimensions/d4/#ad-hoc-permanent">Ad-hoc Perm.</a></span><span><a class="chip" data-dim="d4" href="dimensions/d4/#scheduled-permanent">Sched. Perm.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D5</span><span class="profile-cell__values"><span><a class="chip" data-dim="d5" href="dimensions/d5/#modular">Modular</a></span><span><a class="chip" data-dim="d5" href="dimensions/d5/#partial">Part.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D6</span><span class="profile-cell__values"><span><a class="chip" data-dim="d6" href="dimensions/d6/#dl">DL</a></span><span><a class="chip" data-dim="d6" href="dimensions/d6/#fm">FM</a></span><span><a class="chip" data-dim="d6" href="dimensions/d6/#llm">LLM</a></span><span><a class="chip" data-dim="d6" href="dimensions/d6/#mllm">MLLM</a></span></span></div></div>
+    </div>
+    <h1>48 techniques. Six dimensions. One coordinate each.</h1>
+    <p style="font-size:var(--step-1)">
+      A six-dimensional taxonomy of post-training adaptation, built so a model
+      change can be named precisely enough to document, compare, and audit.</p>
+    <p>
+      <a class="btn btn--solid" href="explorer/">Explore the taxonomy</a>
+      <a class="btn" href="wizard/">Classify a change</a>
+      <a class="btn" href="concepts/">Start with the concepts</a>
+    </p>
+  </div>
+</section>
+
+<section class="section section--surface wrap stack">
+  <h2>Three problems this solves</h2>
+  <div class="grid grid--3">
+    <div class="card stack">
+      <p class="eyebrow">Terminological ambiguity</p>
+      <p>The same word means different things. &ldquo;Fine-tuning&rdquo; covers
+         three different scopes with three different validation burdens.</p>
+      <a href="disambiguate/">Disambiguate a term &rarr;</a>
+    </div>
+    <div class="card stack">
+      <p class="eyebrow">Single-axis taxonomies</p>
+      <p>Is PEFT a fine-tuning method or an efficiency method? It is both, which
+         is why one axis cannot hold it.</p>
+      <a href="explorer/">Filter on all six axes &rarr;</a>
+    </div>
+    <div class="card stack">
+      <p class="eyebrow">Model-type conflation</p>
+      <p>Prompt engineering is meaningless for a random forest. Which techniques
+         are even available depends on what you are adapting.</p>
+      <a href="map/">See the model-tier ladder &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap stack">
+  <h2>Training, or post-training?</h2>
+  <p>Training and retraining are <em>mechanistically identical</em> — the same
+     gradient updates, the same permanence, the same scope. What separates them
+     is why you did it and what data you used.</p>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Pair</th><th>Identical on</th><th>Separated by</th></tr></thead>
+    <tbody>
+      <tr><td>Training vs Retraining</td><td>D1, D4, D5, D6</td>
+          <td><strong>D2</strong> build vs repair · <strong>D3</strong> data regime</td></tr>
+      <tr><td>Retraining vs Full FT</td><td>D1, D4, D5</td>
+          <td><strong>D2</strong> drift vs new task</td></tr>
+      <tr><td>Partial FT vs PEFT</td><td>D1, D3, D4, D6</td>
+          <td><em>nothing outright</em> — PEFT strictly extends it</td></tr>
+    </tbody>
+  </table></div>
+  <p><a class="btn" href="concepts/">What counts as post-training adaptation?</a></p>
+</section>
+
+<section class="section section--surface wrap stack">
+  <h2>Why precision matters</h2>
+  <div class="grid grid--2">
+    <div class="card stack">
+      <p class="eyebrow">Before</p>
+      <p><q>Update v2.1: the model was fine-tuned on recent hospital data to
+        improve performance and incorporate new clinical guidelines.</q></p>
+      <p style="color:var(--text-muted)">Does not say whether base weights
+        changed, whether the change is permanent, or whether the guidelines were
+        learned or retrieved.</p>
+    </div>
+    <div class="card stack">
+      <p class="eyebrow">After</p>
+      <p>Two layers, named separately — a parameter update to an adapter, and a
+         retrieval corpus update. Each with its own six-dimensional profile.</p>
+      <a href="ambiguity/">See the full worked example &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap stack">
+  <h2>Overviews</h2>
+  <div class="grid grid--2">
+    <div class="placeholder"><p class="eyebrow">Video overview</p>
+      <p>Coming soon.</p></div>
+    <div class="placeholder"><p class="eyebrow">Audio overview</p>
+      <p>Coming soon.</p></div>
+  </div>
+</section>
+
+<section class="section section--surface wrap stack">
+  <h2>Cite</h2>
+  <p>The preprint is <a href="https://arxiv.org/abs/XXXX.XXXXX">arXiv:XXXX.XXXXX</a>
+     <em>(placeholder until posted)</em>.</p>
+  <pre>@misc{afdideh2026taxonomy,
+  title  = {A Six-Dimensional Taxonomy of Post-Training Adaptation
+            Techniques with Applications in AI Governance},
+  author = {Afdideh, Fardin and Seoane, Fernando and Abtahi, Farhad},
+  year   = {2026},
+  eprint = {XXXX.XXXXX},
+  archivePrefix = {arXiv}
+}</pre>
+  <p><a class="btn" href="data/">Download the taxonomy data</a></p>
+</section>
+
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <p class="eyebrow">Paper</p>
+        <ul>
+          <li><a href="https://arxiv.org/abs/XXXX.XXXXX">arXiv:XXXX.XXXXX</a> <em>(placeholder)</em></li>
+          <li><a href="data/">Download the data</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Repository</p>
+        <ul>
+          <li><a href="https://github.com/ki-smile/post-training-taxonomy">GitHub</a></li>
+          <li><a href="https://github.com/ki-smile/post-training-taxonomy/issues">Report a problem</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Licence</p>
+        <ul>
+          <li>Code — MIT</li>
+          <li>Data and prose — CC BY 4.0</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Authors</p>
+        <ul>
+          <li>Fardin Afdideh</li>
+          <li>Fernando Seoane</li>
+          <li>Farhad Abtahi</li>
+          <li>Karolinska Institutet</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:var(--sp-4);font-size:var(--step--2);opacity:.75">
+      This taxonomy supplies technical vocabulary for describing model changes. It is not legal advice and does not determine whether a change is a substantial modification, a significant change, or a reportable device change. Those determinations rest with manufacturers, regulators, and notified or auditing bodies under the applicable framework.
+    </p>
+  </div>
+</footer>
+<script type="module" src="js/theme.js"></script>
+
+</body>
+</html>

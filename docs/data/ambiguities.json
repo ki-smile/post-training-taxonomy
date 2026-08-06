@@ -1,0 +1,53 @@
+{
+  "_comment": "The terminological ambiguities the paper names explicitly. Each entry states the discriminating question and the techniques the term collapses.",
+  "entries": [
+    {
+      "term": "fine-tuning",
+      "display": "\"We fine-tuned the model\"",
+      "slugs": ["fullft", "partft", "peft"],
+      "question": "How much of the model was actually updated?",
+      "fails_to_specify": "Whether every weight changed, only later layers, or none at all — three different scopes, three different validation burdens.",
+      "source": "Section 4.4"
+    },
+    {
+      "term": "few-shot",
+      "display": "\"We used few-shot learning\"",
+      "slugs": ["fsl", "icl"],
+      "question": "Was a weight update performed?",
+      "fails_to_specify": "FSL produces a new versioned model artifact requiring change control. ICL produces no artifact at all — the effect lasts one request.",
+      "source": "Appendix C, Knowledge Transfer and Task Specialization"
+    },
+    {
+      "term": "RAG",
+      "display": "\"We use RAG\"",
+      "slugs": ["rag", "ce", "icl"],
+      "question": "Is the retrieval artifact maintained and versioned?",
+      "fails_to_specify": "The corpus, the retrieval method, and the update cadence. A maintained corpus is version-persistent even when each request's context is ephemeral.",
+      "source": "Section 4.4"
+    },
+    {
+      "term": "domain adaptation",
+      "display": "\"We did domain adaptation\"",
+      "slugs": ["da", "ssl", "peft"],
+      "question": "Which model tier?",
+      "fails_to_specify": "At the LLM tier the classical mechanism is superseded by continued pre-training or domain-specific PEFT. The label hides which was actually used.",
+      "source": "Section 4.4, Appendix C"
+    },
+    {
+      "term": "meta-learning",
+      "display": "\"The model learns to learn\"",
+      "slugs": ["metalrn", "icl"],
+      "question": "Which model tier?",
+      "fails_to_specify": "At the LLM tier, in-context learning achieves rapid task adaptation without the bi-level training loop meta-learning implies.",
+      "source": "Appendix C, Training Strategies"
+    },
+    {
+      "term": "retraining",
+      "display": "\"The model was retrained\"",
+      "slugs": ["retraining", "fullft"],
+      "question": "Why was it changed?",
+      "fails_to_specify": "Retraining and full fine-tuning are mechanistically identical. Only the goal and the data separate them — restoring lost performance is not the same as targeting a new task.",
+      "source": "Section 2"
+    }
+  ]
+}

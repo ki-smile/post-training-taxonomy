@@ -1,0 +1,104 @@
+{
+  "_comment": "Hand-curated from the manuscript. Every relation carries a quote that must appear verbatim in the extracted definition of its `quote_in` technique -- a relation without a locatable source line is not included. Verified by tests/test_authored.py.",
+  "relations": [
+    {
+      "type": "umbrella",
+      "from": "fullft",
+      "to": "peft",
+      "label": "PEFT is a specialisation within the fine-tuning family",
+      "source_quote": "Full FT is the maximally expressive parametric realization of TL",
+      "quote_in": "fullft",
+      "source_ref": "Appendix C, Knowledge Transfer and Task Specialization"
+    },
+    {
+      "type": "sub-technique",
+      "from": "peft",
+      "to": "partft",
+      "label": "PEFT strictly extends Partial FT: same mechanism, plus a modular scope",
+      "source_quote": "the base model's weights remain strictly frozen throughout training",
+      "quote_in": "peft",
+      "source_ref": "Appendix C, Knowledge Transfer and Task Specialization"
+    },
+    {
+      "type": "bridge",
+      "from": "peft",
+      "to": "taskarith",
+      "label": "PEFT's modular scope lets adapter task-vectors be combined algebraically",
+      "source_quote": "structural bridge to Task Arithmetic and Model Merging, where adapter task-vectors can be algebraically combined",
+      "quote_in": "peft",
+      "source_ref": "Appendix C, Knowledge Transfer and Task Specialization"
+    },
+    {
+      "type": "supersession",
+      "from": "da",
+      "to": "ssl",
+      "label": "At the LLM tier, CPT achieves distributional alignment instead of classical DA",
+      "source_quote": "mechanism is superseded—CPT achieves distributional alignment by continued self-supervised training on unlabeled target-domain corpora",
+      "quote_in": "da",
+      "source_ref": "Appendix C, Knowledge Transfer and Task Specialization"
+    },
+    {
+      "type": "supersession",
+      "from": "da",
+      "to": "peft",
+      "label": "Domain-specific PEFT absorbs the distributional-gap goal at the LLM tier",
+      "source_quote": "absorbs the distributional gap goal of DA when applied to domain-specific corpora",
+      "quote_in": "peft",
+      "source_ref": "Appendix C, Knowledge Transfer and Task Specialization"
+    },
+    {
+      "type": "supersession",
+      "from": "metalrn",
+      "to": "icl",
+      "label": "ICL supersedes gradient-based meta-learning for few-shot adaptation at the LLM tier",
+      "source_quote": "supersession is mechanistically grounded: LLM contain sufficiently rich pre-trained representations",
+      "quote_in": "metalrn",
+      "source_ref": "Appendix C, Training Strategies"
+    },
+    {
+      "type": "supersession",
+      "from": "til",
+      "to": "ssl",
+      "label": "Domain-adaptive pre-training subsumes TIL's goals at the LLM tier",
+      "source_quote": "ceiling is imposed by architectural supersession: at the LLM tier, domain-adaptive pre-training and continual PEFT subsume TIL",
+      "quote_in": "til",
+      "source_ref": "Appendix C, Temporal Adaptation and Maintenance"
+    },
+    {
+      "type": "supersession",
+      "from": "dil",
+      "to": "ssl",
+      "label": "Continued pre-training and domain-adaptive PEFT subsume DIL's goals at the LLM tier",
+      "source_quote": "ceiling is imposed by the same supersession mechanism as TIL: at the LLM tier, continued pre-training and domain-adaptive PEFT subsume DIL",
+      "quote_in": "dil",
+      "source_ref": "Appendix C, Temporal Adaptation and Maintenance"
+    },
+    {
+      "type": "sub-technique",
+      "from": "fsl",
+      "to": "icl",
+      "label": "Colloquial \"few-shot\" splits here: FSL updates weights, ICL does not",
+      "source_quote": "underlying model artifact unmodified; this is reassigned to ICL",
+      "quote_in": "fsl",
+      "source_ref": "Appendix C, Knowledge Transfer and Task Specialization"
+    },
+    {
+      "type": "hybrid",
+      "from": "munlrn",
+      "to": "taskarith",
+      "label": "Task-vector-negation unlearning is mechanistically identical to task arithmetic",
+      "source_quote": "mechanistically identical to Task Arithmetic executed with a negation operator",
+      "quote_in": "munlrn",
+      "source_ref": "Appendix C, Knowledge Modification and Activation-Based Adaptation"
+    },
+    {
+      "type": "bridge",
+      "from": "reft",
+      "to": "actsteer",
+      "label": "ReFT trains permanent intervention matrices; Activation Steering computes transient vectors",
+      "source_quote": "distinct from Activation Steering (which calculates transient vectors) because ReFT permanently trains its intervention matrices",
+      "quote_in": "reft",
+      "source_ref": "Appendix C, Knowledge Transfer and Task Specialization"
+    }
+  ]
+}

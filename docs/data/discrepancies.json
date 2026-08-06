@@ -1,0 +1,18 @@
+{
+  "entries": [
+    {
+      "slug": "fsl",
+      "dimension": "d3",
+      "latex": [
+        "Few Demo.",
+        "Small Labeled"
+      ],
+      "notebook": [
+        "Few Demo."
+      ],
+      "resolution": "latex",
+      "status": "resolved",
+      "reason": "Appendix C states FSL relies on either 1-5 examples for metric-based support sets or tens of examples for gradient-based updates, so both values belong. The notebook was corrected 2026-08-06 and now reproduces the manuscript's reported raw-Gower silhouette of +0.0173."
+    }
+  ]
+}
