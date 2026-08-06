@@ -55,10 +55,18 @@ def test_relation_quotes_appear_in_the_extracted_prose():
 
 
 def test_every_technique_has_a_one_sentence_editorial_summary():
+    import re
     for x in _tax()["techniques"]:
         s = x["summary_editorial"]
         assert s and s.endswith("."), x["slug"]
         assert len(s) <= 220, f"{x['slug']} summary too long: {len(s)}"
+        # The constraint is ONE sentence. An earlier version of this test
+        # only checked the terminal period, so eight two-sentence summaries
+        # passed unnoticed until an external reviewer counted them.
+        sentences = [p for p in re.split(r"(?<=[.!?])\s+", s.strip()) if p]
+        assert len(sentences) == 1, (
+            f"{x['slug']}: {len(sentences)} sentences, expected 1"
+        )
 
 
 def test_summaries_do_not_copy_the_verbatim_definition():

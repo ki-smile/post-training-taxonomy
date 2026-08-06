@@ -36,7 +36,7 @@
   <h2>&quot;We fine-tuned the model&quot;</h2>
   <p>Whether every weight changed, only later layers, or none at all — three different scopes, three different validation burdens.</p>
   <p class="callout"><strong>Ask:</strong> How much of the model was actually updated?</p>
-  <ul class="stack"><li><a href="../techniques/fullft/"><strong>FT (full)</strong></a> — Continues training every weight in the model on new task data. Maximum flexibility, maximum cost, and the whole model has to be re-validated afterwards.</li><li><a href="../techniques/partft/"><strong>FT (partial)</strong></a> — Retrains only the later layers and freezes the early ones, so the general features learned during pre-training stay intact and less needs re-testing.</li><li><a href="../techniques/peft/"><strong>PEFT (LoRA, adapters)</strong></a> — Freezes the base model and trains a small add-on instead. The original weights are never touched, and the adapter can be swapped out or removed cleanly.</li></ul>
+  <ul class="stack"><li><a href="../techniques/fullft/"><strong>FT (full)</strong></a> — Continues training every weight in the model on new task data — maximum flexibility, maximum cost, and no part of the model left unchanged.</li><li><a href="../techniques/partft/"><strong>FT (partial)</strong></a> — Retrains only the later layers and freezes the early ones, so the general features learned during pre-training stay intact and less needs re-testing.</li><li><a href="../techniques/peft/"><strong>PEFT (LoRA, adapters)</strong></a> — Freezes the base model and trains a small add-on instead, so the original weights are never touched and the adapter can be swapped out or removed cleanly.</li></ul>
   <p><a href="../compare/?t=fullft,partft">Compare these profiles &rarr;</a></p>
 </section>
 <section class="card stack" id="few-shot">
@@ -44,7 +44,7 @@
   <h2>&quot;We used few-shot learning&quot;</h2>
   <p>FSL produces a new versioned model artifact requiring change control. ICL produces no artifact at all — the effect lasts one request.</p>
   <p class="callout"><strong>Ask:</strong> Was a weight update performed?</p>
-  <ul class="stack"><li><a href="../techniques/fsl/"><strong>FSL</strong></a> — Learns a new task from a handful of labelled examples by actually updating weights — as opposed to just showing examples in the prompt, which is ICL.</li><li><a href="../techniques/icl/"><strong>ICL</strong></a> — Shows the model a few worked examples in the prompt. It adapts for that request only, and no artifact is created or versioned.</li></ul>
+  <ul class="stack"><li><a href="../techniques/fsl/"><strong>FSL</strong></a> — Learns a new task from a handful of labelled examples by actually updating weights — as opposed to just showing examples in the prompt, which is ICL.</li><li><a href="../techniques/icl/"><strong>ICL</strong></a> — Shows the model a few worked examples in the prompt, adapting it for that request only, with no training and no artifact left behind.</li></ul>
   <p><a href="../compare/?t=fsl,icl">Compare these profiles &rarr;</a></p>
 </section>
 <section class="card stack" id="RAG">
@@ -52,7 +52,7 @@
   <h2>&quot;We use RAG&quot;</h2>
   <p>The corpus, the retrieval method, and the update cadence. A maintained corpus is version-persistent even when each request&#x27;s context is ephemeral.</p>
   <p class="callout"><strong>Ask:</strong> Is the retrieval artifact maintained and versioned?</p>
-  <ul class="stack"><li><a href="../techniques/rag/"><strong>RAG</strong></a> — Retrieves relevant documents at query time and puts them in the context, so the model can use knowledge it was never trained on.</li><li><a href="../techniques/ce/"><strong>CE</strong></a> — Managing everything that goes into the model&#x27;s context — retrieved documents, tools, history — as a maintained, versioned production asset.</li><li><a href="../techniques/icl/"><strong>ICL</strong></a> — Shows the model a few worked examples in the prompt. It adapts for that request only, and no artifact is created or versioned.</li></ul>
+  <ul class="stack"><li><a href="../techniques/rag/"><strong>RAG</strong></a> — Retrieves relevant documents at query time and puts them in the context, so the model can use knowledge it was never trained on.</li><li><a href="../techniques/ce/"><strong>CE</strong></a> — Manages everything that goes into the model&#x27;s context — retrieved documents, tools, history — as a maintained, versioned production asset.</li><li><a href="../techniques/icl/"><strong>ICL</strong></a> — Shows the model a few worked examples in the prompt, adapting it for that request only, with no training and no artifact left behind.</li></ul>
   <p><a href="../compare/?t=rag,ce">Compare these profiles &rarr;</a></p>
 </section>
 <section class="card stack" id="domain-adaptation">
@@ -60,7 +60,7 @@
   <h2>&quot;We did domain adaptation&quot;</h2>
   <p>At the LLM tier the classical mechanism is superseded by continued pre-training or domain-specific PEFT. The label hides which was actually used.</p>
   <p class="callout"><strong>Ask:</strong> Which model tier?</p>
-  <ul class="stack"><li><a href="../techniques/da/"><strong>DA</strong></a> — Closes the gap when the data you have at deployment looks different from the data you trained on, without needing many labels for the new domain.</li><li><a href="../techniques/ssl/"><strong>SSL / CPT</strong></a> — Continues pre-training on unlabelled domain text so the model absorbs the vocabulary and style of a specialist field before any task tuning.</li><li><a href="../techniques/peft/"><strong>PEFT (LoRA, adapters)</strong></a> — Freezes the base model and trains a small add-on instead. The original weights are never touched, and the adapter can be swapped out or removed cleanly.</li></ul>
+  <ul class="stack"><li><a href="../techniques/da/"><strong>DA</strong></a> — Trains a model to close the gap when the data seen at deployment looks different from the training data, without needing many labels for the new domain.</li><li><a href="../techniques/ssl/"><strong>SSL / CPT</strong></a> — Continues pre-training on unlabelled data from a specialist domain, so the model absorbs its patterns and vocabulary before any task-specific tuning.</li><li><a href="../techniques/peft/"><strong>PEFT (LoRA, adapters)</strong></a> — Freezes the base model and trains a small add-on instead, so the original weights are never touched and the adapter can be swapped out or removed cleanly.</li></ul>
   <p><a href="../compare/?t=da,ssl">Compare these profiles &rarr;</a></p>
 </section>
 <section class="card stack" id="meta-learning">
@@ -68,7 +68,7 @@
   <h2>&quot;The model learns to learn&quot;</h2>
   <p>At the LLM tier, in-context learning achieves rapid task adaptation without the bi-level training loop meta-learning implies.</p>
   <p class="callout"><strong>Ask:</strong> Which model tier?</p>
-  <ul class="stack"><li><a href="../techniques/metalrn/"><strong>Meta-Learning</strong></a> — Trains a model to be good at learning new tasks quickly, rather than good at any one task — &quot;learning to learn&quot;.</li><li><a href="../techniques/icl/"><strong>ICL</strong></a> — Shows the model a few worked examples in the prompt. It adapts for that request only, and no artifact is created or versioned.</li></ul>
+  <ul class="stack"><li><a href="../techniques/metalrn/"><strong>Meta-Learning</strong></a> — Trains a model to be good at learning new tasks quickly, rather than good at any one task — &quot;learning to learn&quot;.</li><li><a href="../techniques/icl/"><strong>ICL</strong></a> — Shows the model a few worked examples in the prompt, adapting it for that request only, with no training and no artifact left behind.</li></ul>
   <p><a href="../compare/?t=metalrn,icl">Compare these profiles &rarr;</a></p>
 </section>
 <section class="card stack" id="retraining">
@@ -76,7 +76,7 @@
   <h2>&quot;The model was retrained&quot;</h2>
   <p>Retraining and full fine-tuning are mechanistically identical. Only the goal and the data separate them — restoring lost performance is not the same as targeting a new task.</p>
   <p class="callout"><strong>Ask:</strong> Why was it changed?</p>
-  <ul class="stack"><li><a href="../techniques/retraining/"><strong>Retraining</strong></a> — Trains the existing model again on newer data to recover accuracy lost as the world drifted away from the original training distribution.</li><li><a href="../techniques/fullft/"><strong>FT (full)</strong></a> — Continues training every weight in the model on new task data. Maximum flexibility, maximum cost, and the whole model has to be re-validated afterwards.</li></ul>
+  <ul class="stack"><li><a href="../techniques/retraining/"><strong>Retraining</strong></a> — Trains the existing model again on newer data to recover accuracy lost as the world drifted away from the original training distribution.</li><li><a href="../techniques/fullft/"><strong>FT (full)</strong></a> — Continues training every weight in the model on new task data — maximum flexibility, maximum cost, and no part of the model left unchanged.</li></ul>
   <p><a href="../compare/?t=retraining,fullft">Compare these profiles &rarr;</a></p>
 </section>
 </div>
