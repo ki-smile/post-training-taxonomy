@@ -11,15 +11,16 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 
+from scripts import sources  # noqa: E402
+
 from scripts.latexlib import parse_acronyms  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-CONFIG = ROOT / "ref/latex/<config>.tex"
 OUT = ROOT / "data/glossary.json"
 
 
 def main():
-    gls = parse_acronyms(CONFIG.read_text())
+    gls = parse_acronyms(sources.config().read_text())
     entries = [
         {"key": k, "short": v["short"], "long": v["long"]}
         for k, v in gls.items()

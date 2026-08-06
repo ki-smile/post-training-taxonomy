@@ -24,13 +24,13 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 
+from scripts import sources  # noqa: E402
+
 from scripts.latexlib import (  # noqa: E402
     expand, kebab, parse_acronyms, parse_newcommands,
 )
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-CONFIG = ROOT / "ref/latex/<config>.tex"
-MAIN = ROOT / "ref/latex/<main>.tex"
 OUT = ROOT / "data/dimensions.json"
 
 # Per-dimension name and question. Hardcoded from Table 2 -- no macro carries
@@ -105,8 +105,8 @@ def anchor_regions(main_tex):
 
 
 def main():
-    config = CONFIG.read_text()
-    main_tex = MAIN.read_text()
+    config = sources.config().read_text()
+    main_tex = sources.main_text().read_text()
 
     defs = parse_newcommands(config)
     gls = parse_acronyms(config)

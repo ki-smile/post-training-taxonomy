@@ -18,14 +18,14 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 
+from scripts import sources  # noqa: E402
+
 from scripts.latexlib import (  # noqa: E402
     expand, normalize_name, parse_acronyms, parse_newcommands,
     split_set, strip_footnote_markers,
 )
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-CONFIG = ROOT / "ref/latex/<config>.tex"
-CENTERPIECE = ROOT / "ref/latex/<centerpiece>.tex"
 NOTEBOOK = ROOT / "notebooks/code_S5.ipynb"
 DIMS = ROOT / "data/dimensions.json"
 OUT = ROOT / "data/taxonomy.json"
@@ -57,7 +57,7 @@ SEEDED_DISCREPANCIES = [
 
 def parse_centerpiece(defs, gls):
     """Return ordered rows: (tech_key, display_name, markers, [6 value lists])."""
-    tex = CENTERPIECE.read_text()
+    tex = sources.centerpiece().read_text()
     tex = re.sub(r"(?m)%.*", "", tex)
     # The footnote block after the table would otherwise parse as cells.
     tex = tex.split(r"\end{xltabular}")[0]
@@ -110,7 +110,7 @@ def parse_footnotes(defs, gls, anchor_to_label):
 
     Returns (marker -> text, general_note).
     """
-    tex = re.sub(r"(?m)%.*", "", CENTERPIECE.read_text())
+    tex = re.sub(r"(?m)%.*", "", sources.centerpiece().read_text())
     if r"\end{xltabular}" not in tex:
         return {}, ""
     block = tex.split(r"\end{xltabular}")[1]
@@ -161,7 +161,7 @@ def nb_set(value):
 
 
 def main():
-    config = CONFIG.read_text()
+    config = sources.config().read_text()
     defs = parse_newcommands(config)
     gls = parse_acronyms(config)
 

@@ -18,13 +18,13 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 
+from scripts import sources  # noqa: E402
+
 from scripts.latexlib import (  # noqa: E402
     expand, parse_acronyms, parse_newcommands, split_set,
 )
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-CONFIG = ROOT / "ref/latex/<config>.tex"
-SUPP = ROOT / "ref/latex/<supplement>.tex"
 TAX = ROOT / "data/taxonomy.json"
 SUMMARIES = ROOT / "data/summaries.json"
 DIMS = ROOT / "data/dimensions.json"
@@ -193,8 +193,8 @@ def category_definitions(supp, render):
 
 
 def main():
-    config = CONFIG.read_text()
-    supp = SUPP.read_text()
+    config = sources.config().read_text()
+    supp = sources.supplement().read_text()
     supp = re.sub(r"(?m)^\s*%.*$", "", supp)
 
     defs = parse_newcommands(config)
