@@ -119,3 +119,14 @@ def test_venue_scan_covers_python_sources(tmp_path):
     root = _copy(tmp_path)
     (root / "notebooks/leak.md").write_text("Prepared for ACM review.")
     assert any("leak.md" in m for m in validate_site(root))
+
+
+def test_stale_version_stamp_fails(tmp_path):
+    """A forgotten rebuild ships data labelled with the wrong version, which
+    is worse than no version, because consumers pin to it."""
+    root = _copy(tmp_path)
+    p = root / "data/taxonomy.json"
+    t = json.loads(p.read_text())
+    t["meta"]["version"] = "0.9.0"
+    p.write_text(json.dumps(t))
+    assert any("rerun the pipeline" in m for m in validate_data(root))

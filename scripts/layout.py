@@ -8,6 +8,8 @@ import hashlib
 import html
 import pathlib
 
+from scripts.version import RELEASED, VERSION
+
 ARXIV_ID = "arXiv:XXXX.XXXXX"
 ARXIV_URL = "https://arxiv.org/abs/XXXX.XXXXX"
 REPO_URL = "https://github.com/ki-smile/post-training-taxonomy"
@@ -145,6 +147,14 @@ def page(title, body, *, depth=1, description="", current=None, scripts=()):
         <ul>
           <li><a href="{REPO_URL}">GitHub</a></li>
           <li><a href="{REPO_URL}/issues">Report a problem</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Version</p>
+        <ul>
+          <li>Taxonomy v{VERSION}</li>
+          <li style="opacity:.75">Released {RELEASED}</li>
+          <li><a href="{REPO_URL}/blob/main/CHANGELOG.md">Changelog</a></li>
         </ul>
       </div>
       <div>

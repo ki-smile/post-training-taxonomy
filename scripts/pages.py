@@ -2,8 +2,8 @@
 
 from scripts.layout import (
     ARXIV_ID, ARXIV_URL, AUDIO_FILE, AUDIO_LENGTH, AUDIO_TITLE, DISCLAIMER,
-    REPO_URL, SMAILE_NAME, SMAILE_URL, VIDEO_CHANNEL, VIDEO_ID, VIDEO_TITLE,
-    VIDEO_URL, esc,
+    RELEASED, REPO_URL, SMAILE_NAME, SMAILE_URL, VERSION, VIDEO_CHANNEL,
+    VIDEO_ID, VIDEO_TITLE, VIDEO_URL, esc,
 )
 from scripts.render import (
     DIM_KEYS, chip_list, dim_label, separator_prose, strip, technique_link,
@@ -457,6 +457,8 @@ def explorer_page(d):
 
 def concepts_page(d):
     tax, dims, derived = d["taxonomy"], d["dimensions"], d["derived"]
+    n = tax["meta"]["n_techniques"]
+    n_goals = len(dims["d2"]["categories"])
     by = {t["slug"]: t for t in tax["techniques"]}
     seps = derived["separators"]
 
@@ -485,10 +487,46 @@ def concepts_page(d):
      a model already exists and may carry obligations.</p>
 
   <section class="stack">
-    <h2>The lifecycle</h2>
-    <pre>  Training  →  Deployment  →  Drift  →  Post-training adaptation  →  Redeployment
-                                                    ↑
-                              48 techniques live here</pre>
+    <h2>Where the boundary actually falls</h2>
+    <p>The line is <strong>training</strong>, not deployment. A technique is in
+       scope once a model exists — the paper's rule is a model "that has been
+       trained and <em>may</em> already be deployed". Adaptation before a model
+       ever ships counts just as much as adaptation in service.</p>
+
+    <div class="lifecycle">
+      <div class="lifecycle__before">
+        <p class="eyebrow">Out of scope</p>
+        <p><strong>Training</strong><br>
+          <span style="color:var(--text-muted)">building the model from
+          scratch</span></p>
+      </div>
+      <div class="lifecycle__line" aria-hidden="true"></div>
+      <div class="lifecycle__after">
+        <p class="eyebrow">In scope — {n} techniques</p>
+        <div class="grid grid--2" style="margin-top:var(--sp-2)">
+          <div class="card stack">
+            <p><strong>Before it ever ships</strong></p>
+            <p style="color:var(--text-muted)">Specialising a foundation model
+              for a task, aligning it, compressing it to fit, extending it to a
+              new modality — all of this happens to a trained model that has
+              never been deployed.</p>
+          </div>
+          <div class="card stack">
+            <p><strong>Once it is in service</strong></p>
+            <p style="color:var(--text-muted)">Repairing drift, adding new
+              knowledge, personalising to a user, removing data on request —
+              adaptation to a model already carrying obligations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="callout"><strong>Drift is one reason among many.</strong> Of the
+       taxonomy's {n_goals} adaptation goals, exactly one is drift remediation.
+       The rest — specialisation, alignment, safety, efficiency, privacy,
+       knowledge removal and so on — have nothing to do with the world
+       changing underneath the model.
+       <a href="../dimensions/d2/">See all {n_goals} goals</a>.</p>
   </section>
 
   <section class="stack">
@@ -1002,9 +1040,15 @@ def data_page(d):
     body = f"""
 <div class="wrap section stack">
   <h1>Download the data</h1>
+  <p class="eyebrow">Version {VERSION} &middot; released {RELEASED}</p>
   <p>The taxonomy is published as data, not only as a website. Every profile is
      machine-extracted from the manuscript and cross-checked against the
      authors' analysis notebook.</p>
+  <p class="callout"><strong>Pin the version you cite.</strong> Profile values
+     are the dataset's contract: a change to any of them moves the major
+     version, so <code>{VERSION}</code> will always mean the same 49 profiles.
+     Prose revisions move the minor version only.
+     <a href="{REPO_URL}/blob/main/CHANGELOG.md">See the changelog</a>.</p>
 
   <div class="grid grid--2">
     <div class="card stack"><h3>taxonomy.json</h3>
@@ -1049,7 +1093,8 @@ def data_page(d):
     <h2>Citing the dataset</h2>
     <pre>Afdideh, F., Seoane, F., &amp; Abtahi, F. (2026).
 A Six-Dimensional Taxonomy of Post-Training Adaptation Techniques
-with Applications in AI Governance. {ARXIV_ID}</pre>
+with Applications in AI Governance. {ARXIV_ID}
+Dataset version {VERSION} ({RELEASED}).</pre>
     <p>Released under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
   </section>
 </div>

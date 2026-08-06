@@ -504,3 +504,26 @@ pre {
   .profile-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   h1 { font-size: var(--step-2); }
 }
+
+/* ---------- Lifecycle ----------
+   A vertical rule marks the one boundary that matters: the model exists.
+   Everything below it is in scope, whether or not it has shipped. */
+
+.lifecycle {
+  display: grid;
+  grid-template-columns: minmax(0, 14rem) 3px minmax(0, 1fr);
+  gap: var(--sp-4);
+  align-items: start;
+}
+.lifecycle__line {
+  align-self: stretch;
+  background: linear-gradient(to bottom, var(--d1), var(--d6));
+  border-radius: 2px;
+  min-height: 6rem;
+}
+.lifecycle__before { opacity: .65; }
+
+@media (max-width: 720px) {
+  .lifecycle { grid-template-columns: 1fr; gap: var(--sp-3); }
+  .lifecycle__line { min-height: 3px; width: 100%; }
+}

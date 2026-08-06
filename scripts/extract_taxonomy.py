@@ -20,6 +20,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 
 from scripts import sources  # noqa: E402
 
+from scripts.version import RELEASED, VERSION  # noqa: E402
 from scripts.latexlib import (  # noqa: E402
     expand, normalize_name, parse_acronyms, parse_newcommands,
     split_set, strip_footnote_markers,
@@ -270,6 +271,8 @@ def main():
 
     payload = {
         "meta": {
+            "version": VERSION,
+            "released": RELEASED,
             "n_techniques": sum(1 for t in techniques if not t["is_reference_row"]),
             "n_reference_rows": sum(1 for t in techniques if t["is_reference_row"]),
             "centerpiece_note": general_note,

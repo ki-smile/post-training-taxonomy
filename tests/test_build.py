@@ -257,3 +257,17 @@ def test_hero_is_interactive_and_has_a_static_fallback():
     assert h.count('class="hero__tab"') == 3
     assert 'class="profile-strip"' in h      # rendered without JS too
     assert re.search(r'src="js/hero\.js(\?v=[0-9a-f]+)?"', h)
+
+
+def test_lifecycle_does_not_make_deployment_the_boundary():
+    """The paper's rule is a model that has been trained and MAY already be
+    deployed. An earlier version implied adaptation only follows deployment,
+    and only follows drift."""
+    h = (DOCS / "concepts/index.html").read_text()
+    assert "Before it ever ships" in h
+    assert "never been deployed" in h
+    # drift must be presented as one goal among many, not the trigger
+    assert "one reason among many" in h
+    import json
+    dims = json.loads(pathlib.Path("data/dimensions.json").read_text())
+    assert f"{len(dims['d2']['categories'])} adaptation goals" in h

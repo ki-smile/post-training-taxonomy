@@ -78,3 +78,31 @@ def test_summaries_do_not_copy_the_verbatim_definition():
 def test_summaries_cover_every_slug_exactly():
     summaries = json.loads(pathlib.Path("data/summaries.json").read_text())["summaries"]
     assert set(summaries) == _slugs()
+
+
+
+def test_version_is_semver_and_release_date_is_iso():
+    import re
+    import sys
+    sys.path.insert(0, ".")
+    from scripts.version import RELEASED, VERSION
+    assert re.fullmatch(r"\d+\.\d+\.\d+", VERSION), VERSION
+    assert re.fullmatch(r"\d{4}-\d{2}-\d{2}", RELEASED), RELEASED
+
+
+def test_changelog_documents_the_current_version():
+    changelog = pathlib.Path("CHANGELOG.md").read_text()
+    import sys
+    sys.path.insert(0, ".")
+    from scripts.version import RELEASED, VERSION
+    assert f"[{VERSION}]" in changelog, f"CHANGELOG has no section for {VERSION}"
+    assert RELEASED in changelog
+
+
+def test_citation_file_carries_the_same_version():
+    cff = pathlib.Path("CITATION.cff").read_text()
+    import sys
+    sys.path.insert(0, ".")
+    from scripts.version import RELEASED, VERSION
+    assert f"version: {VERSION}" in cff
+    assert f"date-released: {RELEASED}" in cff

@@ -1,5 +1,7 @@
 {
   "meta": {
+    "version": "1.0.0",
+    "released": "2026-08-06",
     "n_techniques": 48,
     "n_reference_rows": 1,
     "centerpiece_note": "Abbreviations are listed in the manuscript before the bibliography and in Supplementary Section S1. Highly flexible techniques such as CE (e.g., prompting for step-by-step rationales) and RLHF (e.g., penalizing unexplainable refusals) can dynamically adopt Explainability as a primary goal when engineered specifically to satisfy regulatory transparency mandates.",

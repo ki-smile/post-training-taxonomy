@@ -1,4 +1,6 @@
 cff-version: 1.2.0
+version: 1.0.0
+date-released: 2026-08-06
 title: >-
   A Six-Dimensional Taxonomy of Post-Training Adaptation Techniques
   with Applications in AI Governance

@@ -10,7 +10,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin
       href="../fonts/DMMono-500-latin.woff2">
 <link rel="stylesheet" href="../css/tokens.css?v=58bece12">
-<link rel="stylesheet" href="../css/style.css?v=6bcc71fe">
+<link rel="stylesheet" href="../css/style.css?v=6df9ced0">
 <script>
   // Set the theme before first paint to avoid a flash.
   (function () {
@@ -37,10 +37,46 @@
      a model already exists and may carry obligations.</p>
 
   <section class="stack">
-    <h2>The lifecycle</h2>
-    <pre>  Training  →  Deployment  →  Drift  →  Post-training adaptation  →  Redeployment
-                                                    ↑
-                              48 techniques live here</pre>
+    <h2>Where the boundary actually falls</h2>
+    <p>The line is <strong>training</strong>, not deployment. A technique is in
+       scope once a model exists — the paper's rule is a model "that has been
+       trained and <em>may</em> already be deployed". Adaptation before a model
+       ever ships counts just as much as adaptation in service.</p>
+
+    <div class="lifecycle">
+      <div class="lifecycle__before">
+        <p class="eyebrow">Out of scope</p>
+        <p><strong>Training</strong><br>
+          <span style="color:var(--text-muted)">building the model from
+          scratch</span></p>
+      </div>
+      <div class="lifecycle__line" aria-hidden="true"></div>
+      <div class="lifecycle__after">
+        <p class="eyebrow">In scope — 48 techniques</p>
+        <div class="grid grid--2" style="margin-top:var(--sp-2)">
+          <div class="card stack">
+            <p><strong>Before it ever ships</strong></p>
+            <p style="color:var(--text-muted)">Specialising a foundation model
+              for a task, aligning it, compressing it to fit, extending it to a
+              new modality — all of this happens to a trained model that has
+              never been deployed.</p>
+          </div>
+          <div class="card stack">
+            <p><strong>Once it is in service</strong></p>
+            <p style="color:var(--text-muted)">Repairing drift, adding new
+              knowledge, personalising to a user, removing data on request —
+              adaptation to a model already carrying obligations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="callout"><strong>Drift is one reason among many.</strong> Of the
+       taxonomy's 19 adaptation goals, exactly one is drift remediation.
+       The rest — specialisation, alignment, safety, efficiency, privacy,
+       knowledge removal and so on — have nothing to do with the world
+       changing underneath the model.
+       <a href="../dimensions/d2/">See all 19 goals</a>.</p>
   </section>
 
   <section class="stack">
@@ -130,6 +166,14 @@
         <ul>
           <li><a href="https://github.com/ki-smile/post-training-taxonomy">GitHub</a></li>
           <li><a href="https://github.com/ki-smile/post-training-taxonomy/issues">Report a problem</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Version</p>
+        <ul>
+          <li>Taxonomy v1.0.0</li>
+          <li style="opacity:.75">Released 2026-08-06</li>
+          <li><a href="https://github.com/ki-smile/post-training-taxonomy/blob/main/CHANGELOG.md">Changelog</a></li>
         </ul>
       </div>
       <div>

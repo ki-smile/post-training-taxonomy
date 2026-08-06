@@ -37,10 +37,35 @@ def _load(root, name):
 
 def validate_data(root=pathlib.Path(".")):
     errs = []
+
+    # Version drift: the data on disk must carry the version currently
+    # declared. Checked here rather than in a test, because the test suite
+    # rebuilds the data first and so can never observe a stale build.
+    try:
+        sys.path.insert(0, str(root.resolve()))
+        import importlib
+        import scripts.version as _v
+        importlib.reload(_v)
+        declared, released = _v.VERSION, _v.RELEASED
+    except Exception:
+        declared = released = None
+
     tax = _load(root, "taxonomy.json")
     dims = _load(root, "dimensions.json")
     if tax is None or dims is None:
         return ["data/taxonomy.json or data/dimensions.json is missing"]
+
+    meta = tax.get("meta", {})
+    if declared and meta.get("version") != declared:
+        errs.append(
+            f"data/taxonomy.json is stamped {meta.get('version')!r} but "
+            f"scripts/version.py declares {declared!r} -- rerun the pipeline"
+        )
+    if released and meta.get("released") != released:
+        errs.append(
+            f"data/taxonomy.json release date {meta.get('released')!r} != "
+            f"{released!r}"
+        )
 
     techs = tax["techniques"]
 
