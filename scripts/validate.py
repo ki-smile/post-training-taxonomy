@@ -107,10 +107,17 @@ def validate_data(root=pathlib.Path(".")):
     return errs
 
 
-# The detector and its test necessarily contain the denylisted strings.
-# These are the only exemptions, and they are exact paths rather than
-# patterns, so a blanket "skip scripts/" can never creep in.
-EXEMPT = {("scripts", "validate.py"), ("tests", "test_validate.py")}
+# The denylist scan covers every surface a reader can reach: docs/, data/,
+# notebooks/, scripts/, and top-level metadata.
+#
+# Two exemptions, both necessary rather than convenient:
+#   - this file defines the denylist
+#   - tests/ holds fixtures that must contain the strings being detected,
+#     and no test file is ever rendered to a reader
+# scripts/ is deliberately NOT exempt: it ships in the repo and once
+# carried manuscript filenames that identified the venue.
+EXEMPT_FILES = {("scripts", "validate.py")}
+EXEMPT_DIRS = {"tests"}
 
 
 def _publishable(root):
@@ -120,9 +127,11 @@ def _publishable(root):
         if not p.is_file():
             continue
         rel = p.relative_to(root)
-        if rel.parts in EXEMPT:
+        if rel.parts in EXEMPT_FILES:
             continue
         parts = set(rel.parts)
+        if parts & EXEMPT_DIRS:
+            continue
         if parts & {"ref", "specs", ".git", "__pycache__", "node_modules"}:
             continue
         if p.suffix in {".html", ".md", ".json", ".cff", ".css", ".js",

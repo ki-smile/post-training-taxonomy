@@ -108,8 +108,8 @@ def test_manuscript_source_inside_docs_fails(tmp_path):
     assert any("manuscript source inside docs" in m for m in validate_site(root))
 
 
-def test_exemption_is_narrow_not_a_blanket_scripts_skip(tmp_path):
-    """Only the detector and its own test are exempt -- never all of scripts/."""
+def test_scripts_are_not_exempt_from_the_venue_scan(tmp_path):
+    """scripts/ ships in the repo and once carried venue-identifying filenames."""
     root = _copy(tmp_path)
     (root / "scripts/leak.py").write_text('URL = "submitted to a journal"')
     assert any("leak.py" in m for m in validate_site(root))
