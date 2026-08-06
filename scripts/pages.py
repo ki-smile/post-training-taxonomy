@@ -224,14 +224,26 @@ def home_page(d):
 <section class="section wrap">
   <div class="stack" style="max-width:52rem">
     <p class="eyebrow"><a href="{SMAILE_URL}" style="color:inherit">{SMAILE_NAME}</a></p>
-    <div id="hero-resolve" class="stack">
-      <p style="font-size:var(--step-2);font-family:var(--font-display);
-                color:var(--text-muted)" id="hero-phrase">
-        &ldquo;The model was fine-tuned.&rdquo;</p>
-      <p style="color:var(--text-muted)">&darr; what does that actually mean?</p>
-      {strip(d["dimensions"],
-             next(t for t in tax["techniques"] if t["slug"] == "peft"),
-             up="")}
+    <div id="hero" class="hero">
+      <p class="hero__said">Someone tells you:</p>
+      <div class="hero__tabs" role="tablist" aria-label="Example phrases">
+        <button role="tab" class="hero__tab" data-slug="peft" aria-selected="true">
+          &ldquo;We fine-tuned it.&rdquo;</button>
+        <button role="tab" class="hero__tab" data-slug="rag" aria-selected="false">
+          &ldquo;We use RAG.&rdquo;</button>
+        <button role="tab" class="hero__tab" data-slug="icl" aria-selected="false">
+          &ldquo;It&rsquo;s few-shot.&rdquo;</button>
+      </div>
+      <p class="hero__asks">Which tells you almost nothing. Here is what it
+        actually pins down:</p>
+      <div id="hero-strip">
+        {strip(d["dimensions"],
+               next(t for t in tax["techniques"] if t["slug"] == "peft"),
+               up="")}
+      </div>
+      <p class="hero__caption" id="hero-caption">
+        <a href="techniques/peft/">PEFT (LoRA, adapters)</a> — one of six
+        readings of &ldquo;fine-tuned&rdquo;.</p>
     </div>
     <h1>{n} techniques. Six dimensions. One coordinate each.</h1>
     <p style="font-size:var(--step-1)">
@@ -358,7 +370,7 @@ def home_page(d):
 </section>
 """
     return ("index.html", "A six-dimensional taxonomy of post-training adaptation",
-            body, {"depth": 0, "scripts": ("video.js",),
+            body, {"depth": 0, "scripts": ("hero.js", "video.js"),
                    "description": f"{n} post-training adaptation techniques, "
                                   "each with a six-dimensional profile."})
 

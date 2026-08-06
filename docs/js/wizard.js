@@ -80,7 +80,7 @@ if (results) {
         <p class="eyebrow">${band}</p>
         <h3><a href="../techniques/${t.slug}/">${escapeHtml(t.name)}</a></h3>
         <p>${escapeHtml(t.summary_editorial)}</p>
-        ${profileStrip(store, t, { compact: true })}
+        ${profileStrip(store, t, { compact: true, up: '../' })}
         <button class="btn" data-pick="${t.slug}" type="button">Use this</button>
       </div>`;
     }
@@ -125,7 +125,8 @@ if (results) {
       const out = buildOutputs([{ technique: t, instance }]);
       const outside = out.json.layers[0].outside_canonical;
       document.getElementById('wizard-profile').innerHTML =
-        profileStrip(store, { ...t, ...instance }, { outsideCanonical: outside }) +
+        profileStrip(store, { ...t, ...instance },
+          { outsideCanonical: outside, up: '../' }) +
         (outside.length
           ? `<p class="provenance">Dashed cells fall outside ${escapeHtml(t.name)}'s canonical profile</p>`
           : '');

@@ -4,7 +4,9 @@ Every page is generated through this, so the chrome cannot drift between
 hand-written and generated pages -- there are no hand-written pages.
 """
 
+import hashlib
 import html
+import pathlib
 
 ARXIV_ID = "arXiv:XXXX.XXXXX"
 ARXIV_URL = "https://arxiv.org/abs/XXXX.XXXXX"
@@ -57,6 +59,25 @@ def esc(s):
     return html.escape(str(s), quote=True)
 
 
+_DOCS = pathlib.Path(__file__).resolve().parent.parent / "docs"
+_HASHES = {}
+
+
+def rev(asset):
+    """Content hash for a stylesheet or module.
+
+    Appended as ?v= so a rebuild invalidates the browser cache. Without it a
+    returning visitor keeps the previous CSS and JS after every deploy, which
+    is how a shipped redesign can appear not to have shipped at all.
+    """
+    if asset not in _HASHES:
+        f = _DOCS / asset
+        _HASHES[asset] = (
+            hashlib.sha256(f.read_bytes()).hexdigest()[:8] if f.exists() else "0"
+        )
+    return _HASHES[asset]
+
+
 def page(title, body, *, depth=1, description="", current=None, scripts=()):
     """Render a complete document.
 
@@ -73,7 +94,8 @@ def page(title, body, *, depth=1, description="", current=None, scripts=()):
         )
     nav_items = "".join(items)
     script_tags = "".join(
-        f'<script type="module" src="{up}js/{s}"></script>' for s in scripts
+        f'<script type="module" src="{up}js/{s}?v={rev("js/" + s)}"></script>'
+        for s in scripts
     )
     return f"""<!doctype html>
 <html lang="en">
@@ -82,8 +104,12 @@ def page(title, body, *, depth=1, description="", current=None, scripts=()):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(title)} · {esc(SITE_TITLE)}</title>
 <meta name="description" content="{esc(description)}">
-<link rel="stylesheet" href="{up}css/tokens.css">
-<link rel="stylesheet" href="{up}css/style.css">
+<link rel="preload" as="font" type="font/woff2" crossorigin
+      href="{up}fonts/DMSans-var-latin.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin
+      href="{up}fonts/DMMono-500-latin.woff2">
+<link rel="stylesheet" href="{up}css/tokens.css?v={rev("css/tokens.css")}">
+<link rel="stylesheet" href="{up}css/style.css?v={rev("css/style.css")}">
 <script>
   // Set the theme before first paint to avoid a flash.
   (function () {{
@@ -148,7 +174,7 @@ def page(title, body, *, depth=1, description="", current=None, scripts=()):
     </p>
   </div>
 </footer>
-<script type="module" src="{up}js/theme.js"></script>
+<script type="module" src="{up}js/theme.js?v={rev("js/theme.js")}"></script>
 {script_tags}
 </body>
 </html>

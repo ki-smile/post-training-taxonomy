@@ -110,23 +110,28 @@ export function fromQuery(str) {
 
 // ---- rendering helpers shared by every page ----
 
+/**
+ * The profile strip. Must render identically to the build-time version in
+ * scripts/render.py -- values are chip links to their dimension category, so
+ * a strip drawn by JS is as navigable as one drawn at build time.
+ */
 export function profileStrip(store, technique, opts = {}) {
   const outside = new Set(opts.outsideCanonical || []);
+  const up = opts.up !== undefined ? opts.up : '';
   const cells = DIMS.map((d) => {
-    const labels = technique[d].map((slug) => {
+    const values = technique[d].map((slug) => {
       const cat = store.dims[d].categories.find((c) => c.slug === slug);
-      return cat ? cat.abbr : slug;
-    });
+      const label = cat ? cat.abbr : slug;
+      return `<span><a class="chip" data-dim="${d}" ` +
+        `href="${up}dimensions/${d}/#${slug}">${escapeHtml(label)}</a></span>`;
+    }).join('');
     const cls = outside.has(d) ? ' profile-cell--outside' : '';
-    return `<div class="profile-cell${cls}">
-      <span class="profile-cell__dim">${d.toUpperCase()}</span>
-      <span class="profile-cell__values">${labels
-        .map((l) => `<span>${escapeHtml(l)}</span>`)
-        .join('')}</span>
-    </div>`;
+    return `<div class="profile-cell${cls}">` +
+      `<span class="profile-cell__dim">${d.toUpperCase()}</span>` +
+      `<span class="profile-cell__values">${values}</span></div>`;
   }).join('');
-  return `<div class="profile-strip${opts.compact ? ' profile-strip--compact' : ''}"
-    role="group" aria-label="Six-dimensional profile">${cells}</div>`;
+  return `<div class="profile-strip${opts.compact ? ' profile-strip--compact' : ''}" ` +
+    `role="group" aria-label="Six-dimensional profile">${cells}</div>`;
 }
 
 export function escapeHtml(s) {

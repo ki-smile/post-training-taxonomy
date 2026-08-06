@@ -5,8 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>A six-dimensional taxonomy of post-training adaptation · Post-Training Adaptation Taxonomy</title>
 <meta name="description" content="48 post-training adaptation techniques, each with a six-dimensional profile.">
-<link rel="stylesheet" href="css/tokens.css">
-<link rel="stylesheet" href="css/style.css">
+<link rel="preload" as="font" type="font/woff2" crossorigin
+      href="fonts/DMSans-var-latin.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin
+      href="fonts/DMMono-500-latin.woff2">
+<link rel="stylesheet" href="css/tokens.css?v=58bece12">
+<link rel="stylesheet" href="css/style.css?v=dee4d0cf">
 <script>
   // Set the theme before first paint to avoid a flash.
   (function () {
@@ -29,12 +33,24 @@
 <section class="section wrap">
   <div class="stack" style="max-width:52rem">
     <p class="eyebrow"><a href="https://ki.se/en/clintec/stockholm-medical-artificial-intelligence-and-learning-environments-smaile" style="color:inherit">SMAILE</a></p>
-    <div id="hero-resolve" class="stack">
-      <p style="font-size:var(--step-2);font-family:var(--font-display);
-                color:var(--text-muted)" id="hero-phrase">
-        &ldquo;The model was fine-tuned.&rdquo;</p>
-      <p style="color:var(--text-muted)">&darr; what does that actually mean?</p>
-      <div class="profile-strip" role="group" aria-label="Six-dimensional profile"><div class="profile-cell"><span class="profile-cell__dim">D1</span><span class="profile-cell__values"><span><a class="chip" data-dim="d1" href="dimensions/d1/#parametric-update">Param. Upd.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D2</span><span class="profile-cell__values"><span><a class="chip" data-dim="d2" href="dimensions/d2/#computational-efficiency">Comp. Eff.</a></span><span><a class="chip" data-dim="d2" href="dimensions/d2/#task-specialization">Task Spec.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D3</span><span class="profile-cell__values"><span><a class="chip" data-dim="d3" href="dimensions/d3/#small-labeled">Small Labeled</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D4</span><span class="profile-cell__values"><span><a class="chip" data-dim="d4" href="dimensions/d4/#ad-hoc-permanent">Ad-hoc Perm.</a></span><span><a class="chip" data-dim="d4" href="dimensions/d4/#scheduled-permanent">Sched. Perm.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D5</span><span class="profile-cell__values"><span><a class="chip" data-dim="d5" href="dimensions/d5/#modular">Modular</a></span><span><a class="chip" data-dim="d5" href="dimensions/d5/#partial">Part.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D6</span><span class="profile-cell__values"><span><a class="chip" data-dim="d6" href="dimensions/d6/#dl">DL</a></span><span><a class="chip" data-dim="d6" href="dimensions/d6/#fm">FM</a></span><span><a class="chip" data-dim="d6" href="dimensions/d6/#llm">LLM</a></span><span><a class="chip" data-dim="d6" href="dimensions/d6/#mllm">MLLM</a></span></span></div></div>
+    <div id="hero" class="hero">
+      <p class="hero__said">Someone tells you:</p>
+      <div class="hero__tabs" role="tablist" aria-label="Example phrases">
+        <button role="tab" class="hero__tab" data-slug="peft" aria-selected="true">
+          &ldquo;We fine-tuned it.&rdquo;</button>
+        <button role="tab" class="hero__tab" data-slug="rag" aria-selected="false">
+          &ldquo;We use RAG.&rdquo;</button>
+        <button role="tab" class="hero__tab" data-slug="icl" aria-selected="false">
+          &ldquo;It&rsquo;s few-shot.&rdquo;</button>
+      </div>
+      <p class="hero__asks">Which tells you almost nothing. Here is what it
+        actually pins down:</p>
+      <div id="hero-strip">
+        <div class="profile-strip" role="group" aria-label="Six-dimensional profile"><div class="profile-cell"><span class="profile-cell__dim">D1</span><span class="profile-cell__values"><span><a class="chip" data-dim="d1" href="dimensions/d1/#parametric-update">Param. Upd.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D2</span><span class="profile-cell__values"><span><a class="chip" data-dim="d2" href="dimensions/d2/#computational-efficiency">Comp. Eff.</a></span><span><a class="chip" data-dim="d2" href="dimensions/d2/#task-specialization">Task Spec.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D3</span><span class="profile-cell__values"><span><a class="chip" data-dim="d3" href="dimensions/d3/#small-labeled">Small Labeled</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D4</span><span class="profile-cell__values"><span><a class="chip" data-dim="d4" href="dimensions/d4/#ad-hoc-permanent">Ad-hoc Perm.</a></span><span><a class="chip" data-dim="d4" href="dimensions/d4/#scheduled-permanent">Sched. Perm.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D5</span><span class="profile-cell__values"><span><a class="chip" data-dim="d5" href="dimensions/d5/#modular">Modular</a></span><span><a class="chip" data-dim="d5" href="dimensions/d5/#partial">Part.</a></span></span></div><div class="profile-cell"><span class="profile-cell__dim">D6</span><span class="profile-cell__values"><span><a class="chip" data-dim="d6" href="dimensions/d6/#dl">DL</a></span><span><a class="chip" data-dim="d6" href="dimensions/d6/#fm">FM</a></span><span><a class="chip" data-dim="d6" href="dimensions/d6/#llm">LLM</a></span><span><a class="chip" data-dim="d6" href="dimensions/d6/#mllm">MLLM</a></span></span></div></div>
+      </div>
+      <p class="hero__caption" id="hero-caption">
+        <a href="techniques/peft/">PEFT (LoRA, adapters)</a> — one of six
+        readings of &ldquo;fine-tuned&rdquo;.</p>
     </div>
     <h1>48 techniques. Six dimensions. One coordinate each.</h1>
     <p style="font-size:var(--step-1)">
@@ -205,7 +221,7 @@
     </p>
   </div>
 </footer>
-<script type="module" src="js/theme.js"></script>
-<script type="module" src="js/video.js"></script>
+<script type="module" src="js/theme.js?v=fa7b6edf"></script>
+<script type="module" src="js/hero.js?v=1e25bee3"></script><script type="module" src="js/video.js?v=08fdcfb6"></script>
 </body>
 </html>

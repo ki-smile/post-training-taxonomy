@@ -45,8 +45,8 @@ if (selA && selB && out) {
         <p class="computed">${describeSeparator(sep, a.name, b.name, names)}</p>
         ${note}
         <div class="grid grid--2">
-          <div class="stack"><h3>${escapeHtml(a.name)}</h3>${profileStrip(store, a)}</div>
-          <div class="stack"><h3>${escapeHtml(b.name)}</h3>${profileStrip(store, b)}</div>
+          <div class="stack"><h3>${escapeHtml(a.name)}</h3>${profileStrip(store, a, { up: '../' })}</div>
+          <div class="stack"><h3>${escapeHtml(b.name)}</h3>${profileStrip(store, b, { up: '../' })}</div>
         </div>
         <p class="provenance">Computed from the taxonomy data</p>`;
       history.replaceState(null, '', `?t=${a.slug},${b.slug}`);

@@ -168,7 +168,7 @@ def test_audio_has_a_download_fallback():
 def test_video_facade_script_is_actually_attached():
     """The facade is inert without its module; a missing tag fails silently."""
     h = (DOCS / "index.html").read_text()
-    assert 'src="js/video.js"' in h
+    assert re.search(r'src="js/video\.js(\?v=[0-9a-f]+)?"', h)
     assert (DOCS / "js/video.js").exists()
 
 
@@ -219,3 +219,41 @@ def test_recomputed_projection_is_labelled_as_such():
         assert "authors' own analysis run" not in h
     else:
         assert "authors' own analysis run" in h
+
+
+def test_assets_are_content_versioned():
+    """Without a cache-busting hash, returning visitors keep stale CSS and JS
+    after a deploy -- a shipped redesign can appear not to have shipped."""
+    h = (DOCS / "index.html").read_text()
+    for asset in ("css/style.css", "css/tokens.css", "js/theme.js"):
+        assert re.search(rf'{re.escape(asset)}\?v=[0-9a-f]{{8}}', h), asset
+
+
+def test_fonts_are_actually_self_hosted():
+    """src: local() alone silently falls back for anyone without the font."""
+    css = (DOCS / "css/style.css").read_text()
+    rules = re.sub(r"/\*.*?\*/", "", css, flags=re.S)   # ignore commentary
+    assert "src: local(" not in rules, "a local()-only src silently falls back"
+    for f in ("DMSans-var-latin.woff2", "DMMono-400-latin.woff2",
+              "DMMono-500-latin.woff2"):
+        assert f in css, f
+        p = DOCS / "fonts" / f
+        assert p.exists() and p.read_bytes()[:4] == b"wOF2", f
+
+
+def test_profile_strip_renders_the_same_from_python_and_js():
+    """The strip is the site's signature element; it must not differ by which
+    code path drew it."""
+    py = (pathlib.Path("scripts/render.py")).read_text()
+    js = (DOCS / "js/store.js").read_text()
+    for marker in ('class="chip"', "data-dim=", "profile-cell__dim",
+                   "profile-cell__values", "dimensions/"):
+        assert marker in py, f"python renderer missing {marker}"
+        assert marker in js, f"js renderer missing {marker}"
+
+
+def test_hero_is_interactive_and_has_a_static_fallback():
+    h = (DOCS / "index.html").read_text()
+    assert h.count('class="hero__tab"') == 3
+    assert 'class="profile-strip"' in h      # rendered without JS too
+    assert re.search(r'src="js/hero\.js(\?v=[0-9a-f]+)?"', h)
