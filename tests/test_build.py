@@ -271,3 +271,9 @@ def test_lifecycle_does_not_make_deployment_the_boundary():
     import json
     dims = json.loads(pathlib.Path("data/dimensions.json").read_text())
     assert f"{len(dims['d2']['categories'])} adaptation goals" in h
+
+
+def test_nojekyll_present_for_branch_deployment():
+    """Without it GitHub runs Jekyll over docs/, which silently drops paths
+    beginning with an underscore and can rewrite output."""
+    assert (DOCS / ".nojekyll").exists()
