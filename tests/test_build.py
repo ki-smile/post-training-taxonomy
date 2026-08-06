@@ -113,7 +113,7 @@ def test_scatter_absent_while_umap_is_null():
     d = json.loads(pathlib.Path("data/derived.json").read_text())
     h = (DOCS / "map/index.html").read_text().lower()
     if d["umap"] is None:
-        assert "not yet published" in h
+        assert "not yet exported" in h
 
 
 def test_map_states_the_near_zero_silhouette_finding():

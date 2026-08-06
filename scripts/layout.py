@@ -9,6 +9,11 @@ import html
 ARXIV_ID = "arXiv:XXXX.XXXXX"
 ARXIV_URL = "https://arxiv.org/abs/XXXX.XXXXX"
 REPO_URL = "https://github.com/ki-smile/post-training-taxonomy"
+SMAILE_URL = ("https://ki.se/en/clintec/stockholm-medical-artificial-"
+              "intelligence-and-learning-environments-smaile")
+SMAILE_NAME = "SMAILE"
+SMAILE_LONG = ("Stockholm Medical Artificial Intelligence "
+               "and Learning Environments")
 SITE_TITLE = "Post-Training Adaptation Taxonomy"
 
 NAV = [
@@ -114,7 +119,13 @@ def page(title, body, *, depth=1, description="", current=None, scripts=()):
           <li>Fardin Afdideh</li>
           <li>Fernando Seoane</li>
           <li>Farhad Abtahi</li>
-          <li>Karolinska Institutet</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Group</p>
+        <ul>
+          <li><a href="{SMAILE_URL}">{SMAILE_NAME}</a></li>
+          <li style="opacity:.75">{SMAILE_LONG}</li>
         </ul>
       </div>
     </div>

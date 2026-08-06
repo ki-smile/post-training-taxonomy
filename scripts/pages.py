@@ -1,6 +1,8 @@
 """Page renderers. Each yields (relative_path, title, body_html, layout_kwargs)."""
 
-from scripts.layout import ARXIV_ID, ARXIV_URL, DISCLAIMER, REPO_URL, esc
+from scripts.layout import (
+    ARXIV_ID, ARXIV_URL, DISCLAIMER, REPO_URL, SMAILE_NAME, SMAILE_URL, esc,
+)
 from scripts.render import (
     DIM_KEYS, chip_list, dim_label, separator_prose, strip, technique_link,
 )
@@ -219,7 +221,7 @@ def home_page(d):
     body = f"""
 <section class="section wrap">
   <div class="stack" style="max-width:52rem">
-    <p class="eyebrow">Karolinska Institutet</p>
+    <p class="eyebrow"><a href="{SMAILE_URL}" style="color:inherit">{SMAILE_NAME}</a></p>
     <div id="hero-resolve" class="stack">
       <p style="font-size:var(--step-2);font-family:var(--font-display);
                 color:var(--text-muted)" id="hero-phrase">
@@ -909,13 +911,13 @@ def map_page(d):
   <section class="stack">
     <h2>Similarity projection</h2>
     <div class="placeholder">
-      <p class="eyebrow">Not yet published</p>
-      <p>The projection in the paper predates a correction to one technique's
-         data profile. Rather than publish a figure the paper never showed,
-         this space stays empty until the analysis is re-run.</p>
+      <p class="eyebrow">Coordinates not yet exported</p>
+      <p>The analysis reproduces the published silhouette scores exactly, so
+         the projection is settled — but its coordinates live only inside the
+         notebook. An interactive version goes here once they are exported.</p>
     </div>
-    <p>Pairwise distances are unaffected and are shown on every technique page
-       under <em>nearest profiles</em>.</p>
+    <p>Pairwise distances are independent of the projection and are shown on
+       every technique page under <em>nearest profiles</em>.</p>
   </section>
 </div>
 """
