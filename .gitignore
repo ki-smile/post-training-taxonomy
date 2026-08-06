@@ -1,0 +1,29 @@
+# Reference material — NOT published to GitHub.
+# Holds the unpublished manuscript PDF and LaTeX source, used only as
+# extraction input by scripts/extract.py. The paper itself is distributed
+# via arXiv; this folder must never be pushed.
+ref/
+
+# Internal design/planning material — NOT published.
+# The spec references manuscript source filenames that identify the
+# submission venue, which must not be published.
+specs/
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Local agent/session state
+.claude/

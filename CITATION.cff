@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+title: >-
+  A Six-Dimensional Taxonomy of Post-Training Adaptation Techniques
+  with Applications in AI Governance
+message: If you use this taxonomy, please cite the preprint.
+type: dataset
+authors:
+  - given-names: Fardin
+    family-names: Afdideh
+    affiliation: Karolinska Institutet
+    email: fardin.afdideh@ki.se
+  - given-names: Fernando
+    family-names: Seoane
+    affiliation: Karolinska Institutet
+    email: fernando.seoane@ki.se
+  - given-names: Farhad
+    family-names: Abtahi
+    affiliation: Karolinska Institutet
+    email: farhad.abtahi@ki.se
+repository-code: https://github.com/ki-smile/post-training-taxonomy
+url: https://ki-smile.github.io/post-training-taxonomy/
+abstract: >-
+  A six-dimensional taxonomy characterising 48 post-training adaptation
+  techniques for machine learning models by mechanism, goal, data
+  requirement, persistence, structural scope, and model type, with a
+  mapping from those dimensions to AI governance documentation.
+keywords:
+  - post-training adaptation
+  - model adaptation taxonomy
+  - AI governance
+  - machine learning
+license: CC-BY-4.0
+identifiers:
+  - type: other
+    value: arXiv:XXXX.XXXXX
+    description: Preprint identifier (placeholder until posted)
