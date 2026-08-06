@@ -1,7 +1,8 @@
 """Page renderers. Each yields (relative_path, title, body_html, layout_kwargs)."""
 
 from scripts.layout import (
-    ARXIV_ID, ARXIV_URL, DISCLAIMER, REPO_URL, SMAILE_NAME, SMAILE_URL, esc,
+    ARXIV_ID, ARXIV_URL, DISCLAIMER, REPO_URL, SMAILE_NAME, SMAILE_URL,
+    VIDEO_CHANNEL, VIDEO_ID, VIDEO_TITLE, VIDEO_URL, esc,
 )
 from scripts.render import (
     DIM_KEYS, chip_list, dim_label, separator_prose, strip, technique_link,
@@ -309,10 +310,23 @@ def home_page(d):
 <section class="section wrap stack">
   <h2>Overviews</h2>
   <div class="grid grid--2">
-    <div class="placeholder"><p class="eyebrow">Video overview</p>
-      <p>Coming soon.</p></div>
-    <div class="placeholder"><p class="eyebrow">Audio overview</p>
-      <p>Coming soon.</p></div>
+    <div class="stack">
+      <p class="eyebrow">Video overview</p>
+      <button class="video-facade" type="button"
+              data-video="{VIDEO_ID}" data-title="{esc(VIDEO_TITLE)}"
+              aria-label="Play: {esc(VIDEO_TITLE)}">
+        <img src="media/video-poster.jpg" alt="" width="1280" height="720">
+        <span class="video-facade__play" aria-hidden="true">&#9654;</span>
+      </button>
+      <p><strong>{esc(VIDEO_TITLE)}</strong><br>
+        <span class="provenance">{esc(VIDEO_CHANNEL)}</span></p>
+      <p class="provenance">Nothing loads from YouTube until you press play.
+        <a href="{VIDEO_URL}">Watch on YouTube instead</a></p>
+    </div>
+    <div class="stack">
+      <p class="eyebrow">Audio overview</p>
+      <div class="placeholder"><p>Coming soon.</p></div>
+    </div>
   </div>
 </section>
 
@@ -332,7 +346,7 @@ def home_page(d):
 </section>
 """
     return ("index.html", "A six-dimensional taxonomy of post-training adaptation",
-            body, {"depth": 0,
+            body, {"depth": 0, "scripts": ("video.js",),
                    "description": f"{n} post-training adaptation techniques, "
                                   "each with a six-dimensional profile."})
 

@@ -16,6 +16,15 @@ SMAILE_LONG = ("Stockholm Medical Artificial Intelligence "
                "and Learning Environments")
 SITE_TITLE = "Post-Training Adaptation Taxonomy"
 
+# Video overview. Embedded as a click-to-load facade: the poster is served
+# locally and nothing is requested from YouTube until a reader chooses to
+# play, so the page keeps making no third-party requests on load.
+VIDEO_ID = "XJdbjRsIOPs"
+VIDEO_URL = "https://youtu.be/XJdbjRsIOPs"
+VIDEO_TITLE = ("Fine-Tuning, RAG, or Prompting? "
+               "The 6D Framework for AI Model Adaptation")
+VIDEO_CHANNEL = "SMAILE KI"
+
 NAV = [
     ("Concepts", "/concepts/"),
     ("Explorer", "/explorer/"),

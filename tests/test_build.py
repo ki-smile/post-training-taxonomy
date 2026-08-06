@@ -137,10 +137,30 @@ def test_hero_renders_a_resolved_profile_without_js():
     assert "fine-tuned" in h.lower()
 
 
-def test_media_placeholders_are_labelled_not_broken_embeds():
+def test_media_sections_are_present():
     h = (DOCS / "index.html").read_text().lower()
     assert "video overview" in h and "audio overview" in h
-    assert "<iframe" not in h
+
+
+def test_video_is_a_click_to_load_facade_not_an_eager_embed():
+    """The page must make no third-party request until a reader presses play."""
+    h = (DOCS / "index.html").read_text()
+    assert "<iframe" not in h, "iframe in static HTML would load on page view"
+    assert 'class="video-facade"' in h
+    assert 'src="media/video-poster.jpg"' in h  # poster served locally
+    assert "youtube.com" not in h and "ytimg.com" not in h
+
+
+def test_video_facade_script_is_actually_attached():
+    """The facade is inert without its module; a missing tag fails silently."""
+    h = (DOCS / "index.html").read_text()
+    assert 'src="js/video.js"' in h
+    assert (DOCS / "js/video.js").exists()
+
+
+def test_video_poster_is_committed_locally():
+    poster = DOCS / "media/video-poster.jpg"
+    assert poster.exists() and poster.stat().st_size > 5000
 
 
 def test_arxiv_placeholder_and_bibtex_present():

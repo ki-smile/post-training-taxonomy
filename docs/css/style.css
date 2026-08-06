@@ -329,3 +329,24 @@ pre {
 }
 .opt:hover { background: var(--surface-2); }
 .opt input { flex: none; }
+
+/* ---------- Video facade ---------- */
+
+.video-facade {
+  position: relative; display: block; width: 100%; padding: 0;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--surface-2); cursor: pointer; overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+.video-facade img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.video-facade__play {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  font-size: 3rem; color: #fff;
+  background: rgba(79, 4, 51, .35);
+  transition: background var(--transition);
+}
+.video-facade:hover .video-facade__play { background: rgba(79, 4, 51, .55); }
+.video-frame {
+  width: 100%; aspect-ratio: 16 / 9; border: 1px solid var(--border);
+  border-radius: var(--radius);
+}

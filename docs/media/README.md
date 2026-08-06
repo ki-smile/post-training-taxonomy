@@ -1,35 +1,31 @@
 # Video and audio overviews
 
-Both slots on the home page are placeholders. To fill them:
+## Video — done
 
-## Audio
+The home page embeds the overview as a **click-to-load facade**. The poster
+(`video-poster.jpg`) is served from this folder, and nothing is requested from
+YouTube until a reader presses play, at which point `js/video.js` swaps in an
+iframe pointed at the no-cookie host.
 
-Drop an MP3 here as `overview.mp3`, then in `scripts/pages.py` replace the
-audio placeholder block in `home_page` with:
+That keeps the page's promise of making no third-party requests on load. A
+plain `<iframe>` would contact Google for every visitor, including those who
+never watch. A test asserts no iframe appears in the static HTML.
 
-```html
-<audio controls preload="none" style="width:100%">
-  <source src="media/overview.mp3" type="audio/mpeg">
-  Your browser does not support audio playback.
-</audio>
-```
+To change the video, edit `VIDEO_ID`, `VIDEO_TITLE` and `VIDEO_CHANNEL` in
+`scripts/layout.py`, replace the poster, and rebuild:
 
-Rebuild with `python3 scripts/build.py`.
+    curl -o docs/media/video-poster.jpg https://i.ytimg.com/vi/<ID>/maxresdefault.jpg
+    python3 scripts/build.py
 
-## Video
+## Audio — still a placeholder
 
-Two options.
+Drop an MP3 here as `overview.mp3`, then replace the audio placeholder block in
+`home_page` (`scripts/pages.py`) with:
 
-**Self-hosted** — drop `overview.mp4` here and use a `<video controls>` element
-the same way. Keep it under ~50 MB; GitHub warns above 50 MB and rejects at 100 MB.
+    <audio controls preload="none" style="width:100%">
+      <source src="media/overview.mp3" type="audio/mpeg">
+      Your browser does not support audio playback.
+    </audio>
 
-**YouTube** — an iframe embed reaches a third-party host, which the rest of the
-site deliberately avoids. If that trade-off is acceptable, use a click-to-load
-facade so nothing loads until the reader asks for it: show a poster image, and
-swap in the iframe on click.
-
-## Why the placeholders look the way they do
-
-They render as labelled empty states rather than broken players. A missing
-`<audio>` source shows a dead control; a labelled placeholder tells the reader
-the thing is coming.
+`preload="none"` matters: without it the browser starts fetching the file for
+every visitor.
