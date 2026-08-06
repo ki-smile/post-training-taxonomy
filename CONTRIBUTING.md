@@ -12,7 +12,7 @@ sources — both worth knowing about.
 
 ```bash
 python3 -m pytest              # Python suite
-node --test "tests/*.test.js"  # browser-module suite
+node --test tests/*.test.js    # browser-module suite
 python3 scripts/pipeline.py    # re-extract data/
 python3 scripts/build.py       # regenerate docs/
 python3 scripts/build.py --strict   # …and run the full site validation

@@ -48,7 +48,9 @@ jobs:
         run: python -m pytest -q
 
       - name: Browser-module tests
-        run: node --test "tests/*.test.js"
+        # Unquoted so the shell expands the glob: node --test only learned to
+        # expand globs itself in Node 22, and this must not depend on that.
+        run: node --test tests/*.test.js
 
       - name: Rebuild the site and check it matches what is committed
         # A drifted docs/ means someone edited a page by hand instead of the
