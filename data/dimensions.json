@@ -1,0 +1,548 @@
+{
+  "d1": {
+    "key": "d1",
+    "name": "Mechanism",
+    "question": "What changes?",
+    "categories": [
+      {
+        "anchor": "transAct",
+        "slug": "activation-space-manipulation",
+        "label": "Activation-Space Manipulation",
+        "abbr": "Act.-Space Manip.",
+        "meta_group": "III. Inference-Time / Zero-Footprint"
+      },
+      {
+        "anchor": "arch",
+        "slug": "architectural-modification",
+        "label": "Architectural Modification",
+        "abbr": "Arch.",
+        "meta_group": "II. Gradient-Free / Weight Manipulation"
+      },
+      {
+        "anchor": "ctx",
+        "slug": "context-injection",
+        "label": "Context Injection",
+        "abbr": "Context Inj.",
+        "meta_group": "III. Inference-Time / Zero-Footprint"
+      },
+      {
+        "anchor": "CrossModelTransf",
+        "slug": "cross-model-transfer",
+        "label": "Cross-Model Transfer",
+        "abbr": "Cross-Model Transf.",
+        "meta_group": "I. Gradient-Based / Compute-Intensive"
+      },
+      {
+        "anchor": "infTimeSearch",
+        "slug": "inference-time-search",
+        "label": "Inference-Time Search",
+        "abbr": "Infer.-Time Search",
+        "meta_group": "III. Inference-Time / Zero-Footprint"
+      },
+      {
+        "anchor": "WeightSpaceComp",
+        "slug": "parameter-composition",
+        "label": "Parameter Composition",
+        "abbr": "Param. Comp.",
+        "meta_group": "II. Gradient-Free / Weight Manipulation"
+      },
+      {
+        "anchor": "StructReduct",
+        "slug": "parametric-compression",
+        "label": "Parametric Compression",
+        "abbr": "Param. Compres.",
+        "meta_group": "II. Gradient-Free / Weight Manipulation"
+      },
+      {
+        "anchor": "paramUpd",
+        "slug": "parametric-update",
+        "label": "Parametric Update",
+        "abbr": "Param. Upd.",
+        "meta_group": "I. Gradient-Based / Compute-Intensive"
+      },
+      {
+        "anchor": "manip",
+        "slug": "pipeline-mediated",
+        "label": "Pipeline-Mediated",
+        "abbr": "Pipe.-Med.",
+        "meta_group": "IV. Pipeline-Mediated"
+      }
+    ]
+  },
+  "d2": {
+    "key": "d2",
+    "name": "Goal",
+    "question": "Why adapt?",
+    "categories": [
+      {
+        "anchor": "algn",
+        "slug": "alignment",
+        "label": "Alignment",
+        "abbr": "Align.",
+        "meta_group": "III. Trust"
+      },
+      {
+        "anchor": "behavControl",
+        "slug": "behavior-control",
+        "label": "Behavior Control",
+        "abbr": "Behav. Ctrl.",
+        "meta_group": "V. Operational Constraints"
+      },
+      {
+        "anchor": "build",
+        "slug": "build-capability",
+        "label": "Build Capability",
+        "abbr": "Build Capab.",
+        "meta_group": "I. Capability"
+      },
+      {
+        "anchor": "capExt",
+        "slug": "capability-extension",
+        "label": "Capability Extension",
+        "abbr": "Capab. Ext.",
+        "meta_group": "I. Capability"
+      },
+      {
+        "anchor": "compEff",
+        "slug": "computational-efficiency",
+        "label": "Computational Efficiency",
+        "abbr": "Comp. Eff.",
+        "meta_group": "V. Operational Constraints"
+      },
+      {
+        "anchor": "ContAdapt",
+        "slug": "continual-adaptation",
+        "label": "Continual Adaptation",
+        "abbr": "Cont. Adapt.",
+        "meta_group": "II. Lifecycle"
+      },
+      {
+        "anchor": "domAdapt",
+        "slug": "distributional-gap-bridging",
+        "label": "Distributional Gap Bridging",
+        "abbr": "Dist. Gap Bridging",
+        "meta_group": "II. Lifecycle"
+      },
+      {
+        "anchor": "DriftRemed",
+        "slug": "drift-remediation",
+        "label": "Drift Remediation",
+        "abbr": "Drift Remed.",
+        "meta_group": "II. Lifecycle"
+      },
+      {
+        "anchor": "explain",
+        "slug": "explainability",
+        "label": "Explainability",
+        "abbr": "Expl.",
+        "meta_group": "III. Trust"
+      },
+      {
+        "anchor": "fairness",
+        "slug": "fairness",
+        "label": "Fairness",
+        "abbr": "Fair.",
+        "meta_group": "III. Trust"
+      },
+      {
+        "anchor": "augK",
+        "slug": "knowledge-update",
+        "label": "Knowledge Update",
+        "abbr": "Knowl. Upd.",
+        "meta_group": "IV. Knowledge Operations"
+      },
+      {
+        "anchor": "userPerson",
+        "slug": "personalization",
+        "label": "Personalization",
+        "abbr": "Person.",
+        "meta_group": "V. Operational Constraints"
+      },
+      {
+        "anchor": "priv",
+        "slug": "privacy-preservation",
+        "label": "Privacy Preservation",
+        "abbr": "Priv. Preserv.",
+        "meta_group": "V. Operational Constraints"
+      },
+      {
+        "anchor": "reas",
+        "slug": "reasoning",
+        "label": "Reasoning",
+        "abbr": "Reas.",
+        "meta_group": "I. Capability"
+      },
+      {
+        "anchor": "reliability",
+        "slug": "reliability",
+        "label": "Reliability",
+        "abbr": "Reliab.",
+        "meta_group": "III. Trust"
+      },
+      {
+        "anchor": "rem",
+        "slug": "remove-knowledge",
+        "label": "Remove Knowledge",
+        "abbr": "Rem. Knowl.",
+        "meta_group": "IV. Knowledge Operations"
+      },
+      {
+        "anchor": "rob",
+        "slug": "robustness",
+        "label": "Robustness",
+        "abbr": "Rob.",
+        "meta_group": "III. Trust"
+      },
+      {
+        "anchor": "safety",
+        "slug": "safety",
+        "label": "Safety",
+        "abbr": "Safety",
+        "meta_group": "III. Trust"
+      },
+      {
+        "anchor": "task",
+        "slug": "task-specialization",
+        "label": "Task Specialization",
+        "abbr": "Task Spec.",
+        "meta_group": "I. Capability"
+      }
+    ]
+  },
+  "d3": {
+    "key": "d3",
+    "name": "Data Requirements",
+    "question": "What data is needed?",
+    "categories": [
+      {
+        "anchor": "synthRule",
+        "slug": "constitution-derived",
+        "label": "Constitution-Derived",
+        "abbr": "Constitution-Deriv.",
+        "meta_group": "II. Synthetic / Programmatic Data"
+      },
+      {
+        "anchor": "decent",
+        "slug": "decentralized",
+        "label": "Decentralized",
+        "abbr": "Decent.",
+        "meta_group": "V. Minimal / Decentralized / Delegated Data"
+      },
+      {
+        "anchor": "synthEnv",
+        "slug": "environment-derived",
+        "label": "Environment-Derived",
+        "abbr": "Environment-Deriv.",
+        "meta_group": "II. Synthetic / Programmatic Data"
+      },
+      {
+        "anchor": "ext",
+        "slug": "external-corpus",
+        "label": "External Corpus",
+        "abbr": "Ext. Corpus",
+        "meta_group": "IV. External / Targeted Data"
+      },
+      {
+        "anchor": "few",
+        "slug": "few-demonstrations",
+        "label": "Few Demonstrations",
+        "abbr": "Few Demo.",
+        "meta_group": "I. Human-Annotated Data"
+      },
+      {
+        "anchor": "forget",
+        "slug": "forget-set-specification",
+        "label": "Forget Set Specification",
+        "abbr": "Forget Set Spec.",
+        "meta_group": "IV. External / Targeted Data"
+      },
+      {
+        "anchor": "instrResp",
+        "slug": "instruction-response-corpus",
+        "label": "Instruction-Response Corpus",
+        "abbr": "Instr.-Resp. Corpus",
+        "meta_group": "II. Synthetic / Programmatic Data"
+      },
+      {
+        "anchor": "largeD",
+        "slug": "large-labeled",
+        "label": "Large Labeled",
+        "abbr": "Large Labeled",
+        "meta_group": "I. Human-Annotated Data"
+      },
+      {
+        "anchor": "multiD",
+        "slug": "paired-multimodal",
+        "label": "Paired Multimodal",
+        "abbr": "Pair. Multimod.",
+        "meta_group": "VII. Multi-Modal Paired Provenance"
+      },
+      {
+        "anchor": "wght",
+        "slug": "parameter-only",
+        "label": "Parameter-Only",
+        "abbr": "Param.-Only",
+        "meta_group": "V. Minimal / Decentralized / Delegated Data"
+      },
+      {
+        "anchor": "pipeInherit",
+        "slug": "pipeline-dependent",
+        "label": "Pipeline-Dependent",
+        "abbr": "Pipe.-Dep.",
+        "meta_group": "V. Minimal / Decentralized / Delegated Data"
+      },
+      {
+        "anchor": "pref",
+        "slug": "preference-pairs",
+        "label": "Preference Pairs",
+        "abbr": "Pref. Pairs",
+        "meta_group": "I. Human-Annotated Data"
+      },
+      {
+        "anchor": "seqIncD",
+        "slug": "sequential-incremental",
+        "label": "Sequential / Incremental",
+        "abbr": "Seq./Inc.",
+        "meta_group": "III. Live / Production Data"
+      },
+      {
+        "anchor": "smallD",
+        "slug": "small-labeled",
+        "label": "Small Labeled",
+        "abbr": "Small Labeled",
+        "meta_group": "I. Human-Annotated Data"
+      },
+      {
+        "anchor": "taskDist",
+        "slug": "task-distribution",
+        "label": "Task Distribution",
+        "abbr": "Task Dist.",
+        "meta_group": "I. Human-Annotated Data"
+      },
+      {
+        "anchor": "synthTeacher",
+        "slug": "teacher-derived",
+        "label": "Teacher-Derived",
+        "abbr": "Teacher-Deriv.",
+        "meta_group": "II. Synthetic / Programmatic Data"
+      },
+      {
+        "anchor": "tstOnly",
+        "slug": "test-only",
+        "label": "Test-Only",
+        "abbr": "Test-Only",
+        "meta_group": "III. Live / Production Data"
+      },
+      {
+        "anchor": "unlabD",
+        "slug": "unlabeled",
+        "label": "Unlabeled",
+        "abbr": "Unlabeled",
+        "meta_group": "V. Minimal / Decentralized / Delegated Data"
+      },
+      {
+        "anchor": "userInteract",
+        "slug": "user-interaction-data",
+        "label": "User Interaction Data",
+        "abbr": "User Interact.",
+        "meta_group": "III. Live / Production Data"
+      },
+      {
+        "anchor": "verify",
+        "slug": "verifiable-task",
+        "label": "Verifiable Task",
+        "abbr": "Verif. Task",
+        "meta_group": "VI. Verifier-Defined Ground Truth"
+      },
+      {
+        "anchor": "zeroSh",
+        "slug": "zero-shot",
+        "label": "Zero-Shot",
+        "abbr": "Zero-Shot",
+        "meta_group": "V. Minimal / Decentralized / Delegated Data"
+      }
+    ]
+  },
+  "d4": {
+    "key": "d4",
+    "name": "Persistence",
+    "question": "How long does the change last?",
+    "categories": [
+      {
+        "anchor": "AdhocPerm",
+        "slug": "ad-hoc-permanent",
+        "label": "Ad-hoc Permanent",
+        "abbr": "Ad-hoc Perm.",
+        "meta_group": "II. Event-Driven Unplanned Modification"
+      },
+      {
+        "anchor": "boundedCumul",
+        "slug": "bounded-cumulative",
+        "label": "Bounded Cumulative",
+        "abbr": "Bound. Cumul.",
+        "meta_group": "I. Pre-Specifiable Baselines"
+      },
+      {
+        "anchor": "pipeDep",
+        "slug": "pipeline-dependent",
+        "label": "Pipeline-Dependent",
+        "abbr": "Pipe.-Dep.",
+        "meta_group": "V. Inherited Burden"
+      },
+      {
+        "anchor": "ScheduledPerm",
+        "slug": "scheduled-permanent",
+        "label": "Scheduled Permanent",
+        "abbr": "Sched. Perm.",
+        "meta_group": "I. Pre-Specifiable Baselines"
+      },
+      {
+        "anchor": "eph",
+        "slug": "session-ephemeral",
+        "label": "Session-Ephemeral",
+        "abbr": "Sess.-Eph.",
+        "meta_group": "IV. Session-Scoped"
+      },
+      {
+        "anchor": "trans",
+        "slug": "transient",
+        "label": "Transient",
+        "abbr": "Transient",
+        "meta_group": "IV. Session-Scoped"
+      },
+      {
+        "anchor": "unboundedCumul",
+        "slug": "unbounded-cumulative",
+        "label": "Unbounded Cumulative",
+        "abbr": "Unbound. Cumul.",
+        "meta_group": "III. Continuous Surveillance Required"
+      },
+      {
+        "anchor": "verPersistent",
+        "slug": "version-persistent",
+        "label": "Version-Persistent",
+        "abbr": "Ver.-Persist.",
+        "meta_group": "I. Pre-Specifiable Baselines"
+      }
+    ]
+  },
+  "d5": {
+    "key": "d5",
+    "name": "Scope",
+    "question": "How much of the model structure is modified?",
+    "categories": [
+      {
+        "anchor": "actSpace",
+        "slug": "activation-space",
+        "label": "Activation-Space",
+        "abbr": "Activ.-Space",
+        "meta_group": "IV. No Parametric Footprint"
+      },
+      {
+        "anchor": "compressed",
+        "slug": "compressed-artifact",
+        "label": "Compressed Artifact",
+        "abbr": "Compress. Artif.",
+        "meta_group": "II. Targeted Component Validation"
+      },
+      {
+        "anchor": "dIVdist",
+        "slug": "distributed",
+        "label": "Distributed",
+        "abbr": "Dist.",
+        "meta_group": "V. Distributed Aggregation"
+      },
+      {
+        "anchor": "fusedComp",
+        "slug": "fused-composition",
+        "label": "Fused Composition",
+        "abbr": "Fused",
+        "meta_group": "I. Full-System Validation"
+      },
+      {
+        "anchor": "extContxt",
+        "slug": "input-output-space",
+        "label": "Input/Output-Space",
+        "abbr": "I/O Space",
+        "meta_group": "IV. No Parametric Footprint"
+      },
+      {
+        "anchor": "modSwap",
+        "slug": "modular",
+        "label": "Modular",
+        "abbr": "Modular",
+        "meta_group": "III. Modular Isolation"
+      },
+      {
+        "anchor": "partl",
+        "slug": "partial",
+        "label": "Partial",
+        "abbr": "Part.",
+        "meta_group": "II. Targeted Component Validation"
+      },
+      {
+        "anchor": "pipelineDepScope",
+        "slug": "pipeline-dependent",
+        "label": "Pipeline-Dependent",
+        "abbr": "Pipe.-Dep.",
+        "meta_group": "VI. Inherited Burden"
+      },
+      {
+        "anchor": "surrogate",
+        "slug": "surrogate-model",
+        "label": "Surrogate Model",
+        "abbr": "Surrog. Model",
+        "meta_group": "II. Targeted Component Validation"
+      },
+      {
+        "anchor": "whole",
+        "slug": "whole-model",
+        "label": "Whole-Model",
+        "abbr": "Whole",
+        "meta_group": "I. Full-System Validation"
+      }
+    ]
+  },
+  "d6": {
+    "key": "d6",
+    "name": "Model Type",
+    "question": "What model is being adapted?",
+    "categories": [
+      {
+        "anchor": null,
+        "slug": "dl",
+        "label": "Deep Learning",
+        "abbr": "DL",
+        "meta_group": null
+      },
+      {
+        "anchor": null,
+        "slug": "fm",
+        "label": "Foundation Model",
+        "abbr": "FM",
+        "meta_group": null
+      },
+      {
+        "anchor": null,
+        "slug": "llm",
+        "label": "Large Language Model",
+        "abbr": "LLM",
+        "meta_group": null
+      },
+      {
+        "anchor": null,
+        "slug": "ml",
+        "label": "Machine Learning",
+        "abbr": "ML",
+        "meta_group": null
+      },
+      {
+        "anchor": null,
+        "slug": "mllm",
+        "label": "Multimodal Large Language Model",
+        "abbr": "MLLM",
+        "meta_group": null
+      }
+    ]
+  }
+}
