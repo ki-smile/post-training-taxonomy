@@ -3822,5 +3822,5 @@
     "basis": "D1 mechanism groups II (Gradient-Free / Weight Manipulation) and III (Inference-Time / Zero-Footprint), which the paper annotates as possibly falling outside compute-based threshold proxies."
   },
   "umap": null,
-  "umap_note": "Coordinates are not published here. The projection in the paper predates the FSL correction, and recomputing it would put a figure on the site that the paper never published."
+  "umap_note": "Not yet exported. Run the export cell in the analysis notebook; the coordinates cannot be recomputed elsewhere because UMAP differs across library and platform versions."
 }

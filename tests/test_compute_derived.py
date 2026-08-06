@@ -64,3 +64,43 @@ def test_blind_spot_counts_are_derived_not_asserted():
     assert len(b["exclusive"]) == 10
     assert len(b["dual"]) == 4
     assert "activation-steering" in b["exclusive"] or "actsteer" in b["exclusive"]
+
+
+def test_umap_coordinates_are_consumed_when_exported(tmp_path, monkeypatch):
+    """The scatter must light up from an export without further code changes."""
+    import subprocess, sys, shutil
+    root = tmp_path / "r"
+    shutil.copytree(".", root, ignore=shutil.ignore_patterns(
+        ".git", "__pycache__", "ref", "docs", "node_modules"))
+    tax = json.loads((root / "data/taxonomy.json").read_text())
+    names = [t["name"] for t in tax["techniques"]]
+    (root / "data/umap_coords.json").write_text(json.dumps({
+        "technique": names,
+        "family": [t["family"] for t in tax["techniques"]],
+        "x": [float(i) for i in range(len(names))],
+        "y": [float(-i) for i in range(len(names))],
+        "silhouette_umap": -0.0346,
+        "versions": {"umap_learn": "0.5.x"},
+    }))
+    subprocess.run([sys.executable, "scripts/compute_derived.py"],
+                   cwd=root, check=True, capture_output=True)
+    d = json.loads((root / "data/derived.json").read_text())
+    assert d["umap"] is not None
+    assert len(d["umap"]["points"]) == 49
+    assert d["umap"]["silhouette"] == -0.0346
+
+
+def test_mismatched_coordinate_names_fail_loudly(tmp_path):
+    """A silently dropped point would be worse than a failed build."""
+    import subprocess, sys, shutil
+    root = tmp_path / "r"
+    shutil.copytree(".", root, ignore=shutil.ignore_patterns(
+        ".git", "__pycache__", "ref", "docs", "node_modules"))
+    (root / "data/umap_coords.json").write_text(json.dumps({
+        "technique": ["Not A Real Technique"], "family": ["X"],
+        "x": [0.0], "y": [0.0],
+    }))
+    r = subprocess.run([sys.executable, "scripts/compute_derived.py"],
+                       cwd=root, capture_output=True, text=True)
+    assert r.returncode != 0
+    assert "missing" in (r.stderr + r.stdout).lower()

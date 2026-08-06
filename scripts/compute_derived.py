@@ -12,6 +12,7 @@ paper never published. That is gated on the notebook being re-executed.
 
 import json
 import pathlib
+import re
 import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
@@ -135,6 +136,40 @@ def main():
         if non_grad:
             (dual if grad else exclusive).append(t["slug"])
 
+    # Coordinates come from the authors' notebook run, if it has been exported.
+    coords_path = ROOT / "data" / "umap_coords.json"
+    umap_payload = None
+    if coords_path.exists():
+        raw = json.loads(coords_path.read_text())
+        # Same normalisation the extractor uses: the notebook writes
+        # "SSL/CPT" where the table has "SSL / CPT".
+        def norm(n):
+            n = re.sub(r"\s*/\s*", "/", n)
+            return re.sub(r"\s+", " ", n).strip().lower()
+
+        pos = {}
+        for name, x, y in zip(raw["technique"], raw["x"], raw["y"]):
+            pos[norm(name)] = [x, y]
+        points, missing = [], []
+        for t in techs:
+            key = norm(t["name"])
+            if key in pos:
+                points.append({"slug": t["slug"], "x": pos[key][0],
+                               "y": pos[key][1], "family": t["family"]})
+            else:
+                missing.append(t["name"])
+        if missing:
+            raise SystemExit(
+                f"umap_coords.json is missing {len(missing)} technique(s): "
+                f"{missing[:3]} -- names must match the taxonomy"
+            )
+        umap_payload = {
+            "points": points,
+            "silhouette": raw.get("silhouette_umap"),
+            "params": raw.get("params"),
+            "versions": raw.get("versions"),
+        }
+
     payload = {
         "order": order,
         "gower": [[round(v, 6) for v in row] for row in matrix],
@@ -162,11 +197,16 @@ def main():
                 "threshold proxies."
             ),
         },
-        "umap": None,
+        "umap": umap_payload,
         "umap_note": (
-            "Coordinates are not published here. The projection in the paper "
-            "predates the FSL correction, and recomputing it would put a "
-            "figure on the site that the paper never published."
+            "Coordinates exported from the notebook run that produced the "
+            "published figure. UMAP is not reproducible across library or "
+            "platform versions, so recomputing elsewhere yields a different "
+            "embedding -- these must come from the authors' own run."
+            if umap_payload else
+            "Not yet exported. Run the export cell in the analysis notebook; "
+            "the coordinates cannot be recomputed elsewhere because UMAP "
+            "differs across library and platform versions."
         ),
     }
 

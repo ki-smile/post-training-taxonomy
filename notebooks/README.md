@@ -19,6 +19,25 @@ Cell 2 holds the taxonomy dataset. Its 49 records are cross-checked against
 the manuscript table on every site build — currently 294 of 294 profile
 cells agree.
 
+## Exporting coordinates for the website
+
+The site renders the projection interactively, but the coordinates have to come
+from **this notebook's own run**. UMAP is not reproducible across library or
+platform versions: recomputing with identical settings on a different machine
+gives a visibly different embedding. Measured here — the published silhouette
+is −0.0346, while umap-learn 0.5.12 / 0.5.7 / 0.5.5 elsewhere produced −0.0851,
+−0.0701 and −0.0832 respectively.
+
+Run the notebook through the **"Export coordinates for the website"** cell. It
+writes `data/umap_coords.json`, after which:
+
+    python3 scripts/compute_derived.py
+    python3 scripts/build.py
+
+makes the scatter appear on `/map/`. No other change is needed — and if a
+technique name does not match the taxonomy, the build fails rather than
+silently dropping a point.
+
 ## Running it
 
 Needs `umap-learn`, `scikit-learn`, `pandas`, `numpy`, and `matplotlib`.

@@ -905,6 +905,7 @@ def map_page(d):
 </div>""")
 
     sil = derived["silhouette"]
+    scatter = _scatter(derived, tax, up)
     body = f"""
 <div class="wrap section stack">
   <h1>How the taxonomy is shaped</h1>
@@ -936,12 +937,7 @@ def map_page(d):
 
   <section class="stack">
     <h2>Similarity projection</h2>
-    <div class="placeholder">
-      <p class="eyebrow">Coordinates not yet exported</p>
-      <p>The analysis reproduces the published silhouette scores exactly, so
-         the projection is settled — but its coordinates live only inside the
-         notebook. An interactive version goes here once they are exported.</p>
-    </div>
+    {scatter}
     <p>Pairwise distances are independent of the projection and are shown on
        every technique page under <em>nearest profiles</em>.</p>
   </section>
@@ -1064,3 +1060,89 @@ def notfound_page(d):
 </div>
 """
     return ("404.html", "Not found", body, {"depth": 0})
+
+
+def _scatter(derived, tax, up):
+    """Interactive projection, drawn only from the authors' own coordinates.
+
+    UMAP is not reproducible across library or platform versions, so a
+    recomputed embedding would be a different figure. Until the notebook
+    exports its coordinates this renders an honest placeholder.
+    """
+    u = derived.get("umap")
+    if not u or not u.get("points"):
+        return (
+            '<div class="placeholder">'
+            '<p class="eyebrow">Coordinates not yet exported</p>'
+            '<p>The analysis reproduces the published silhouette scores '
+            'exactly, so the projection is settled — but UMAP cannot be '
+            'recomputed elsewhere, because the same settings give a different '
+            'embedding on a different machine. The interactive version appears '
+            'here once the notebook exports its coordinates.</p></div>'
+        )
+    pts = u["points"]
+    xs = [p["x"] for p in pts]
+    ys = [p["y"] for p in pts]
+    x0, x1 = min(xs), max(xs)
+    y0, y1 = min(ys), max(ys)
+    W, H, PAD = 760, 520, 28
+    sx = lambda v: PAD + (v - x0) / ((x1 - x0) or 1) * (W - 2 * PAD)
+    sy = lambda v: H - PAD - (v - y0) / ((y1 - y0) or 1) * (H - 2 * PAD)
+
+    fams = sorted({p["family"] for p in pts})
+    by_slug = {t["slug"]: t for t in tax["techniques"]}
+    hue = {f: f"hsl({int(i * 360 / max(len(fams), 1))} 55% 45%)"
+           for i, f in enumerate(fams)}
+
+    circles, rows = [], []
+    for p in pts:
+        t = by_slug.get(p["slug"], {})
+        name = t.get("name", p["slug"])
+        circles.append(
+            f'<a href="{up}techniques/{p["slug"]}/">'
+            f'<circle cx="{sx(p["x"]):.1f}" cy="{sy(p["y"]):.1f}" r="6" '
+            f'fill="{hue[p["family"]]}" fill-opacity=".75" '
+            f'stroke="var(--bg)" stroke-width="1.5">'
+            f'<title>{esc(name)} — {esc(p["family"])}</title>'
+            f"</circle></a>"
+        )
+        rows.append(
+            f'<tr><td>{technique_link(t, up) if t else esc(name)}</td>'
+            f'<td>{esc(p["family"])}</td>'
+            f'<td>{p["x"]:.2f}, {p["y"]:.2f}</td></tr>'
+        )
+
+    legend = " ".join(
+        f'<span style="white-space:nowrap"><span style="display:inline-block;'
+        f'width:.7em;height:.7em;border-radius:50%;background:{hue[f]}"></span> '
+        f"{esc(f)}</span>"
+        for f in fams
+    )
+    v = u.get("versions") or {}
+    ver = f" · umap-learn {v.get('umap_learn')}" if v.get("umap_learn") else ""
+    sil = u.get("silhouette")
+    sil_txt = f" · silhouette {sil:+.4f}" if isinstance(sil, (int, float)) else ""
+
+    return f"""
+<figure class="stack">
+  <div class="table-scroll">
+    <svg viewBox="0 0 {W} {H}" width="100%" height="auto" role="img"
+         aria-label="Projection of the taxonomy; families overlap substantially."
+         style="max-width:{W}px;background:var(--surface);
+                border:1px solid var(--border);border-radius:var(--radius)">
+      {''.join(circles)}
+    </svg>
+  </div>
+  <p style="font-size:var(--step--1)">{legend}</p>
+  <figcaption class="provenance">
+    Coordinates from the authors' analysis run{ver}{sil_txt}. Not recomputed —
+    UMAP differs across library and platform versions.
+  </figcaption>
+  <details>
+    <summary>Coordinates as a table</summary>
+    <div class="table-scroll"><table>
+      <thead><tr><th>Technique</th><th>Family</th><th>x, y</th></tr></thead>
+      <tbody>{''.join(rows)}</tbody>
+    </table></div>
+  </details>
+</figure>"""
