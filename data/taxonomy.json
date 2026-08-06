@@ -2,6 +2,7 @@
   "meta": {
     "n_techniques": 48,
     "n_reference_rows": 1,
+    "centerpiece_note": "Abbreviations are listed in the manuscript before the bibliography and in Supplementary Section S1. Highly flexible techniques such as CE (e.g., prompting for step-by-step rationales) and RLHF (e.g., penalizing unexplainable refusals) can dynamically adopt 2 explain as a primary goal when engineered specifically to satisfy regulatory transparency mandates.",
     "crosscheck": {
       "cells_compared": 294,
       "cells_identical": 294,
@@ -179,7 +180,12 @@
       "footnote_markers": [
         "\\S"
       ],
-      "footnotes": [],
+      "footnotes": [
+        {
+          "marker": "\\S",
+          "text": "Classification tensions involving these techniques are discussed in Supplementary Section S4."
+        }
+      ],
       "notes": [],
       "d1": [
         "parametric-update"
@@ -212,7 +218,12 @@
       "footnote_markers": [
         "\\P"
       ],
-      "footnotes": [],
+      "footnotes": [
+        {
+          "marker": "\\P",
+          "text": "For in-context FSL at the LLM level, see ICL."
+        }
+      ],
       "notes": [],
       "d1": [
         "parametric-update"
@@ -404,7 +415,16 @@
       "footnote_markers": [
         "*"
       ],
-      "footnotes": [],
+      "footnotes": [
+        {
+          "marker": "*",
+          "text": "While preference-based RL predates foundation models, this row explicitly scopes its modern instantiation for generative alignment at the lm tiers. flushleft"
+        },
+        {
+          "marker": "Note",
+          "text": "Highly flexible techniques such as CE (e.g., prompting for step-by-step rationales) and RLHF (e.g., penalizing unexplainable refusals) can dynamically adopt 2 explain as a primary goal when engineered specifically to satisfy regulatory transparency mandates."
+        }
+      ],
       "notes": [],
       "d1": [
         "parametric-update"
@@ -503,7 +523,12 @@
       "footnote_markers": [
         "\\S"
       ],
-      "footnotes": [],
+      "footnotes": [
+        {
+          "marker": "\\S",
+          "text": "Classification tensions involving these techniques are discussed in Supplementary Section S4."
+        }
+      ],
       "notes": [],
       "d1": [
         "parametric-update"
@@ -536,7 +561,12 @@
       "footnote_markers": [
         "\\S"
       ],
-      "footnotes": [],
+      "footnotes": [
+        {
+          "marker": "\\S",
+          "text": "Classification tensions involving these techniques are discussed in Supplementary Section S4."
+        }
+      ],
       "notes": [],
       "d1": [
         "parametric-update"
@@ -694,7 +724,12 @@
       "footnote_markers": [
         "\\ddagger"
       ],
-      "footnotes": [],
+      "footnotes": [
+        {
+          "marker": "\\ddagger",
+          "text": "Self-play skips the FM tier because standard FM pre-training and FT pipelines do not employ self-play; it re-emerges at the LLM level through RLHF-adjacent techniques (e.g., self-play FT, SPIN ) that exploit autoregressive generation as an opponent model."
+        }
+      ],
       "notes": [],
       "d1": [
         "parametric-update"
@@ -859,7 +894,12 @@
       "footnote_markers": [
         "\\dagger"
       ],
-      "footnotes": [],
+      "footnotes": [
+        {
+          "marker": "\\dagger",
+          "text": "SSL is classified in its adaptation role (CPT on domain-specific unlabeled data). As a foundational pre-training paradigm, it falls outside the adaptation taxonomy."
+        }
+      ],
       "notes": [],
       "d1": [
         "parametric-update"
@@ -1091,7 +1131,12 @@
       "footnote_markers": [
         "\\S"
       ],
-      "footnotes": [],
+      "footnotes": [
+        {
+          "marker": "\\S",
+          "text": "Classification tensions involving these techniques are discussed in Supplementary Section S4."
+        }
+      ],
       "notes": [],
       "d1": [
         "architectural-modification",
@@ -1128,7 +1173,12 @@
       "footnote_markers": [
         "\\S"
       ],
-      "footnotes": [],
+      "footnotes": [
+        {
+          "marker": "\\S",
+          "text": "Classification tensions involving these techniques are discussed in Supplementary Section S4."
+        }
+      ],
       "notes": [],
       "d1": [
         "context-injection"
@@ -1252,7 +1302,12 @@
       "footnote_markers": [
         "\\S"
       ],
-      "footnotes": [],
+      "footnotes": [
+        {
+          "marker": "\\S",
+          "text": "Classification tensions involving these techniques are discussed in Supplementary Section S4."
+        }
+      ],
       "notes": [],
       "d1": [
         "context-injection"
@@ -1282,7 +1337,12 @@
       "family": "Inference-Time Adaptation",
       "is_reference_row": false,
       "footnote_markers": [],
-      "footnotes": [],
+      "footnotes": [
+        {
+          "marker": "Note",
+          "text": "Highly flexible techniques such as CE (e.g., prompting for step-by-step rationales) and RLHF (e.g., penalizing unexplainable refusals) can dynamically adopt 2 explain as a primary goal when engineered specifically to satisfy regulatory transparency mandates."
+        }
+      ],
       "notes": [],
       "d1": [
         "context-injection"
@@ -1533,7 +1593,12 @@
       "footnote_markers": [
         "\\S"
       ],
-      "footnotes": [],
+      "footnotes": [
+        {
+          "marker": "\\S",
+          "text": "Classification tensions involving these techniques are discussed in Supplementary Section S4."
+        }
+      ],
       "notes": [],
       "d1": [
         "parameter-composition",

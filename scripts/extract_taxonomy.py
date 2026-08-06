@@ -100,6 +100,49 @@ def parse_centerpiece(defs, gls):
     return [(k, n, mk, v, families.get(k)) for k, n, mk, v in rows]
 
 
+def parse_footnotes(defs, gls, anchor_to_label):
+    """Parse the block after \\end{xltabular}.
+
+    These footnotes are content, not noise: they scope SSL to its adaptation
+    role, explain why self-play skips the FM tier, redirect in-context FSL to
+    ICL, and -- in the general Note -- state that flexible techniques can
+    dynamically adopt Explainability as a goal. Dropping them changes meaning.
+
+    Returns (marker -> text, general_note).
+    """
+    tex = re.sub(r"(?m)%.*", "", CENTERPIECE.read_text())
+    if r"\end{xltabular}" not in tex:
+        return {}, ""
+    block = tex.split(r"\end{xltabular}")[1]
+
+    def clean(s):
+        s = expand(s, defs, gls)
+        # Dimension references render as their plain label.
+        s = re.sub(
+            r"\\taxNo?\{\d\}\{([A-Za-z]+)\}",
+            lambda m: anchor_to_label.get(m.group(1), m.group(1)),
+            s,
+        )
+        s = re.sub(r"\\cite\{[^}]*\}", "", s)
+        # Row numbers are build-dependent (the centerpiece is typeset twice),
+        # so drop the parenthetical rather than print a meaningless number.
+        s = re.sub(r"\s*\(Row~\\ref\{tech:[A-Za-z]+\}\)", "", s)
+        s = re.sub(r"Row~\\ref\{tech:[A-Za-z]+\}", "", s)
+        s = re.sub(r"\\[A-Za-z]+", " ", s)
+        s = re.sub(r"[{}$~\\]", " ", s)
+        return re.sub(r"\s+", " ", s).strip(" ,;")
+
+    footnotes, general = {}, ""
+    for para in re.split(r"\\par", block):
+        m = re.match(r"\s*\$\^\\?([A-Za-z]+|\*)\$~?(.*)", para, re.S)
+        if m:
+            marker = m.group(1) if m.group(1) == "*" else "\\" + m.group(1)
+            footnotes[marker] = clean(m.group(2))
+        elif r"\textbf{Note:}" in para:
+            general = clean(para.split(r"\textbf{Note:}", 1)[1])
+    return footnotes, general
+
+
 def parse_notebook():
     """The authors' independent encoding: 49 eight-tuples in cell 2."""
     nb = json.loads(NOTEBOOK.read_text())
@@ -131,6 +174,12 @@ def main():
             m[c["abbr"].strip().lower()] = c["slug"]
             m[c["label"].strip().lower()] = c["slug"]
         label_to_slug[key] = m
+
+    anchor_to_label = {
+        c["anchor"]: c["label"]
+        for key in DIM_KEYS for c in dims[key]["categories"] if c["anchor"]
+    }
+    footnotes, general_note = parse_footnotes(defs, gls, anchor_to_label)
 
     rows = parse_centerpiece(defs, gls)
     if len(rows) != 49:
@@ -166,9 +215,24 @@ def main():
             "family": family or "Reference Baseline",
             "is_reference_row": family is None,
             "footnote_markers": markers,
-            "footnotes": [],
+            "footnotes": [
+                {"marker": mk, "text": footnotes[mk]}
+                for mk in markers if mk in footnotes
+            ],
             "notes": [],
         }
+
+        # The general Note names CE and RLHF explicitly: both can adopt
+        # Explainability as a goal when engineered for transparency.
+        if general_note and slug in ("ce", "rlhf"):
+            # Drop the abbreviations-location preamble; only the second
+            # sentence -- that flexible techniques can adopt Explainability
+            # as a goal -- bears on these two rows.
+            text = general_note
+            cut = text.find("Highly flexible techniques")
+            if cut > 0:
+                text = text[cut:]
+            record["footnotes"].append({"marker": "Note", "text": text})
 
         for i, dim in enumerate(DIM_KEYS):
             latex_vals = values[i]
@@ -208,6 +272,7 @@ def main():
         "meta": {
             "n_techniques": sum(1 for t in techniques if not t["is_reference_row"]),
             "n_reference_rows": sum(1 for t in techniques if t["is_reference_row"]),
+            "centerpiece_note": general_note,
             "crosscheck": {
                 "cells_compared": compared,
                 "cells_identical": identical,
