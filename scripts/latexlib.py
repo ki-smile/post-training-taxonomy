@@ -1,8 +1,8 @@
 """LaTeX macro resolution for manuscript extraction.
 
 Pure functions, no I/O. Every other extractor reads the manuscript through
-this module, so the four parsing hazards documented below are
-handled here once rather than rediscovered per script:
+this module, so these four parsing hazards are handled once here rather than
+rediscovered in each script:
 
   1. macros nest and must be expanded to a fixed point
   2. technique names contain literal ``\\&``

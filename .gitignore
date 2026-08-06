@@ -1,12 +1,9 @@
-# Reference material — NOT published to GitHub.
-# Holds the unpublished manuscript PDF and LaTeX source, used only as
-# extraction input by scripts/extract.py. The paper itself is distributed
-# via arXiv; this folder must never be pushed.
+# Reference material — not distributed.
+# Holds the manuscript sources used as extraction input. The paper itself is
+# distributed via arXiv; this folder must never be pushed.
 ref/
 
-# Internal design/planning material — NOT published.
-# The spec references manuscript source filenames that identify the
-# submission venue, which must not be published.
+# Internal planning and design notes — not distributed.
 specs/
 
 # macOS
