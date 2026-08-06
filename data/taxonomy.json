@@ -1,0 +1,1591 @@
+{
+  "meta": {
+    "n_techniques": 48,
+    "n_reference_rows": 1,
+    "crosscheck": {
+      "cells_compared": 294,
+      "cells_identical": 294,
+      "outstanding": 0
+    }
+  },
+  "techniques": [
+    {
+      "slug": "training",
+      "tech_key": "training",
+      "name": "Training",
+      "family": "Reference Baseline",
+      "is_reference_row": true,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "build-capability"
+      ],
+      "d3": [
+        "large-labeled"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "whole-model"
+      ],
+      "d6": [
+        "dl",
+        "fm",
+        "llm",
+        "ml",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "fullft",
+      "tech_key": "fullFT",
+      "name": "FT (full)",
+      "family": "Knowledge Transfer and Task Specialization",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "task-specialization"
+      ],
+      "d3": [
+        "large-labeled"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "whole-model"
+      ],
+      "d6": [
+        "dl",
+        "fm",
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "partft",
+      "tech_key": "partFT",
+      "name": "FT (partial)",
+      "family": "Knowledge Transfer and Task Specialization",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "task-specialization"
+      ],
+      "d3": [
+        "small-labeled"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "partial"
+      ],
+      "d6": [
+        "dl",
+        "fm",
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "peft",
+      "tech_key": "peft",
+      "name": "PEFT (LoRA, adapters)",
+      "family": "Knowledge Transfer and Task Specialization",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "computational-efficiency",
+        "task-specialization"
+      ],
+      "d3": [
+        "small-labeled"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "modular",
+        "partial"
+      ],
+      "d6": [
+        "dl",
+        "fm",
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "reft",
+      "tech_key": "reft",
+      "name": "ReFT",
+      "family": "Knowledge Transfer and Task Specialization",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "task-specialization"
+      ],
+      "d3": [
+        "small-labeled"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "modular"
+      ],
+      "d6": [
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "da",
+      "tech_key": "da",
+      "name": "DA",
+      "family": "Knowledge Transfer and Task Specialization",
+      "is_reference_row": false,
+      "footnote_markers": [
+        "\\S"
+      ],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "distributional-gap-bridging"
+      ],
+      "d3": [
+        "small-labeled",
+        "unlabeled"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "partial"
+      ],
+      "d6": [
+        "dl",
+        "fm"
+      ]
+    },
+    {
+      "slug": "fsl",
+      "tech_key": "fsl",
+      "name": "FSL",
+      "family": "Knowledge Transfer and Task Specialization",
+      "is_reference_row": false,
+      "footnote_markers": [
+        "\\P"
+      ],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "task-specialization"
+      ],
+      "d3": [
+        "few-demonstrations",
+        "small-labeled"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "partial"
+      ],
+      "d6": [
+        "dl",
+        "fm"
+      ]
+    },
+    {
+      "slug": "retraining",
+      "tech_key": "retraining",
+      "name": "Retraining",
+      "family": "Temporal Adaptation and Maintenance",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "drift-remediation"
+      ],
+      "d3": [
+        "sequential-incremental"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "whole-model"
+      ],
+      "d6": [
+        "dl",
+        "fm",
+        "llm",
+        "ml",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "cl",
+      "tech_key": "cl",
+      "name": "CL",
+      "family": "Temporal Adaptation and Maintenance",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "continual-adaptation"
+      ],
+      "d3": [
+        "sequential-incremental"
+      ],
+      "d4": [
+        "bounded-cumulative",
+        "unbounded-cumulative"
+      ],
+      "d5": [
+        "partial"
+      ],
+      "d6": [
+        "dl",
+        "fm",
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "til",
+      "tech_key": "til",
+      "name": "TIL",
+      "family": "Temporal Adaptation and Maintenance",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "continual-adaptation"
+      ],
+      "d3": [
+        "sequential-incremental"
+      ],
+      "d4": [
+        "bounded-cumulative"
+      ],
+      "d5": [
+        "modular",
+        "partial"
+      ],
+      "d6": [
+        "dl",
+        "fm"
+      ]
+    },
+    {
+      "slug": "dil",
+      "tech_key": "dil",
+      "name": "DIL",
+      "family": "Temporal Adaptation and Maintenance",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "continual-adaptation",
+        "drift-remediation"
+      ],
+      "d3": [
+        "sequential-incremental"
+      ],
+      "d4": [
+        "unbounded-cumulative"
+      ],
+      "d5": [
+        "partial",
+        "whole-model"
+      ],
+      "d6": [
+        "dl",
+        "fm"
+      ]
+    },
+    {
+      "slug": "sft",
+      "tech_key": "sft",
+      "name": "SFT",
+      "family": "Alignment, Reasoning, and Trustworthiness",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "alignment",
+        "safety",
+        "task-specialization"
+      ],
+      "d3": [
+        "instruction-response-corpus"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "partial",
+        "whole-model"
+      ],
+      "d6": [
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "rlhf",
+      "tech_key": "rlhf",
+      "name": "RLHF (LLM Alignment)",
+      "family": "Alignment, Reasoning, and Trustworthiness",
+      "is_reference_row": false,
+      "footnote_markers": [
+        "*"
+      ],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "alignment",
+        "safety"
+      ],
+      "d3": [
+        "preference-pairs"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "partial",
+        "surrogate-model",
+        "whole-model"
+      ],
+      "d6": [
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "dpo",
+      "tech_key": "dpo",
+      "name": "DPO",
+      "family": "Alignment, Reasoning, and Trustworthiness",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "alignment",
+        "safety"
+      ],
+      "d3": [
+        "preference-pairs"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "partial",
+        "whole-model"
+      ],
+      "d6": [
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "rlaif",
+      "tech_key": "rlaif",
+      "name": "RLAIF/CAI",
+      "family": "Alignment, Reasoning, and Trustworthiness",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "alignment",
+        "safety"
+      ],
+      "d3": [
+        "constitution-derived"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "partial",
+        "whole-model"
+      ],
+      "d6": [
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "rlvr",
+      "tech_key": "rlvr",
+      "name": "RLVR/GRPO",
+      "family": "Alignment, Reasoning, and Trustworthiness",
+      "is_reference_row": false,
+      "footnote_markers": [
+        "\\S"
+      ],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "reasoning"
+      ],
+      "d3": [
+        "verifiable-task"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "partial",
+        "whole-model"
+      ],
+      "d6": [
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "lp",
+      "tech_key": "lp",
+      "name": "LP",
+      "family": "Alignment, Reasoning, and Trustworthiness",
+      "is_reference_row": false,
+      "footnote_markers": [
+        "\\S"
+      ],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "explainability"
+      ],
+      "d3": [
+        "small-labeled"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "modular"
+      ],
+      "d6": [
+        "dl",
+        "fm",
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "leace",
+      "tech_key": "leace",
+      "name": "LEACE",
+      "family": "Alignment, Reasoning, and Trustworthiness",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parameter-composition"
+      ],
+      "d2": [
+        "fairness"
+      ],
+      "d3": [
+        "small-labeled"
+      ],
+      "d4": [
+        "ad-hoc-permanent"
+      ],
+      "d5": [
+        "partial"
+      ],
+      "d6": [
+        "dl",
+        "fm",
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "advrstrn",
+      "tech_key": "AdvrsTrn",
+      "name": "Adversarial Training",
+      "family": "Alignment, Reasoning, and Trustworthiness",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "robustness"
+      ],
+      "d3": [
+        "large-labeled"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "whole-model"
+      ],
+      "d6": [
+        "dl",
+        "fm",
+        "llm"
+      ]
+    },
+    {
+      "slug": "metalrn",
+      "tech_key": "metaLrn",
+      "name": "Meta-Learning",
+      "family": "Training Strategies",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "task-specialization"
+      ],
+      "d3": [
+        "task-distribution"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "partial"
+      ],
+      "d6": [
+        "dl",
+        "fm"
+      ]
+    },
+    {
+      "slug": "mtl",
+      "tech_key": "mtl",
+      "name": "MTL",
+      "family": "Training Strategies",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "task-specialization"
+      ],
+      "d3": [
+        "task-distribution"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "whole-model"
+      ],
+      "d6": [
+        "dl",
+        "fm",
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "selfplay",
+      "tech_key": "selfplay",
+      "name": "Self-Play",
+      "family": "Training Strategies",
+      "is_reference_row": false,
+      "footnote_markers": [
+        "\\ddagger"
+      ],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "alignment",
+        "reasoning",
+        "task-specialization"
+      ],
+      "d3": [
+        "environment-derived"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "whole-model"
+      ],
+      "d6": [
+        "dl",
+        "llm"
+      ]
+    },
+    {
+      "slug": "currilrn",
+      "tech_key": "curriLrn",
+      "name": "Curriculum Learning",
+      "family": "Training Strategies",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "pipeline-mediated"
+      ],
+      "d2": [
+        "task-specialization"
+      ],
+      "d3": [
+        "pipeline-dependent"
+      ],
+      "d4": [
+        "pipeline-dependent"
+      ],
+      "d5": [
+        "pipeline-dependent"
+      ],
+      "d6": [
+        "dl",
+        "fm",
+        "llm",
+        "ml",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "activelrn",
+      "tech_key": "activeLrn",
+      "name": "Active Learning",
+      "family": "Training Strategies",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "pipeline-mediated"
+      ],
+      "d2": [
+        "distributional-gap-bridging",
+        "task-specialization"
+      ],
+      "d3": [
+        "pipeline-dependent"
+      ],
+      "d4": [
+        "pipeline-dependent"
+      ],
+      "d5": [
+        "pipeline-dependent"
+      ],
+      "d6": [
+        "dl",
+        "fm",
+        "llm",
+        "ml",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "dataaug",
+      "tech_key": "dataAug",
+      "name": "Data Augmentation",
+      "family": "Data-Centric and Privacy-Preserving Methods",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "pipeline-mediated"
+      ],
+      "d2": [
+        "robustness",
+        "task-specialization"
+      ],
+      "d3": [
+        "pipeline-dependent"
+      ],
+      "d4": [
+        "pipeline-dependent"
+      ],
+      "d5": [
+        "pipeline-dependent"
+      ],
+      "d6": [
+        "dl",
+        "fm",
+        "llm",
+        "ml",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "semisl",
+      "tech_key": "semiSl",
+      "name": "Semi-SL",
+      "family": "Data-Centric and Privacy-Preserving Methods",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "pipeline-mediated"
+      ],
+      "d2": [
+        "task-specialization"
+      ],
+      "d3": [
+        "small-labeled",
+        "unlabeled"
+      ],
+      "d4": [
+        "pipeline-dependent"
+      ],
+      "d5": [
+        "pipeline-dependent"
+      ],
+      "d6": [
+        "dl",
+        "fm",
+        "llm",
+        "ml",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "ssl",
+      "tech_key": "ssl",
+      "name": "SSL / CPT",
+      "family": "Data-Centric and Privacy-Preserving Methods",
+      "is_reference_row": false,
+      "footnote_markers": [
+        "\\dagger"
+      ],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "capability-extension",
+        "distributional-gap-bridging"
+      ],
+      "d3": [
+        "unlabeled"
+      ],
+      "d4": [
+        "scheduled-permanent",
+        "unbounded-cumulative"
+      ],
+      "d5": [
+        "partial",
+        "whole-model"
+      ],
+      "d6": [
+        "dl",
+        "fm",
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "dpft",
+      "tech_key": "dpft",
+      "name": "DP-FT",
+      "family": "Data-Centric and Privacy-Preserving Methods",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "privacy-preservation"
+      ],
+      "d3": [
+        "large-labeled",
+        "small-labeled"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "partial",
+        "whole-model"
+      ],
+      "d6": [
+        "dl",
+        "fm",
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "fl",
+      "tech_key": "fl",
+      "name": "FL",
+      "family": "Data-Centric and Privacy-Preserving Methods",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "privacy-preservation"
+      ],
+      "d3": [
+        "decentralized"
+      ],
+      "d4": [
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "distributed"
+      ],
+      "d6": [
+        "dl",
+        "fm",
+        "llm",
+        "ml",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "kd",
+      "tech_key": "kd",
+      "name": "KD",
+      "family": "Efficiency and Composition",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "cross-model-transfer"
+      ],
+      "d2": [
+        "computational-efficiency"
+      ],
+      "d3": [
+        "teacher-derived"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "surrogate-model"
+      ],
+      "d6": [
+        "dl",
+        "fm",
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "compress",
+      "tech_key": "compress",
+      "name": "Model Compression",
+      "family": "Efficiency and Composition",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-compression"
+      ],
+      "d2": [
+        "computational-efficiency"
+      ],
+      "d3": [
+        "parameter-only",
+        "unlabeled"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "compressed-artifact"
+      ],
+      "d6": [
+        "dl",
+        "fm",
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "taskarith",
+      "tech_key": "taskArith",
+      "name": "Task Arith. & Model Merging",
+      "family": "Efficiency and Composition",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parameter-composition"
+      ],
+      "d2": [
+        "capability-extension",
+        "computational-efficiency"
+      ],
+      "d3": [
+        "parameter-only"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "fused-composition"
+      ],
+      "d6": [
+        "fm",
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "lce",
+      "tech_key": "lce",
+      "name": "Long-Context Ext.",
+      "family": "Efficiency and Composition",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "architectural-modification",
+        "parametric-update"
+      ],
+      "d2": [
+        "capability-extension"
+      ],
+      "d3": [
+        "small-labeled",
+        "unlabeled"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "partial"
+      ],
+      "d6": [
+        "fm",
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "moe",
+      "tech_key": "moe",
+      "name": "MoE",
+      "family": "Efficiency and Composition",
+      "is_reference_row": false,
+      "footnote_markers": [
+        "\\S"
+      ],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "architectural-modification",
+        "parametric-update"
+      ],
+      "d2": [
+        "capability-extension",
+        "computational-efficiency"
+      ],
+      "d3": [
+        "small-labeled",
+        "unlabeled"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "modular",
+        "partial"
+      ],
+      "d6": [
+        "fm",
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "pe",
+      "tech_key": "pe",
+      "name": "PE",
+      "family": "Inference-Time Adaptation",
+      "is_reference_row": false,
+      "footnote_markers": [
+        "\\S"
+      ],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "context-injection"
+      ],
+      "d2": [
+        "behavior-control",
+        "knowledge-update"
+      ],
+      "d3": [
+        "zero-shot"
+      ],
+      "d4": [
+        "session-ephemeral",
+        "version-persistent"
+      ],
+      "d5": [
+        "input-output-space"
+      ],
+      "d6": [
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "pl",
+      "tech_key": "pl",
+      "name": "Prompt Learning",
+      "family": "Inference-Time Adaptation",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "task-specialization"
+      ],
+      "d3": [
+        "small-labeled"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "partial"
+      ],
+      "d6": [
+        "fm",
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "apo",
+      "tech_key": "apo",
+      "name": "APO",
+      "family": "Inference-Time Adaptation",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "context-injection"
+      ],
+      "d2": [
+        "behavior-control",
+        "task-specialization"
+      ],
+      "d3": [
+        "few-demonstrations",
+        "zero-shot"
+      ],
+      "d4": [
+        "version-persistent"
+      ],
+      "d5": [
+        "input-output-space"
+      ],
+      "d6": [
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "rag",
+      "tech_key": "rag",
+      "name": "RAG",
+      "family": "Inference-Time Adaptation",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "context-injection"
+      ],
+      "d2": [
+        "knowledge-update"
+      ],
+      "d3": [
+        "external-corpus"
+      ],
+      "d4": [
+        "version-persistent"
+      ],
+      "d5": [
+        "input-output-space"
+      ],
+      "d6": [
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "icl",
+      "tech_key": "icl",
+      "name": "ICL",
+      "family": "Inference-Time Adaptation",
+      "is_reference_row": false,
+      "footnote_markers": [
+        "\\S"
+      ],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "context-injection"
+      ],
+      "d2": [
+        "knowledge-update",
+        "task-specialization"
+      ],
+      "d3": [
+        "few-demonstrations"
+      ],
+      "d4": [
+        "session-ephemeral"
+      ],
+      "d5": [
+        "input-output-space"
+      ],
+      "d6": [
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "ce",
+      "tech_key": "ce",
+      "name": "CE",
+      "family": "Inference-Time Adaptation",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "context-injection"
+      ],
+      "d2": [
+        "knowledge-update",
+        "personalization"
+      ],
+      "d3": [
+        "external-corpus",
+        "user-interaction-data"
+      ],
+      "d4": [
+        "version-persistent"
+      ],
+      "d5": [
+        "input-output-space"
+      ],
+      "d6": [
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "tta",
+      "tech_key": "tta",
+      "name": "TTA",
+      "family": "Inference-Time Adaptation",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "drift-remediation"
+      ],
+      "d3": [
+        "test-only"
+      ],
+      "d4": [
+        "transient"
+      ],
+      "d5": [
+        "partial",
+        "whole-model"
+      ],
+      "d6": [
+        "dl",
+        "fm"
+      ]
+    },
+    {
+      "slug": "ttcompute",
+      "tech_key": "ttCompute",
+      "name": "Test-Time Compute Scaling",
+      "family": "Inference-Time Adaptation",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "inference-time-search"
+      ],
+      "d2": [
+        "reasoning"
+      ],
+      "d3": [
+        "zero-shot"
+      ],
+      "d4": [
+        "session-ephemeral"
+      ],
+      "d5": [
+        "input-output-space"
+      ],
+      "d6": [
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "calib",
+      "tech_key": "calib",
+      "name": "Calibration",
+      "family": "Calibration, Personalization, and Multimodal Adaptation",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "reliability"
+      ],
+      "d3": [
+        "small-labeled",
+        "unlabeled"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "modular"
+      ],
+      "d6": [
+        "dl",
+        "fm",
+        "llm",
+        "ml",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "crossmodel",
+      "tech_key": "crossModel",
+      "name": "Cross-Modal Alignment",
+      "family": "Calibration, Personalization, and Multimodal Adaptation",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "capability-extension"
+      ],
+      "d3": [
+        "paired-multimodal"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "partial"
+      ],
+      "d6": [
+        "fm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "modeladapter",
+      "tech_key": "modelAdapter",
+      "name": "Modality-Spec. Adapters",
+      "family": "Calibration, Personalization, and Multimodal Adaptation",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "capability-extension",
+        "computational-efficiency"
+      ],
+      "d3": [
+        "paired-multimodal"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "modular"
+      ],
+      "d6": [
+        "mllm"
+      ]
+    },
+    {
+      "slug": "multimodinstr",
+      "tech_key": "multimodInstr",
+      "name": "Multimodal Instr. Tuning",
+      "family": "Calibration, Personalization, and Multimodal Adaptation",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parametric-update"
+      ],
+      "d2": [
+        "alignment",
+        "capability-extension"
+      ],
+      "d3": [
+        "paired-multimodal"
+      ],
+      "d4": [
+        "ad-hoc-permanent",
+        "scheduled-permanent"
+      ],
+      "d5": [
+        "partial",
+        "whole-model"
+      ],
+      "d6": [
+        "mllm"
+      ]
+    },
+    {
+      "slug": "munlrn",
+      "tech_key": "mUnLrn",
+      "name": "Machine Unlearning",
+      "family": "Knowledge Modification and Activation-Based Adaptation",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parameter-composition",
+        "parametric-update"
+      ],
+      "d2": [
+        "privacy-preservation",
+        "remove-knowledge"
+      ],
+      "d3": [
+        "forget-set-specification"
+      ],
+      "d4": [
+        "ad-hoc-permanent"
+      ],
+      "d5": [
+        "fused-composition",
+        "partial"
+      ],
+      "d6": [
+        "dl",
+        "fm",
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "ke",
+      "tech_key": "ke",
+      "name": "Knowledge Editing",
+      "family": "Knowledge Modification and Activation-Based Adaptation",
+      "is_reference_row": false,
+      "footnote_markers": [
+        "\\S"
+      ],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "parameter-composition",
+        "parametric-update"
+      ],
+      "d2": [
+        "knowledge-update"
+      ],
+      "d3": [
+        "small-labeled"
+      ],
+      "d4": [
+        "ad-hoc-permanent"
+      ],
+      "d5": [
+        "partial"
+      ],
+      "d6": [
+        "llm",
+        "mllm"
+      ]
+    },
+    {
+      "slug": "actsteer",
+      "tech_key": "actSteer",
+      "name": "Activation Steering",
+      "family": "Knowledge Modification and Activation-Based Adaptation",
+      "is_reference_row": false,
+      "footnote_markers": [],
+      "footnotes": [],
+      "notes": [],
+      "d1": [
+        "activation-space-manipulation"
+      ],
+      "d2": [
+        "alignment",
+        "safety"
+      ],
+      "d3": [
+        "small-labeled",
+        "unlabeled"
+      ],
+      "d4": [
+        "transient"
+      ],
+      "d5": [
+        "activation-space"
+      ],
+      "d6": [
+        "llm",
+        "mllm"
+      ]
+    }
+  ]
+}
