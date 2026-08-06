@@ -169,9 +169,7 @@ def page(title, body, *, depth=1, description="", current=None, scripts=()):
         </ul>
       </div>
     </div>
-    <p style="margin-top:var(--sp-4);font-size:var(--step--2);opacity:.75">
-      {esc(DISCLAIMER)}
-    </p>
+    <p class="footer__fineprint">{esc(DISCLAIMER)}</p>
   </div>
 </footer>
 <script type="module" src="{up}js/theme.js?v={rev("js/theme.js")}"></script>

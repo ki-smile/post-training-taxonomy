@@ -295,11 +295,33 @@ pre {
 
 /* ---------- Footer ---------- */
 
-.footer { background: var(--band); color: var(--band-text); padding-block: var(--sp-5); }
+.footer {
+  background: var(--band);
+  color: var(--band-text);
+  padding-block: var(--sp-5);
+  /* Secondary metadata: a step below body copy so it settles under the page
+     rather than competing with it. */
+  font-size: var(--step--1);
+  line-height: 1.5;
+}
 .footer a { color: var(--accent-warm); }
-.footer__grid { display: grid; gap: var(--sp-4); grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.footer__grid {
+  display: grid;
+  gap: var(--sp-3) var(--sp-4);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
 .footer ul { list-style: none; padding: 0; }
-.footer li + li { margin-top: var(--sp-1); }
+.footer li + li { margin-top: 2px; }
+.footer .eyebrow { margin-bottom: var(--sp-2); opacity: .8; }
+.footer__fineprint {
+  margin-top: var(--sp-4);
+  padding-top: var(--sp-3);
+  border-top: 1px solid rgba(255, 255, 255, .12);
+  font-size: var(--step--2);
+  line-height: 1.5;
+  max-width: 72ch;
+  opacity: .7;
+}
 
 /* ---------- Responsive ---------- */
 
