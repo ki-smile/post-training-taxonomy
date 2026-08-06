@@ -1119,9 +1119,31 @@ def _scatter(derived, tax, up):
         for f in fams
     )
     v = u.get("versions") or {}
-    ver = f" · umap-learn {v.get('umap_learn')}" if v.get("umap_learn") else ""
+    ver = v.get("umap_learn")
     sil = u.get("silhouette")
-    sil_txt = f" · silhouette {sil:+.4f}" if isinstance(sil, (int, float)) else ""
+    pub = u.get("published_silhouette")
+
+    if u.get("source") == "recomputed":
+        caption = (
+            "<strong>Recomputed, not the projection printed in the paper.</strong> "
+            "Built from the same distance matrix with the paper's own settings, "
+            f"but a different umap-learn build{f' ({esc(ver)})' if ver else ''}. "
+            "The distances are verified identical — the raw Gower silhouette "
+            "reproduces the published +0.0173 exactly — but the embedding is not, "
+            "because UMAP gives a different layout on a different machine even "
+            "with the random seed fixed"
+            + (f" ({sil:+.4f} here against {pub:+.4f} published)."
+               if isinstance(sil, (int, float)) and isinstance(pub, (int, float))
+               else ".")
+            + " Read it for which techniques sit near each other, not for exact positions."
+        )
+    else:
+        caption = (
+            "Coordinates from the authors' own analysis run"
+            + (f" · umap-learn {esc(ver)}" if ver else "")
+            + (f" · silhouette {sil:+.4f}" if isinstance(sil, (int, float)) else "")
+            + "."
+        )
 
     return f"""
 <figure class="stack">
@@ -1134,9 +1156,8 @@ def _scatter(derived, tax, up):
     </svg>
   </div>
   <p style="font-size:var(--step--1)">{legend}</p>
-  <figcaption class="provenance">
-    Coordinates from the authors' analysis run{ver}{sil_txt}. Not recomputed —
-    UMAP differs across library and platform versions.
+  <figcaption style="font-size:var(--step--1);color:var(--text-muted)">
+    {caption}
   </figcaption>
   <details>
     <summary>Coordinates as a table</summary>

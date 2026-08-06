@@ -28,15 +28,19 @@ gives a visibly different embedding. Measured here — the published silhouette
 is −0.0346, while umap-learn 0.5.12 / 0.5.7 / 0.5.5 elsewhere produced −0.0851,
 −0.0701 and −0.0832 respectively.
 
-Run the notebook through the **"Export coordinates for the website"** cell. It
-writes `data/umap_coords.json`, after which:
+**The site currently shows a recomputed embedding**, captioned as such —
+it is built from the same distance matrix but a different umap-learn build,
+so the layout differs from the published figure. To replace it with the
+paper's own projection, run the notebook through the **"Export coordinates
+for the website"** cell. It overwrites `data/umap_coords.json`, after which:
 
     python3 scripts/compute_derived.py
     python3 scripts/build.py
 
-makes the scatter appear on `/map/`. No other change is needed — and if a
-technique name does not match the taxonomy, the build fails rather than
-silently dropping a point.
+updates the scatter on `/map/` and switches its caption from "recomputed" to
+the authors' own run. Set `"source": "authors"` in the exported file (or drop
+the field — it defaults to `authors`). If a technique name does not match the
+taxonomy the build fails rather than silently dropping a point.
 
 ## Running it
 

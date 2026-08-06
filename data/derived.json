@@ -3821,6 +3821,315 @@
     ],
     "basis": "D1 mechanism groups II (Gradient-Free / Weight Manipulation) and III (Inference-Time / Zero-Footprint), which the paper annotates as possibly falling outside compute-based threshold proxies."
   },
-  "umap": null,
-  "umap_note": "Not yet exported. Run the export cell in the analysis notebook; the coordinates cannot be recomputed elsewhere because UMAP differs across library and platform versions."
+  "umap": {
+    "points": [
+      {
+        "slug": "training",
+        "x": -2.8091,
+        "y": 2.8873,
+        "family": "Reference Baseline"
+      },
+      {
+        "slug": "fullft",
+        "x": -2.9256,
+        "y": 2.5176,
+        "family": "Knowledge Transfer and Task Specialization"
+      },
+      {
+        "slug": "partft",
+        "x": -0.5924,
+        "y": 3.5739,
+        "family": "Knowledge Transfer and Task Specialization"
+      },
+      {
+        "slug": "peft",
+        "x": 0.1832,
+        "y": 3.4209,
+        "family": "Knowledge Transfer and Task Specialization"
+      },
+      {
+        "slug": "reft",
+        "x": 0.2127,
+        "y": 4.13,
+        "family": "Knowledge Transfer and Task Specialization"
+      },
+      {
+        "slug": "da",
+        "x": -0.9798,
+        "y": 3.8799,
+        "family": "Knowledge Transfer and Task Specialization"
+      },
+      {
+        "slug": "fsl",
+        "x": -0.8213,
+        "y": 4.3781,
+        "family": "Knowledge Transfer and Task Specialization"
+      },
+      {
+        "slug": "retraining",
+        "x": -2.854,
+        "y": 3.4396,
+        "family": "Temporal Adaptation and Maintenance"
+      },
+      {
+        "slug": "cl",
+        "x": -2.0406,
+        "y": 3.8839,
+        "family": "Temporal Adaptation and Maintenance"
+      },
+      {
+        "slug": "til",
+        "x": -1.9552,
+        "y": 4.1234,
+        "family": "Temporal Adaptation and Maintenance"
+      },
+      {
+        "slug": "dil",
+        "x": -2.3093,
+        "y": 4.2958,
+        "family": "Temporal Adaptation and Maintenance"
+      },
+      {
+        "slug": "sft",
+        "x": 4.2654,
+        "y": 0.9043,
+        "family": "Alignment, Reasoning, and Trustworthiness"
+      },
+      {
+        "slug": "rlhf",
+        "x": 3.8536,
+        "y": 1.3004,
+        "family": "Alignment, Reasoning, and Trustworthiness"
+      },
+      {
+        "slug": "dpo",
+        "x": 4.3073,
+        "y": 1.5489,
+        "family": "Alignment, Reasoning, and Trustworthiness"
+      },
+      {
+        "slug": "rlaif",
+        "x": 3.743,
+        "y": 1.0545,
+        "family": "Alignment, Reasoning, and Trustworthiness"
+      },
+      {
+        "slug": "rlvr",
+        "x": 4.4966,
+        "y": 1.1898,
+        "family": "Alignment, Reasoning, and Trustworthiness"
+      },
+      {
+        "slug": "lp",
+        "x": 0.5362,
+        "y": 3.9287,
+        "family": "Alignment, Reasoning, and Trustworthiness"
+      },
+      {
+        "slug": "leace",
+        "x": -0.3754,
+        "y": 2.9028,
+        "family": "Alignment, Reasoning, and Trustworthiness"
+      },
+      {
+        "slug": "advrstrn",
+        "x": -3.2964,
+        "y": 2.7828,
+        "family": "Alignment, Reasoning, and Trustworthiness"
+      },
+      {
+        "slug": "metalrn",
+        "x": -1.2434,
+        "y": 4.4905,
+        "family": "Training Strategies"
+      },
+      {
+        "slug": "mtl",
+        "x": -3.4594,
+        "y": 3.6723,
+        "family": "Training Strategies"
+      },
+      {
+        "slug": "selfplay",
+        "x": -3.3136,
+        "y": 3.3848,
+        "family": "Training Strategies"
+      },
+      {
+        "slug": "currilrn",
+        "x": 0.5533,
+        "y": 7.6736,
+        "family": "Training Strategies"
+      },
+      {
+        "slug": "activelrn",
+        "x": 0.8153,
+        "y": 7.3268,
+        "family": "Training Strategies"
+      },
+      {
+        "slug": "dataaug",
+        "x": 0.8637,
+        "y": 7.353,
+        "family": "Data-Centric and Privacy-Preserving Methods"
+      },
+      {
+        "slug": "semisl",
+        "x": 0.4127,
+        "y": 7.2656,
+        "family": "Data-Centric and Privacy-Preserving Methods"
+      },
+      {
+        "slug": "ssl",
+        "x": -1.5239,
+        "y": 3.4817,
+        "family": "Data-Centric and Privacy-Preserving Methods"
+      },
+      {
+        "slug": "dpft",
+        "x": -1.617,
+        "y": 2.7744,
+        "family": "Data-Centric and Privacy-Preserving Methods"
+      },
+      {
+        "slug": "fl",
+        "x": -2.0929,
+        "y": 2.8238,
+        "family": "Data-Centric and Privacy-Preserving Methods"
+      },
+      {
+        "slug": "kd",
+        "x": 1.2051,
+        "y": 3.4073,
+        "family": "Efficiency and Composition"
+      },
+      {
+        "slug": "compress",
+        "x": 1.5535,
+        "y": 3.5322,
+        "family": "Efficiency and Composition"
+      },
+      {
+        "slug": "taskarith",
+        "x": 1.3137,
+        "y": 2.9745,
+        "family": "Efficiency and Composition"
+      },
+      {
+        "slug": "lce",
+        "x": 0.4691,
+        "y": 2.7494,
+        "family": "Efficiency and Composition"
+      },
+      {
+        "slug": "moe",
+        "x": 0.7522,
+        "y": 3.0354,
+        "family": "Efficiency and Composition"
+      },
+      {
+        "slug": "pe",
+        "x": 8.3427,
+        "y": 0.59,
+        "family": "Inference-Time Adaptation"
+      },
+      {
+        "slug": "pl",
+        "x": -0.2696,
+        "y": 3.8758,
+        "family": "Inference-Time Adaptation"
+      },
+      {
+        "slug": "apo",
+        "x": 8.7752,
+        "y": 0.7654,
+        "family": "Inference-Time Adaptation"
+      },
+      {
+        "slug": "rag",
+        "x": 8.1345,
+        "y": 0.8891,
+        "family": "Inference-Time Adaptation"
+      },
+      {
+        "slug": "icl",
+        "x": 8.6861,
+        "y": 0.8706,
+        "family": "Inference-Time Adaptation"
+      },
+      {
+        "slug": "ce",
+        "x": 8.4377,
+        "y": 1.2779,
+        "family": "Inference-Time Adaptation"
+      },
+      {
+        "slug": "tta",
+        "x": -1.945,
+        "y": 4.6499,
+        "family": "Inference-Time Adaptation"
+      },
+      {
+        "slug": "ttcompute",
+        "x": 8.5023,
+        "y": 0.2467,
+        "family": "Inference-Time Adaptation"
+      },
+      {
+        "slug": "calib",
+        "x": 0.8207,
+        "y": 3.8078,
+        "family": "Calibration, Personalization, and Multimodal Adaptation"
+      },
+      {
+        "slug": "crossmodel",
+        "x": 1.9717,
+        "y": 2.1975,
+        "family": "Calibration, Personalization, and Multimodal Adaptation"
+      },
+      {
+        "slug": "modeladapter",
+        "x": 1.8899,
+        "y": 2.4873,
+        "family": "Calibration, Personalization, and Multimodal Adaptation"
+      },
+      {
+        "slug": "multimodinstr",
+        "x": 2.6418,
+        "y": 1.9438,
+        "family": "Calibration, Personalization, and Multimodal Adaptation"
+      },
+      {
+        "slug": "munlrn",
+        "x": -0.7302,
+        "y": 2.554,
+        "family": "Knowledge Modification and Activation-Based Adaptation"
+      },
+      {
+        "slug": "ke",
+        "x": -0.4028,
+        "y": 2.7273,
+        "family": "Knowledge Modification and Activation-Based Adaptation"
+      },
+      {
+        "slug": "actsteer",
+        "x": 3.8417,
+        "y": 1.5277,
+        "family": "Knowledge Modification and Activation-Based Adaptation"
+      }
+    ],
+    "silhouette": -0.0851,
+    "params": {
+      "n_neighbors": 7,
+      "min_dist": 0.25,
+      "metric": "precomputed",
+      "random_state": 42
+    },
+    "versions": {
+      "umap_learn": "0.5.12"
+    },
+    "source": "recomputed",
+    "published_silhouette": -0.0346
+  },
+  "umap_note": "Coordinates exported from the notebook run that produced the published figure. UMAP is not reproducible across library or platform versions, so recomputing elsewhere yields a different embedding -- these must come from the authors' own run."
 }

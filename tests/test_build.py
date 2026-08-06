@@ -193,3 +193,29 @@ def test_every_page_has_a_skip_link_and_main_landmark():
     for p in DOCS.rglob("*.html"):
         h = p.read_text()
         assert 'href="#main"' in h and 'id="main"' in h, p
+
+
+def test_scatter_renders_when_coordinates_exist():
+    import json
+    d = json.loads(pathlib.Path("data/derived.json").read_text())
+    h = (DOCS / "map/index.html").read_text()
+    if d["umap"]:
+        assert "<svg viewBox" in h
+        assert h.count("<circle") == len(d["umap"]["points"])
+        assert "Coordinates as a table" in h
+    else:
+        assert "not yet exported" in h.lower()
+
+
+def test_recomputed_projection_is_labelled_as_such():
+    """A recomputed embedding must never be captioned as the paper's."""
+    import json
+    d = json.loads(pathlib.Path("data/derived.json").read_text())
+    if not d["umap"]:
+        return
+    h = (DOCS / "map/index.html").read_text()
+    if d["umap"].get("source") == "recomputed":
+        assert "Recomputed, not the projection printed in the paper" in h
+        assert "authors' own analysis run" not in h
+    else:
+        assert "authors' own analysis run" in h

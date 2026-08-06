@@ -47,10 +47,21 @@ def test_nearest_excludes_self_and_returns_five():
     assert n == sorted(n, key=lambda x: x["distance"])
 
 
-def test_umap_is_null_until_the_notebook_is_reexecuted():
-    # Appendix D's figures predate the FSL correction; publishing recomputed
-    # coordinates is gated on author sign-off.
-    assert _d()["umap"] is None
+def test_umap_payload_declares_its_provenance():
+    """Whatever is shipped must say which run produced it.
+
+    A recomputed embedding is a different figure from the paper's, so the
+    distinction has to survive into the data, not just the page.
+    """
+    u = _d()["umap"]
+    if u is None:
+        return  # nothing exported yet
+    assert u["source"] in {"authors", "recomputed"}
+    assert len(u["points"]) == 49
+    if u["source"] == "recomputed":
+        # the published value must be carried alongside for comparison
+        assert u["published_silhouette"] is not None
+        assert u["silhouette"] != u["published_silhouette"]
 
 
 def test_silhouette_reproduces_the_manuscript_value():

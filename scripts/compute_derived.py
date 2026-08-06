@@ -168,6 +168,9 @@ def main():
             "silhouette": raw.get("silhouette_umap"),
             "params": raw.get("params"),
             "versions": raw.get("versions"),
+            # "authors" or "recomputed" -- drives how the figure is captioned.
+            "source": raw.get("source", "authors"),
+            "published_silhouette": raw.get("published_silhouette_umap"),
         }
 
     payload = {
