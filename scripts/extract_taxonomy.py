@@ -119,7 +119,7 @@ def parse_footnotes(defs, gls, anchor_to_label):
         s = expand(s, defs, gls)
         # Dimension references render as their plain label.
         s = re.sub(
-            r"\\taxNo?\{\d\}\{([A-Za-z]+)\}",
+            r"\\tax(?:No)?\{\d\}\{([A-Za-z]+)\}",
             lambda m: anchor_to_label.get(m.group(1), m.group(1)),
             s,
         )

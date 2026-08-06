@@ -9,63 +9,72 @@
         "slug": "activation-space-manipulation",
         "label": "Activation-Space Manipulation",
         "abbr": "Act.-Space Manip.",
-        "meta_group": "III. Inference-Time / Zero-Footprint"
+        "meta_group": "III. Inference-Time / Zero-Footprint",
+        "definition": "A mechanism that adds learned steering vectors or direction-specifying perturbations to the intermediate activation representations of a model during the forward pass—typically targeting specific residual stream positions or attention head outputs—thereby redirecting the model&#x27;s behavioral trajectory along a target direction without modifying any stored weight tensors. Because the intervention operates in activation space rather than parameter space, the model&#x27;s checkpoint is entirely unaffected; the effect is confined to the forward pass and leaves no trace in the persistent parameter state."
       },
       {
         "anchor": "arch",
         "slug": "architectural-modification",
         "label": "Architectural Modification",
         "abbr": "Arch.",
-        "meta_group": "II. Gradient-Free / Weight Manipulation"
+        "meta_group": "II. Gradient-Free / Weight Manipulation",
+        "definition": "A topological alteration of the model&#x27;s computational graph that introduces new nodes, routing pathways, or expert sub-networks—such as dynamically initializing MoE routing modules, inserting gating components, or appending new expert layers—without modifying the pre-trained weights of existing base components. The mechanism expands the model&#x27;s capacity or specialization range through structural graph surgery rather than parameter optimization on existing tensors."
       },
       {
         "anchor": "ctx",
         "slug": "context-injection",
         "label": "Context Injection",
         "abbr": "Context Inj.",
-        "meta_group": "III. Inference-Time / Zero-Footprint"
+        "meta_group": "III. Inference-Time / Zero-Footprint",
+        "definition": "An inference-time conditioning mechanism that prepends, appends, or structurally assembles task-relevant information—including natural-language instructions, retrieved documents, few-shot demonstrations, or structured tool outputs—into the model&#x27;s input context window without modifying any stored parameter weights. Behavioral changes are achieved entirely through the model&#x27;s existing attention and generation mechanisms acting on the enriched input; no gradient computation occurs, and the model&#x27;s parameter state is identical before and after the inference session."
       },
       {
         "anchor": "CrossModelTransf",
         "slug": "cross-model-transfer",
         "label": "Cross-Model Transfer",
         "abbr": "Cross-Model Transf.",
-        "meta_group": "I. Gradient-Based / Compute-Intensive"
+        "meta_group": "I. Gradient-Based / Compute-Intensive",
+        "definition": "A training procedure in which a new, independently deployable student model is optimized to replicate the output distributions, intermediate representations, or decision boundaries of a pre-existing teacher model. Rather than updating the teacher&#x27;s parameters, the mechanism generates a derived artifact—the student—by minimizing a surrogate objective (e.g., KL divergence over soft logits, feature-map matching, or contrastive alignment) that transfers the teacher&#x27;s generalization surface without requiring access to the original training data. The student and teacher are structurally distinct deployable artifacts."
       },
       {
         "anchor": "infTimeSearch",
         "slug": "inference-time-search",
         "label": "Inference-Time Search",
         "abbr": "Infer.-Time Search",
-        "meta_group": "III. Inference-Time / Zero-Footprint"
+        "meta_group": "III. Inference-Time / Zero-Footprint",
+        "definition": "An inference-time compute-allocation mechanism that scales response quality by executing multiple internal generation processes without modifying model parameters, injecting external retrieval context, or steering activations. The mechanism trades additional inference compute for improved output quality by exploring a broader portion of the model&#x27;s generative distribution and selecting the highest-quality candidate according to a process-internal scoring criterion. Compute is consumed at inference time rather than training time."
       },
       {
         "anchor": "WeightSpaceComp",
         "slug": "parameter-composition",
         "label": "Parameter Composition",
         "abbr": "Param. Comp.",
-        "meta_group": "II. Gradient-Free / Weight Manipulation"
+        "meta_group": "II. Gradient-Free / Weight Manipulation",
+        "definition": "A gradient-free algebraic operation applied directly to the parameter vectors of one or more pre-trained model checkpoints—such as task-vector addition, negation, or weight averaging—that derives a new behavioral configuration by combining or transforming weight-space representations without executing any training loop on task data. No forward passes over labeled examples and no loss function are required; the mechanism operates entirely in parameter space."
       },
       {
         "anchor": "StructReduct",
         "slug": "parametric-compression",
         "label": "Parametric Compression",
         "abbr": "Param. Compres.",
-        "meta_group": "II. Gradient-Free / Weight Manipulation"
+        "meta_group": "II. Gradient-Free / Weight Manipulation",
+        "definition": "A structural or numerical intervention that reduces a single existing model&#x27;s parameter count, memory footprint, or arithmetic precision—through techniques such as magnitude pruning, structured sparsification, or weight quantization—producing a deployment-optimized derivative artifact. Unlike cross-model transfer, no independent teacher model is required; the compression operation modifies the model&#x27;s representational capacity directly by eliminating or reducing its own parameter tensors."
       },
       {
         "anchor": "paramUpd",
         "slug": "parametric-update",
         "label": "Parametric Update",
         "abbr": "Param. Upd.",
-        "meta_group": "I. Gradient-Based / Compute-Intensive"
+        "meta_group": "I. Gradient-Based / Compute-Intensive",
+        "definition": "A gradient-based optimization procedure that computes loss-driven parameter gradients—using a task-specific or dataset-specific objective—and applies them to alter the stored weight tensors of one or more model components. The mechanism can operate across the full parameter space simultaneously (full FT), or be constrained to a designated subset of layers, adapter matrices, or task-specific heads (partial and parameter-efficient variants); in all cases it consumes forward and backward passes—and therefore training-time floating-point operations—to modify the model&#x27;s learned representations. No architectural constraints are assumed: the defining property is that GD acts directly on stored parameters."
       },
       {
         "anchor": "manip",
         "slug": "pipeline-mediated",
         "label": "Pipeline-Mediated",
         "abbr": "Pipe.-Med.",
-        "meta_group": "IV. Pipeline-Mediated"
+        "meta_group": "IV. Pipeline-Mediated",
+        "definition": "An indirect adaptation pathway in which the technique modifies the composition, ordering, labeling, or synthesis of training examples supplied to a downstream learning algorithm without directly modifying any model parameter. Because the technique operates on the data pipeline rather than on the model artifact itself, the persistence and structural scope of the resulting adaptation are entirely determined by and inherited from the downstream training method it feeds."
       }
     ]
   },
@@ -79,133 +88,152 @@
         "slug": "alignment",
         "label": "Alignment",
         "abbr": "Align.",
-        "meta_group": "III. Trust"
+        "meta_group": "III. Trust",
+        "definition": "The objective of steering model outputs to conform with human values, behavioral preferences, helpfulness norms, and institutional guidelines, typically by optimizing against human preference signals or rule-based reward models that encode normative expectations about appropriate responses. Alignment interventions modify the model&#x27;s behavioral disposition and output style rather than its factual knowledge base or core task capability."
       },
       {
         "anchor": "behavControl",
         "slug": "behavior-control",
         "label": "Behavior Control",
         "abbr": "Behav. Ctrl.",
-        "meta_group": "V. Operational Constraints"
+        "meta_group": "V. Operational Constraints",
+        "definition": "The objective of constraining a model&#x27;s output format, stylistic register, persona, or procedural behavior through input-context conditioning without targeting the model&#x27;s underlying knowledge representation or task capability. Behavioral control operates at the inference interface and produces no persistent parametric modification."
       },
       {
         "anchor": "build",
         "slug": "build-capability",
         "label": "Build Capability",
         "abbr": "Build Capab.",
-        "meta_group": "I. Capability"
+        "meta_group": "I. Capability",
+        "definition": "The objective of constructing a model with generalizable predictive or generative capability from a large, representative training corpus, establishing the baseline parameter state and intended-use scope from which all post-training adaptation techniques depart. This goal is realized during initial training and serves as the foundational reference point against which all subsequent adaptation events are characterized."
       },
       {
         "anchor": "capExt",
         "slug": "capability-extension",
         "label": "Capability Extension",
         "abbr": "Capab. Ext.",
-        "meta_group": "I. Capability"
+        "meta_group": "I. Capability",
+        "definition": "The objective of broadening a model&#x27;s operational scope by adding fundamentally new structural capabilities or modalities—such as new languages, reasoning domains, subject areas, or input/output modalities—through additional training on broad corpora or through architectural expansion. Distinguished from task specialization by the breadth rather than depth of the intended behavioral change: the model acquires genuinely new operational dimensions rather than deepening performance within an existing one."
       },
       {
         "anchor": "compEff",
         "slug": "computational-efficiency",
         "label": "Computational Efficiency",
         "abbr": "Comp. Eff.",
-        "meta_group": "V. Operational Constraints"
+        "meta_group": "V. Operational Constraints",
+        "definition": "The objective of reducing a model&#x27;s deployment cost, memory footprint, inference latency, or training compute requirements while preserving task accuracy within an acceptable degradation tolerance. Efficiency interventions alter the model&#x27;s deployment profile without changing its core task definition or behavioral envelope."
       },
       {
         "anchor": "ContAdapt",
         "slug": "continual-adaptation",
         "label": "Continual Adaptation",
         "abbr": "Cont. Adapt.",
-        "meta_group": "II. Lifecycle"
+        "meta_group": "II. Lifecycle",
+        "definition": "The objective of enabling a model to sequentially accumulate knowledge from new tasks or data streams without catastrophic forgetting of previously consolidated representations, by employing stability-plasticity trade-off mechanisms that constrain updates to preserve prior knowledge while accommodating new distributional information. The commitment to accumulation rather than replacement is the defining property distinguishing this goal from drift remediation."
       },
       {
         "anchor": "domAdapt",
         "slug": "distributional-gap-bridging",
         "label": "Distributional Gap Bridging",
         "abbr": "Dist. Gap Bridging",
-        "meta_group": "II. Lifecycle"
+        "meta_group": "II. Lifecycle",
+        "definition": "The objective of reducing the feature-space mismatch between a source domain—on which the model was originally trained—and a target domain—on which it must perform—for the same or an analogous task class. The adaptation leverages unlabeled or lightly labeled target-domain data to align feature representations or adjust decision boundaries without requiring complete retraining from scratch."
       },
       {
         "anchor": "DriftRemed",
         "slug": "drift-remediation",
         "label": "Drift Remediation",
         "abbr": "Drift Remed.",
-        "meta_group": "II. Lifecycle"
+        "meta_group": "II. Lifecycle",
+        "definition": "The objective of restoring or sustaining a deployed model&#x27;s predictive accuracy or output consistency when the operational data distribution diverges from the training distribution through covariate shift, concept drift, or prompt distribution change. Remediation targets preservation of the model&#x27;s original task objective within its established operational envelope rather than reshaping that envelope for a new task; the behavioral goal is to re-align the model with its original specification, not to extend it."
       },
       {
         "anchor": "explain",
         "slug": "explainability",
         "label": "Explainability",
         "abbr": "Expl.",
-        "meta_group": "III. Trust"
+        "meta_group": "III. Trust",
+        "definition": "The objective of adapting a model or appending interpretive modules to expose internal representations, align reasoning traces with human-interpretable logic, or generate post-hoc rationales."
       },
       {
         "anchor": "fairness",
         "slug": "fairness",
         "label": "Fairness",
         "abbr": "Fair.",
-        "meta_group": "III. Trust"
+        "meta_group": "III. Trust",
+        "definition": "The objective of reducing systematic performance or output disparities across demographic or otherwise protected groups by intervening on the model&#x27;s learned representations or decision boundaries."
       },
       {
         "anchor": "augK",
         "slug": "knowledge-update",
         "label": "Knowledge Update",
         "abbr": "Knowl. Upd.",
-        "meta_group": "IV. Knowledge Operations"
+        "meta_group": "IV. Knowledge Operations",
+        "definition": "The objective of injecting, refreshing, or correcting factual or domain-specific knowledge encoded in the model&#x27;s parameters or made accessible at inference time, either by retrieving current information from an external corpus at inference time or by performing targeted parametric edits that overwrite specific outdated or incorrect factual associations within the model&#x27;s weights."
       },
       {
         "anchor": "userPerson",
         "slug": "personalization",
         "label": "Personalization",
         "abbr": "Person.",
-        "meta_group": "V. Operational Constraints"
+        "meta_group": "V. Operational Constraints",
+        "definition": "The objective of tailoring model outputs, tone, or domain expertise to individual user preferences, histories, or contexts through discrete per-user parameters or tracking mechanisms without requiring broad model-wide retraining that would affect all users uniformly."
       },
       {
         "anchor": "priv",
         "slug": "privacy-preservation",
         "label": "Privacy Preservation",
         "abbr": "Priv. Preserv.",
-        "meta_group": "V. Operational Constraints"
+        "meta_group": "V. Operational Constraints",
+        "definition": "The objective of enabling collaborative model training or adaptation across distributed data holders while guaranteeing that sensitive raw data never leaves its originating environment. This is achieved by sharing only privacy-bounded gradient updates or model deltas rather than underlying data records, enabling a global model to benefit from distributed learning signals without centralizing sensitive information."
       },
       {
         "anchor": "reas",
         "slug": "reasoning",
         "label": "Reasoning",
         "abbr": "Reas.",
-        "meta_group": "I. Capability"
+        "meta_group": "I. Capability",
+        "definition": "The objective of enhancing a model&#x27;s capacity for structured multi-step inference—including mathematical problem-solving, logical deduction, code generation, and systematic planning—by training against verifiable programmatic reward signals that assess correctness independently of human preference annotation. The mechanism typically involves RL against outcome-based oracles such as unit-test executors, mathematical verifiers, or formal logic checkers, enabling the model to develop generalizable problem-solving strategies rather than pattern-matching memorized solution templates. Verification is accomplished through programmatic oracles, simulators, or iterative self-competition rather than human raters."
       },
       {
         "anchor": "reliability",
         "slug": "reliability",
         "label": "Reliability",
         "abbr": "Reliab.",
-        "meta_group": "III. Trust"
+        "meta_group": "III. Trust",
+        "definition": "The objective of aligning the model&#x27;s expressed confidence scores with empirically observed outcome frequencies, ensuring that predictions assigned a given probability are correct at correspondingly consistent rates. Reliability interventions typically apply post-hoc calibration procedures to the model&#x27;s raw output logits, without modifying its internal learned representations."
       },
       {
         "anchor": "rem",
         "slug": "remove-knowledge",
         "label": "Remove Knowledge",
         "abbr": "Rem. Knowl.",
-        "meta_group": "IV. Knowledge Operations"
+        "meta_group": "IV. Knowledge Operations",
+        "definition": "The objective of selectively erasing specific learned associations, factual claims, behavioral patterns, or capability traces from a trained model without requiring full retraining and without degrading unrelated model behaviors."
       },
       {
         "anchor": "rob",
         "slug": "robustness",
         "label": "Robustness",
         "abbr": "Rob.",
-        "meta_group": "III. Trust"
+        "meta_group": "III. Trust",
+        "definition": "The objective of hardening a model against adversarial perturbations, distributional noise, or out-of-distribution inputs by exposing it to worst-case or adversarially constructed training examples. The adaptation tightens the model&#x27;s minimum guaranteed performance across the input space, reducing the gap between average-case and worst-case behavior."
       },
       {
         "anchor": "safety",
         "slug": "safety",
         "label": "Safety",
         "abbr": "Safety",
-        "meta_group": "III. Trust"
+        "meta_group": "III. Trust",
+        "definition": "The objective of reducing the production of harmful, dangerous, or policy-violating outputs by training the model to recognize and refuse harmful requests, applying constitutional-principle enforcement, or filtering outputs through harm-category constraints. Safety-targeted interventions explicitly shape the model&#x27;s refusal and harm-avoidance behavior as a primary optimization target, distinct from general alignment with preferences."
       },
       {
         "anchor": "task",
         "slug": "task-specialization",
         "label": "Task Specialization",
         "abbr": "Task Spec.",
-        "meta_group": "I. Capability"
+        "meta_group": "I. Capability",
+        "definition": "The objective of refining a general-purpose or pre-trained model to achieve high performance on a specific downstream task by optimizing on task-labeled data within an existing distribution, trading breadth of generalization for depth of domain-specific accuracy. The resulting model exhibits a narrowed operational envelope that is more reliable within the target task but may show reduced generalization to substantially out-of-distribution inputs."
       }
     ]
   },
@@ -219,147 +247,168 @@
         "slug": "constitution-derived",
         "label": "Constitution-Derived",
         "abbr": "Constitution-Deriv.",
-        "meta_group": "II. Synthetic / Programmatic Data"
+        "meta_group": "II. Synthetic / Programmatic Data",
+        "definition": "Data generated iteratively based on an explicit set of textual guidelines or constitutional principles, in which a model critiques and revises its own outputs according to the specified normative rules. The constitutional text itself functions as the primary normative artifact encoding the behavioral constraints that propagate into the adapted model through the generated training data."
       },
       {
         "anchor": "decent",
         "slug": "decentralized",
         "label": "Decentralized",
         "abbr": "Decent.",
-        "meta_group": "V. Minimal / Decentralized / Delegated Data"
+        "meta_group": "V. Minimal / Decentralized / Delegated Data",
+        "definition": "Private data distributed across multiple non-collocated clients or institutions, each processed locally without sharing raw records with a central coordinator. The statistical heterogeneity across shards—arising from non-independent and non-identically distributed local distributions—constitutes the primary technical challenge for any aggregation mechanism that attempts to synthesize a coherent global model from local signals."
       },
       {
         "anchor": "synthEnv",
         "slug": "environment-derived",
         "label": "Environment-Derived",
         "abbr": "Environment-Deriv.",
-        "meta_group": "II. Synthetic / Programmatic Data"
+        "meta_group": "II. Synthetic / Programmatic Data",
+        "definition": "Data generated through interaction with a physics engine, game simulator, formal environment, or through the model&#x27;s own autoregressive self-generation acting as an opponent or world model. The simulation parameters, reward mechanics, and environmental transition dynamics define the statistical properties of the generated data; the learning signal is derived from outcome-based environmental feedback rather than human judgment."
       },
       {
         "anchor": "ext",
         "slug": "external-corpus",
         "label": "External Corpus",
         "abbr": "Ext. Corpus",
-        "meta_group": "IV. External / Targeted Data"
+        "meta_group": "IV. External / Targeted Data",
+        "definition": "A curated external knowledge repository queried at inference time to retrieve contextually relevant passages that augment model outputs. The corpus is a pre-existing, structurally static reference artifact that is independent of the active user session and of the model&#x27;s internal parameter state."
       },
       {
         "anchor": "few",
         "slug": "few-demonstrations",
         "label": "Few Demonstrations",
         "abbr": "Few Demo.",
-        "meta_group": "I. Human-Annotated Data"
+        "meta_group": "I. Human-Annotated Data",
+        "definition": "A minimal set of input-output demonstration examples provided directly within the model&#x27;s inference-time context window to condition its behavior without any gradient-based optimization. These examples function as behavioral exemplars that the model&#x27;s in-context learning mechanism generalizes from within the active session, leaving the model&#x27;s parameters entirely unmodified."
       },
       {
         "anchor": "forget",
         "slug": "forget-set-specification",
         "label": "Forget Set Specification",
         "abbr": "Forget Set Spec.",
-        "meta_group": "IV. External / Targeted Data"
+        "meta_group": "IV. External / Targeted Data",
+        "definition": "A precisely delineated set of training samples, factual associations, behavioral capability traces, or user data records whose influence is to be erased from model behavior."
       },
       {
         "anchor": "instrResp",
         "slug": "instruction-response-corpus",
         "label": "Instruction-Response Corpus",
         "abbr": "Instr.-Resp. Corpus",
-        "meta_group": "II. Synthetic / Programmatic Data"
+        "meta_group": "II. Synthetic / Programmatic Data",
+        "definition": "A heterogeneous collection of prompt-response pairs spanning many tasks and domains used to train general instruction-following capability. The defining characteristic is corpus breadth across task types rather than depth within any single task;"
       },
       {
         "anchor": "largeD",
         "slug": "large-labeled",
         "label": "Large Labeled",
         "abbr": "Large Labeled",
-        "meta_group": "I. Human-Annotated Data"
+        "meta_group": "I. Human-Annotated Data",
+        "definition": "A high-volume corpus of annotated input-output pairs providing the statistical coverage necessary to update all model parameters reliably without overfitting. This data regime is the defining requirement for methods where the unrestricted optimization landscape requires broad supervision to constrain the high-dimensional parameter search space."
       },
       {
         "anchor": "multiD",
         "slug": "paired-multimodal",
         "label": "Paired Multimodal",
         "abbr": "Pair. Multimod.",
-        "meta_group": "VII. Multi-Modal Paired Provenance"
+        "meta_group": "VII. Multi-Modal Paired Provenance",
+        "definition": "Aligned cross-modal paired samples used to train cross-modal alignment or grounding objectives. Each training example carries independent provenance chains for each modality, and the cross-modal correspondence itself introduces additional alignment-specific data characteristics."
       },
       {
         "anchor": "wght",
         "slug": "parameter-only",
         "label": "Parameter-Only",
         "abbr": "Param.-Only",
-        "meta_group": "V. Minimal / Decentralized / Delegated Data"
+        "meta_group": "V. Minimal / Decentralized / Delegated Data",
+        "definition": "A data-free regime in which adaptation operates exclusively on the model&#x27;s pre-trained parameter vectors through algebraic composition, interpolation, or negation—requiring no training examples, labeled or unlabeled, as input to the adaptation procedure. The entire adaptation is derived from arithmetic relationships among existing weight tensors."
       },
       {
         "anchor": "pipeInherit",
         "slug": "pipeline-dependent",
         "label": "Pipeline-Dependent",
         "abbr": "Pipe.-Dep.",
-        "meta_group": "V. Minimal / Decentralized / Delegated Data"
+        "meta_group": "V. Minimal / Decentralized / Delegated Data",
+        "definition": "A delegation regime in which the effective data requirements of the technique are fully determined by and inherited from the downstream training method that the technique augments. The pipeline technique itself imposes no independent data regime; all data characterization is subsumed by the consuming training procedure."
       },
       {
         "anchor": "pref",
         "slug": "preference-pairs",
         "label": "Preference Pairs",
         "abbr": "Pref. Pairs",
-        "meta_group": "I. Human-Annotated Data"
+        "meta_group": "I. Human-Annotated Data",
+        "definition": "A dataset of paired model outputs annotated by human raters to indicate relative behavioral preference according to quality, helpfulness, or safety criteria. Unlike task-labeled data that specifies a correct output, preference pairs encode comparative judgments between two candidate responses, making the comparative elicitation methodology—rather than absolute correctness—the defining characteristic of this data regime."
       },
       {
         "anchor": "seqIncD",
         "slug": "sequential-incremental",
         "label": "Sequential / Incremental",
         "abbr": "Seq./Inc.",
-        "meta_group": "III. Live / Production Data"
+        "meta_group": "III. Live / Production Data",
+        "definition": "A temporally ordered stream of training examples arriving in batches or continuously over the model&#x27;s operational lifecycle, whose distributional properties evolve across time. Adaptation mechanisms operating on this data regime must integrate new information without discarding previously consolidated knowledge;"
       },
       {
         "anchor": "smallD",
         "slug": "small-labeled",
         "label": "Small Labeled",
         "abbr": "Small Labeled",
-        "meta_group": "I. Human-Annotated Data"
+        "meta_group": "I. Human-Annotated Data",
+        "definition": "A limited collection of annotated task-specific instances sufficient for parameter-efficient adapter training or partial FT but insufficient for full-parameter optimization without catastrophic forgetting or overfitting. The small scale constrains the effective update surface and necessitates parameter-efficient or regularized training strategies that limit the degrees of freedom available to the optimizer."
       },
       {
         "anchor": "taskDist",
         "slug": "task-distribution",
         "label": "Task Distribution",
         "abbr": "Task Dist.",
-        "meta_group": "I. Human-Annotated Data"
+        "meta_group": "I. Human-Annotated Data",
+        "definition": "A distribution over multiple heterogeneous tasks to expose the model to diverse adaptation episodes. The distributional coverage over task space—rather than depth of supervision on any single task—is the defining property; the model optimizes for initial parameters or learning procedures that generalize rapidly to novel tasks encountered at deployment."
       },
       {
         "anchor": "synthTeacher",
         "slug": "teacher-derived",
         "label": "Teacher-Derived",
         "abbr": "Teacher-Deriv.",
-        "meta_group": "II. Synthetic / Programmatic Data"
+        "meta_group": "II. Synthetic / Programmatic Data",
+        "definition": "Data generated by a more capable or aligned model acting as an annotator or oracle (teacher). The generating model&#x27;s biases, capability limitations, and output distribution are inherited by the student through this data pathway, making provenance characterization of the teacher a prerequisite for characterizing the data."
       },
       {
         "anchor": "tstOnly",
         "slug": "test-only",
         "label": "Test-Only",
         "abbr": "Test-Only",
-        "meta_group": "III. Live / Production Data"
+        "meta_group": "III. Live / Production Data",
+        "definition": "The live, unlabeled test instances encountered during active inference, used as the sole input signal for transient self-supervised adaptation without access to any external training data or ground-truth labels. The model adapts to each test batch or individual instance in a session-local manner; adaptation does not persist beyond inference completion."
       },
       {
         "anchor": "unlabD",
         "slug": "unlabeled",
         "label": "Unlabeled",
         "abbr": "Unlabeled",
-        "meta_group": "V. Minimal / Decentralized / Delegated Data"
+        "meta_group": "V. Minimal / Decentralized / Delegated Data",
+        "definition": "Unannotated data used for self-supervised or unsupervised training objectives, continuous pre-training, or distribution sampling for post-training calibration or activation steering. The absence of ground-truth labels defines this regime: the learning signal is derived from the statistical structure of the raw data—through masked prediction, contrastive objectives, or density estimation—rather than from explicit human annotation."
       },
       {
         "anchor": "userInteract",
         "slug": "user-interaction-data",
         "label": "User Interaction Data",
         "abbr": "User Interact.",
-        "meta_group": "III. Live / Production Data"
+        "meta_group": "III. Live / Production Data",
+        "definition": "Logged behavioral signals and implicit telemetry generated directly by end-users during active deployment used to drive personalization or implicit feedback-based adaptation. This regime is operationally distinct from curated labeled datasets and comparative preference pairs in that it is generated passively during production use rather than collected through an explicit annotation pipeline."
       },
       {
         "anchor": "verify",
         "slug": "verifiable-task",
         "label": "Verifiable Task",
         "abbr": "Verif. Task",
-        "meta_group": "VI. Verifier-Defined Ground Truth"
+        "meta_group": "VI. Verifier-Defined Ground Truth",
+        "definition": "Tasks for which correctness can be assessed by a deterministic programmatic verifier without requiring human preference annotation. Ground truth is established through binary or structured programmatic evaluation rather than subjective human judgment, shifting the epistemological basis of the training signal from comparative human preference to objective computational verification."
       },
       {
         "anchor": "zeroSh",
         "slug": "zero-shot",
         "label": "Zero-Shot",
         "abbr": "Zero-Shot",
-        "meta_group": "V. Minimal / Decentralized / Delegated Data"
+        "meta_group": "V. Minimal / Decentralized / Delegated Data",
+        "definition": "Natural-language task directives provided in the model&#x27;s input context without any accompanying labeled examples or demonstrations, relying entirely on the model&#x27;s pre-existing instruction-following and generalization capability. The data requirement is zero labeled instances: only the task specification itself is provided, and all behavioral conditioning is achieved through the model&#x27;s previously learned representations."
       }
     ]
   },
@@ -373,56 +422,64 @@
         "slug": "ad-hoc-permanent",
         "label": "Ad-hoc Permanent",
         "abbr": "Ad-hoc Perm.",
-        "meta_group": "II. Event-Driven Unplanned Modification"
+        "meta_group": "II. Event-Driven Unplanned Modification",
+        "definition": "An unplanned, event-driven parameter update triggered by sudden data drift, an emergent vulnerability, a targeted knowledge correction, or an arbitrary developer decision rather than a pre-specified schedule. Like scheduled permanent updates, the change produces a new model checkpoint that permanently supersedes the prior parameter state; unlike them, the timing, trigger, and scope of the intervention cannot be declared in advance and are determined reactively."
       },
       {
         "anchor": "boundedCumul",
         "slug": "bounded-cumulative",
         "label": "Bounded Cumulative",
         "abbr": "Bound. Cumul.",
-        "meta_group": "I. Pre-Specifiable Baselines"
+        "meta_group": "I. Pre-Specifiable Baselines",
+        "definition": "Incremental parameter accumulation across a finite, pre-enumerable set of new tasks or domains, in which each update extends the model&#x27;s knowledge without overwriting prior representations. The finite, pre-specified character of the task sequence means the total knowledge accumulation horizon can, in principle, be declared in advance, making this the only cumulative persistence mode whose modification trajectory admits complete pre-specification."
       },
       {
         "anchor": "pipeDep",
         "slug": "pipeline-dependent",
         "label": "Pipeline-Dependent",
         "abbr": "Pipe.-Dep.",
-        "meta_group": "V. Inherited Burden"
+        "meta_group": "V. Inherited Burden",
+        "definition": "A persistence profile in which the temporal durability of the adaptation is not intrinsic to the technique itself but is entirely delegated to and inherited from the downstream learning method that the technique augments. Because the technique operates on the training data pipeline rather than directly on model parameters, its effective change-control classification is entirely contingent on the downstream training method it feeds; no independent persistence characterization applies to the pipeline technique in isolation."
       },
       {
         "anchor": "ScheduledPerm",
         "slug": "scheduled-permanent",
         "label": "Scheduled Permanent",
         "abbr": "Sched. Perm.",
-        "meta_group": "I. Pre-Specifiable Baselines"
+        "meta_group": "I. Pre-Specifiable Baselines",
+        "definition": "Pre-planned, periodic parameter updates executed on a fixed temporal or data-volume cadence, resulting in a permanently updated model checkpoint that fully supersedes the prior parameter state. The modification is permanent at the model-parameter level—the updated weights replace the previous checkpoint and persist across all subsequent inference sessions—and its triggering conditions and approximate timing can be declared in advance."
       },
       {
         "anchor": "eph",
         "slug": "session-ephemeral",
         "label": "Session-Ephemeral",
         "abbr": "Sess.-Eph.",
-        "meta_group": "IV. Session-Scoped"
+        "meta_group": "IV. Session-Scoped",
+        "definition": "A behavioral modification achieved entirely through input-context conditioning or internal generation processes at inference time, with the model&#x27;s parameter state remaining identical before and after each session. The adaptation is local to the active inference request or session and clears completely upon session termination, leaving no trace in the model&#x27;s stored parameter state. While ephemeral at the parameter level, the system-level behavioral effect may be functionally persistent if the conditioning mechanism is applied uniformly across all deployed inference sessions."
       },
       {
         "anchor": "trans",
         "slug": "transient",
         "label": "Transient",
         "abbr": "Transient",
-        "meta_group": "IV. Session-Scoped"
+        "meta_group": "IV. Session-Scoped",
+        "definition": "A modification strictly confined to a temporary inference session that does not persist once that session concludes. The transient category encompasses two mechanistically distinct implementations: parameter-modifying variants (e.g., test-time adaptation), in which gradient updates are applied during inference and then explicitly rolled back upon session completion via weight restoration; and activation-modifying variants (e.g., activation steering), in which no weight write occurs and the effect naturally clears at session end."
       },
       {
         "anchor": "unboundedCumul",
         "slug": "unbounded-cumulative",
         "label": "Unbounded Cumulative",
         "abbr": "Unbound. Cumul.",
-        "meta_group": "III. Continuous Surveillance Required"
+        "meta_group": "III. Continuous Surveillance Required",
+        "definition": "Open-ended, continuous parameter accumulation over an indefinite or unknown horizon of streaming data, in which the model&#x27;s behavioral state is never stable but continuously incorporates new representational commitments. The absence of a pre-specifiable termination boundary is the defining property: unlike bounded cumulative persistence, the total scope of adaptation cannot be declared in advance, and the model&#x27;s behavioral state at any future checkpoint is structurally indeterminate at deployment time."
       },
       {
         "anchor": "verPersistent",
         "slug": "version-persistent",
         "label": "Version-Persistent",
         "abbr": "Ver.-Persist.",
-        "meta_group": "I. Pre-Specifiable Baselines"
+        "meta_group": "I. Pre-Specifiable Baselines",
+        "definition": "A context-only modification at the model-parameter level—such as a maintained retrieval corpus, a persistent steering-vector store, or a versioned production system prompt—that does not alter model weights but is maintained as a version-controlled, persistent system artifact whose update constitutes a system-level change event. While the model&#x27;s internal parameter state is unchanged, the system&#x27;s behavioral profile is durably modified by the maintained artifact across inference sessions."
       }
     ]
   },
@@ -436,70 +493,80 @@
         "slug": "activation-space",
         "label": "Activation-Space",
         "abbr": "Activ.-Space",
-        "meta_group": "IV. No Parametric Footprint"
+        "meta_group": "IV. No Parametric Footprint",
+        "definition": "Direct modulation of the model&#x27;s intermediate forward-pass representations with zero modification to any underlying parameter weight tensors. While the model&#x27;s internal activation state is transiently altered during the forward pass, no persistent change to any stored weight tensor occurs; the model&#x27;s checkpoint is identical before and after the intervention."
       },
       {
         "anchor": "compressed",
         "slug": "compressed-artifact",
         "label": "Compressed Artifact",
         "abbr": "Compress. Artif.",
-        "meta_group": "II. Targeted Component Validation"
+        "meta_group": "II. Targeted Component Validation",
+        "definition": "A structurally reduced, pruned, or lower-precision derivative of the original base model. that occupies a strictly smaller representational capacity than the original while targeting preservation of the original model&#x27;s functional behavior within an acceptable accuracy tolerance. The compressed artifact is evaluated as a modified derivative of the original model rather than an independently trained entity."
       },
       {
         "anchor": "dIVdist",
         "slug": "distributed",
         "label": "Distributed",
         "abbr": "Dist.",
-        "meta_group": "V. Distributed Aggregation"
+        "meta_group": "V. Distributed Aggregation",
+        "definition": "The global model state is constituted by the aggregation of locally computed parameter updates from multiple decentralized clients, such that the adaptation signal is distributed across a federated system. The persistent artifact is the aggregated global model whose parameter state incorporates learning signals from all contributing local data shards without any raw data leaving the originating device. Validation focuses on the consistency of the aggregated global state rather than on any single local update."
       },
       {
         "anchor": "fusedComp",
         "slug": "fused-composition",
         "label": "Fused Composition",
         "abbr": "Fused",
-        "meta_group": "I. Full-System Validation"
+        "meta_group": "I. Full-System Validation",
+        "definition": "A derived model artifact produced by the algebraic combination of two or more parent model checkpoints, resulting in a merged weight state in which the individual contributing models are no longer trivially separable. The fused artifact&#x27;s behavior is not directly attributable to any single parent model, making its representational lineage structurally opaque relative to the source checkpoints."
       },
       {
         "anchor": "extContxt",
         "slug": "input-output-space",
         "label": "Input/Output-Space",
         "abbr": "I/O Space",
-        "meta_group": "IV. No Parametric Footprint"
+        "meta_group": "IV. No Parametric Footprint",
+        "definition": "No modification is made to any model parameter or internal activation state; behavioral conditioning occurs exclusively through external input-space manipulation, output candidate selection, or inference-time search over the model&#x27;s generative distribution. The model&#x27;s computational graph and all stored weight tensors remain completely unaltered. The adaptation footprint is confined to the interface between the model and its deployment environment, not to any internal model state."
       },
       {
         "anchor": "modSwap",
         "slug": "modular",
         "label": "Modular",
         "abbr": "Modular",
-        "meta_group": "III. Modular Isolation"
+        "meta_group": "III. Modular Isolation",
+        "definition": "The adaptation is encapsulated as a decoupled, independently stored module that can be attached to or detached from a frozen base model without altering the base model&#x27;s parameter state in any way. The base model&#x27;s existing representational state is completely preserved, and the modular component constitutes an independent artifact whose versioning is entirely distinct from the base checkpoint. Rollback is achieved by removing or swapping the module without any base-model reversion."
       },
       {
         "anchor": "partl",
         "slug": "partial",
         "label": "Partial",
         "abbr": "Part.",
-        "meta_group": "II. Targeted Component Validation"
+        "meta_group": "II. Targeted Component Validation",
+        "definition": "Only a designated component or layer subset of the model is modified while the remainder of the parameter space is frozen. The bounded modification surface restricts behavioral change to the updated component subset, enabling targeted validation and localized regression testing of only the modified layers; unmodified layers require no re-evaluation."
       },
       {
         "anchor": "pipelineDepScope",
         "slug": "pipeline-dependent",
         "label": "Pipeline-Dependent",
         "abbr": "Pipe.-Dep.",
-        "meta_group": "VI. Inherited Burden"
+        "meta_group": "VI. Inherited Burden",
+        "definition": "The structural scope of the adaptation is not intrinsic to the technique itself but is entirely delegated to and inherited from the downstream training event that the technique feeds. Because the pipeline technique modifies the data distribution rather than the model&#x27;s computational graph, it imposes no independent structural footprint; the component-level regression testing burden is entirely subsumed by the downstream training method that consumes the modified data."
       },
       {
         "anchor": "surrogate",
         "slug": "surrogate-model",
         "label": "Surrogate Model",
         "abbr": "Surrog. Model",
-        "meta_group": "II. Targeted Component Validation"
+        "meta_group": "II. Targeted Component Validation",
+        "definition": "A completely new, independently deployable model artifact trained to replicate a teacher model&#x27;s outputs or to provide a learned scoring signal as an intermediate training artifact. Because it is a structurally new model produced as a byproduct of the adaptation procedure, it constitutes a distinct artifact from the adapted model itself and carries an independent representational provenance."
       },
       {
         "anchor": "whole",
         "slug": "whole-model",
         "label": "Whole-Model",
         "abbr": "Whole",
-        "meta_group": "I. Full-System Validation"
+        "meta_group": "I. Full-System Validation",
+        "definition": "All layers and components of the model are modified simultaneously, producing the most comprehensive structural footprint in the taxonomy. Because the entire parameter space participates in the modification, no modular isolation boundary exists; any behavioral change introduced propagates across all task dimensions simultaneously, and the model&#x27;s complete representational state is overwritten or jointly updated. Rollback requires full-checkpoint reversion rather than targeted component substitution."
       }
     ]
   },
@@ -513,35 +580,40 @@
         "slug": "dl",
         "label": "Deep Learning",
         "abbr": "DL",
-        "meta_group": null
+        "meta_group": null,
+        "definition": ""
       },
       {
         "anchor": null,
         "slug": "fm",
         "label": "Foundation Model",
         "abbr": "FM",
-        "meta_group": null
+        "meta_group": null,
+        "definition": ""
       },
       {
         "anchor": null,
         "slug": "llm",
         "label": "Large Language Model",
         "abbr": "LLM",
-        "meta_group": null
+        "meta_group": null,
+        "definition": ""
       },
       {
         "anchor": null,
         "slug": "ml",
         "label": "Machine Learning",
         "abbr": "ML",
-        "meta_group": null
+        "meta_group": null,
+        "definition": ""
       },
       {
         "anchor": null,
         "slug": "mllm",
         "label": "Multimodal Large Language Model",
         "abbr": "MLLM",
-        "meta_group": null
+        "meta_group": null,
+        "definition": ""
       }
     ]
   }

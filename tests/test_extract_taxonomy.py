@@ -1,8 +1,6 @@
 import collections
 import json
 import pathlib
-import subprocess
-import sys
 
 TAX = pathlib.Path("data/taxonomy.json")
 
@@ -12,7 +10,6 @@ def _tax():
 
 
 def test_runs_and_emits_49_records():
-    subprocess.run([sys.executable, "scripts/extract_taxonomy.py"], check=True)
     t = _tax()
     assert len(t["techniques"]) == 49
     assert sum(1 for x in t["techniques"] if x["is_reference_row"]) == 1

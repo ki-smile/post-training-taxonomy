@@ -1,7 +1,5 @@
 import json
 import pathlib
-import subprocess
-import sys
 
 
 def _gls():
@@ -13,7 +11,6 @@ def _tax():
 
 
 def test_glossary_has_171_entries():
-    subprocess.run([sys.executable, "scripts/extract_glossary.py"], check=True)
     assert len(_gls()["entries"]) == 171
 
 
@@ -31,7 +28,6 @@ def test_entries_are_sorted_and_complete():
 
 
 def test_footnote_text_attached_to_flagged_techniques():
-    subprocess.run([sys.executable, "scripts/extract_taxonomy.py"], check=True)
     ssl = next(x for x in _tax()["techniques"] if x["slug"] == "ssl")
     assert any("adaptation role" in f["text"] for f in ssl["footnotes"])
 

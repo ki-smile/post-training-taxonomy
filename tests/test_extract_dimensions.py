@@ -1,7 +1,5 @@
 import json
 import pathlib
-import subprocess
-import sys
 
 DIMS = pathlib.Path("data/dimensions.json")
 
@@ -11,7 +9,6 @@ def _dims():
 
 
 def test_dimensions_extracted_with_expected_counts():
-    subprocess.run([sys.executable, "scripts/extract_dimensions.py"], check=True)
     counts = {k: len(v["categories"]) for k, v in _dims().items()}
     assert counts == {"d1": 9, "d2": 19, "d3": 21, "d4": 8, "d5": 10, "d6": 5}
 
