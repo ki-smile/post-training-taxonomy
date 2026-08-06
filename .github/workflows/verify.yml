@@ -1,8 +1,12 @@
-name: Test and deploy
+name: Verify
 
-# Pages is configured to deploy from a workflow, so nothing publishes without
-# this file. Tests gate the deploy: the site is a reference for a taxonomy
-# people cite, and shipping a broken build is worse than shipping late.
+# Publishing is handled by GitHub's own pages-build-deployment workflow, which
+# runs automatically because Pages is configured to serve main /docs.
+#
+# This workflow therefore only VERIFIES. It must not deploy: two workflows
+# targeting the github-pages environment contend for the same concurrency
+# group, and the loser is cancelled — which is exactly what happened when this
+# file also carried a deploy job.
 
 on:
   push:
@@ -13,17 +17,15 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
-# Let a running deploy finish rather than cancelling it half-published.
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  # Per-ref, and deliberately NOT the Pages group.
+  group: verify-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  test:
-    name: Verify
+  verify:
+    name: Data, tests, and build drift
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -62,20 +64,3 @@ jobs:
             git --no-pager diff --stat docs/
             exit 1
           fi
-
-  deploy:
-    name: Deploy to Pages
-    needs: test
-    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: docs
-      - id: deployment
-        uses: actions/deploy-pages@v4
