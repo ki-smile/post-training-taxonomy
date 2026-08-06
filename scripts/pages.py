@@ -1042,7 +1042,7 @@ def data_page(d):
     <pre>Afdideh, F., Seoane, F., &amp; Abtahi, F. (2026).
 A Six-Dimensional Taxonomy of Post-Training Adaptation Techniques
 with Applications in AI Governance. {ARXIV_ID}</pre>
-    <p>Data and extracted prose are CC BY 4.0; code is MIT.</p>
+    <p>Released under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
   </section>
 </div>
 """

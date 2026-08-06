@@ -124,8 +124,7 @@ def page(title, body, *, depth=1, description="", current=None, scripts=()):
       <div>
         <p class="eyebrow">Licence</p>
         <ul>
-          <li>Code — MIT</li>
-          <li>Data and prose — CC BY 4.0</li>
+          <li><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></li>
         </ul>
       </div>
       <div>

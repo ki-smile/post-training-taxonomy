@@ -80,7 +80,7 @@ This taxonomy provides technical vocabulary for describing model changes. It doe
 
 ## Licence
 
-Code is MIT (`LICENSE`). The taxonomy data and extracted prose are CC BY 4.0 (`LICENSE-CONTENT`).
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — see `LICENSE`.
 
 ## Authors
 

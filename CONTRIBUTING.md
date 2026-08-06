@@ -49,3 +49,5 @@ rebuild.
 
 Python: standard library only in `scripts/`. Browser code: vanilla ES
 modules, no framework, no CDN — the site makes no third-party requests.
+
+Everything in this repository is released under CC BY 4.0.
