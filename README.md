@@ -1,4 +1,4 @@
-# Post-Training Adaptation Taxonomy
+# A Six-Dimensional Taxonomy of Post-Training Adaptation Techniques with Applications in AI Governance
 
 A six-dimensional taxonomy of post-training adaptation techniques for machine learning models, with applications in AI governance — and a website that makes it searchable, comparable, and citable.
 
