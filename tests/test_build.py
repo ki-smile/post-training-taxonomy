@@ -151,6 +151,20 @@ def test_video_is_a_click_to_load_facade_not_an_eager_embed():
     assert "youtube.com" not in h and "ytimg.com" not in h
 
 
+def test_audio_player_present_and_does_not_preload():
+    """Without preload="none" every visitor downloads ~19 MB unasked."""
+    h = (DOCS / "index.html").read_text()
+    assert "<audio" in h and 'preload="none"' in h
+    src = re.search(r'<source src="(media/[^"]+\.mp3)"', h)
+    assert src, "no mp3 source on the home page"
+    assert (DOCS / src.group(1)).exists(), "audio file missing from docs/media"
+
+
+def test_audio_has_a_download_fallback():
+    h = (DOCS / "index.html").read_text()
+    assert "download" in h.lower()
+
+
 def test_video_facade_script_is_actually_attached():
     """The facade is inert without its module; a missing tag fails silently."""
     h = (DOCS / "index.html").read_text()

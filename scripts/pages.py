@@ -1,8 +1,9 @@
 """Page renderers. Each yields (relative_path, title, body_html, layout_kwargs)."""
 
 from scripts.layout import (
-    ARXIV_ID, ARXIV_URL, DISCLAIMER, REPO_URL, SMAILE_NAME, SMAILE_URL,
-    VIDEO_CHANNEL, VIDEO_ID, VIDEO_TITLE, VIDEO_URL, esc,
+    ARXIV_ID, ARXIV_URL, AUDIO_FILE, AUDIO_LENGTH, AUDIO_TITLE, DISCLAIMER,
+    REPO_URL, SMAILE_NAME, SMAILE_URL, VIDEO_CHANNEL, VIDEO_ID, VIDEO_TITLE,
+    VIDEO_URL, esc,
 )
 from scripts.render import (
     DIM_KEYS, chip_list, dim_label, separator_prose, strip, technique_link,
@@ -325,7 +326,18 @@ def home_page(d):
     </div>
     <div class="stack">
       <p class="eyebrow">Audio overview</p>
-      <div class="placeholder"><p>Coming soon.</p></div>
+      <div class="card stack">
+        <p><strong>{esc(AUDIO_TITLE)}</strong><br>
+          <span class="provenance">{esc(VIDEO_CHANNEL)} · {esc(AUDIO_LENGTH)}</span></p>
+        <audio controls preload="none" style="width:100%">
+          <source src="media/{AUDIO_FILE}" type="audio/mpeg">
+          Your browser cannot play audio inline —
+          <a href="media/{AUDIO_FILE}">download the file</a> instead.
+        </audio>
+        <p class="provenance">
+          <a href="media/{AUDIO_FILE}" download>Download (19 MB)</a>
+          · nothing downloads until you press play</p>
+      </div>
     </div>
   </div>
 </section>

@@ -17,15 +17,21 @@ To change the video, edit `VIDEO_ID`, `VIDEO_TITLE` and `VIDEO_CHANNEL` in
     curl -o docs/media/video-poster.jpg https://i.ytimg.com/vi/<ID>/maxresdefault.jpg
     python3 scripts/build.py
 
-## Audio — still a placeholder
+## Audio — done
 
-Drop an MP3 here as `overview.mp3`, then replace the audio placeholder block in
-`home_page` (`scripts/pages.py`) with:
+`The_6D_Taxonomy_of_AI_Adaptation.mp3` (19 MB, 128 kbps stereo, ~21 min) plays
+inline on the home page with a download link beside it.
 
-    <audio controls preload="none" style="width:100%">
-      <source src="media/overview.mp3" type="audio/mpeg">
-      Your browser does not support audio playback.
-    </audio>
+The player carries `preload="none"`. Without it every visitor downloads 19 MB
+whether or not they press play, which on a mobile connection is real money. A
+test asserts the attribute is present.
 
-`preload="none"` matters: without it the browser starts fetching the file for
-every visitor.
+To change the audio, replace the file and update `AUDIO_FILE`, `AUDIO_TITLE`
+and `AUDIO_LENGTH` in `scripts/layout.py`, then rebuild.
+
+## A note on repository size
+
+The audio is 19 MB and the poster 115 KB, so `docs/media/` dominates the
+repository. That is under GitHub's 50 MB per-file warning and well under the
+100 MB hard limit, so committing it directly is fine. If more large media
+accumulates, move it to a release asset or external host and link out.

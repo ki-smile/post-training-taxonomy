@@ -25,6 +25,12 @@ VIDEO_TITLE = ("Fine-Tuning, RAG, or Prompting? "
                "The 6D Framework for AI Model Adaptation")
 VIDEO_CHANNEL = "SMAILE KI"
 
+# Audio overview. preload="none" matters: without it every visitor downloads
+# ~19 MB whether or not they ever press play.
+AUDIO_FILE = "The_6D_Taxonomy_of_AI_Adaptation.mp3"
+AUDIO_TITLE = "The 6D Taxonomy of AI Adaptation"
+AUDIO_LENGTH = "21 min"
+
 NAV = [
     ("Concepts", "/concepts/"),
     ("Explorer", "/explorer/"),
