@@ -179,7 +179,8 @@ def test_video_poster_is_committed_locally():
 
 def test_arxiv_placeholder_and_bibtex_present():
     h = (DOCS / "index.html").read_text()
-    assert "arXiv:XXXX.XXXXX" in h and "@misc" in h
+    assert "arXiv:2608.06246" in h and "@misc" in h
+    assert "XXXX.XXXXX" not in h, "placeholder identifier still present"
 
 
 def test_no_venue_name_anywhere_in_docs():

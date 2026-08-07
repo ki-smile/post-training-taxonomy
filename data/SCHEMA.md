@@ -95,7 +95,7 @@ Everything computed from the profiles. Nothing here is authored.
 | `separators` | Three-state comparisons for named pairs (see below) |
 | `silhouette` | Family cohesion, all rows and post-training-only |
 | `compute_blind_spot` | Techniques outside gradient-compute thresholds |
-| `umap` | `null` — see below |
+| `umap` | Projection coordinates and their provenance — see below |
 
 ### Three-state separators
 
@@ -107,9 +107,18 @@ Comparing two profiles yields three lists, not two:
 
 Only `disjoint` dimensions separate a pair. Some pairs have none: PEFT and Partial FT overlap on D2 and D5 with nothing disjoint, because PEFT strictly *extends* Partial FT. Reporting that as "separated by D2 and D5" would misdescribe containment as difference.
 
-### Why `umap` is null
+### The projection, and where it came from
 
-The projection published in the paper was computed before a correction to one technique's data profile. Publishing recomputed coordinates would put a figure on the site that the paper never showed. Pairwise distances are unaffected and are shipped in full.
+`umap` carries `points`, the silhouette, the library versions used, and a
+`source` field that is either `"authors"` or `"recomputed"`.
+
+That distinction matters. UMAP is not reproducible across library or platform
+versions: the same distance matrix and the same seed give a visibly different
+layout elsewhere. The shipped coordinates are currently `"recomputed"`, and the
+published silhouette is carried alongside for comparison. Read the projection
+for which techniques sit near each other, not for exact positions.
+
+Pairwise distances are independent of the projection and are exact.
 
 ## `relations.json`
 
@@ -144,4 +153,4 @@ Regenerated from the manuscript. When the manuscript changes, values change — 
 
 ## Licence
 
-CC BY 4.0. Cite the preprint: `arXiv:XXXX.XXXXX` *(placeholder until posted)*.
+CC BY 4.0. Cite the preprint: [arXiv:2608.06246](https://arxiv.org/abs/2608.06246).

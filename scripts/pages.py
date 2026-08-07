@@ -363,7 +363,7 @@ def home_page(d):
             Techniques with Applications in AI Governance}},
   author = {{Afdideh, Fardin and Seoane, Fernando and Abtahi, Farhad}},
   year   = {{2026}},
-  eprint = {{XXXX.XXXXX}},
+  eprint = {{2608.06246}},
   archivePrefix = {{arXiv}}
 }}</pre>
   <p><a class="btn" href="data/">Download the taxonomy data</a></p>

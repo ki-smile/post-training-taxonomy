@@ -61,7 +61,7 @@ Extraction scripts read the manuscript source, which is not distributed in this 
 
 ## Citation
 
-The preprint is `arXiv:XXXX.XXXXX` *(placeholder — updated when the preprint is posted)*.
+The preprint is [arXiv:2608.06246](https://arxiv.org/abs/2608.06246).
 
 ```bibtex
 @misc{afdideh2026taxonomy,
@@ -69,7 +69,7 @@ The preprint is `arXiv:XXXX.XXXXX` *(placeholder — updated when the preprint i
             Techniques with Applications in AI Governance},
   author = {Afdideh, Fardin and Seoane, Fernando and Abtahi, Farhad},
   year   = {2026},
-  eprint = {XXXX.XXXXX},
+  eprint = {2608.06246},
   archivePrefix = {arXiv}
 }
 ```

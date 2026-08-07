@@ -10,8 +10,8 @@ import pathlib
 
 from scripts.version import RELEASED, VERSION
 
-ARXIV_ID = "arXiv:XXXX.XXXXX"
-ARXIV_URL = "https://arxiv.org/abs/XXXX.XXXXX"
+ARXIV_ID = "arXiv:2608.06246"
+ARXIV_URL = "https://arxiv.org/abs/2608.06246"
 REPO_URL = "https://github.com/ki-smile/post-training-taxonomy"
 SMAILE_URL = ("https://ki.se/en/clintec/stockholm-medical-artificial-"
               "intelligence-and-learning-environments-smaile")

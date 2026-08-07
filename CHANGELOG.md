@@ -37,7 +37,12 @@ versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-Nothing yet.
+### Changed
+
+- Citations now carry the published preprint identifier,
+  [arXiv:2608.06246](https://arxiv.org/abs/2608.06246), in place of the
+  placeholder. **No version bump**: the identifier is not part of
+  `taxonomy.json`, so the dataset is byte-identical to 1.0.0.
 
 ---
 
@@ -81,7 +86,6 @@ First release.
   not reproducible across library versions, so the layout differs (−0.0851
   here against −0.0346 published). Adjacency is meaningful; exact positions
   are not.
-- The preprint identifier is a placeholder until the paper is announced.
 - One historical discrepancy between the two extraction sources is recorded
   and adjudicated in `data/discrepancies.json`.
 
@@ -99,7 +103,7 @@ First release.
    ```bash
    python3 scripts/pipeline.py
    python3 scripts/build.py --strict
-   python3 -m pytest -q && node --test "tests/*.test.js"
+   python3 -m pytest -q && node --test tests/*.test.js
    ```
 
 6. Tag the release: `git tag -a v1.0.0 -m "Taxonomy v1.0.0"`
