@@ -278,3 +278,48 @@ def test_nojekyll_present_for_branch_deployment():
     """Without it GitHub runs Jekyll over docs/, which silently drops paths
     beginning with an underscore and can rewrite output."""
     assert (DOCS / ".nojekyll").exists()
+
+
+def test_citations_resolve_to_numbers_not_bare_markers():
+    """A [ref] with nothing behind it tells a reader nothing."""
+    h = (DOCS / "techniques/peft/index.html").read_text()
+    assert ">[ref]<" not in h, "unresolved citation marker on the page"
+    assert 'class="cite__n"' in h
+    # LoRA is [90] in the paper; the site must agree so it can be cross-checked
+    assert re.search(r'href="#ref-hu_lora_2022"[^>]*>90</a>', h)
+
+
+def test_reference_list_covers_every_citation_on_the_page():
+    import json
+    refs = json.loads(pathlib.Path("data/references.json").read_text())["references"]
+    for slug in ("peft", "rag", "munlrn"):
+        h = (DOCS / f"techniques/{slug}/index.html").read_text()
+        cited = set(re.findall(r'href="#ref-([a-z0-9_\-]+)"', h))
+        listed = set(re.findall(r'<li id="ref-([a-z0-9_\-]+)"', h))
+        assert cited <= listed, f"{slug}: cited but not listed: {cited - listed}"
+        assert all(k in refs for k in listed), slug
+
+
+def test_hover_label_carries_the_full_citation():
+    h = (DOCS / "techniques/peft/index.html").read_text()
+    m = re.search(r'class="cite__n" title="([^"]+)"', h)
+    assert m and len(m.group(1)) > 20, "citation has no readable hover label"
+
+
+def test_every_cite_key_used_on_the_site_has_a_reference():
+    import json
+    refs = json.loads(pathlib.Path("data/references.json").read_text())["references"]
+    tax = json.loads(pathlib.Path("data/taxonomy.json").read_text())
+    keys = set()
+    for t in tax["techniques"]:
+        for f in ("definition_verbatim", "classification_tension"):
+            for grp in re.findall(r'data-cite="([^"]+)"', t.get(f) or ""):
+                keys.update(k.strip() for k in grp.split(","))
+    assert keys <= set(refs), f"cite keys without a reference: {keys - set(refs)}"
+
+
+def test_reference_numbers_are_unique():
+    import json
+    refs = json.loads(pathlib.Path("data/references.json").read_text())["references"]
+    nums = [r["number"] for r in refs.values() if r["number"]]
+    assert len(nums) == len(set(nums)), "two keys share a reference number"

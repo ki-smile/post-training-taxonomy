@@ -1,0 +1,805 @@
+{
+  "note": "Bibliography for works cited in the technique definitions. Numbers match the paper's own bibliography so a citation can be checked against the PDF.",
+  "references": {
+    "alain_understanding_2018": {
+      "number": 16,
+      "authors": "Guillaume Alain, and Yoshua Bengio",
+      "title": "Understanding intermediate layers using linear classifier probes",
+      "year": "2018",
+      "venue": "arXiv",
+      "url": "https://doi.org/10.48550/arXiv.1610.01644"
+    },
+    "azar_general_2024": {
+      "number": 22,
+      "authors": "Mohammad Gheshlaghi Azar et al.",
+      "title": "A General Theoretical Paradigm to Understand Learning from Human Preferences",
+      "year": "2024",
+      "venue": "Proceedings of The 27th International Conference on Artificial Intelligence and Statistics",
+      "url": "https://proceedings.mlr.press/v238/gheshlaghi-azar24a.html"
+    },
+    "bai_constitutional_2022": {
+      "number": 23,
+      "authors": "Yuntao Bai et al.",
+      "title": "Constitutional AI: Harmlessness from AI Feedback",
+      "year": "2022",
+      "venue": "arXiv",
+      "url": "https://doi.org/10.48550/arXiv.2212.08073"
+    },
+    "belrose_leace_2023": {
+      "number": 24,
+      "authors": "Nora Belrose, David Schneider-Joseph, Shauli Ravfogel, Ryan Cotterell, Edward Raff, and Stella Biderman",
+      "title": "LEACE: Perfect linear concept erasure in closed form",
+      "year": "2023",
+      "venue": "Advances in Neural Information Processing Systems",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/d066d21c619d0a78c5b557fa3291a8f4-Paper-Conference.pdf"
+    },
+    "ben_zaken_bitfit_2022": {
+      "number": 25,
+      "authors": "Elad Ben Zaken, Yoav Goldberg, and Shauli Ravfogel",
+      "title": "BitFit: Simple Parameter-efficient Fine-tuning for Transformer-based Masked Language-models",
+      "year": "2022",
+      "venue": "Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)",
+      "url": "https://doi.org/10.18653/v1/2022.acl-short.1"
+    },
+    "bengio_curriculum_2009": {
+      "number": 26,
+      "authors": "Yoshua Bengio, Jérôme Louradour, Ronan Collobert, and Jason Weston",
+      "title": "Curriculum learning",
+      "year": "2009",
+      "venue": "Proceedings of the 26th Annual International Conference on Machine Learning",
+      "url": "https://doi.org/10.1145/1553374.1553380"
+    },
+    "berthelot_mixmatch_2019": {
+      "number": 28,
+      "authors": "David Berthelot, Nicholas Carlini, Ian Goodfellow, Nicolas Papernot, Avital Oliver, and Colin A Raffel",
+      "title": "MixMatch: A Holistic Approach to Semi-Supervised Learning",
+      "year": "2019",
+      "venue": "Advances in Neural Information Processing Systems",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2019/hash/1cd138d0499a68f4bb72bee04bbec2d7-Abstract.html"
+    },
+    "brown_language_2020": {
+      "number": 34,
+      "authors": "Tom B. Brown et al.",
+      "title": "Language models are few-shot learners",
+      "year": "2020",
+      "venue": "Proceedings of the 34th International Conference on Neural Information Processing Systems",
+      "url": ""
+    },
+    "buehler_x-lora_2024": {
+      "number": 35,
+      "authors": "Eric L. Buehler, and Markus J. Buehler",
+      "title": "X-LoRA: Mixture of low-rank adapter experts, a flexible framework for large language models with applications in protein mechanics and molecular design",
+      "year": "2024",
+      "venue": "APL Mach. Learn.",
+      "url": "https://doi.org/10.1063/5.0203126"
+    },
+    "cao_towards_2015": {
+      "number": 36,
+      "authors": "Yinzhi Cao, and Junfeng Yang",
+      "title": "Towards Making Systems Forget with Machine Unlearning",
+      "year": "2015",
+      "venue": "2015 IEEE Symposium on Security and Privacy",
+      "url": "https://doi.org/10.1109/SP.2015.35"
+    },
+    "caruana_multitask_1997": {
+      "number": 37,
+      "authors": "Rich Caruana",
+      "title": "Multitask Learning",
+      "year": "1997",
+      "venue": "Machine Learning",
+      "url": "https://doi.org/10.1023/A:1007379606734"
+    },
+    "chen_extending_2023": {
+      "number": 40,
+      "authors": "Shouyuan Chen, Sherman Wong, Liangjian Chen, and Yuandong Tian",
+      "title": "Extending Context Window of Large Language Models via Positional Interpolation",
+      "year": "2023",
+      "venue": "arXiv",
+      "url": "https://doi.org/10.48550/arXiv.2306.15595"
+    },
+    "chen_spin_2024": {
+      "number": 42,
+      "authors": "Zixiang Chen, Yihe Deng, Huizhuo Yuan, Kaixuan Ji, and Quanquan Gu",
+      "title": "Self-play fine-tuning converts weak language models to strong language models",
+      "year": "2024",
+      "venue": "Proceedings of the 41st International Conference on Machine Learning",
+      "url": ""
+    },
+    "christiano_deep_2017": {
+      "number": 43,
+      "authors": "Paul F. Christiano, Jan Leike, Tom B. Brown, Miljan Martic, Shane Legg, and Dario Amodei",
+      "title": "Deep reinforcement learning from human preferences",
+      "year": "2017",
+      "venue": "Proceedings of the 31st International Conference on Neural Information Processing Systems",
+      "url": "https://dl.acm.org/doi/10.5555/3294996.3295184"
+    },
+    "cunningham_sparse_2023": {
+      "number": 46,
+      "authors": "Hoagy Cunningham, Aidan Ewart, Logan Riggs, Robert Huben, and Lee Sharkey",
+      "title": "Sparse Autoencoders Find Highly Interpretable Features in Language Models",
+      "year": "2023",
+      "venue": "arXiv",
+      "url": "https://doi.org/10.48550/arXiv.2309.08600"
+    },
+    "deepseek_r1_2025": {
+      "number": 74,
+      "authors": "Daya Guo et al.",
+      "title": "DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning",
+      "year": "2025",
+      "venue": "Nature",
+      "url": "https://doi.org/10.1038/s41586-025-09422-z"
+    },
+    "dettmers_qlora_2023": {
+      "number": 52,
+      "authors": "Tim Dettmers, Artidoro Pagnoni, Ari Holtzman, and Luke Zettlemoyer",
+      "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+      "year": "2023",
+      "venue": "Advances in Neural Information Processing Systems",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/1feb87871436031bdc0f2beaa62a049b-Paper-Conference.pdf"
+    },
+    "dong_raft_2023": {
+      "number": 54,
+      "authors": "Hanze Dong et al.",
+      "title": "RAFT: Reward rAnked FineTuning for Generative Foundation Model Alignment",
+      "year": "2023",
+      "venue": "arXiv",
+      "url": "https://doi.org/10.48550/arXiv.2304.06767"
+    },
+    "dou_loramoe_2024": {
+      "number": 56,
+      "authors": "Shihan Dou et al.",
+      "title": "LoRAMoE: Alleviating World Knowledge Forgetting in Large Language Models via MoE-Style Plugin",
+      "year": "2024",
+      "venue": "Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+      "url": "https://doi.org/10.18653/v1/2024.acl-long.106"
+    },
+    "ethayarajh_model_2024": {
+      "number": 58,
+      "authors": "Kawin Ethayarajh, Winnie Xu, Niklas Muennighoff, Dan Jurafsky, and Douwe Kiela",
+      "title": "Model alignment as prospect theoretic optimization",
+      "year": "2024",
+      "venue": "Proceedings of the 41st International Conference on Machine Learning",
+      "url": ""
+    },
+    "feng_survey_2021": {
+      "number": 62,
+      "authors": "Steven Y. Feng et al.",
+      "title": "A Survey of Data Augmentation Approaches for NLP",
+      "year": "2021",
+      "venue": "Findings of the Association for Computational Linguistics: ACL-IJCNLP 2021",
+      "url": "https://doi.org/10.18653/v1/2021.findings-acl.84"
+    },
+    "finn_model-agnostic_2017": {
+      "number": 63,
+      "authors": "Chelsea Finn, Pieter Abbeel, and Sergey Levine",
+      "title": "Model-agnostic meta-learning for fast adaptation of deep networks",
+      "year": "2017",
+      "venue": "Proceedings of the 34th International Conference on Machine Learning - Volume 70",
+      "url": "https://dl.acm.org/doi/10.5555/3305381.3305498"
+    },
+    "frantar_gptq_2023": {
+      "number": 64,
+      "authors": "Elias Frantar, Saleh Ashkboos, Torsten Hoefler, and Dan Alistarh",
+      "title": "GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers",
+      "year": "2023",
+      "venue": "arXiv",
+      "url": "https://doi.org/10.48550/arXiv.2210.17323"
+    },
+    "gama_survey_2014": {
+      "number": 65,
+      "authors": "João Gama, Indrė Žliobaitė, Albert Bifet, Mykola Pechenizkiy, and Abdelhamid Bouchachia",
+      "title": "A survey on concept drift adaptation",
+      "year": "2014",
+      "venue": "ACM Comput. Surv.",
+      "url": "https://doi.org/10.1145/2523813"
+    },
+    "ganin_domain-adversarial_2016": {
+      "number": 66,
+      "authors": "Yaroslav Ganin et al.",
+      "title": "Domain-adversarial training of neural networks",
+      "year": "2016",
+      "venue": "J. Mach. Learn. Res.",
+      "url": "https://dl.acm.org/doi/10.5555/2946645.2946704"
+    },
+    "gao_retrieval-augmented_2023": {
+      "number": 67,
+      "authors": "Yunfan Gao et al.",
+      "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+      "year": "2024",
+      "venue": "arXiv",
+      "url": "https://doi.org/10.48550/arXiv.2312.10997"
+    },
+    "gou_knowledge_2021": {
+      "number": 72,
+      "authors": "Jianping Gou, Baosheng Yu, Stephen J. Maybank, and Dacheng Tao",
+      "title": "Knowledge Distillation: A Survey",
+      "year": "2021",
+      "venue": "Int J Comput Vis",
+      "url": "https://doi.org/10.1007/s11263-021-01453-z"
+    },
+    "guo_calibration_2017": {
+      "number": 73,
+      "authors": "Chuan Guo, Geoff Pleiss, Yu Sun, and Kilian Q. Weinberger",
+      "title": "On calibration of modern neural networks",
+      "year": "2017",
+      "venue": "Proceedings of the 34th International Conference on Machine Learning - Volume 70",
+      "url": "https://dl.acm.org/doi/10.5555/3305381.3305518"
+    },
+    "gupta_model_2024": {
+      "number": 76,
+      "authors": "Akshat Gupta, Anurag Rao, and Gopala Anumanchipalli",
+      "title": "Model Editing at Scale leads to Gradual and Catastrophic Forgetting",
+      "year": "2024",
+      "venue": "Findings of the Association for Computational Linguistics: ACL 2024",
+      "url": "https://doi.org/10.18653/v1/2024.findings-acl.902"
+    },
+    "gururangan_dont_2020": {
+      "number": 77,
+      "authors": "Suchin Gururangan et al.",
+      "title": "Don't Stop Pretraining: Adapt Language Models to Domains and Tasks",
+      "year": "2020",
+      "venue": "Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics",
+      "url": "https://doi.org/10.18653/v1/2020.acl-main.740"
+    },
+    "han_deep_2016": {
+      "number": 81,
+      "authors": "Song Han, Huizi Mao, and William J. Dally",
+      "title": "Deep Compression: Compressing Deep Neural Networks with Pruning, Trained Quantization and Huffman Coding",
+      "year": "2016",
+      "venue": "arXiv",
+      "url": "https://doi.org/10.48550/arXiv.1510.00149"
+    },
+    "hinton_distilling_2015": {
+      "number": 84,
+      "authors": "Geoffrey Hinton, Oriol Vinyals, and Jeff Dean",
+      "title": "Distilling the Knowledge in a Neural Network",
+      "year": "2015",
+      "venue": "arXiv",
+      "url": "https://doi.org/10.48550/arXiv.1503.02531"
+    },
+    "hong_orpo_2024": {
+      "number": 86,
+      "authors": "Jiwoo Hong, Noah Lee, and James Thorne",
+      "title": "ORPO: Monolithic Preference Optimization without Reference Model",
+      "year": "2024",
+      "venue": "Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing",
+      "url": "https://doi.org/10.18653/v1/2024.emnlp-main.626"
+    },
+    "hospedales_meta-learning_2021": {
+      "number": 87,
+      "authors": "Timothy Hospedales, Antreas Antoniou, Paul Micaelli, and Amos Storkey",
+      "title": "Meta-Learning in Neural Networks: A Survey",
+      "year": "2022",
+      "venue": "IEEE Transactions on Pattern Analysis \\& Machine Intelligence",
+      "url": "https://doi.org/10.1109/TPAMI.2021.3079209"
+    },
+    "hu_lora_2022": {
+      "number": 90,
+      "authors": "Edward J. Hu et al.",
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "year": "2022",
+      "venue": "",
+      "url": "https://www.microsoft.com/en-us/research/publication/lora-low-rank-adaptation-of-large-language-models/"
+    },
+    "hu_pepe_2025": {
+      "number": 91,
+      "authors": "Jikun Hu et al.",
+      "title": "PEPE: Long-context Extension for Large Language Models via Periodic Extrapolation Positional Encodings",
+      "year": "2025",
+      "venue": "Findings of the Association for Computational Linguistics: EMNLP 2025",
+      "url": "https://doi.org/10.18653/v1/2025.findings-emnlp.1149"
+    },
+    "hu_unlearning_2024": {
+      "number": 93,
+      "authors": "Shengyuan Hu, Yiwei Fu, Steven Wu, and Virginia Smith",
+      "title": "Unlearning or Obfuscating? Jogging the Memory of Unlearned LLMs via Benign Relearning",
+      "year": "2024",
+      "venue": "",
+      "url": "https://openreview.net/forum?id=fMNRYBvcQN"
+    },
+    "huang_lorahub_2024": {
+      "number": 94,
+      "authors": "Chengsong Huang, Qian Liu, Bill Yuchen Lin, Tianyu Pang, Chao Du, and Min Lin",
+      "title": "LoraHub: Efficient Cross-Task Generalization via Dynamic LoRA Composition",
+      "year": "2024",
+      "venue": "",
+      "url": "https://openreview.net/forum?id=TrloAXEJ2B"
+    },
+    "ilharco_editing_2023": {
+      "number": 100,
+      "authors": "Gabriel Ilharco et al.",
+      "title": "Editing Models with Task Arithmetic",
+      "year": "2023",
+      "venue": "arXiv",
+      "url": "https://doi.org/10.48550/arXiv.2212.04089"
+    },
+    "kairouz_advances_2021": {
+      "number": 103,
+      "authors": "Peter Kairouz, and H. Brendan McMahan",
+      "title": "Advances and Open Problems in Federated Learning",
+      "year": "2021",
+      "venue": "Foundations and Trends in Machine Learning",
+      "url": "https://doi.org/10.1561/2200000083"
+    },
+    "khattab_dspy_2024": {
+      "number": 106,
+      "authors": "Omar Khattab et al.",
+      "title": "DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines",
+      "year": "2024",
+      "venue": "",
+      "url": "https://doi.org/10.48550/arXiv.2310.03714"
+    },
+    "kirkpatrick_overcoming_2017": {
+      "number": 108,
+      "authors": "James Kirkpatrick et al.",
+      "title": "Overcoming catastrophic forgetting in neural networks",
+      "year": "2017",
+      "venue": "Proceedings of the National Academy of Sciences",
+      "url": "https://doi.org/10.1073/pnas.1611835114"
+    },
+    "lee_rlaif_2024": {
+      "number": 111,
+      "authors": "Harrison Lee et al.",
+      "title": "RLAIF vs. RLHF: Scaling Reinforcement Learning from Human Feedback with AI Feedback",
+      "year": "2024",
+      "venue": "Proceedings of the 41st International Conference on Machine Learning",
+      "url": ""
+    },
+    "lester_power_2021": {
+      "number": 113,
+      "authors": "Brian Lester, Rami Al-Rfou, and Noah Constant",
+      "title": "The Power of Scale for Parameter-Efficient Prompt Tuning",
+      "year": "2021",
+      "venue": "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
+      "url": "https://doi.org/10.18653/v1/2021.emnlp-main.243"
+    },
+    "lewis_retrieval-augmented_2020": {
+      "number": 114,
+      "authors": "Patrick Lewis et al.",
+      "title": "Retrieval-augmented generation for knowledge-intensive NLP tasks",
+      "year": "2020",
+      "venue": "Proceedings of the 34th International Conference on Neural Information Processing Systems",
+      "url": ""
+    },
+    "li_blip-2_2023": {
+      "number": 116,
+      "authors": "Junnan Li, Dongxu Li, Silvio Savarese, and Steven Hoi",
+      "title": "BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models",
+      "year": "2023",
+      "venue": "Proceedings of the 40th International Conference on Machine Learning",
+      "url": "https://proceedings.mlr.press/v202/li23q.html"
+    },
+    "li_generation_2025": {
+      "number": 115,
+      "authors": "Dawei Li et al.",
+      "title": "From Generation to Judgment: Opportunities and Challenges of LLM-as-a-judge",
+      "year": "2025",
+      "venue": "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing",
+      "url": "https://doi.org/10.18653/v1/2025.emnlp-main.138"
+    },
+    "li_prefix-tuning_2021": {
+      "number": 121,
+      "authors": "Xiang Lisa Li, and Percy Liang",
+      "title": "Prefix-Tuning: Optimizing Continuous Prompts for Generation",
+      "year": "2021",
+      "venue": "Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 1: Long Papers)",
+      "url": "https://doi.org/10.18653/v1/2021.acl-long.353"
+    },
+    "li_self-alignment_2023": {
+      "number": 120,
+      "authors": "Xian Li et al.",
+      "title": "Self-Alignment with Instruction Backtranslation",
+      "year": "2023",
+      "venue": "",
+      "url": "https://openreview.net/forum?id=1oijHJBRsT"
+    },
+    "liu_few-shot_2022": {
+      "number": 125,
+      "authors": "Haokun Liu et al.",
+      "title": "Few-shot parameter-efficient fine-tuning is better and cheaper than in-context learning",
+      "year": "2022",
+      "venue": "Proceedings of the 36th International Conference on Neural Information Processing Systems",
+      "url": ""
+    },
+    "liu_pre-train_2023": {
+      "number": 126,
+      "authors": "Pengfei Liu, Weizhe Yuan, Jinlan Fu, Zhengbao Jiang, Hiroaki Hayashi, and Graham Neubig",
+      "title": "Pre-train, Prompt, and Predict: A Systematic Survey of Prompting Methods in Natural Language Processing",
+      "year": "2023",
+      "venue": "ACM Comput. Surv.",
+      "url": "https://doi.org/10.1145/3560815"
+    },
+    "liu_visual_2023": {
+      "number": 124,
+      "authors": "Haotian Liu, Chunyuan Li, Qingyang Wu, and Yong Jae Lee",
+      "title": "Visual Instruction Tuning",
+      "year": "2023",
+      "venue": "Advances in Neural Information Processing Systems",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/6dcf277ea32ce3288914faf369fe6de0-Paper-Conference.pdf"
+    },
+    "lu_fine-tuning_2025": {
+      "number": 131,
+      "authors": "Wei Lu, Rachel K. Luu, and Markus J. Buehler",
+      "title": "Fine-tuning large language models for domain adaptation: exploration of training strategies, scaling, model merging and synergistic capabilities",
+      "year": "2025",
+      "venue": "npj Comput Mater",
+      "url": "https://doi.org/10.1038/s41524-025-01564-y"
+    },
+    "madry_towards_2018": {
+      "number": 134,
+      "authors": "Aleksander Madry, Aleksandar Makelov, Ludwig Schmidt, Dimitris Tsipras, and Adrian Vladu",
+      "title": "Towards Deep Learning Models Resistant to Adversarial Attacks",
+      "year": "2018",
+      "venue": "",
+      "url": "https://openreview.net/forum?id=rJzIBfZAb"
+    },
+    "matena_merging_2022": {
+      "number": 135,
+      "authors": "Michael Matena, and Colin Raffel",
+      "title": "Merging models with fisher-weighted averaging",
+      "year": "2022",
+      "venue": "Proceedings of the 36th International Conference on Neural Information Processing Systems",
+      "url": ""
+    },
+    "mccloskey_catastrophic_1989": {
+      "number": 136,
+      "authors": "Michael McCloskey, and Neal J. Cohen",
+      "title": "Catastrophic Interference in Connectionist Networks: The Sequential Learning Problem",
+      "year": "1989",
+      "venue": "Academic Press",
+      "url": "https://doi.org/10.1016/S0079-7421(08)60536-8"
+    },
+    "mcmahan_communication-efficient_2023": {
+      "number": 137,
+      "authors": "Brendan McMahan, Eider Moore, Daniel Ramage, Seth Hampson, and Blaise Aguera y Arcas",
+      "title": "Communication-Efficient Learning of Deep Networks from Decentralized Data",
+      "year": "2017",
+      "venue": "Proceedings of the 20th International Conference on Artificial Intelligence and Statistics",
+      "url": "https://proceedings.mlr.press/v54/mcmahan17a.html"
+    },
+    "meng_locating_2022": {
+      "number": 140,
+      "authors": "Kevin Meng, David Bau, Alex Andonian, and Yonatan Belinkov",
+      "title": "Locating and Editing Factual Associations in GPT",
+      "year": "2022",
+      "venue": "Advances in Neural Information Processing Systems",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2022/file/6f1d43d5a82a37e89b0665b33bf3a182-Paper-Conference.pdf"
+    },
+    "meng_mass-editing_2023": {
+      "number": 141,
+      "authors": "Kevin Meng, Arnab Sen Sharma, Alex Andonian, Yonatan Belinkov, and David Bau",
+      "title": "Mass-Editing Memory in a Transformer",
+      "year": "2023",
+      "venue": "",
+      "url": ""
+    },
+    "meng_simpo_2024": {
+      "number": 142,
+      "authors": "Yu Meng, Mengzhou Xia, and Danqi Chen",
+      "title": "SimPO: Simple Preference Optimization with a Reference-Free Reward",
+      "year": "2024",
+      "venue": "",
+      "url": "https://openreview.net/forum?id=3Tzcot1LKb&referrer=%5Bthe%20profile%20of%20Danqi%20Chen%5D(%2Fprofile%3Fid%3D~Danqi_Chen1)"
+    },
+    "mitchell_fast_2022": {
+      "number": 145,
+      "authors": "Eric Mitchell, Charles Lin, Antoine Bosselut, Chelsea Finn, and Christopher D. Manning",
+      "title": "Fast Model Editing at Scale",
+      "year": "2022",
+      "venue": "International Conference on Learning Representations (ICLR)",
+      "url": "https://openreview.net/pdf?id=0DcZxeWfOPt"
+    },
+    "ouyang_training_2022": {
+      "number": 152,
+      "authors": "Long Ouyang et al.",
+      "title": "Training language models to follow instructions with human feedback",
+      "year": "2022",
+      "venue": "Advances in Neural Information Processing Systems",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2022/file/b1efde53be364a73914f58805a001731-Paper-Conference.pdf"
+    },
+    "park_generative_2023": {
+      "number": 154,
+      "authors": "Joon Sung Park, Joseph O'Brien, Carrie Jun Cai, Meredith Ringel Morris, Percy Liang, and Michael S. Bernstein",
+      "title": "Generative Agents: Interactive Simulacra of Human Behavior",
+      "year": "2023",
+      "venue": "Proceedings of the 36th Annual ACM Symposium on User Interface Software and Technology",
+      "url": "https://doi.org/10.1145/3586183.3606763"
+    },
+    "peng_yarn_2023": {
+      "number": 156,
+      "authors": "Bowen Peng, Jeffrey Quesnelle, Honglu Fan, and Enrico Shippole",
+      "title": "YaRN: Efficient Context Window Extension of Large Language Models",
+      "year": "2023",
+      "venue": "",
+      "url": "https://openreview.net/forum?id=wHBfxhZu1u"
+    },
+    "pfeiffer_adapterfusion_2021": {
+      "number": 157,
+      "authors": "Jonas Pfeiffer, Aishwarya Kamath, Andreas Rücklé, Kyunghyun Cho, and Iryna Gurevych",
+      "title": "AdapterFusion: Non-Destructive Task Composition for Transfer Learning",
+      "year": "2021",
+      "venue": "Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics: Main Volume",
+      "url": "https://doi.org/10.18653/v1/2021.eacl-main.39"
+    },
+    "platt_probabilistic_1999": {
+      "number": 158,
+      "authors": "J. Platt",
+      "title": "Probabilistic Outputs for Support vector Machines and Comparisons to Regularized Likelihood Methods",
+      "year": "1999",
+      "venue": "",
+      "url": "https://www.semanticscholar.org/paper/Probabilistic-Outputs-for-Support-vector-Machines-Platt/42e5ed832d4310ce4378c44d05570439df28a393"
+    },
+    "radford_learning_2021": {
+      "number": 163,
+      "authors": "Alec Radford et al.",
+      "title": "Learning Transferable Visual Models From Natural Language Supervision",
+      "year": "2021",
+      "venue": "Proceedings of the 38th International Conference on Machine Learning",
+      "url": "https://proceedings.mlr.press/v139/radford21a.html"
+    },
+    "rafailov_direct_2023": {
+      "number": 164,
+      "authors": "Rafael Rafailov, Archit Sharma, Eric Mitchell, Stefano Ermon, Christopher D. Manning, and Chelsea Finn",
+      "title": "Direct preference optimization: your language model is secretly a reward model",
+      "year": "2023",
+      "venue": "Proceedings of the 37th International Conference on Neural Information Processing Systems",
+      "url": ""
+    },
+    "rimsky_steering_2024": {
+      "number": 166,
+      "authors": "Nina Rimsky, Nick Gabrieli, Julian Schulz, Meg Tong, Evan Hubinger, and Alexander Turner",
+      "title": "Steering Llama 2 via Contrastive Activation Addition",
+      "year": "2024",
+      "venue": "Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+      "url": "https://doi.org/10.18653/v1/2024.acl-long.828"
+    },
+    "settles_active_2009": {
+      "number": 174,
+      "authors": "Burr Settles",
+      "title": "Active Learning Literature Survey",
+      "year": "2009",
+      "venue": "University of Wisconsin-Madison Department of Computer Sciences",
+      "url": "https://minds.wisconsin.edu/handle/1793/60660"
+    },
+    "shao_deepseekmath_2024": {
+      "number": 175,
+      "authors": "Zhihong Shao et al.",
+      "title": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models",
+      "year": "2024",
+      "venue": "arXiv",
+      "url": "https://doi.org/10.48550/arXiv.2402.03300"
+    },
+    "shazeer_outrageously_2017": {
+      "number": 176,
+      "authors": "Noam Shazeer et al.",
+      "title": "Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer",
+      "year": "2017",
+      "venue": "International Conference on Learning Representations (ICLR)",
+      "url": ""
+    },
+    "sheng_s-lora_2024": {
+      "number": 177,
+      "authors": "Ying Sheng et al.",
+      "title": "S-LoRA: Serving Thousands of Concurrent LoRA Adapters",
+      "year": "2024",
+      "venue": "",
+      "url": "https://proceedings.mlsys.org/paper_files/paper/2024/file/906419cd502575b617cc489a1a696a67-Paper-Conference.pdf"
+    },
+    "shi_continual_2024": {
+      "number": 178,
+      "authors": "Haizhou Shi et al.",
+      "title": "Continual Learning of Large Language Models: A Comprehensive Survey",
+      "year": "2025",
+      "venue": "ACM Comput. Surv.",
+      "url": "https://doi.org/10.1145/3735633"
+    },
+    "shoemake_animating_1985": {
+      "number": 180,
+      "authors": "Ken Shoemake",
+      "title": "Animating rotation with quaternion curves",
+      "year": "1985",
+      "venue": "SIGGRAPH Comput. Graph.",
+      "url": "https://doi.org/10.1145/325165.325242"
+    },
+    "shorten_survey_2019": {
+      "number": 181,
+      "authors": "Connor Shorten, and Taghi M. Khoshgoftaar",
+      "title": "A survey on Image Data Augmentation for Deep Learning",
+      "year": "2019",
+      "venue": "J Big Data",
+      "url": "https://doi.org/10.1186/s40537-019-0197-0"
+    },
+    "silver_mastering_2017": {
+      "number": 182,
+      "authors": "David Silver et al.",
+      "title": "Mastering the game of Go without human knowledge",
+      "year": "2017",
+      "venue": "Nature",
+      "url": "https://doi.org/10.1038/nature24270"
+    },
+    "snell_prototypical_2017": {
+      "number": 185,
+      "authors": "Jake Snell, Kevin Swersky, and Richard Zemel",
+      "title": "Prototypical networks for few-shot learning",
+      "year": "2017",
+      "venue": "Proceedings of the 31st International Conference on Neural Information Processing Systems",
+      "url": "https://dl.acm.org/doi/10.5555/3294996.3295163"
+    },
+    "snell_scaling_2024": {
+      "number": 184,
+      "authors": "Charlie Victor Snell, Jaehoon Lee, Kelvin Xu, and Aviral Kumar",
+      "title": "Scaling LLM Test-Time Compute Optimally Can be More Effective than Scaling Parameters for Reasoning",
+      "year": "2024",
+      "venue": "",
+      "url": "https://openreview.net/forum?id=4FWAwZtd2n"
+    },
+    "sohn_fixmatch_2020": {
+      "number": 186,
+      "authors": "Kihyuk Sohn et al.",
+      "title": "FixMatch: Simplifying Semi-Supervised Learning with Consistency and Confidence",
+      "year": "2020",
+      "venue": "Advances in Neural Information Processing Systems",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2020/file/06964dce9addb1c5cb5d6e3d9838f733-Paper.pdf"
+    },
+    "su_roformer_2024": {
+      "number": 189,
+      "authors": "Jianlin Su, Murtadha Ahmed, Yu Lu, Shengfeng Pan, Wen Bo, and Yunfeng Liu",
+      "title": "RoFormer: Enhanced transformer with Rotary Position Embedding",
+      "year": "2024",
+      "venue": "Neurocomputing",
+      "url": "https://doi.org/10.1016/j.neucom.2023.127063"
+    },
+    "sun_test-time_2020": {
+      "number": 190,
+      "authors": "Yu Sun, Xiaolong Wang, Zhuang Liu, John Miller, Alexei Efros, and Moritz Hardt",
+      "title": "Test-Time Training with Self-Supervision for Generalization under Distribution Shifts",
+      "year": "2020",
+      "venue": "Proceedings of the 37th International Conference on Machine Learning",
+      "url": "https://proceedings.mlr.press/v119/sun20b.html"
+    },
+    "sung_vl-adapter_2022": {
+      "number": 191,
+      "authors": "Yi-Lin Sung, Jaemin Cho, and Mohit Bansal",
+      "title": "VL-ADAPTER: Parameter-Efficient Transfer Learning for Vision-and-Language Tasks",
+      "year": "2022",
+      "venue": "2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+      "url": "https://doi.org/10.1109/CVPR52688.2022.00516"
+    },
+    "tsipras_robustness_2018": {
+      "number": 195,
+      "authors": "Dimitris Tsipras, Shibani Santurkar, Logan Engstrom, Alexander Turner, and Aleksander Madry",
+      "title": "Robustness May Be at Odds with Accuracy",
+      "year": "2018",
+      "venue": "",
+      "url": "https://openreview.net/forum?id=SyxAb30cY7"
+    },
+    "turner_activation_2023": {
+      "number": 196,
+      "authors": "Alexander Matt Turner et al.",
+      "title": "Steering Language Models With Activation Engineering",
+      "year": "2024",
+      "venue": "arXiv",
+      "url": "https://doi.org/10.48550/arXiv.2308.10248"
+    },
+    "van_de_ven_three_2022": {
+      "number": 199,
+      "authors": "Gido M. van de Ven, Tinne Tuytelaars, and Andreas S. Tolias",
+      "title": "Three types of incremental learning",
+      "year": "2022",
+      "venue": "Nat Mach Intell",
+      "url": "https://doi.org/10.1038/s42256-022-00568-3"
+    },
+    "vinyals_matching_2016": {
+      "number": 201,
+      "authors": "Oriol Vinyals, Charles Blundell, Timothy Lillicrap, Koray Kavukcuoglu, and Daan Wierstra",
+      "title": "Matching networks for one shot learning",
+      "year": "2016",
+      "venue": "Proceedings of the 30th International Conference on Neural Information Processing Systems",
+      "url": "https://dl.acm.org/doi/10.5555/3157382.3157504"
+    },
+    "wang_self-instruct_2023": {
+      "number": 209,
+      "authors": "Yizhong Wang et al.",
+      "title": "Self-Instruct: Aligning Language Models with Self-Generated Instructions",
+      "year": "2023",
+      "venue": "arXiv",
+      "url": "https://doi.org/10.48550/arXiv.2212.10560"
+    },
+    "wang_tent_2021": {
+      "number": 202,
+      "authors": "Dequan Wang, Evan Shelhamer, Shaoteng Liu, B. Olshausen, and Trevor Darrell",
+      "title": "Tent: Fully Test-Time Adaptation by Entropy Minimization",
+      "year": "2021",
+      "venue": "",
+      "url": "https://www.semanticscholar.org/paper/Tent%3A-Fully-Test-Time-Adaptation-by-Entropy-Wang-Shelhamer/180c78b132f6369a384d22a9529551d86c8788d3"
+    },
+    "wortsman_model_2022": {
+      "number": 214,
+      "authors": "Mitchell Wortsman et al.",
+      "title": "Model soups: averaging weights of multiple fine-tuned models improves accuracy without increasing inference time",
+      "year": "2022",
+      "venue": "Proceedings of the 39th International Conference on Machine Learning",
+      "url": "https://proceedings.mlr.press/v162/wortsman22a.html"
+    },
+    "wu_reft_2024": {
+      "number": 216,
+      "authors": "Zhengxuan Wu et al.",
+      "title": "ReFT: Representation Finetuning for Language Models",
+      "year": "2024",
+      "venue": "Advances in Neural Information Processing Systems",
+      "url": "https://doi.org/10.52202/079017-2041"
+    },
+    "yadav_ties-merging_2024": {
+      "number": 218,
+      "authors": "Prateek Yadav, Derek Tam, Leshem Choshen, Colin A Raffel, and Mohit Bansal",
+      "title": "TIES-Merging: Resolving Interference When Merging Models",
+      "year": "2023",
+      "venue": "Advances in Neural Information Processing Systems",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/1644c9af28ab7916874f6fd6228a9bcf-Paper-Conference.pdf"
+    },
+    "yang_large_2024": {
+      "number": 219,
+      "authors": "Chengrun Yang et al.",
+      "title": "Large Language Models as Optimizers",
+      "year": "2024",
+      "venue": "arXiv",
+      "url": "https://doi.org/10.48550/arXiv.2309.03409"
+    },
+    "yao_tree_2023": {
+      "number": 221,
+      "authors": "Shunyu Yao et al.",
+      "title": "Tree of thoughts: deliberate problem solving with large language models",
+      "year": "2023",
+      "venue": "Proceedings of the 37th International Conference on Neural Information Processing Systems",
+      "url": ""
+    },
+    "yosinski_how_2014": {
+      "number": 222,
+      "authors": "Jason Yosinski, Jeff Clune, Yoshua Bengio, and Hod Lipson",
+      "title": "How transferable are features in deep neural networks?",
+      "year": "2014",
+      "venue": "Advances in Neural Information Processing Systems",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2014/file/532a2f85b6977104bc93f8580abbb330-Paper.pdf"
+    },
+    "yu_language_2024": {
+      "number": 223,
+      "authors": "Le Yu, Bowen Yu, Haiyang Yu, Fei Huang, and Yongbin Li",
+      "title": "Language models are super mario: absorbing abilities from homologous models as a free lunch",
+      "year": "2024",
+      "venue": "Proceedings of the 41st International Conference on Machine Learning",
+      "url": ""
+    },
+    "yuan_self-rewarding_2024": {
+      "number": 225,
+      "authors": "Weizhe Yuan et al.",
+      "title": "Self-rewarding language models",
+      "year": "2024",
+      "venue": "Proceedings of the 41st International Conference on Machine Learning",
+      "url": ""
+    },
+    "zelikman_star_2022": {
+      "number": 226,
+      "authors": "Eric Zelikman, Yuhuai Wu, Jesse Mu, and Noah D. Goodman",
+      "title": "STaR: self-taught reasoner bootstrapping reasoning with reasoning",
+      "year": "2022",
+      "venue": "Proceedings of the 36th International Conference on Neural Information Processing Systems",
+      "url": ""
+    },
+    "zheng_judging_2023": {
+      "number": 231,
+      "authors": "Lianmin Zheng et al.",
+      "title": "Judging LLM-as-a-judge with MT-bench and Chatbot Arena",
+      "year": "2023",
+      "venue": "Proceedings of the 37th International Conference on Neural Information Processing Systems",
+      "url": ""
+    },
+    "zou_representation_2023": {
+      "number": 237,
+      "authors": "Andy Zou et al.",
+      "title": "Representation Engineering: A Top-Down Approach to AI Transparency",
+      "year": "2025",
+      "venue": "arXiv",
+      "url": "https://doi.org/10.48550/arXiv.2310.01405"
+    }
+  }
+}

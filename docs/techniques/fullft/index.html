@@ -10,7 +10,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin
       href="../../fonts/DMMono-500-latin.woff2">
 <link rel="stylesheet" href="../../css/tokens.css?v=58bece12">
-<link rel="stylesheet" href="../../css/style.css?v=6df9ced0">
+<link rel="stylesheet" href="../../css/style.css?v=250b4b0b">
 <script>
   // Set the theme before first paint to avoid a flash.
   (function () {
@@ -39,11 +39,12 @@
     <p class="provenance">In brief — site editorial, not from the paper</p>
     <p>Continues training every weight in the model on new task data — maximum flexibility, maximum cost, and no part of the model left unchanged.</p>
   </div>
-  <section class="stack"><h2>Definition</h2><div class="verbatim">Full FT is the maximally expressive parametric realization of TL: GD (<span class="chip" data-dim="d1" data-slug="parametric-update">Parametric Update</span>) applies to every model layer without exception, producing a <span class="chip" data-dim="d5" data-slug="whole-model">Whole-Model</span> footprint that carries the highest structural validation burden in the taxonomy. The unrestricted update surface structurally necessitates the <span class="chip" data-dim="d3" data-slug="large-labeled">Large Labeled</span> data regime—with all parameters free to drift, the optimization landscape has sufficient degrees of freedom to overfit or catastrophically corrupt prior knowledge unless constrained by large-scale supervision <sup class="cite" data-cite="kirkpatrick_overcoming_2017">[ref]</sup>. The <span class="chip" data-dim="d2" data-slug="task-specialization">Task Specialization</span> goal draws the sharpest coordinate boundary with Retraining: both are mechanistically identical across D1 (Mechanism), D4 (Persistence), and D5 (Scope), yet retraining targets <span class="chip" data-dim="d2" data-slug="drift-remediation">Drift Remediation</span> on a fixed behavioral envelope rather than reshaping that envelope for a new task. Compared to Partial FT, Full FT sacrifices the reduced testing surface (D5 (Scope) contracts from <span class="chip" data-dim="d5" data-slug="whole-model">Whole-Model</span> to <span class="chip" data-dim="d5" data-slug="partial">Partial</span>) in exchange for broader update expressiveness; compared to PEFT, it eliminates the <span class="chip" data-dim="d5" data-slug="modular">Modular</span> isolation boundary that permits component-level rollback, replacing it with whole-model entanglement. Because Full FT modifies the entire parameter space with no modular isolation boundary, rollback requires complete checkpoint restoration rather than targeted component substitution, and the validation obligation extends to full-system behavioral regression testing across all previously certified behavioral boundaries before any re-deployment.</div><p class="provenance">Verbatim from the paper — Knowledge Transfer and Task Specialization</p></section>
+  <section class="stack"><h2>Definition</h2><div class="verbatim">Full FT is the maximally expressive parametric realization of TL: GD (<span class="chip" data-dim="d1" data-slug="parametric-update">Parametric Update</span>) applies to every model layer without exception, producing a <span class="chip" data-dim="d5" data-slug="whole-model">Whole-Model</span> footprint that carries the highest structural validation burden in the taxonomy. The unrestricted update surface structurally necessitates the <span class="chip" data-dim="d3" data-slug="large-labeled">Large Labeled</span> data regime—with all parameters free to drift, the optimization landscape has sufficient degrees of freedom to overfit or catastrophically corrupt prior knowledge unless constrained by large-scale supervision <sup class="cite">[<a href="#ref-kirkpatrick_overcoming_2017" class="cite__n" title="James Kirkpatrick et al. (2017). Overcoming catastrophic forgetting in neural networks">108</a>]</sup>. The <span class="chip" data-dim="d2" data-slug="task-specialization">Task Specialization</span> goal draws the sharpest coordinate boundary with Retraining: both are mechanistically identical across D1 (Mechanism), D4 (Persistence), and D5 (Scope), yet retraining targets <span class="chip" data-dim="d2" data-slug="drift-remediation">Drift Remediation</span> on a fixed behavioral envelope rather than reshaping that envelope for a new task. Compared to Partial FT, Full FT sacrifices the reduced testing surface (D5 (Scope) contracts from <span class="chip" data-dim="d5" data-slug="whole-model">Whole-Model</span> to <span class="chip" data-dim="d5" data-slug="partial">Partial</span>) in exchange for broader update expressiveness; compared to PEFT, it eliminates the <span class="chip" data-dim="d5" data-slug="modular">Modular</span> isolation boundary that permits component-level rollback, replacing it with whole-model entanglement. Because Full FT modifies the entire parameter space with no modular isolation boundary, rollback requires complete checkpoint restoration rather than targeted component substitution, and the validation obligation extends to full-system behavioral regression testing across all previously certified behavioral boundaries before any re-deployment.</div><p class="provenance">Verbatim from the paper — Knowledge Transfer and Task Specialization</p></section>
   
   
   <section class="stack"><h2>Related techniques</h2><ul class="stack"><li><span class="eyebrow">umbrella</span> <a href="../../techniques/peft/">PEFT (LoRA, adapters)</a> — PEFT is a specialisation within the fine-tuning family<br><q style="color:var(--text-muted);font-size:var(--step--1)">Full FT is the maximally expressive parametric realization of TL</q> <span class="provenance">Appendix C, Knowledge Transfer and Task Specialization</span></li></ul></section>
   <section class="stack"><h2>Nearest profiles</h2><p class="computed"><a href="../../techniques/mtl/">MTL</a> <span style="color:var(--text-muted)">(0.17)</span>, <a href="../../techniques/training/">Training</a> <span style="color:var(--text-muted)">(0.20)</span>, <a href="../../techniques/advrstrn/">Adversarial Training</a> <span style="color:var(--text-muted)">(0.21)</span>, <a href="../../techniques/dpft/">DP-FT</a> <span style="color:var(--text-muted)">(0.33)</span>, <a href="../../techniques/partft/">FT (partial)</a> <span style="color:var(--text-muted)">(0.33)</span></p><p class="provenance">Computed from the taxonomy data (Gower distance over all six dimensions)</p></section>
+  <section class="stack"><h2>References</h2><ol class="reflist"><li id="ref-kirkpatrick_overcoming_2017"><span class="ref__n">[108]</span> <span class="ref__body">James Kirkpatrick et al. 2017. <a href="https://doi.org/10.1073/pnas.1611835114">Overcoming catastrophic forgetting in neural networks</a>. <span class="ref__venue">Proceedings of the National Academy of Sciences</span></span></li></ol><p class="provenance">Numbered as in the paper</p></section>
   <section class="stack">
     <h2>Cite this row</h2>
     <pre>FT (full) — six-dimensional profile
@@ -78,10 +79,12 @@ Source: arXiv:2608.06246</pre>
         </ul>
       </div>
       <div>
-        <p class="eyebrow">Version</p>
+        <p class="eyebrow">Versions</p>
         <ul>
-          <li>Taxonomy v1.0.0</li>
-          <li style="opacity:.75">Released 2026-08-06</li>
+          <li><strong>Taxonomy v1.0.0</strong>
+            <span style="opacity:.75">&mdash; the data, released
+            2026-08-06</span></li>
+          <li style="opacity:.75">Site built 2026-08-07 · <a href="https://github.com/ki-smile/post-training-taxonomy/commit/6c134bc">6c134bc</a></li>
           <li><a href="https://github.com/ki-smile/post-training-taxonomy/blob/main/CHANGELOG.md">Changelog</a></li>
         </ul>
       </div>

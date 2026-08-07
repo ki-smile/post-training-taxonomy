@@ -126,6 +126,31 @@ Typed relationships between techniques. Hand-curated, and each carries a quote t
 
 Types: `umbrella`, `sub-technique`, `bridge`, `supersession`, `hybrid`.
 
+## `references.json`
+
+Bibliographic entries for the works cited in the technique definitions, keyed
+by the same identifiers that appear in `data-cite` attributes.
+
+```jsonc
+{
+  "hu_lora_2022": {
+    "number": 90,              // the paper's own bibliography number
+    "authors": "Edward J. Hu et al.",
+    "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+    "year": "2022",
+    "venue": "…",
+    "url": "https://…"        // DOI, publisher, or arXiv; may be empty
+  }
+}
+```
+
+`number` matches the paper's bibliography, so a citation shown on the site can
+be checked against the same number in the PDF. It is `null` where an entry
+could not be located there; the reference still renders, without a number.
+
+This file describes *cited literature*, not the taxonomy. Adding or correcting
+an entry does not move the taxonomy version.
+
 ## `glossary.json`
 
 171 acronyms as `{key, short, long}`, sorted by `short`.

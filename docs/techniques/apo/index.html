@@ -10,7 +10,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin
       href="../../fonts/DMMono-500-latin.woff2">
 <link rel="stylesheet" href="../../css/tokens.css?v=58bece12">
-<link rel="stylesheet" href="../../css/style.css?v=6df9ced0">
+<link rel="stylesheet" href="../../css/style.css?v=250b4b0b">
 <script>
   // Set the theme before first paint to avoid a flash.
   (function () {
@@ -39,11 +39,12 @@
     <p class="provenance">In brief — site editorial, not from the paper</p>
     <p>Automatically searches for better prompt wording, optimising the instruction rather than the model.</p>
   </div>
-  <section class="stack"><h2>Definition</h2><div class="verbatim">APO frameworks, such as DSPy <sup class="cite" data-cite="khattab_dspy_2024">[ref]</sup> or OPRO <sup class="cite" data-cite="yang_large_2024">[ref]</sup>, replace manual prompt engineering with algorithmic search, treating language models as programmable engines. APO utilizes <span class="chip" data-dim="d1" data-slug="context-injection">Context Injection</span> within the <span class="chip" data-dim="d5" data-slug="input-output-space">Input/Output-Space</span>, meaning the underlying model parameters remain completely frozen. However, because the optimization compiles a tested, metric-optimized prompt pipeline, the resulting artifact is classified as <span class="chip" data-dim="d4" data-slug="version-persistent">Version-Persistent</span> rather than <span class="chip" data-dim="d4" data-slug="session-ephemeral">Session-Ephemeral</span>. Data requirements are flexible: APO can utilize <span class="chip" data-dim="d3" data-slug="few-demonstrations">Few Demonstrations</span> to bootstrap the optimization, but it can also operate strictly <span class="chip" data-dim="d3" data-slug="zero-shot">Zero-Shot</span> by relying entirely on programmatic evaluation metrics or an &quot;LLM-as-a-judge&quot; <sup class="cite" data-cite="zheng_judging_2023,li_generation_2025">[ref]</sup> to score unannotated inputs. Ultimately, this algorithmic search aims for both <span class="chip" data-dim="d2" data-slug="task-specialization">Task Specialization</span> (optimizing accuracy on a target task) and <span class="chip" data-dim="d2" data-slug="behavior-control">Behavior Control</span> (systematically enforcing strict output formats, stylistic guidelines, or reasoning templates without altering weights).</div><p class="provenance">Verbatim from the paper — Inference-Time Adaptation</p></section>
+  <section class="stack"><h2>Definition</h2><div class="verbatim">APO frameworks, such as DSPy <sup class="cite">[<a href="#ref-khattab_dspy_2024" class="cite__n" title="Omar Khattab et al. (2024). DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines">106</a>]</sup> or OPRO <sup class="cite">[<a href="#ref-yang_large_2024" class="cite__n" title="Chengrun Yang et al. (2024). Large Language Models as Optimizers">219</a>]</sup>, replace manual prompt engineering with algorithmic search, treating language models as programmable engines. APO utilizes <span class="chip" data-dim="d1" data-slug="context-injection">Context Injection</span> within the <span class="chip" data-dim="d5" data-slug="input-output-space">Input/Output-Space</span>, meaning the underlying model parameters remain completely frozen. However, because the optimization compiles a tested, metric-optimized prompt pipeline, the resulting artifact is classified as <span class="chip" data-dim="d4" data-slug="version-persistent">Version-Persistent</span> rather than <span class="chip" data-dim="d4" data-slug="session-ephemeral">Session-Ephemeral</span>. Data requirements are flexible: APO can utilize <span class="chip" data-dim="d3" data-slug="few-demonstrations">Few Demonstrations</span> to bootstrap the optimization, but it can also operate strictly <span class="chip" data-dim="d3" data-slug="zero-shot">Zero-Shot</span> by relying entirely on programmatic evaluation metrics or an &quot;LLM-as-a-judge&quot; <sup class="cite">[<a href="#ref-li_generation_2025" class="cite__n" title="Dawei Li et al. (2025). From Generation to Judgment: Opportunities and Challenges of LLM-as-a-judge">115</a>, <a href="#ref-zheng_judging_2023" class="cite__n" title="Lianmin Zheng et al. (2023). Judging LLM-as-a-judge with MT-bench and Chatbot Arena">231</a>]</sup> to score unannotated inputs. Ultimately, this algorithmic search aims for both <span class="chip" data-dim="d2" data-slug="task-specialization">Task Specialization</span> (optimizing accuracy on a target task) and <span class="chip" data-dim="d2" data-slug="behavior-control">Behavior Control</span> (systematically enforcing strict output formats, stylistic guidelines, or reasoning templates without altering weights).</div><p class="provenance">Verbatim from the paper — Inference-Time Adaptation</p></section>
   
   
   
   <section class="stack"><h2>Nearest profiles</h2><p class="computed"><a href="../../techniques/pe/">PE</a> <span style="color:var(--text-muted)">(0.28)</span>, <a href="../../techniques/ce/">CE</a> <span style="color:var(--text-muted)">(0.33)</span>, <a href="../../techniques/rag/">RAG</a> <span style="color:var(--text-muted)">(0.33)</span>, <a href="../../techniques/icl/">ICL</a> <span style="color:var(--text-muted)">(0.36)</span>, <a href="../../techniques/ttcompute/">Test-Time Compute Scaling</a> <span style="color:var(--text-muted)">(0.58)</span></p><p class="provenance">Computed from the taxonomy data (Gower distance over all six dimensions)</p></section>
+  <section class="stack"><h2>References</h2><ol class="reflist"><li id="ref-khattab_dspy_2024"><span class="ref__n">[106]</span> <span class="ref__body">Omar Khattab et al. 2024. <a href="https://doi.org/10.48550/arXiv.2310.03714">DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines</a>.</span></li><li id="ref-li_generation_2025"><span class="ref__n">[115]</span> <span class="ref__body">Dawei Li et al. 2025. <a href="https://doi.org/10.18653/v1/2025.emnlp-main.138">From Generation to Judgment: Opportunities and Challenges of LLM-as-a-judge</a>. <span class="ref__venue">Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing</span></span></li><li id="ref-yang_large_2024"><span class="ref__n">[219]</span> <span class="ref__body">Chengrun Yang et al. 2024. <a href="https://doi.org/10.48550/arXiv.2309.03409">Large Language Models as Optimizers</a>. <span class="ref__venue">arXiv</span></span></li><li id="ref-zheng_judging_2023"><span class="ref__n">[231]</span> <span class="ref__body">Lianmin Zheng et al. 2023. Judging LLM-as-a-judge with MT-bench and Chatbot Arena. <span class="ref__venue">Proceedings of the 37th International Conference on Neural Information Processing Systems</span></span></li></ol><p class="provenance">Numbered as in the paper</p></section>
   <section class="stack">
     <h2>Cite this row</h2>
     <pre>APO — six-dimensional profile
@@ -78,10 +79,12 @@ Source: arXiv:2608.06246</pre>
         </ul>
       </div>
       <div>
-        <p class="eyebrow">Version</p>
+        <p class="eyebrow">Versions</p>
         <ul>
-          <li>Taxonomy v1.0.0</li>
-          <li style="opacity:.75">Released 2026-08-06</li>
+          <li><strong>Taxonomy v1.0.0</strong>
+            <span style="opacity:.75">&mdash; the data, released
+            2026-08-06</span></li>
+          <li style="opacity:.75">Site built 2026-08-07 · <a href="https://github.com/ki-smile/post-training-taxonomy/commit/6c134bc">6c134bc</a></li>
           <li><a href="https://github.com/ki-smile/post-training-taxonomy/blob/main/CHANGELOG.md">Changelog</a></li>
         </ul>
       </div>

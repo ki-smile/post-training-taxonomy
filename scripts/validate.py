@@ -20,11 +20,32 @@ EXPECTED_FAMILY_SIZES = [3, 4, 4, 5, 5, 5, 6, 8, 8]
 EXPECTED_CELLS = 294  # 49 x 6
 
 # The paper is referenced as a preprint only; no venue or review status.
-VENUE_PATTERNS = [
+#
+# Two tiers, because a publisher name is only incriminating in the right
+# context. "Submitted to X" is always about THIS paper. A bare "ACM" is
+# usually the publisher of a work being cited -- a reference list is full of
+# them -- so bare names are not checked inside bibliography content.
+STATUS_PATTERNS = [
     r"submitted to", r"under review", r"in revision", r"forthcoming in",
-    r"computing surveys", r"\bacm\b", r"\bieee\b", r"\belsevier\b",
-    r"\bspringer\b", r"manuscript number",
+    r"manuscript number", r"awaiting (?:review|decision)",
 ]
+VENUE_NAME_PATTERNS = [
+    r"computing surveys", r"\bacm\b", r"\bieee\b", r"\belsevier\b",
+    r"\bspringer\b",
+]
+
+# Bibliography content: publisher names here describe cited works, not us.
+BIBLIOGRAPHY_MARKERS = (
+    "data/references.json",
+)
+
+
+def _strip_bibliography(text):
+    """Remove reference lists and citation tooltips before scanning for bare
+    venue names, so a cited work's publisher is not mistaken for our own."""
+    text = re.sub(r'<ol class="reflist">.*?</ol>', "", text, flags=re.S)
+    text = re.sub(r'<sup class="cite">.*?</sup>', "", text, flags=re.S)
+    return text
 
 # Regulatory claims use the paper's own modal verbs.
 FORBIDDEN_MODALS = r"\b(triggers|constitutes|requires|must)\b"
@@ -182,12 +203,23 @@ def validate_site(root=pathlib.Path(".")):
     for p in _publishable(root):
         text = p.read_text(errors="ignore")
         low = text.lower()
-        for pat in VENUE_PATTERNS:
+        rel_posix = p.relative_to(root).as_posix()
+        for pat in STATUS_PATTERNS:
             m = re.search(pat, low)
             if m:
                 errs.append(
-                    f"{p.relative_to(root)}: venue/status reference {m.group(0)!r}"
+                    f"{p.relative_to(root)}: publication-status reference "
+                    f"{m.group(0)!r}"
                 )
+        if not any(rel_posix.endswith(b) for b in BIBLIOGRAPHY_MARKERS):
+            scan = _strip_bibliography(low)
+            for pat in VENUE_NAME_PATTERNS:
+                m = re.search(pat, scan)
+                if m:
+                    errs.append(
+                        f"{p.relative_to(root)}: venue name {m.group(0)!r} "
+                        f"outside a bibliography context"
+                    )
         if docs.exists() and docs in p.parents:
             for blk in re.findall(
                 r'class="[^"]*reg-claim[^"]*"[^>]*>(.*?)</', text, re.S

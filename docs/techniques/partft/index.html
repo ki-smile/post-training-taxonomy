@@ -10,7 +10,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin
       href="../../fonts/DMMono-500-latin.woff2">
 <link rel="stylesheet" href="../../css/tokens.css?v=58bece12">
-<link rel="stylesheet" href="../../css/style.css?v=6df9ced0">
+<link rel="stylesheet" href="../../css/style.css?v=250b4b0b">
 <script>
   // Set the theme before first paint to avoid a flash.
   (function () {
@@ -39,11 +39,12 @@
     <p class="provenance">In brief — site editorial, not from the paper</p>
     <p>Retrains only the later layers and freezes the early ones, so the general features learned during pre-training stay intact and less needs re-testing.</p>
   </div>
-  <section class="stack"><h2>Definition</h2><div class="verbatim">Partial FT targets <span class="chip" data-dim="d2" data-slug="task-specialization">Task Specialization</span> via the same <span class="chip" data-dim="d1" data-slug="parametric-update">Parametric Update</span> mechanism as Full FT but constrains updates to later, task-specific layers while freezing the early layers that encode broadly transferable representations <sup class="cite" data-cite="yosinski_how_2014">[ref]</sup>. This architectural discipline collapses the update surface from <span class="chip" data-dim="d5" data-slug="whole-model">Whole-Model</span> to <span class="chip" data-dim="d5" data-slug="partial">Partial</span>—a coordinate divergence from Full FT that carries both a data consequence and a validation consequence: the data requirement contracts to <span class="chip" data-dim="d3" data-slug="small-labeled">Small Labeled</span> (the frozen layers perform feature extraction, leaving only the task-specific layers requiring supervision), and the regression testing footprint is structurally isolated to the modified layer subset, enabling targeted component-level rollback. Compared to PEFT, which introduces a fully decoupled <span class="chip" data-dim="d5" data-slug="modular">Modular</span> adapter that can be removed without touching any base-model layer, Partial FT embeds updates directly into the base model&#x27;s later layers—rollback requires layer-level checkpoint restoration, not a clean module swap. The practical distinction matters for change-control documentation: a PEFT event generates a standalone adapter artifact; a Partial FT event generates a modified base-model checkpoint whose changed layers must be explicitly versioned. Partial FT necessitates versioned checkpointing of the modified layer subset and localized parametric regression testing bounded strictly to those layers; because the frozen early layers remain mathematically unchanged, they require no re-validation.</div><p class="provenance">Verbatim from the paper — Knowledge Transfer and Task Specialization</p></section>
+  <section class="stack"><h2>Definition</h2><div class="verbatim">Partial FT targets <span class="chip" data-dim="d2" data-slug="task-specialization">Task Specialization</span> via the same <span class="chip" data-dim="d1" data-slug="parametric-update">Parametric Update</span> mechanism as Full FT but constrains updates to later, task-specific layers while freezing the early layers that encode broadly transferable representations <sup class="cite">[<a href="#ref-yosinski_how_2014" class="cite__n" title="Jason Yosinski, Jeff Clune, Yoshua Bengio, and Hod Lipson (2014). How transferable are features in deep neural networks?">222</a>]</sup>. This architectural discipline collapses the update surface from <span class="chip" data-dim="d5" data-slug="whole-model">Whole-Model</span> to <span class="chip" data-dim="d5" data-slug="partial">Partial</span>—a coordinate divergence from Full FT that carries both a data consequence and a validation consequence: the data requirement contracts to <span class="chip" data-dim="d3" data-slug="small-labeled">Small Labeled</span> (the frozen layers perform feature extraction, leaving only the task-specific layers requiring supervision), and the regression testing footprint is structurally isolated to the modified layer subset, enabling targeted component-level rollback. Compared to PEFT, which introduces a fully decoupled <span class="chip" data-dim="d5" data-slug="modular">Modular</span> adapter that can be removed without touching any base-model layer, Partial FT embeds updates directly into the base model&#x27;s later layers—rollback requires layer-level checkpoint restoration, not a clean module swap. The practical distinction matters for change-control documentation: a PEFT event generates a standalone adapter artifact; a Partial FT event generates a modified base-model checkpoint whose changed layers must be explicitly versioned. Partial FT necessitates versioned checkpointing of the modified layer subset and localized parametric regression testing bounded strictly to those layers; because the frozen early layers remain mathematically unchanged, they require no re-validation.</div><p class="provenance">Verbatim from the paper — Knowledge Transfer and Task Specialization</p></section>
   
   
   <section class="stack"><h2>Related techniques</h2><ul class="stack"><li><span class="eyebrow">sub-technique</span> <a href="../../techniques/peft/">PEFT (LoRA, adapters)</a> — PEFT strictly extends Partial FT: same mechanism, plus a modular scope<br><q style="color:var(--text-muted);font-size:var(--step--1)">the base model&#x27;s weights remain strictly frozen throughout training</q> <span class="provenance">Appendix C, Knowledge Transfer and Task Specialization</span></li></ul></section>
   <section class="stack"><h2>Nearest profiles</h2><p class="computed"><a href="../../techniques/pl/">Prompt Learning</a> <span style="color:var(--text-muted)">(0.04)</span>, <a href="../../techniques/fsl/">FSL</a> <span style="color:var(--text-muted)">(0.17)</span>, <a href="../../techniques/peft/">PEFT (LoRA, adapters)</a> <span style="color:var(--text-muted)">(0.17)</span>, <a href="../../techniques/metalrn/">Meta-Learning</a> <span style="color:var(--text-muted)">(0.25)</span>, <a href="../../techniques/reft/">ReFT</a> <span style="color:var(--text-muted)">(0.25)</span></p><p class="provenance">Computed from the taxonomy data (Gower distance over all six dimensions)</p></section>
+  <section class="stack"><h2>References</h2><ol class="reflist"><li id="ref-yosinski_how_2014"><span class="ref__n">[222]</span> <span class="ref__body">Jason Yosinski, Jeff Clune, Yoshua Bengio, and Hod Lipson 2014. <a href="https://proceedings.neurips.cc/paper_files/paper/2014/file/532a2f85b6977104bc93f8580abbb330-Paper.pdf">How transferable are features in deep neural networks?</a>. <span class="ref__venue">Advances in Neural Information Processing Systems</span></span></li></ol><p class="provenance">Numbered as in the paper</p></section>
   <section class="stack">
     <h2>Cite this row</h2>
     <pre>FT (partial) — six-dimensional profile
@@ -78,10 +79,12 @@ Source: arXiv:2608.06246</pre>
         </ul>
       </div>
       <div>
-        <p class="eyebrow">Version</p>
+        <p class="eyebrow">Versions</p>
         <ul>
-          <li>Taxonomy v1.0.0</li>
-          <li style="opacity:.75">Released 2026-08-06</li>
+          <li><strong>Taxonomy v1.0.0</strong>
+            <span style="opacity:.75">&mdash; the data, released
+            2026-08-06</span></li>
+          <li style="opacity:.75">Site built 2026-08-07 · <a href="https://github.com/ki-smile/post-training-taxonomy/commit/6c134bc">6c134bc</a></li>
           <li><a href="https://github.com/ki-smile/post-training-taxonomy/blob/main/CHANGELOG.md">Changelog</a></li>
         </ul>
       </div>

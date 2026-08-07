@@ -10,7 +10,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin
       href="../../fonts/DMMono-500-latin.woff2">
 <link rel="stylesheet" href="../../css/tokens.css?v=58bece12">
-<link rel="stylesheet" href="../../css/style.css?v=6df9ced0">
+<link rel="stylesheet" href="../../css/style.css?v=250b4b0b">
 <script>
   // Set the theme before first paint to avoid a flash.
   (function () {
@@ -39,11 +39,12 @@
     <p class="provenance">In brief — site editorial, not from the paper</p>
     <p>Inserts a small trainable module into one modality&#x27;s own pathway inside a multimodal model, improving that input type without retraining the shared backbone.</p>
   </div>
-  <section class="stack"><h2>Definition</h2><div class="verbatim">Modality-Specific Adapters extend a frozen multi-modal model&#x27;s capabilities to new modalities or improve its performance on existing ones by inserting lightweight PEFT-style (<span class="chip" data-dim="d1" data-slug="parametric-update">Parametric Update</span>) modules (<span class="chip" data-dim="d5" data-slug="modular">Modular</span>) within each modality&#x27;s dedicated processing pathway, without modifying the shared model backbone or cross-modal bridge <sup class="cite" data-cite="sung_vl-adapter_2022">[ref]</sup>. In contrast to Cross-Modal Alignment, which optimizes the interface between representations to enable semantic integration, Modality-Specific Adapters refine within-modality processing, making them complementary adaptation layers rather than alternatives. Compared to standard PEFT, which applies within a single modality&#x27;s processing pathway, Modality-Specific Adapters are architecturally instantiated per modality, creating a collection of independently versioned parametric modules whose composition defines the system&#x27;s active multi-modal capability profile. Their classification strictly at <span class="chip" data-dim="d6" data-slug="mllm">MLLM</span> reflects the architectural prerequisite: independent per-modality adapter injection inherently requires a multi-stream architecture featuring distinct, unimodal computational pathways. The <span class="chip" data-dim="d5" data-slug="modular">Modular</span> ensures that modality-specific adaptation artifacts can be independently versioned, tested, and rolled back. From a system engineering and validation standpoint, this structural isolation profoundly simplifies configuration management: it mathematically guarantees that high-frequency updates to one modality&#x27;s adapter (e.g., integrating a new visual encoding standard) can be executed and validated completely independent of the other (e.g., text generation), systematically bypassing the computationally expensive need for end-to-end, multi-stream regression testing.</div><p class="provenance">Verbatim from the paper — Calibration, Personalization, and Multimodal Adaptation</p></section>
+  <section class="stack"><h2>Definition</h2><div class="verbatim">Modality-Specific Adapters extend a frozen multi-modal model&#x27;s capabilities to new modalities or improve its performance on existing ones by inserting lightweight PEFT-style (<span class="chip" data-dim="d1" data-slug="parametric-update">Parametric Update</span>) modules (<span class="chip" data-dim="d5" data-slug="modular">Modular</span>) within each modality&#x27;s dedicated processing pathway, without modifying the shared model backbone or cross-modal bridge <sup class="cite">[<a href="#ref-sung_vl-adapter_2022" class="cite__n" title="Yi-Lin Sung, Jaemin Cho, and Mohit Bansal (2022). VL-ADAPTER: Parameter-Efficient Transfer Learning for Vision-and-Language Tasks">191</a>]</sup>. In contrast to Cross-Modal Alignment, which optimizes the interface between representations to enable semantic integration, Modality-Specific Adapters refine within-modality processing, making them complementary adaptation layers rather than alternatives. Compared to standard PEFT, which applies within a single modality&#x27;s processing pathway, Modality-Specific Adapters are architecturally instantiated per modality, creating a collection of independently versioned parametric modules whose composition defines the system&#x27;s active multi-modal capability profile. Their classification strictly at <span class="chip" data-dim="d6" data-slug="mllm">MLLM</span> reflects the architectural prerequisite: independent per-modality adapter injection inherently requires a multi-stream architecture featuring distinct, unimodal computational pathways. The <span class="chip" data-dim="d5" data-slug="modular">Modular</span> ensures that modality-specific adaptation artifacts can be independently versioned, tested, and rolled back. From a system engineering and validation standpoint, this structural isolation profoundly simplifies configuration management: it mathematically guarantees that high-frequency updates to one modality&#x27;s adapter (e.g., integrating a new visual encoding standard) can be executed and validated completely independent of the other (e.g., text generation), systematically bypassing the computationally expensive need for end-to-end, multi-stream regression testing.</div><p class="provenance">Verbatim from the paper — Calibration, Personalization, and Multimodal Adaptation</p></section>
   
   
   
   <section class="stack"><h2>Nearest profiles</h2><p class="computed"><a href="../../techniques/multimodinstr/">Multimodal Instr. Tuning</a> <span style="color:var(--text-muted)">(0.28)</span>, <a href="../../techniques/crossmodel/">Cross-Modal Alignment</a> <span style="color:var(--text-muted)">(0.33)</span>, <a href="../../techniques/reft/">ReFT</a> <span style="color:var(--text-muted)">(0.42)</span>, <a href="../../techniques/moe/">MoE</a> <span style="color:var(--text-muted)">(0.44)</span>, <a href="../../techniques/lp/">LP</a> <span style="color:var(--text-muted)">(0.46)</span></p><p class="provenance">Computed from the taxonomy data (Gower distance over all six dimensions)</p></section>
+  <section class="stack"><h2>References</h2><ol class="reflist"><li id="ref-sung_vl-adapter_2022"><span class="ref__n">[191]</span> <span class="ref__body">Yi-Lin Sung, Jaemin Cho, and Mohit Bansal 2022. <a href="https://doi.org/10.1109/CVPR52688.2022.00516">VL-ADAPTER: Parameter-Efficient Transfer Learning for Vision-and-Language Tasks</a>. <span class="ref__venue">2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</span></span></li></ol><p class="provenance">Numbered as in the paper</p></section>
   <section class="stack">
     <h2>Cite this row</h2>
     <pre>Modality-Spec. Adapters — six-dimensional profile
@@ -78,10 +79,12 @@ Source: arXiv:2608.06246</pre>
         </ul>
       </div>
       <div>
-        <p class="eyebrow">Version</p>
+        <p class="eyebrow">Versions</p>
         <ul>
-          <li>Taxonomy v1.0.0</li>
-          <li style="opacity:.75">Released 2026-08-06</li>
+          <li><strong>Taxonomy v1.0.0</strong>
+            <span style="opacity:.75">&mdash; the data, released
+            2026-08-06</span></li>
+          <li style="opacity:.75">Site built 2026-08-07 · <a href="https://github.com/ki-smile/post-training-taxonomy/commit/6c134bc">6c134bc</a></li>
           <li><a href="https://github.com/ki-smile/post-training-taxonomy/blob/main/CHANGELOG.md">Changelog</a></li>
         </ul>
       </div>

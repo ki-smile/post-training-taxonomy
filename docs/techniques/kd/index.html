@@ -10,7 +10,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin
       href="../../fonts/DMMono-500-latin.woff2">
 <link rel="stylesheet" href="../../css/tokens.css?v=58bece12">
-<link rel="stylesheet" href="../../css/style.css?v=6df9ced0">
+<link rel="stylesheet" href="../../css/style.css?v=250b4b0b">
 <script>
   // Set the theme before first paint to avoid a flash.
   (function () {
@@ -39,11 +39,12 @@
     <p class="provenance">In brief — site editorial, not from the paper</p>
     <p>Trains a smaller model to imitate a larger one&#x27;s outputs, keeping much of the capability at a fraction of the serving cost.</p>
   </div>
-  <section class="stack"><h2>Definition</h2><div class="verbatim">KD transfers a trained teacher model&#x27;s learned behavioral distribution into a smaller student model, most commonly by training the student to match the teacher&#x27;s soft probability output distribution, enabling compression of capability without commensurate compression of performance <sup class="cite" data-cite="hinton_distilling_2015,gou_knowledge_2021">[ref]</sup>. Its <span class="chip" data-dim="d1" data-slug="cross-model-transfer">Cross-Model Transfer</span> classification captures the defining structural property: a complete, separately trained model is the proximate information source for the student&#x27;s training—not a labeled dataset, not a teacher&#x27;s parameters directly, but the teacher&#x27;s output distribution. This cross-model information flow distinguishes KD from all other compression-adjacent techniques: Model Compression operates on a single model&#x27;s own parameters while KD requires a functioning teacher model to generate training signal, making <span class="chip" data-dim="d3" data-slug="teacher-derived">Teacher-Derived</span>. The <span class="chip" data-dim="d2" data-slug="computational-efficiency">Computational Efficiency</span> goal drives the student&#x27;s architectural reduction (smaller, faster inference). From a validation standpoint, a KD event establishes a strict behavioral dependency chain: verifying the student model requires comprehensive technical documentation of both the teacher model&#x27;s original training data provenance and the exact algorithmic distillation protocol used to generate the soft targets, ensuring full auditability of the behavioral alignment downstream. The student artifact inherits the teacher&#x27;s behavioral envelope but introduces a compression-induced approximation gap; this gap must be characterized quantitatively—via behavioral regression testing across the teacher&#x27;s validated operational envelope.</div><p class="provenance">Verbatim from the paper — Efficiency and Composition</p></section>
+  <section class="stack"><h2>Definition</h2><div class="verbatim">KD transfers a trained teacher model&#x27;s learned behavioral distribution into a smaller student model, most commonly by training the student to match the teacher&#x27;s soft probability output distribution, enabling compression of capability without commensurate compression of performance <sup class="cite">[<a href="#ref-gou_knowledge_2021" class="cite__n" title="Jianping Gou, Baosheng Yu, Stephen J. Maybank, and Dacheng Tao (2021). Knowledge Distillation: A Survey">72</a>, <a href="#ref-hinton_distilling_2015" class="cite__n" title="Geoffrey Hinton, Oriol Vinyals, and Jeff Dean (2015). Distilling the Knowledge in a Neural Network">84</a>]</sup>. Its <span class="chip" data-dim="d1" data-slug="cross-model-transfer">Cross-Model Transfer</span> classification captures the defining structural property: a complete, separately trained model is the proximate information source for the student&#x27;s training—not a labeled dataset, not a teacher&#x27;s parameters directly, but the teacher&#x27;s output distribution. This cross-model information flow distinguishes KD from all other compression-adjacent techniques: Model Compression operates on a single model&#x27;s own parameters while KD requires a functioning teacher model to generate training signal, making <span class="chip" data-dim="d3" data-slug="teacher-derived">Teacher-Derived</span>. The <span class="chip" data-dim="d2" data-slug="computational-efficiency">Computational Efficiency</span> goal drives the student&#x27;s architectural reduction (smaller, faster inference). From a validation standpoint, a KD event establishes a strict behavioral dependency chain: verifying the student model requires comprehensive technical documentation of both the teacher model&#x27;s original training data provenance and the exact algorithmic distillation protocol used to generate the soft targets, ensuring full auditability of the behavioral alignment downstream. The student artifact inherits the teacher&#x27;s behavioral envelope but introduces a compression-induced approximation gap; this gap must be characterized quantitatively—via behavioral regression testing across the teacher&#x27;s validated operational envelope.</div><p class="provenance">Verbatim from the paper — Efficiency and Composition</p></section>
   
   
   
   <section class="stack"><h2>Nearest profiles</h2><p class="computed"><a href="../../techniques/compress/">Model Compression</a> <span style="color:var(--text-muted)">(0.50)</span>, <a href="../../techniques/peft/">PEFT (LoRA, adapters)</a> <span style="color:var(--text-muted)">(0.58)</span>, <a href="../../techniques/moe/">MoE</a> <span style="color:var(--text-muted)">(0.62)</span>, <a href="../../techniques/taskarith/">Task Arith. &amp; Model Merging</a> <span style="color:var(--text-muted)">(0.62)</span>, <a href="../../techniques/dpft/">DP-FT</a> <span style="color:var(--text-muted)">(0.67)</span></p><p class="provenance">Computed from the taxonomy data (Gower distance over all six dimensions)</p></section>
+  <section class="stack"><h2>References</h2><ol class="reflist"><li id="ref-gou_knowledge_2021"><span class="ref__n">[72]</span> <span class="ref__body">Jianping Gou, Baosheng Yu, Stephen J. Maybank, and Dacheng Tao 2021. <a href="https://doi.org/10.1007/s11263-021-01453-z">Knowledge Distillation: A Survey</a>. <span class="ref__venue">Int J Comput Vis</span></span></li><li id="ref-hinton_distilling_2015"><span class="ref__n">[84]</span> <span class="ref__body">Geoffrey Hinton, Oriol Vinyals, and Jeff Dean 2015. <a href="https://doi.org/10.48550/arXiv.1503.02531">Distilling the Knowledge in a Neural Network</a>. <span class="ref__venue">arXiv</span></span></li></ol><p class="provenance">Numbered as in the paper</p></section>
   <section class="stack">
     <h2>Cite this row</h2>
     <pre>KD — six-dimensional profile
@@ -78,10 +79,12 @@ Source: arXiv:2608.06246</pre>
         </ul>
       </div>
       <div>
-        <p class="eyebrow">Version</p>
+        <p class="eyebrow">Versions</p>
         <ul>
-          <li>Taxonomy v1.0.0</li>
-          <li style="opacity:.75">Released 2026-08-06</li>
+          <li><strong>Taxonomy v1.0.0</strong>
+            <span style="opacity:.75">&mdash; the data, released
+            2026-08-06</span></li>
+          <li style="opacity:.75">Site built 2026-08-07 · <a href="https://github.com/ki-smile/post-training-taxonomy/commit/6c134bc">6c134bc</a></li>
           <li><a href="https://github.com/ki-smile/post-training-taxonomy/blob/main/CHANGELOG.md">Changelog</a></li>
         </ul>
       </div>

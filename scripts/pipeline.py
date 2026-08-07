@@ -22,6 +22,7 @@ STAGES = [
     "extract_glossary",
     "extract_taxonomy",
     "extract_prose",
+    "extract_bibliography",
     "compute_derived",
 ]
 

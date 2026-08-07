@@ -10,7 +10,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin
       href="../../fonts/DMMono-500-latin.woff2">
 <link rel="stylesheet" href="../../css/tokens.css?v=58bece12">
-<link rel="stylesheet" href="../../css/style.css?v=6df9ced0">
+<link rel="stylesheet" href="../../css/style.css?v=250b4b0b">
 <script>
   // Set the theme before first paint to avoid a flash.
   (function () {
@@ -39,11 +39,12 @@
     <p class="provenance">In brief — site editorial, not from the paper</p>
     <p>Trains on tasks where answers can be checked automatically — maths, code, proofs — so the reward signal comes from a verifier rather than an opinion.</p>
   </div>
-  <section class="stack"><h2>Definition</h2><div class="verbatim">RLVR/GRPO targets <span class="chip" data-dim="d2" data-slug="reasoning">Reasoning</span>—multi-step problem-solving, planning, and chain-of-thought verification—a goal that diverges fundamentally from both the alignment goal of RLHF/DPO/RLAIF (<span class="chip" data-dim="d2" data-slug="alignment">Alignment</span>, <span class="chip" data-dim="d2" data-slug="safety">Safety</span>) and the <span class="chip" data-dim="d2" data-slug="task-specialization">Task Specialization</span> goal of FT <sup class="cite" data-cite="shao_deepseekmath_2024,deepseek_r1_2025">[ref]</sup>. The D3 (Data Requirements) coordinate is also a differentiator: <span class="chip" data-dim="d3" data-slug="verifiable-task">Verifiable Task</span> relies on programmatic reward signals (e.g., mathematical correctness verified by symbolic solvers, code execution verified by test suite pass/fail, logical entailment verified by formal proof checkers) rather than subjective human preference annotation. This substitution does not merely simplify the data pipeline; it categorically changes the nature of the validation obligation. The preference-pair regime (RLHF/DPO) requires mitigating annotator bias and tracking demographic representation; the verifiable-task regime requires instead certifying the correctness and coverage of the programmatic oracle—a shift from human-factors verification to formal functional-specification testing. The D3 (Data Requirements)-based differentiation between RLVR and RLHF is the clearest demonstration of the multi-dimensional taxonomy&#x27;s analytical value: a mechanism-only single-axis framework collapses both into a generic ``RL-based tuning&#x27;&#x27; category, completely obscuring that they target distinct D2 (Goal) goals and require radically different D3 (Data Requirements) provenance documentation.</div><p class="provenance">Verbatim from the paper — Alignment, Reasoning, and Trustworthiness</p></section>
+  <section class="stack"><h2>Definition</h2><div class="verbatim">RLVR/GRPO targets <span class="chip" data-dim="d2" data-slug="reasoning">Reasoning</span>—multi-step problem-solving, planning, and chain-of-thought verification—a goal that diverges fundamentally from both the alignment goal of RLHF/DPO/RLAIF (<span class="chip" data-dim="d2" data-slug="alignment">Alignment</span>, <span class="chip" data-dim="d2" data-slug="safety">Safety</span>) and the <span class="chip" data-dim="d2" data-slug="task-specialization">Task Specialization</span> goal of FT <sup class="cite">[<a href="#ref-deepseek_r1_2025" class="cite__n" title="Daya Guo et al. (2025). DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning">74</a>, <a href="#ref-shao_deepseekmath_2024" class="cite__n" title="Zhihong Shao et al. (2024). DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models">175</a>]</sup>. The D3 (Data Requirements) coordinate is also a differentiator: <span class="chip" data-dim="d3" data-slug="verifiable-task">Verifiable Task</span> relies on programmatic reward signals (e.g., mathematical correctness verified by symbolic solvers, code execution verified by test suite pass/fail, logical entailment verified by formal proof checkers) rather than subjective human preference annotation. This substitution does not merely simplify the data pipeline; it categorically changes the nature of the validation obligation. The preference-pair regime (RLHF/DPO) requires mitigating annotator bias and tracking demographic representation; the verifiable-task regime requires instead certifying the correctness and coverage of the programmatic oracle—a shift from human-factors verification to formal functional-specification testing. The D3 (Data Requirements)-based differentiation between RLVR and RLHF is the clearest demonstration of the multi-dimensional taxonomy&#x27;s analytical value: a mechanism-only single-axis framework collapses both into a generic ``RL-based tuning&#x27;&#x27; category, completely obscuring that they target distinct D2 (Goal) goals and require radically different D3 (Data Requirements) provenance documentation.</div><p class="provenance">Verbatim from the paper — Alignment, Reasoning, and Trustworthiness</p></section>
   <section class="stack"><h2>Notes from the table</h2><p class="callout">Classification tensions involving these techniques are discussed in Supplementary Section S4.</p></section>
   
   
   <section class="stack"><h2>Nearest profiles</h2><p class="computed"><a href="../../techniques/dpo/">DPO</a> <span style="color:var(--text-muted)">(0.33)</span>, <a href="../../techniques/rlaif/">RLAIF/CAI</a> <span style="color:var(--text-muted)">(0.33)</span>, <a href="../../techniques/sft/">SFT</a> <span style="color:var(--text-muted)">(0.33)</span>, <a href="../../techniques/rlhf/">RLHF (LLM Alignment)</a> <span style="color:var(--text-muted)">(0.39)</span>, <a href="../../techniques/dpft/">DP-FT</a> <span style="color:var(--text-muted)">(0.42)</span></p><p class="provenance">Computed from the taxonomy data (Gower distance over all six dimensions)</p></section>
+  <section class="stack"><h2>References</h2><ol class="reflist"><li id="ref-deepseek_r1_2025"><span class="ref__n">[74]</span> <span class="ref__body">Daya Guo et al. 2025. <a href="https://doi.org/10.1038/s41586-025-09422-z">DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning</a>. <span class="ref__venue">Nature</span></span></li><li id="ref-shao_deepseekmath_2024"><span class="ref__n">[175]</span> <span class="ref__body">Zhihong Shao et al. 2024. <a href="https://doi.org/10.48550/arXiv.2402.03300">DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models</a>. <span class="ref__venue">arXiv</span></span></li></ol><p class="provenance">Numbered as in the paper</p></section>
   <section class="stack">
     <h2>Cite this row</h2>
     <pre>RLVR/GRPO — six-dimensional profile
@@ -78,10 +79,12 @@ Source: arXiv:2608.06246</pre>
         </ul>
       </div>
       <div>
-        <p class="eyebrow">Version</p>
+        <p class="eyebrow">Versions</p>
         <ul>
-          <li>Taxonomy v1.0.0</li>
-          <li style="opacity:.75">Released 2026-08-06</li>
+          <li><strong>Taxonomy v1.0.0</strong>
+            <span style="opacity:.75">&mdash; the data, released
+            2026-08-06</span></li>
+          <li style="opacity:.75">Site built 2026-08-07 · <a href="https://github.com/ki-smile/post-training-taxonomy/commit/6c134bc">6c134bc</a></li>
           <li><a href="https://github.com/ki-smile/post-training-taxonomy/blob/main/CHANGELOG.md">Changelog</a></li>
         </ul>
       </div>

@@ -1,14 +1,24 @@
 # Changelog
 
-Versions describe the **taxonomy dataset**, not the website. Rewording a page
-does not move the version; changing a technique's profile does, because anyone
-who pinned to a version and joined against it would otherwise get different
-data without noticing.
+Two things in this repository change independently, and conflating them would
+mislead anyone who cites the work.
 
-The current version and release date are in `data/taxonomy.json` under `meta`,
-and shown in the site footer.
+**The taxonomy** is the dataset: 49 profiles, six vocabularies, the
+definitions. It carries a semantic version, recorded in `data/taxonomy.json`
+under `meta` and shown in the site footer. People cite it and join against it,
+so it moves only when the data moves.
 
-## What moves which number
+**The site** is everything that presents that dataset: pages, typography,
+interactions, fixes. It changes far more often and says nothing about the data,
+so it has no semantic version — it is identified by build date and commit,
+both shown in the footer.
+
+A redesign never moves the taxonomy version. A changed profile value always
+does.
+
+Entries below are grouped accordingly.
+
+## What moves the taxonomy version
 
 | Change | Bump |
 |---|---|
@@ -37,18 +47,43 @@ versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-### Changed
+### Taxonomy
 
-- Citations now carry the published preprint identifier,
-  [arXiv:2608.06246](https://arxiv.org/abs/2608.06246), in place of the
-  placeholder. **No version bump**: the identifier is not part of
-  `taxonomy.json`, so the dataset is byte-identical to 1.0.0.
+Nothing yet.
+
+### Site
+
+- **References now resolve.** Technique definitions carried citation markers
+  that rendered as a bare `[ref]`. They now show the paper's own number, link
+  to the entry, carry the full citation on hover, and are listed in full at the
+  foot of each page with a link to the DOI or arXiv page where one exists.
+  Numbers match the paper's bibliography so a citation can be checked against
+  the PDF.
+
+  The keys were always present in `definition_verbatim`; only the rendering
+  changed. `taxonomy.json` is byte-identical, so this does **not** move the
+  taxonomy version.
+- Published preprint identifier [arXiv:2608.06246](https://arxiv.org/abs/2608.06246)
+  in place of the placeholder, across the site, README, `CITATION.cff` and
+  `data/SCHEMA.md`.
+- Self-hosted the typefaces. They had been declared with `src: local()` only,
+  so the monospace display face silently fell back to a system font for anyone
+  who did not already have it installed.
+- Built the hero: three phrases a reader can switch between, each resolving to
+  its coordinate.
+- Content-hashed CSS and JS so a returning visitor is not served stale assets.
+- Corrected the lifecycle framing on Concepts: the boundary is training, not
+  deployment, and drift is one goal in nineteen rather than the trigger.
+- Settled footer typography and small-screen layout.
+
+None of the above changed a profile value, so the taxonomy stays at 1.0.0 and
+`taxonomy.json` is byte-identical to its 1.0.0 release.
 
 ---
 
-## [1.0.0] — 2026-08-06
+## Taxonomy [1.0.0] — 2026-08-06
 
-First release.
+First release of the dataset.
 
 ### Added
 

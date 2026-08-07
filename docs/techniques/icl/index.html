@@ -10,7 +10,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin
       href="../../fonts/DMMono-500-latin.woff2">
 <link rel="stylesheet" href="../../css/tokens.css?v=58bece12">
-<link rel="stylesheet" href="../../css/style.css?v=6df9ced0">
+<link rel="stylesheet" href="../../css/style.css?v=250b4b0b">
 <script>
   // Set the theme before first paint to avoid a flash.
   (function () {
@@ -39,11 +39,12 @@
     <p class="provenance">In brief — site editorial, not from the paper</p>
     <p>Shows the model a few worked examples in the prompt, adapting it for that request only, with no training and no artifact left behind.</p>
   </div>
-  <section class="stack"><h2>Definition</h2><div class="verbatim">ICL leverages a deployed LLM&#x27;s pattern-matching capability to perform task adaptation from a small number of input-output demonstrations placed in the context window, with no gradient computation and no parameter modification <sup class="cite" data-cite="brown_language_2020">[ref]</sup>. It shares a common structural mechanism—D1 (Mechanism), D4 (Persistence), D5 (Scope), D6 (Model Type)—with PE, but fundamentally differs on D3 (Data Requirements)—the inclusion of <span class="chip" data-dim="d3" data-slug="few-demonstrations">Few Demonstrations</span>—which shifts its primary D2 (Goal) focus toward <span class="chip" data-dim="d2" data-slug="task-specialization">Task Specialization</span>. From a system validation perspective, because ICL leaves the foundational model parameters entirely unchanged, it triggers no artifact-level regression testing. Instead, the specific demonstration sets act as transient input dependencies and must be documented.</div><p class="provenance">Verbatim from the paper — Inference-Time Adaptation</p></section>
+  <section class="stack"><h2>Definition</h2><div class="verbatim">ICL leverages a deployed LLM&#x27;s pattern-matching capability to perform task adaptation from a small number of input-output demonstrations placed in the context window, with no gradient computation and no parameter modification <sup class="cite">[<a href="#ref-brown_language_2020" class="cite__n" title="Tom B. Brown et al. (2020). Language models are few-shot learners">34</a>]</sup>. It shares a common structural mechanism—D1 (Mechanism), D4 (Persistence), D5 (Scope), D6 (Model Type)—with PE, but fundamentally differs on D3 (Data Requirements)—the inclusion of <span class="chip" data-dim="d3" data-slug="few-demonstrations">Few Demonstrations</span>—which shifts its primary D2 (Goal) focus toward <span class="chip" data-dim="d2" data-slug="task-specialization">Task Specialization</span>. From a system validation perspective, because ICL leaves the foundational model parameters entirely unchanged, it triggers no artifact-level regression testing. Instead, the specific demonstration sets act as transient input dependencies and must be documented.</div><p class="provenance">Verbatim from the paper — Inference-Time Adaptation</p></section>
   <section class="stack"><h2>Notes from the table</h2><p class="callout">Classification tensions involving these techniques are discussed in Supplementary Section S4.</p></section>
   
   <section class="stack"><h2>Related techniques</h2><ul class="stack"><li><span class="eyebrow">supersession</span> <a href="../../techniques/metalrn/">Meta-Learning</a> — ICL supersedes gradient-based meta-learning for few-shot adaptation at the LLM tier<br><q style="color:var(--text-muted);font-size:var(--step--1)">supersession is mechanistically grounded: LLM contain sufficiently rich pre-trained representations</q> <span class="provenance">Appendix C, Training Strategies</span></li><li><span class="eyebrow">sub-technique</span> <a href="../../techniques/fsl/">FSL</a> — Colloquial &quot;few-shot&quot; splits here: FSL updates weights, ICL does not<br><q style="color:var(--text-muted);font-size:var(--step--1)">underlying model artifact unmodified; this is reassigned to ICL</q> <span class="provenance">Appendix C, Knowledge Transfer and Task Specialization</span></li></ul></section>
   <section class="stack"><h2>Nearest profiles</h2><p class="computed"><a href="../../techniques/apo/">APO</a> <span style="color:var(--text-muted)">(0.36)</span>, <a href="../../techniques/pe/">PE</a> <span style="color:var(--text-muted)">(0.36)</span>, <a href="../../techniques/rag/">RAG</a> <span style="color:var(--text-muted)">(0.42)</span>, <a href="../../techniques/ce/">CE</a> <span style="color:var(--text-muted)">(0.44)</span>, <a href="../../techniques/ttcompute/">Test-Time Compute Scaling</a> <span style="color:var(--text-muted)">(0.50)</span></p><p class="provenance">Computed from the taxonomy data (Gower distance over all six dimensions)</p></section>
+  <section class="stack"><h2>References</h2><ol class="reflist"><li id="ref-brown_language_2020"><span class="ref__n">[34]</span> <span class="ref__body">Tom B. Brown et al. 2020. Language models are few-shot learners. <span class="ref__venue">Proceedings of the 34th International Conference on Neural Information Processing Systems</span></span></li></ol><p class="provenance">Numbered as in the paper</p></section>
   <section class="stack">
     <h2>Cite this row</h2>
     <pre>ICL — six-dimensional profile
@@ -78,10 +79,12 @@ Source: arXiv:2608.06246</pre>
         </ul>
       </div>
       <div>
-        <p class="eyebrow">Version</p>
+        <p class="eyebrow">Versions</p>
         <ul>
-          <li>Taxonomy v1.0.0</li>
-          <li style="opacity:.75">Released 2026-08-06</li>
+          <li><strong>Taxonomy v1.0.0</strong>
+            <span style="opacity:.75">&mdash; the data, released
+            2026-08-06</span></li>
+          <li style="opacity:.75">Site built 2026-08-07 · <a href="https://github.com/ki-smile/post-training-taxonomy/commit/6c134bc">6c134bc</a></li>
           <li><a href="https://github.com/ki-smile/post-training-taxonomy/blob/main/CHANGELOG.md">Changelog</a></li>
         </ul>
       </div>

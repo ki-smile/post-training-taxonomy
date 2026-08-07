@@ -10,7 +10,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin
       href="../../fonts/DMMono-500-latin.woff2">
 <link rel="stylesheet" href="../../css/tokens.css?v=58bece12">
-<link rel="stylesheet" href="../../css/style.css?v=6df9ced0">
+<link rel="stylesheet" href="../../css/style.css?v=250b4b0b">
 <script>
   // Set the theme before first paint to avoid a flash.
   (function () {
@@ -39,11 +39,12 @@
     <p class="provenance">In brief — site editorial, not from the paper</p>
     <p>Learns the prompt itself as trainable parameters rather than writing it by hand — continuous vectors prepended to the input.</p>
   </div>
-  <section class="stack"><h2>Definition</h2><div class="verbatim">Prompt Learning converts the discrete, human-authored natural-language prompt into a set of continuously differentiable embedding vectors—soft tokens—prepended to the model&#x27;s input representation and optimized via GD on a task dataset <sup class="cite" data-cite="lester_power_2021,li_prefix-tuning_2021">[ref]</sup>. %, occupying the structural boundary between context injection and parametric adaptation. It resembles PE in its input-space operation—prepending sequence tokens to the input—but functions mechanically like FT in its optimization: learnable continuous embeddings (soft tokens) are explicitly trained via backpropagation (<span class="chip" data-dim="d1" data-slug="parametric-update">Parametric Update</span>).% through the frozen base model. Therefore, the parametric modification is confined entirely to the prepended embedding vectors (<span class="chip" data-dim="d5" data-slug="partial">Partial</span>); all base model parameters remain frozen. The <span class="chip" data-dim="d4" data-slug="ad-hoc-permanent">Ad-hoc Permanent</span>, <span class="chip" data-dim="d4" data-slug="scheduled-permanent">Scheduled Permanent</span> coordinate means trained soft prompt tensors must be registered as distinct parametric artifacts in the system configuration record: deploying a different soft prompt tensor with the same frozen base model constitutes a parametric modification to the deployed system and requires version control and behavioral regression testing against the task coverage specification defined during original validation.</div><p class="provenance">Verbatim from the paper — Inference-Time Adaptation</p></section>
+  <section class="stack"><h2>Definition</h2><div class="verbatim">Prompt Learning converts the discrete, human-authored natural-language prompt into a set of continuously differentiable embedding vectors—soft tokens—prepended to the model&#x27;s input representation and optimized via GD on a task dataset <sup class="cite">[<a href="#ref-lester_power_2021" class="cite__n" title="Brian Lester, Rami Al-Rfou, and Noah Constant (2021). The Power of Scale for Parameter-Efficient Prompt Tuning">113</a>, <a href="#ref-li_prefix-tuning_2021" class="cite__n" title="Xiang Lisa Li, and Percy Liang (2021). Prefix-Tuning: Optimizing Continuous Prompts for Generation">121</a>]</sup>. %, occupying the structural boundary between context injection and parametric adaptation. It resembles PE in its input-space operation—prepending sequence tokens to the input—but functions mechanically like FT in its optimization: learnable continuous embeddings (soft tokens) are explicitly trained via backpropagation (<span class="chip" data-dim="d1" data-slug="parametric-update">Parametric Update</span>).% through the frozen base model. Therefore, the parametric modification is confined entirely to the prepended embedding vectors (<span class="chip" data-dim="d5" data-slug="partial">Partial</span>); all base model parameters remain frozen. The <span class="chip" data-dim="d4" data-slug="ad-hoc-permanent">Ad-hoc Permanent</span>, <span class="chip" data-dim="d4" data-slug="scheduled-permanent">Scheduled Permanent</span> coordinate means trained soft prompt tensors must be registered as distinct parametric artifacts in the system configuration record: deploying a different soft prompt tensor with the same frozen base model constitutes a parametric modification to the deployed system and requires version control and behavioral regression testing against the task coverage specification defined during original validation.</div><p class="provenance">Verbatim from the paper — Inference-Time Adaptation</p></section>
   
   
   
   <section class="stack"><h2>Nearest profiles</h2><p class="computed"><a href="../../techniques/partft/">FT (partial)</a> <span style="color:var(--text-muted)">(0.04)</span>, <a href="../../techniques/fsl/">FSL</a> <span style="color:var(--text-muted)">(0.21)</span>, <a href="../../techniques/peft/">PEFT (LoRA, adapters)</a> <span style="color:var(--text-muted)">(0.21)</span>, <a href="../../techniques/reft/">ReFT</a> <span style="color:var(--text-muted)">(0.22)</span>, <a href="../../techniques/metalrn/">Meta-Learning</a> <span style="color:var(--text-muted)">(0.29)</span></p><p class="provenance">Computed from the taxonomy data (Gower distance over all six dimensions)</p></section>
+  <section class="stack"><h2>References</h2><ol class="reflist"><li id="ref-lester_power_2021"><span class="ref__n">[113]</span> <span class="ref__body">Brian Lester, Rami Al-Rfou, and Noah Constant 2021. <a href="https://doi.org/10.18653/v1/2021.emnlp-main.243">The Power of Scale for Parameter-Efficient Prompt Tuning</a>. <span class="ref__venue">Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing</span></span></li><li id="ref-li_prefix-tuning_2021"><span class="ref__n">[121]</span> <span class="ref__body">Xiang Lisa Li, and Percy Liang 2021. <a href="https://doi.org/10.18653/v1/2021.acl-long.353">Prefix-Tuning: Optimizing Continuous Prompts for Generation</a>. <span class="ref__venue">Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 1: Long Papers)</span></span></li></ol><p class="provenance">Numbered as in the paper</p></section>
   <section class="stack">
     <h2>Cite this row</h2>
     <pre>Prompt Learning — six-dimensional profile
@@ -78,10 +79,12 @@ Source: arXiv:2608.06246</pre>
         </ul>
       </div>
       <div>
-        <p class="eyebrow">Version</p>
+        <p class="eyebrow">Versions</p>
         <ul>
-          <li>Taxonomy v1.0.0</li>
-          <li style="opacity:.75">Released 2026-08-06</li>
+          <li><strong>Taxonomy v1.0.0</strong>
+            <span style="opacity:.75">&mdash; the data, released
+            2026-08-06</span></li>
+          <li style="opacity:.75">Site built 2026-08-07 · <a href="https://github.com/ki-smile/post-training-taxonomy/commit/6c134bc">6c134bc</a></li>
           <li><a href="https://github.com/ki-smile/post-training-taxonomy/blob/main/CHANGELOG.md">Changelog</a></li>
         </ul>
       </div>

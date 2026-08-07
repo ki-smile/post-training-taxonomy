@@ -8,7 +8,9 @@ import hashlib
 import html
 import pathlib
 
-from scripts.version import RELEASED, VERSION
+from scripts.version import (  # noqa: F401  (re-exported for pages.py)
+    TAXONOMY_RELEASED, TAXONOMY_VERSION, site_built, site_commit,
+)
 
 ARXIV_ID = "arXiv:2608.06246"
 ARXIV_URL = "https://arxiv.org/abs/2608.06246"
@@ -86,6 +88,10 @@ def page(title, body, *, depth=1, description="", current=None, scripts=()):
     `depth` is how many directories below docs/ the page sits, so asset
     paths stay relative and the site works from any base URL.
     """
+    _built = site_built()
+    _sha = site_commit()
+    _commit = (f' · <a href="{REPO_URL}/commit/{_sha}">{_sha}</a>') if _sha else ""
+
     up = "../" * depth if depth else ""
     prefix = up.rstrip("/") or "."
     items = []
@@ -150,10 +156,12 @@ def page(title, body, *, depth=1, description="", current=None, scripts=()):
         </ul>
       </div>
       <div>
-        <p class="eyebrow">Version</p>
+        <p class="eyebrow">Versions</p>
         <ul>
-          <li>Taxonomy v{VERSION}</li>
-          <li style="opacity:.75">Released {RELEASED}</li>
+          <li><strong>Taxonomy v{TAXONOMY_VERSION}</strong>
+            <span style="opacity:.75">&mdash; the data, released
+            {TAXONOMY_RELEASED}</span></li>
+          <li style="opacity:.75">Site built {_built}{_commit}</li>
           <li><a href="{REPO_URL}/blob/main/CHANGELOG.md">Changelog</a></li>
         </ul>
       </div>

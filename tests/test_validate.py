@@ -66,11 +66,31 @@ def test_relation_without_a_real_quote_fails(tmp_path):
     assert any("source quote" in m for m in validate_data(root))
 
 
-def test_venue_name_in_docs_fails(tmp_path):
+def test_publication_status_in_docs_fails(tmp_path):
     root = _copy(tmp_path)
     (root / "docs").mkdir(exist_ok=True)
     (root / "docs/index.html").write_text("<p>Submitted to a journal</p>")
-    assert any("venue/status" in m for m in validate_site(root))
+    assert any("publication-status" in m.lower() for m in validate_site(root))
+
+
+def test_bare_venue_name_outside_a_bibliography_fails(tmp_path):
+    root = _copy(tmp_path)
+    (root / "docs").mkdir(exist_ok=True)
+    (root / "docs/index.html").write_text("<p>This paper appears in ACM TOCS.</p>")
+    assert any("venue name" in m.lower() for m in validate_site(root))
+
+
+def test_publisher_name_inside_a_reference_list_is_allowed(tmp_path):
+    """A bibliography is full of publisher names; they describe cited works,
+    not where this paper went."""
+    root = _copy(tmp_path)
+    (root / "docs").mkdir(exist_ok=True)
+    (root / "docs/index.html").write_text(
+        '<ol class="reflist"><li id="ref-x">'
+        'Someone 2020. A Paper. <span class="ref__venue">ACM Computing Surveys</span>'
+        "</li></ol>"
+    )
+    assert not any("venue name" in m.lower() for m in validate_site(root))
 
 
 def test_forbidden_modal_verb_in_governance_fails(tmp_path):

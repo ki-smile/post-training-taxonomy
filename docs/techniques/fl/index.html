@@ -10,7 +10,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin
       href="../../fonts/DMMono-500-latin.woff2">
 <link rel="stylesheet" href="../../css/tokens.css?v=58bece12">
-<link rel="stylesheet" href="../../css/style.css?v=6df9ced0">
+<link rel="stylesheet" href="../../css/style.css?v=250b4b0b">
 <script>
   // Set the theme before first paint to avoid a flash.
   (function () {
@@ -39,11 +39,12 @@
     <p class="provenance">In brief — site editorial, not from the paper</p>
     <p>Trains across many devices or institutions without centralising their data — each site computes updates locally and only those are shared.</p>
   </div>
-  <section class="stack"><h2>Definition</h2><div class="verbatim">FL trains a global model by aggregating gradient updates from local models on decentralized datasets, ensuring raw training data never leaves local devices <sup class="cite" data-cite="kairouz_advances_2021,mcmahan_communication-efficient_2023">[ref]</sup>. Its <span class="chip" data-dim="d1" data-slug="parametric-update">Parametric Update</span> classification reflects that FL does execute GD and produce formal weight modifications—distinguishing it from pipeline-mediated data strategies—but the critical structural differentiator is <span class="chip" data-dim="d3" data-slug="decentralized">Decentralized</span>: no centralized training corpus exists. Each client computes gradients locally on its private data shard and transmits only model updates (weight deltas or gradients) to the server for aggregation; raw data never leaves the originating device. This decentralized data geometry is what justifies <span class="chip" data-dim="d2" data-slug="privacy-preservation">Privacy Preservation</span> as a D2 (Goal): FL does not merely apply privacy as a constraint layered onto a task-training objective—privacy preservation is an intrinsic structural property of the data access pattern, not an add-on mechanism. The absence of centralized training data means that data-quality auditing, distributional characterization, and bias assessment must be delegated to client-local verification processes or statistical reporting protocols; the server cannot directly inspect the training corpus, making third-party data-provenance attestation mechanisms a system-engineering requirement rather than an optional audit supplement.</div><p class="provenance">Verbatim from the paper — Data-Centric and Privacy-Preserving Methods</p></section>
+  <section class="stack"><h2>Definition</h2><div class="verbatim">FL trains a global model by aggregating gradient updates from local models on decentralized datasets, ensuring raw training data never leaves local devices <sup class="cite">[<a href="#ref-kairouz_advances_2021" class="cite__n" title="Peter Kairouz, and H. Brendan McMahan (2021). Advances and Open Problems in Federated Learning">103</a>, <a href="#ref-mcmahan_communication-efficient_2023" class="cite__n" title="Brendan McMahan, Eider Moore, Daniel Ramage, Seth Hampson, and Blaise Aguera y Arcas (2017). Communication-Efficient Learning of Deep Networks from Decentralized Data">137</a>]</sup>. Its <span class="chip" data-dim="d1" data-slug="parametric-update">Parametric Update</span> classification reflects that FL does execute GD and produce formal weight modifications—distinguishing it from pipeline-mediated data strategies—but the critical structural differentiator is <span class="chip" data-dim="d3" data-slug="decentralized">Decentralized</span>: no centralized training corpus exists. Each client computes gradients locally on its private data shard and transmits only model updates (weight deltas or gradients) to the server for aggregation; raw data never leaves the originating device. This decentralized data geometry is what justifies <span class="chip" data-dim="d2" data-slug="privacy-preservation">Privacy Preservation</span> as a D2 (Goal): FL does not merely apply privacy as a constraint layered onto a task-training objective—privacy preservation is an intrinsic structural property of the data access pattern, not an add-on mechanism. The absence of centralized training data means that data-quality auditing, distributional characterization, and bias assessment must be delegated to client-local verification processes or statistical reporting protocols; the server cannot directly inspect the training corpus, making third-party data-provenance attestation mechanisms a system-engineering requirement rather than an optional audit supplement.</div><p class="provenance">Verbatim from the paper — Data-Centric and Privacy-Preserving Methods</p></section>
   
   
   
   <section class="stack"><h2>Nearest profiles</h2><p class="computed"><a href="../../techniques/dpft/">DP-FT</a> <span style="color:var(--text-muted)">(0.45)</span>, <a href="../../techniques/calib/">Calibration</a> <span style="color:var(--text-muted)">(0.58)</span>, <a href="../../techniques/retraining/">Retraining</a> <span style="color:var(--text-muted)">(0.58)</span>, <a href="../../techniques/training/">Training</a> <span style="color:var(--text-muted)">(0.58)</span>, <a href="../../techniques/fullft/">FT (full)</a> <span style="color:var(--text-muted)">(0.62)</span></p><p class="provenance">Computed from the taxonomy data (Gower distance over all six dimensions)</p></section>
+  <section class="stack"><h2>References</h2><ol class="reflist"><li id="ref-kairouz_advances_2021"><span class="ref__n">[103]</span> <span class="ref__body">Peter Kairouz, and H. Brendan McMahan 2021. <a href="https://doi.org/10.1561/2200000083">Advances and Open Problems in Federated Learning</a>. <span class="ref__venue">Foundations and Trends in Machine Learning</span></span></li><li id="ref-mcmahan_communication-efficient_2023"><span class="ref__n">[137]</span> <span class="ref__body">Brendan McMahan, Eider Moore, Daniel Ramage, Seth Hampson, and Blaise Aguera y Arcas 2017. <a href="https://proceedings.mlr.press/v54/mcmahan17a.html">Communication-Efficient Learning of Deep Networks from Decentralized Data</a>. <span class="ref__venue">Proceedings of the 20th International Conference on Artificial Intelligence and Statistics</span></span></li></ol><p class="provenance">Numbered as in the paper</p></section>
   <section class="stack">
     <h2>Cite this row</h2>
     <pre>FL — six-dimensional profile
@@ -78,10 +79,12 @@ Source: arXiv:2608.06246</pre>
         </ul>
       </div>
       <div>
-        <p class="eyebrow">Version</p>
+        <p class="eyebrow">Versions</p>
         <ul>
-          <li>Taxonomy v1.0.0</li>
-          <li style="opacity:.75">Released 2026-08-06</li>
+          <li><strong>Taxonomy v1.0.0</strong>
+            <span style="opacity:.75">&mdash; the data, released
+            2026-08-06</span></li>
+          <li style="opacity:.75">Site built 2026-08-07 · <a href="https://github.com/ki-smile/post-training-taxonomy/commit/6c134bc">6c134bc</a></li>
           <li><a href="https://github.com/ki-smile/post-training-taxonomy/blob/main/CHANGELOG.md">Changelog</a></li>
         </ul>
       </div>

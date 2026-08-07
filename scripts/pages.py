@@ -2,11 +2,13 @@
 
 from scripts.layout import (
     ARXIV_ID, ARXIV_URL, AUDIO_FILE, AUDIO_LENGTH, AUDIO_TITLE, DISCLAIMER,
-    RELEASED, REPO_URL, SMAILE_NAME, SMAILE_URL, VERSION, VIDEO_CHANNEL,
+    REPO_URL, SMAILE_NAME, SMAILE_URL, TAXONOMY_RELEASED,
+    TAXONOMY_VERSION, VIDEO_CHANNEL,
     VIDEO_ID, VIDEO_TITLE, VIDEO_URL, esc,
 )
 from scripts.render import (
-    DIM_KEYS, chip_list, dim_label, separator_prose, strip, technique_link,
+    DIM_KEYS, chip_list, cited_keys, dim_label, reference_list,
+    resolve_citations, separator_prose, strip, technique_link,
 )
 
 EDITORIAL_LABEL = (
@@ -20,6 +22,7 @@ def technique_pages(d):
     tax, dims = d["taxonomy"], d["dimensions"]
     derived = d["derived"] or {}
     rels = (d["relations"] or {}).get("relations", [])
+    refs = (d["references"] or {}).get("references", {})
     by_slug = {t["slug"]: t for t in tax["techniques"]}
 
     for t in tax["techniques"]:
@@ -84,7 +87,7 @@ def technique_pages(d):
         if t.get("classification_tension"):
             tension = (
                 f'<section class="stack"><h2>Classification tensions</h2>'
-                f'<div class="verbatim">{t["classification_tension"]}</div>'
+                f'<div class="verbatim">{resolve_citations(t["classification_tension"], refs)}</div>'
                 f'<p class="provenance">Appendix C</p></section>'
             )
 
@@ -92,10 +95,16 @@ def technique_pages(d):
         if t.get("definition_verbatim"):
             definition = (
                 f'<section class="stack"><h2>Definition</h2>'
-                f'<div class="verbatim">{t["definition_verbatim"]}</div>'
+                f'<div class="verbatim">'
+                f'{resolve_citations(t["definition_verbatim"], refs)}</div>'
                 f'<p class="provenance">Verbatim from the paper — '
                 f'{esc(t.get("source_ref", ""))}</p></section>'
             )
+
+        reflist = reference_list(
+            cited_keys(t.get("definition_verbatim"), t.get("classification_tension")),
+            refs,
+        )
 
         others = [x for x in tax["techniques"] if x["slug"] != t["slug"]][:1]
         compare = (
@@ -118,6 +127,7 @@ def technique_pages(d):
   {tension}
   {rel_html}
   {near_html}
+  {reflist}
   <section class="stack">
     <h2>Cite this row</h2>
     <pre>{esc(t["name"])} — six-dimensional profile
@@ -1040,13 +1050,15 @@ def data_page(d):
     body = f"""
 <div class="wrap section stack">
   <h1>Download the data</h1>
-  <p class="eyebrow">Version {VERSION} &middot; released {RELEASED}</p>
+  <p class="eyebrow">Taxonomy v{TAXONOMY_VERSION} &middot; released {TAXONOMY_RELEASED}</p>
   <p>The taxonomy is published as data, not only as a website. Every profile is
      machine-extracted from the manuscript and cross-checked against the
      authors' analysis notebook.</p>
   <p class="callout"><strong>Pin the version you cite.</strong> Profile values
      are the dataset's contract: a change to any of them moves the major
-     version, so <code>{VERSION}</code> will always mean the same 49 profiles.
+     version, so <code>{TAXONOMY_VERSION}</code> will always mean the same 49
+     profiles. The site is versioned separately &mdash; a redesign never moves
+     the data version.
      Prose revisions move the minor version only.
      <a href="{REPO_URL}/blob/main/CHANGELOG.md">See the changelog</a>.</p>
 
@@ -1094,7 +1106,7 @@ def data_page(d):
     <pre>Afdideh, F., Seoane, F., &amp; Abtahi, F. (2026).
 A Six-Dimensional Taxonomy of Post-Training Adaptation Techniques
 with Applications in AI Governance. {ARXIV_ID}
-Dataset version {VERSION} ({RELEASED}).</pre>
+Taxonomy version {TAXONOMY_VERSION} ({TAXONOMY_RELEASED}).</pre>
     <p>Released under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
   </section>
 </div>

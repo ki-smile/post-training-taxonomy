@@ -527,3 +527,37 @@ pre {
   .lifecycle { grid-template-columns: 1fr; gap: var(--sp-3); }
   .lifecycle__line { min-height: 3px; width: 100%; }
 }
+
+/* ---------- Citations and references ---------- */
+
+sup.cite { font-size: .72em; white-space: nowrap; }
+.cite__n {
+  color: var(--accent);
+  text-decoration: none;
+  padding: 0 1px;
+  border-bottom: 1px dotted currentColor;
+  cursor: help;
+}
+.cite__n:hover { border-bottom-style: solid; }
+
+.reflist {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: var(--sp-2);
+  font-size: var(--step--1);
+}
+.reflist li {
+  display: grid;
+  grid-template-columns: 3.2rem 1fr;
+  gap: var(--sp-2);
+  align-items: baseline;
+  scroll-margin-top: 5rem;      /* clear the sticky nav when jumped to */
+}
+.reflist li:target .ref__body {
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  border-radius: var(--radius);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 14%, transparent);
+}
+.ref__n { font-family: var(--font-mono); color: var(--text-muted); }
+.ref__venue { color: var(--text-muted); }

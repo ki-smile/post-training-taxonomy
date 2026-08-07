@@ -10,7 +10,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin
       href="../../fonts/DMMono-500-latin.woff2">
 <link rel="stylesheet" href="../../css/tokens.css?v=58bece12">
-<link rel="stylesheet" href="../../css/style.css?v=6df9ced0">
+<link rel="stylesheet" href="../../css/style.css?v=250b4b0b">
 <script>
   // Set the theme before first paint to avoid a flash.
   (function () {
@@ -39,11 +39,12 @@
     <p class="provenance">In brief — site editorial, not from the paper</p>
     <p>Instruction-tunes on paired image-and-text examples so a multimodal model follows directions about what it is shown.</p>
   </div>
-  <section class="stack"><h2>Definition</h2><div class="verbatim">Multimodal Instruction Tuning fine-tunes (<span class="chip" data-dim="d1" data-slug="parametric-update">Parametric Update</span>) a multimodal model on multimodal instruction-response pairs (<span class="chip" data-dim="d3" data-slug="paired-multimodal">Paired Multimodal</span>) teaching the model to follow natural-language instructions <sup class="cite" data-cite="liu_visual_2023">[ref]</sup>. Its D5 (Scope) varies by implementation (<span class="chip" data-dim="d5" data-slug="partial">Partial</span>, <span class="chip" data-dim="d5" data-slug="whole-model">Whole-Model</span>). The D3 (Data Requirements) coordinate of <span class="chip" data-dim="d3" data-slug="paired-multimodal">Paired Multimodal</span> establishes a highly distinctive data-provenance dependency: unlike text-only instruction tuning, multimodal datasets require perfectly synchronized, temporally aligned instances across modalities. This severely raises the bar for annotation quality pipelines and introduces strict cross-modal consistency as a mandatory validation criterion. From an engineering and system integration perspective, this technique constitutes a high-impact, <span class="chip" data-dim="d5" data-slug="partial">Partial</span>, <span class="chip" data-dim="d5" data-slug="whole-model">Whole-Model</span> modification event that fundamentally alters the model&#x27;s core behavioral envelope across all supported modalities simultaneously. Consequently, it mandates exhaustive, cross-modal regression testing to mathematically guarantee that optimization and capability alignment in one specific modality do not destructively interfere with or degrade baseline performance in the others.</div><p class="provenance">Verbatim from the paper — Calibration, Personalization, and Multimodal Adaptation</p></section>
+  <section class="stack"><h2>Definition</h2><div class="verbatim">Multimodal Instruction Tuning fine-tunes (<span class="chip" data-dim="d1" data-slug="parametric-update">Parametric Update</span>) a multimodal model on multimodal instruction-response pairs (<span class="chip" data-dim="d3" data-slug="paired-multimodal">Paired Multimodal</span>) teaching the model to follow natural-language instructions <sup class="cite">[<a href="#ref-liu_visual_2023" class="cite__n" title="Haotian Liu, Chunyuan Li, Qingyang Wu, and Yong Jae Lee (2023). Visual Instruction Tuning">124</a>]</sup>. Its D5 (Scope) varies by implementation (<span class="chip" data-dim="d5" data-slug="partial">Partial</span>, <span class="chip" data-dim="d5" data-slug="whole-model">Whole-Model</span>). The D3 (Data Requirements) coordinate of <span class="chip" data-dim="d3" data-slug="paired-multimodal">Paired Multimodal</span> establishes a highly distinctive data-provenance dependency: unlike text-only instruction tuning, multimodal datasets require perfectly synchronized, temporally aligned instances across modalities. This severely raises the bar for annotation quality pipelines and introduces strict cross-modal consistency as a mandatory validation criterion. From an engineering and system integration perspective, this technique constitutes a high-impact, <span class="chip" data-dim="d5" data-slug="partial">Partial</span>, <span class="chip" data-dim="d5" data-slug="whole-model">Whole-Model</span> modification event that fundamentally alters the model&#x27;s core behavioral envelope across all supported modalities simultaneously. Consequently, it mandates exhaustive, cross-modal regression testing to mathematically guarantee that optimization and capability alignment in one specific modality do not destructively interfere with or degrade baseline performance in the others.</div><p class="provenance">Verbatim from the paper — Calibration, Personalization, and Multimodal Adaptation</p></section>
   
   
   
   <section class="stack"><h2>Nearest profiles</h2><p class="computed"><a href="../../techniques/crossmodel/">Cross-Modal Alignment</a> <span style="color:var(--text-muted)">(0.25)</span>, <a href="../../techniques/modeladapter/">Modality-Spec. Adapters</a> <span style="color:var(--text-muted)">(0.28)</span>, <a href="../../techniques/dpo/">DPO</a> <span style="color:var(--text-muted)">(0.36)</span>, <a href="../../techniques/rlaif/">RLAIF/CAI</a> <span style="color:var(--text-muted)">(0.36)</span>, <a href="../../techniques/sft/">SFT</a> <span style="color:var(--text-muted)">(0.38)</span></p><p class="provenance">Computed from the taxonomy data (Gower distance over all six dimensions)</p></section>
+  <section class="stack"><h2>References</h2><ol class="reflist"><li id="ref-liu_visual_2023"><span class="ref__n">[124]</span> <span class="ref__body">Haotian Liu, Chunyuan Li, Qingyang Wu, and Yong Jae Lee 2023. <a href="https://proceedings.neurips.cc/paper_files/paper/2023/file/6dcf277ea32ce3288914faf369fe6de0-Paper-Conference.pdf">Visual Instruction Tuning</a>. <span class="ref__venue">Advances in Neural Information Processing Systems</span></span></li></ol><p class="provenance">Numbered as in the paper</p></section>
   <section class="stack">
     <h2>Cite this row</h2>
     <pre>Multimodal Instr. Tuning — six-dimensional profile
@@ -78,10 +79,12 @@ Source: arXiv:2608.06246</pre>
         </ul>
       </div>
       <div>
-        <p class="eyebrow">Version</p>
+        <p class="eyebrow">Versions</p>
         <ul>
-          <li>Taxonomy v1.0.0</li>
-          <li style="opacity:.75">Released 2026-08-06</li>
+          <li><strong>Taxonomy v1.0.0</strong>
+            <span style="opacity:.75">&mdash; the data, released
+            2026-08-06</span></li>
+          <li style="opacity:.75">Site built 2026-08-07 · <a href="https://github.com/ki-smile/post-training-taxonomy/commit/6c134bc">6c134bc</a></li>
           <li><a href="https://github.com/ki-smile/post-training-taxonomy/blob/main/CHANGELOG.md">Changelog</a></li>
         </ul>
       </div>

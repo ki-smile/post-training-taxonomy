@@ -10,7 +10,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin
       href="../../fonts/DMMono-500-latin.woff2">
 <link rel="stylesheet" href="../../css/tokens.css?v=58bece12">
-<link rel="stylesheet" href="../../css/style.css?v=6df9ced0">
+<link rel="stylesheet" href="../../css/style.css?v=250b4b0b">
 <script>
   // Set the theme before first paint to avoid a flash.
   (function () {
@@ -39,11 +39,12 @@
     <p class="provenance">In brief — site editorial, not from the paper</p>
     <p>Continual learning where the task stays the same but the input distribution keeps shifting, so the model must track a moving target.</p>
   </div>
-  <section class="stack"><h2>Definition</h2><div class="verbatim">DIL is the open-ended (<span class="chip" data-dim="d4" data-slug="unbounded-cumulative">Unbounded Cumulative</span>) variant of CL: the model encounters a potentially indefinite sequence of domains or class distributions without access to prior training data and—critically—without a task identifier at inference time <sup class="cite" data-cite="van_de_ven_three_2022">[ref]</sup>. This absence of inference-time task identity is the defining coordinate divergence from TIL. The <span class="chip" data-dim="d5" data-slug="partial">Partial</span>, <span class="chip" data-dim="d5" data-slug="whole-model">Whole-Model</span> scope reflects that some DIL approaches retrain the entire network while others selectively update domain-adaptive components. The compound D2 (Goal) profile—<span class="chip" data-dim="d2" data-slug="continual-adaptation">Continual Adaptation</span>, <span class="chip" data-dim="d2" data-slug="drift-remediation">Drift Remediation</span>—captures DIL&#x27;s dual operational goal: it simultaneously accumulates new distributional knowledge (<span class="chip" data-dim="d2" data-slug="continual-adaptation">Continual Adaptation</span>) and preserves performance on prior distributions that may re-emerge (<span class="chip" data-dim="d2" data-slug="drift-remediation">Drift Remediation</span>). The <span class="chip" data-dim="d6" data-slug="dl">DL</span>, <span class="chip" data-dim="d6" data-slug="fm">FM</span> ceiling is imposed by the same supersession mechanism as TIL: at the LLM tier, continued pre-training and domain-adaptive PEFT subsume DIL&#x27;s goals. DIL&#x27;s unbounded modification trajectory is the most operationally demanding persistence profile in the taxonomy: the system&#x27;s behavioral state cannot be fully characterized at any fixed checkpoint, necessitating continuous runtime monitoring with per-distribution performance tracking and explicit drift-impact assessments at each domain boundary transition.</div><p class="provenance">Verbatim from the paper — Temporal Adaptation and Maintenance</p></section>
+  <section class="stack"><h2>Definition</h2><div class="verbatim">DIL is the open-ended (<span class="chip" data-dim="d4" data-slug="unbounded-cumulative">Unbounded Cumulative</span>) variant of CL: the model encounters a potentially indefinite sequence of domains or class distributions without access to prior training data and—critically—without a task identifier at inference time <sup class="cite">[<a href="#ref-van_de_ven_three_2022" class="cite__n" title="Gido M. van de Ven, Tinne Tuytelaars, and Andreas S. Tolias (2022). Three types of incremental learning">199</a>]</sup>. This absence of inference-time task identity is the defining coordinate divergence from TIL. The <span class="chip" data-dim="d5" data-slug="partial">Partial</span>, <span class="chip" data-dim="d5" data-slug="whole-model">Whole-Model</span> scope reflects that some DIL approaches retrain the entire network while others selectively update domain-adaptive components. The compound D2 (Goal) profile—<span class="chip" data-dim="d2" data-slug="continual-adaptation">Continual Adaptation</span>, <span class="chip" data-dim="d2" data-slug="drift-remediation">Drift Remediation</span>—captures DIL&#x27;s dual operational goal: it simultaneously accumulates new distributional knowledge (<span class="chip" data-dim="d2" data-slug="continual-adaptation">Continual Adaptation</span>) and preserves performance on prior distributions that may re-emerge (<span class="chip" data-dim="d2" data-slug="drift-remediation">Drift Remediation</span>). The <span class="chip" data-dim="d6" data-slug="dl">DL</span>, <span class="chip" data-dim="d6" data-slug="fm">FM</span> ceiling is imposed by the same supersession mechanism as TIL: at the LLM tier, continued pre-training and domain-adaptive PEFT subsume DIL&#x27;s goals. DIL&#x27;s unbounded modification trajectory is the most operationally demanding persistence profile in the taxonomy: the system&#x27;s behavioral state cannot be fully characterized at any fixed checkpoint, necessitating continuous runtime monitoring with per-distribution performance tracking and explicit drift-impact assessments at each domain boundary transition.</div><p class="provenance">Verbatim from the paper — Temporal Adaptation and Maintenance</p></section>
   
   
   <section class="stack"><h2>Related techniques</h2><ul class="stack"><li><span class="eyebrow">supersession</span> <a href="../../techniques/ssl/">SSL / CPT</a> — Continued pre-training and domain-adaptive PEFT subsume DIL&#x27;s goals at the LLM tier<br><q style="color:var(--text-muted);font-size:var(--step--1)">ceiling is imposed by the same supersession mechanism as TIL: at the LLM tier, continued pre-training and domain-adaptive PEFT subsume DIL</q> <span class="provenance">Appendix C, Temporal Adaptation and Maintenance</span></li></ul></section>
   <section class="stack"><h2>Nearest profiles</h2><p class="computed"><a href="../../techniques/cl/">CL</a> <span style="color:var(--text-muted)">(0.33)</span>, <a href="../../techniques/til/">TIL</a> <span style="color:var(--text-muted)">(0.36)</span>, <a href="../../techniques/tta/">TTA</a> <span style="color:var(--text-muted)">(0.42)</span>, <a href="../../techniques/retraining/">Retraining</a> <span style="color:var(--text-muted)">(0.43)</span>, <a href="../../techniques/ssl/">SSL / CPT</a> <span style="color:var(--text-muted)">(0.50)</span></p><p class="provenance">Computed from the taxonomy data (Gower distance over all six dimensions)</p></section>
+  <section class="stack"><h2>References</h2><ol class="reflist"><li id="ref-van_de_ven_three_2022"><span class="ref__n">[199]</span> <span class="ref__body">Gido M. van de Ven, Tinne Tuytelaars, and Andreas S. Tolias 2022. <a href="https://doi.org/10.1038/s42256-022-00568-3">Three types of incremental learning</a>. <span class="ref__venue">Nat Mach Intell</span></span></li></ol><p class="provenance">Numbered as in the paper</p></section>
   <section class="stack">
     <h2>Cite this row</h2>
     <pre>DIL — six-dimensional profile
@@ -78,10 +79,12 @@ Source: arXiv:2608.06246</pre>
         </ul>
       </div>
       <div>
-        <p class="eyebrow">Version</p>
+        <p class="eyebrow">Versions</p>
         <ul>
-          <li>Taxonomy v1.0.0</li>
-          <li style="opacity:.75">Released 2026-08-06</li>
+          <li><strong>Taxonomy v1.0.0</strong>
+            <span style="opacity:.75">&mdash; the data, released
+            2026-08-06</span></li>
+          <li style="opacity:.75">Site built 2026-08-07 · <a href="https://github.com/ki-smile/post-training-taxonomy/commit/6c134bc">6c134bc</a></li>
           <li><a href="https://github.com/ki-smile/post-training-taxonomy/blob/main/CHANGELOG.md">Changelog</a></li>
         </ul>
       </div>

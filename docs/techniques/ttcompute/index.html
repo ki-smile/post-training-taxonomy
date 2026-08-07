@@ -10,7 +10,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin
       href="../../fonts/DMMono-500-latin.woff2">
 <link rel="stylesheet" href="../../css/tokens.css?v=58bece12">
-<link rel="stylesheet" href="../../css/style.css?v=6df9ced0">
+<link rel="stylesheet" href="../../css/style.css?v=250b4b0b">
 <script>
   // Set the theme before first paint to avoid a flash.
   (function () {
@@ -39,11 +39,12 @@
     <p class="provenance">In brief — site editorial, not from the paper</p>
     <p>Spends more computation at answer time — sampling more, searching further, reasoning longer — without changing a single weight.</p>
   </div>
-  <section class="stack"><h2>Definition</h2><div class="verbatim">Test-Time Compute Scaling dynamically allocates increased inference-time computation budget (<span class="chip" data-dim="d1" data-slug="inference-time-search">Inference-Time Search</span>) to systematically improve reasoning quality (<span class="chip" data-dim="d2" data-slug="reasoning">Reasoning</span>) without modifying any underlying model parameters (<span class="chip" data-dim="d5" data-slug="input-output-space">Input/Output-Space</span>) <sup class="cite" data-cite="snell_scaling_2024">[ref]</sup>. Unlike TTA, it executes absolutely no gradient updates; unlike PE, its performance gain derives mechanically from internal search algorithms and multi-step generation topologies (<span class="chip" data-dim="d3" data-slug="zero-shot">Zero-Shot</span>) rather than explicit input phrasing. Its non-parametric D1 (Mechanism) classification and <span class="chip" data-dim="d4" data-slug="session-ephemeral">Session-Ephemeral</span> coordinate confirm that it leaves the model architecture mathematically unchanged. Test-time compute scaling serves as the foundational mechanism driving modern reasoning models&#x27; characteristic ``extended thinking&#x27;&#x27; behavior: by generating multiple candidate solutions, applying reward-model reranking, or algorithmically exploring a tree of intermediate reasoning steps, the system intentionally trades inference-time compute latency for output quality <sup class="cite" data-cite="yao_tree_2023">[ref]</sup>. From a system engineering and validation perspective, test-time compute scaling is strictly an execution strategy rather than an artifact modification. Because the base model weights remain untouched, it bypasses parameter-level regression testing. However, because dynamic search algorithms fundamentally alter the determinism, upper latency bounds, and operational behavioral envelope of the system, this strategy demands rigorous validation through execution-state stress testing.</div><p class="provenance">Verbatim from the paper — Inference-Time Adaptation</p></section>
+  <section class="stack"><h2>Definition</h2><div class="verbatim">Test-Time Compute Scaling dynamically allocates increased inference-time computation budget (<span class="chip" data-dim="d1" data-slug="inference-time-search">Inference-Time Search</span>) to systematically improve reasoning quality (<span class="chip" data-dim="d2" data-slug="reasoning">Reasoning</span>) without modifying any underlying model parameters (<span class="chip" data-dim="d5" data-slug="input-output-space">Input/Output-Space</span>) <sup class="cite">[<a href="#ref-snell_scaling_2024" class="cite__n" title="Charlie Victor Snell, Jaehoon Lee, Kelvin Xu, and Aviral Kumar (2024). Scaling LLM Test-Time Compute Optimally Can be More Effective than Scaling Parameters for Reasoning">184</a>]</sup>. Unlike TTA, it executes absolutely no gradient updates; unlike PE, its performance gain derives mechanically from internal search algorithms and multi-step generation topologies (<span class="chip" data-dim="d3" data-slug="zero-shot">Zero-Shot</span>) rather than explicit input phrasing. Its non-parametric D1 (Mechanism) classification and <span class="chip" data-dim="d4" data-slug="session-ephemeral">Session-Ephemeral</span> coordinate confirm that it leaves the model architecture mathematically unchanged. Test-time compute scaling serves as the foundational mechanism driving modern reasoning models&#x27; characteristic ``extended thinking&#x27;&#x27; behavior: by generating multiple candidate solutions, applying reward-model reranking, or algorithmically exploring a tree of intermediate reasoning steps, the system intentionally trades inference-time compute latency for output quality <sup class="cite">[<a href="#ref-yao_tree_2023" class="cite__n" title="Shunyu Yao et al. (2023). Tree of thoughts: deliberate problem solving with large language models">221</a>]</sup>. From a system engineering and validation perspective, test-time compute scaling is strictly an execution strategy rather than an artifact modification. Because the base model weights remain untouched, it bypasses parameter-level regression testing. However, because dynamic search algorithms fundamentally alter the determinism, upper latency bounds, and operational behavioral envelope of the system, this strategy demands rigorous validation through execution-state stress testing.</div><p class="provenance">Verbatim from the paper — Inference-Time Adaptation</p></section>
   
   
   
   <section class="stack"><h2>Nearest profiles</h2><p class="computed"><a href="../../techniques/pe/">PE</a> <span style="color:var(--text-muted)">(0.42)</span>, <a href="../../techniques/icl/">ICL</a> <span style="color:var(--text-muted)">(0.50)</span>, <a href="../../techniques/apo/">APO</a> <span style="color:var(--text-muted)">(0.58)</span>, <a href="../../techniques/ce/">CE</a> <span style="color:var(--text-muted)">(0.67)</span>, <a href="../../techniques/rag/">RAG</a> <span style="color:var(--text-muted)">(0.67)</span></p><p class="provenance">Computed from the taxonomy data (Gower distance over all six dimensions)</p></section>
+  <section class="stack"><h2>References</h2><ol class="reflist"><li id="ref-snell_scaling_2024"><span class="ref__n">[184]</span> <span class="ref__body">Charlie Victor Snell, Jaehoon Lee, Kelvin Xu, and Aviral Kumar 2024. <a href="https://openreview.net/forum?id=4FWAwZtd2n">Scaling LLM Test-Time Compute Optimally Can be More Effective than Scaling Parameters for Reasoning</a>.</span></li><li id="ref-yao_tree_2023"><span class="ref__n">[221]</span> <span class="ref__body">Shunyu Yao et al. 2023. Tree of thoughts: deliberate problem solving with large language models. <span class="ref__venue">Proceedings of the 37th International Conference on Neural Information Processing Systems</span></span></li></ol><p class="provenance">Numbered as in the paper</p></section>
   <section class="stack">
     <h2>Cite this row</h2>
     <pre>Test-Time Compute Scaling — six-dimensional profile
@@ -78,10 +79,12 @@ Source: arXiv:2608.06246</pre>
         </ul>
       </div>
       <div>
-        <p class="eyebrow">Version</p>
+        <p class="eyebrow">Versions</p>
         <ul>
-          <li>Taxonomy v1.0.0</li>
-          <li style="opacity:.75">Released 2026-08-06</li>
+          <li><strong>Taxonomy v1.0.0</strong>
+            <span style="opacity:.75">&mdash; the data, released
+            2026-08-06</span></li>
+          <li style="opacity:.75">Site built 2026-08-07 · <a href="https://github.com/ki-smile/post-training-taxonomy/commit/6c134bc">6c134bc</a></li>
           <li><a href="https://github.com/ki-smile/post-training-taxonomy/blob/main/CHANGELOG.md">Changelog</a></li>
         </ul>
       </div>

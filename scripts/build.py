@@ -24,7 +24,7 @@ DOCS = ROOT / "docs"
 def load():
     d = {}
     for name in ("taxonomy", "dimensions", "derived", "relations",
-                 "glossary", "discrepancies", "ambiguities"):
+                 "glossary", "discrepancies", "ambiguities", "references"):
         p = DATA / f"{name}.json"
         d[name] = json.loads(p.read_text()) if p.exists() else None
     return d

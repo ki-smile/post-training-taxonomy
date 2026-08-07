@@ -10,7 +10,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin
       href="../../fonts/DMMono-500-latin.woff2">
 <link rel="stylesheet" href="../../css/tokens.css?v=58bece12">
-<link rel="stylesheet" href="../../css/style.css?v=6df9ced0">
+<link rel="stylesheet" href="../../css/style.css?v=250b4b0b">
 <script>
   // Set the theme before first paint to avoid a flash.
   (function () {
@@ -39,11 +39,12 @@
     <p class="provenance">In brief — site editorial, not from the paper</p>
     <p>Adjusts the model&#x27;s confidence so its stated probabilities match how often it is actually right, leaving its accuracy unchanged.</p>
   </div>
-  <section class="stack"><h2>Definition</h2><div class="verbatim">Calibration post-hoc aligns a model&#x27;s output confidence scores with its empirical accuracy, correcting the systematic overconfidence or underconfidence produced by standard training objectives that optimize for discriminative accuracy rather than probabilistic faithfulness <sup class="cite" data-cite="platt_probabilistic_1999,guo_calibration_2017">[ref]</sup>. Calibration does not improve the model&#x27;s task accuracy, it improves the correspondence between the model&#x27;s stated confidence and its actual accuracy (<span class="chip" data-dim="d2" data-slug="reliability">Reliability</span>). From a system engineering and safety validation perspective, calibration operates not merely as a performance optimization, but as a critical operational safety constraint. Systems integrated into automated pipelines must mathematically bound their uncertainty; uncalibrated confidence scores inherently invalidate downstream threshold-based decision logic and fail-safe routing, mandating rigorous statistical auditing of calibration metrics.</div><p class="provenance">Verbatim from the paper — Calibration, Personalization, and Multimodal Adaptation</p></section>
+  <section class="stack"><h2>Definition</h2><div class="verbatim">Calibration post-hoc aligns a model&#x27;s output confidence scores with its empirical accuracy, correcting the systematic overconfidence or underconfidence produced by standard training objectives that optimize for discriminative accuracy rather than probabilistic faithfulness <sup class="cite">[<a href="#ref-guo_calibration_2017" class="cite__n" title="Chuan Guo, Geoff Pleiss, Yu Sun, and Kilian Q. Weinberger (2017). On calibration of modern neural networks">73</a>, <a href="#ref-platt_probabilistic_1999" class="cite__n" title="J. Platt (1999). Probabilistic Outputs for Support vector Machines and Comparisons to Regularized Likelihood Methods">158</a>]</sup>. Calibration does not improve the model&#x27;s task accuracy, it improves the correspondence between the model&#x27;s stated confidence and its actual accuracy (<span class="chip" data-dim="d2" data-slug="reliability">Reliability</span>). From a system engineering and safety validation perspective, calibration operates not merely as a performance optimization, but as a critical operational safety constraint. Systems integrated into automated pipelines must mathematically bound their uncertainty; uncalibrated confidence scores inherently invalidate downstream threshold-based decision logic and fail-safe routing, mandating rigorous statistical auditing of calibration metrics.</div><p class="provenance">Verbatim from the paper — Calibration, Personalization, and Multimodal Adaptation</p></section>
   
   
   
   <section class="stack"><h2>Nearest profiles</h2><p class="computed"><a href="../../techniques/lp/">LP</a> <span style="color:var(--text-muted)">(0.28)</span>, <a href="../../techniques/reft/">ReFT</a> <span style="color:var(--text-muted)">(0.35)</span>, <a href="../../techniques/peft/">PEFT (LoRA, adapters)</a> <span style="color:var(--text-muted)">(0.37)</span>, <a href="../../techniques/moe/">MoE</a> <span style="color:var(--text-muted)">(0.40)</span>, <a href="../../techniques/da/">DA</a> <span style="color:var(--text-muted)">(0.43)</span></p><p class="provenance">Computed from the taxonomy data (Gower distance over all six dimensions)</p></section>
+  <section class="stack"><h2>References</h2><ol class="reflist"><li id="ref-guo_calibration_2017"><span class="ref__n">[73]</span> <span class="ref__body">Chuan Guo, Geoff Pleiss, Yu Sun, and Kilian Q. Weinberger 2017. <a href="https://dl.acm.org/doi/10.5555/3305381.3305518">On calibration of modern neural networks</a>. <span class="ref__venue">Proceedings of the 34th International Conference on Machine Learning - Volume 70</span></span></li><li id="ref-platt_probabilistic_1999"><span class="ref__n">[158]</span> <span class="ref__body">J. Platt 1999. <a href="https://www.semanticscholar.org/paper/Probabilistic-Outputs-for-Support-vector-Machines-Platt/42e5ed832d4310ce4378c44d05570439df28a393">Probabilistic Outputs for Support vector Machines and Comparisons to Regularized Likelihood Methods</a>.</span></li></ol><p class="provenance">Numbered as in the paper</p></section>
   <section class="stack">
     <h2>Cite this row</h2>
     <pre>Calibration — six-dimensional profile
@@ -78,10 +79,12 @@ Source: arXiv:2608.06246</pre>
         </ul>
       </div>
       <div>
-        <p class="eyebrow">Version</p>
+        <p class="eyebrow">Versions</p>
         <ul>
-          <li>Taxonomy v1.0.0</li>
-          <li style="opacity:.75">Released 2026-08-06</li>
+          <li><strong>Taxonomy v1.0.0</strong>
+            <span style="opacity:.75">&mdash; the data, released
+            2026-08-06</span></li>
+          <li style="opacity:.75">Site built 2026-08-07 · <a href="https://github.com/ki-smile/post-training-taxonomy/commit/6c134bc">6c134bc</a></li>
           <li><a href="https://github.com/ki-smile/post-training-taxonomy/blob/main/CHANGELOG.md">Changelog</a></li>
         </ul>
       </div>

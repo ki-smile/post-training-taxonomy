@@ -10,7 +10,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin
       href="../../fonts/DMMono-500-latin.woff2">
 <link rel="stylesheet" href="../../css/tokens.css?v=58bece12">
-<link rel="stylesheet" href="../../css/style.css?v=6df9ced0">
+<link rel="stylesheet" href="../../css/style.css?v=250b4b0b">
 <script>
   // Set the theme before first paint to avoid a flash.
   (function () {
@@ -39,11 +39,12 @@
     <p class="provenance">In brief — site editorial, not from the paper</p>
     <p>Trains one model on several related tasks at once so they share representations and reinforce each other.</p>
   </div>
-  <section class="stack"><h2>Definition</h2><div class="verbatim">MTL jointly optimizes shared representations across a fixed task set, exploiting inter-task relatedness to improve generalization on each individual task <sup class="cite" data-cite="caruana_multitask_1997">[ref]</sup>. The defining coordinate is <span class="chip" data-dim="d3" data-slug="task-distribution">Task Distribution</span>: the training corpus spans a predetermined collection of tasks simultaneously available in memory, rather than a single-task labeled dataset (Full FT, , <span class="chip" data-dim="d3" data-slug="large-labeled">Large Labeled</span>). Its structural distinction from Meta-Learning is that, while both share <span class="chip" data-dim="d3" data-slug="task-distribution">Task Distribution</span>, MTL&#x27;s task set is statically fixed at training time rather than dynamically drawn from a distribution. The <span class="chip" data-dim="d5" data-slug="whole-model">Whole-Model</span> scope is the critical consequence of the joint optimization: because all task-specific output heads share the same backbone parameters, there is no modular isolation boundary between tasks—any change to the shared encoder propagates across all tasks simultaneously. This means modifying the task set, task-weighting schedule, or encoder architecture requires full-system regression testing across all tasks to verify that positive transfer to new tasks has not induced negative interference on existing ones. At the MLLM tier, MTL is the foundational architecture underlying multimodal instruction tuning—a unified backbone must serve heterogeneous vision, audio, and text task heads simultaneously. MTL requires comprehensive cross-task regression testing at every task-set modification boundary; the inter-task interference structure must be explicitly characterized and documented, as negative transfer to any task constitutes a behavioral regression on that task&#x27;s validated performance envelope.</div><p class="provenance">Verbatim from the paper — Training Strategies</p></section>
+  <section class="stack"><h2>Definition</h2><div class="verbatim">MTL jointly optimizes shared representations across a fixed task set, exploiting inter-task relatedness to improve generalization on each individual task <sup class="cite">[<a href="#ref-caruana_multitask_1997" class="cite__n" title="Rich Caruana (1997). Multitask Learning">37</a>]</sup>. The defining coordinate is <span class="chip" data-dim="d3" data-slug="task-distribution">Task Distribution</span>: the training corpus spans a predetermined collection of tasks simultaneously available in memory, rather than a single-task labeled dataset (Full FT, , <span class="chip" data-dim="d3" data-slug="large-labeled">Large Labeled</span>). Its structural distinction from Meta-Learning is that, while both share <span class="chip" data-dim="d3" data-slug="task-distribution">Task Distribution</span>, MTL&#x27;s task set is statically fixed at training time rather than dynamically drawn from a distribution. The <span class="chip" data-dim="d5" data-slug="whole-model">Whole-Model</span> scope is the critical consequence of the joint optimization: because all task-specific output heads share the same backbone parameters, there is no modular isolation boundary between tasks—any change to the shared encoder propagates across all tasks simultaneously. This means modifying the task set, task-weighting schedule, or encoder architecture requires full-system regression testing across all tasks to verify that positive transfer to new tasks has not induced negative interference on existing ones. At the MLLM tier, MTL is the foundational architecture underlying multimodal instruction tuning—a unified backbone must serve heterogeneous vision, audio, and text task heads simultaneously. MTL requires comprehensive cross-task regression testing at every task-set modification boundary; the inter-task interference structure must be explicitly characterized and documented, as negative transfer to any task constitutes a behavioral regression on that task&#x27;s validated performance envelope.</div><p class="provenance">Verbatim from the paper — Training Strategies</p></section>
   
   
   
   <section class="stack"><h2>Nearest profiles</h2><p class="computed"><a href="../../techniques/fullft/">FT (full)</a> <span style="color:var(--text-muted)">(0.17)</span>, <a href="../../techniques/metalrn/">Meta-Learning</a> <span style="color:var(--text-muted)">(0.25)</span>, <a href="../../techniques/partft/">FT (partial)</a> <span style="color:var(--text-muted)">(0.33)</span>, <a href="../../techniques/selfplay/">Self-Play</a> <span style="color:var(--text-muted)">(0.36)</span>, <a href="../../techniques/retraining/">Retraining</a> <span style="color:var(--text-muted)">(0.37)</span></p><p class="provenance">Computed from the taxonomy data (Gower distance over all six dimensions)</p></section>
+  <section class="stack"><h2>References</h2><ol class="reflist"><li id="ref-caruana_multitask_1997"><span class="ref__n">[37]</span> <span class="ref__body">Rich Caruana 1997. <a href="https://doi.org/10.1023/A:1007379606734">Multitask Learning</a>. <span class="ref__venue">Machine Learning</span></span></li></ol><p class="provenance">Numbered as in the paper</p></section>
   <section class="stack">
     <h2>Cite this row</h2>
     <pre>MTL — six-dimensional profile
@@ -78,10 +79,12 @@ Source: arXiv:2608.06246</pre>
         </ul>
       </div>
       <div>
-        <p class="eyebrow">Version</p>
+        <p class="eyebrow">Versions</p>
         <ul>
-          <li>Taxonomy v1.0.0</li>
-          <li style="opacity:.75">Released 2026-08-06</li>
+          <li><strong>Taxonomy v1.0.0</strong>
+            <span style="opacity:.75">&mdash; the data, released
+            2026-08-06</span></li>
+          <li style="opacity:.75">Site built 2026-08-07 · <a href="https://github.com/ki-smile/post-training-taxonomy/commit/6c134bc">6c134bc</a></li>
           <li><a href="https://github.com/ki-smile/post-training-taxonomy/blob/main/CHANGELOG.md">Changelog</a></li>
         </ul>
       </div>
